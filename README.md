@@ -6,6 +6,8 @@
 
 # 2017年9月12日 更新
 
+博客地址：http://www.jianshu.com/p/659f2599bde9
+
 没想到会有很多人留言要这个思维导图，一一回复有点累，放在 Github 上，方便大家下载。欢迎交流~求`Star`~
 
 Github地址：https://github.com/LjyYano/Thinking_in_Java_MindMapping
