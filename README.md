@@ -5,9 +5,10 @@
 
 - [2018-11-04工作感悟](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2018-11-04%E5%B7%A5%E4%BD%9C%E6%84%9F%E6%82%9F.md)
 - [2019-06-03乐高积木感悟](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2019-06-03%E4%B9%90%E9%AB%98%E7%A7%AF%E6%9C%A8%E6%84%9F%E6%82%9F.md)
+- [2019-06-01《你有你的计划，世界另有计划》](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2019-06-01%E3%80%8A%E4%BD%A0%E6%9C%89%E4%BD%A0%E7%9A%84%E8%AE%A1%E5%88%92%EF%BC%8C%E4%B8%96%E7%95%8C%E5%8F%A6%E6%9C%89%E8%AE%A1%E5%88%92%E3%80%8B.md)
+- [2019-06-06对 Kotlin 与 Java 编程语言的思考](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2019-06-06%E5%AF%B9%20Kotlin%20%E4%B8%8E%20Java%20%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80%E7%9A%84%E6%80%9D%E8%80%83.md)
 - [2019-06-07思维导图学Spring](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2019-06-07%E6%80%9D%E7%BB%B4%E5%AF%BC%E5%9B%BE%E5%AD%A6Spring.md)
-- [2019-06-01《你有你的计划，世界另有计划》](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/%E4%B8%87%E7%BB%B4%E9%92%A2%E3%80%8A%E4%BD%A0%E6%9C%89%E4%BD%A0%E7%9A%84%E8%AE%A1%E5%88%92%EF%BC%8C%E4%B8%96%E7%95%8C%E5%8F%A6%E6%9C%89%E8%AE%A1%E5%88%92%E3%80%8B%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0.md)
-- [对 Kotlin 与 Java 编程语言的思考](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/%E5%AF%B9%20Kotlin%20%E4%B8%8E%20Java%20%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80%E7%9A%84%E6%80%9D%E8%80%83.md)
+
 
 ## GitHub 博客
 
