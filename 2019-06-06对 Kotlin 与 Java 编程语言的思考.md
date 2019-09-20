@@ -1,3 +1,9 @@
+# 公众号
+
+coding 笔记、点滴记录，以后的文章也会同步到公众号（Coding Insight）中，希望大家关注^_^
+
+![](http://yano.oss-cn-beijing.aliyuncs.com/2019-07-29-qrcode_for_gh_a26ce4572791_258.jpg)
+
 近期学习了下 Kotlin，不得不说 Kotlin 比 Java 简洁不少，个人感觉代码量能减少 50%。到现在已经使用Java语言做服务端开发两年半的时间了，对Java某些啰嗦的语法也是有很多想法。这篇文章谈谈我对Kotlin和Java的看法。
 
 # 编程语言整体排名
