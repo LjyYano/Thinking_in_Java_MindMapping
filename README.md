@@ -14,6 +14,12 @@ coding 笔记、点滴记录，以后的文章也会同步到公众号（Coding 
 - [2019-06-01《你有你的计划，世界另有计划》](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2019-06-01%E3%80%8A%E4%BD%A0%E6%9C%89%E4%BD%A0%E7%9A%84%E8%AE%A1%E5%88%92%EF%BC%8C%E4%B8%96%E7%95%8C%E5%8F%A6%E6%9C%89%E8%AE%A1%E5%88%92%E3%80%8B.md)
 - [2019-06-06对 Kotlin 与 Java 编程语言的思考](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2019-06-06%E5%AF%B9%20Kotlin%20%E4%B8%8E%20Java%20%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80%E7%9A%84%E6%80%9D%E8%80%83.md)
 - [2019-06-07思维导图学Spring](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2019-06-07%E6%80%9D%E7%BB%B4%E5%AF%BC%E5%9B%BE%E5%AD%A6Spring.md)
+- [2019-07-14ARTS-week-[2]-Yano](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2019-07-14ARTS-week-%5B2%5D-Yano.md)
+- [2019-07-30 5G是什么？一篇文章搞定！](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2019-07-30%205G%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0%E6%90%9E%E5%AE%9A%EF%BC%81.md)
+- [2019-07-31 JDK 13 新特性简介](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2019-07-31%20JDK%2013%20%E6%96%B0%E7%89%B9%E6%80%A7%E7%AE%80%E4%BB%8B.md)
+- [2019-08-06 《强风吹拂》摘抄](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2019-08-06%20%E3%80%8A%E5%BC%BA%E9%A3%8E%E5%90%B9%E6%8B%82%E3%80%8B%E6%91%98%E6%8A%84.md)
+- [2019-08-12 由工作中一次无奈的合作想到的](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2019-08-12%20%E7%94%B1%E5%B7%A5%E4%BD%9C%E4%B8%AD%E4%B8%80%E6%AC%A1%E6%97%A0%E5%A5%88%E7%9A%84%E5%90%88%E4%BD%9C%E6%83%B3%E5%88%B0%E7%9A%84.md)
+- [2019-09-21 《浮生六记》](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2019-09-21%20《浮生六记》.md)
 
 
 ## GitHub 博客
