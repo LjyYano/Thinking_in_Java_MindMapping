@@ -1,6 +1,3 @@
-最简 Spring AOP 源码分析
-
-![](http://yano.oss-cn-beijing.aliyuncs.com/2019-09-23-020246.jpg)
 
 # 前言
 
