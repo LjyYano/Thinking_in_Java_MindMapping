@@ -689,6 +689,12 @@ private final Map<String, Object> earlySingletonObjects = new HashMap<>(16);
 ![](http://yano.oss-cn-beijing.aliyuncs.com/2019-09-25-142459.jpg)
 
 
+# 公众号
+
+coding 笔记、点滴记录，以后的文章也会同步到公众号（Coding Insight）中，希望大家关注^_^
+
+![](http://yano.oss-cn-beijing.aliyuncs.com/2019-07-29-qrcode_for_gh_a26ce4572791_258.jpg)
+
 
 
 
