@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="901b05e6-5197-4f82-852d-7cc47648ddb1" name="Default Changelist" comment="leetcode tree">
+    <list default="true" id="901b05e6-5197-4f82-852d-7cc47648ddb1" name="Default Changelist" comment="Netty 的 Channel、Promise、Pipeline">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/2019-10-10 LeetCode 二叉树系统题解.md" beforeDir="false" afterPath="$PROJECT_DIR$/2019-10-10 LeetCode 二叉树系统题解.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -13,41 +12,19 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="DefaultGradleProjectSettings">
-    <option name="testRunner" value="GRADLE" />
-    <option name="delegatedBuild" value="true" />
+    <option name="isMigrated" value="true" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/2019-09-24 最简 Spring IOC 容器源码分析.md">
+        <entry file="file://$PROJECT_DIR$/2019-10-26 Netty 的 Channel、Promise、Pipeline 详解.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
-              <first_editor />
-              <second_editor />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/2019-10-10 LeetCode 二叉树系统题解.md">
-          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-            <state split_layout="SPLIT">
-              <first_editor relative-caret-position="76">
-                <caret line="4" column="90" selection-start-line="4" selection-start-column="90" selection-end-line="4" selection-end-column="90" />
+              <first_editor relative-caret-position="95">
+                <caret line="5" lean-forward="true" selection-start-line="5" selection-end-line="5" />
                 <folding>
-                  <element signature="e#96#97#0" expanded="true" />
-                  <element signature="e#119#120#0" expanded="true" />
-                  <element signature="e#92#93#0" expanded="true" />
-                  <element signature="e#124#125#0" expanded="true" />
-                  <element signature="e#199#200#0" expanded="true" />
-                  <element signature="e#225#226#0" expanded="true" />
-                  <element signature="e#249#250#0" expanded="true" />
-                  <element signature="e#273#274#0" expanded="true" />
-                  <element signature="e#297#298#0" expanded="true" />
-                  <element signature="e#321#322#0" expanded="true" />
-                  <element signature="e#0#551#0" expanded="true" />
-                  <element signature="e#379#380#0" expanded="true" />
-                  <element signature="e#438#439#0" expanded="true" />
+                  <element signature="e#86#87#0" expanded="true" />
+                  <element signature="e#118#119#0" expanded="true" />
                 </folding>
               </first_editor>
               <second_editor />
@@ -59,8 +36,8 @@
         <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="388">
-                <caret line="24" column="197" selection-start-line="24" selection-start-column="197" selection-end-line="24" selection-end-column="197" />
+              <first_editor relative-caret-position="105">
+                <caret line="25" column="42" selection-start-line="25" selection-start-column="42" selection-end-line="25" selection-end-column="42" />
               </first_editor>
               <second_editor />
             </state>
@@ -78,14 +55,22 @@
         <option value="$PROJECT_DIR$/2019-09-21 《浮生六记》.md" />
         <option value="$PROJECT_DIR$/2019-09-23 最简 Spring AOP 源码分析.md" />
         <option value="$PROJECT_DIR$/2019-10-10 LeetCode 二叉树系统题解.md" />
+        <option value="$PROJECT_DIR$/2019-10-26 Netty 的 Channel、Promise、Pipeline 详解.md" />
         <option value="$PROJECT_DIR$/README.md" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" fullScreen="true">
-    <option name="x" value="1440" />
-    <option name="width" value="1440" />
-    <option name="height" value="900" />
+  <component name="MavenProjectNavigator">
+    <treeState>
+      <expand />
+      <select />
+    </treeState>
+  </component>
+  <component name="ProjectFrameBounds">
+    <option name="x" value="1475" />
+    <option name="y" value="336" />
+    <option name="width" value="2560" />
+    <option name="height" value="877" />
   </component>
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="1" id="Add" />
@@ -95,7 +80,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -107,8 +91,9 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Course" />
       <pane id="Scope" />
+      <pane id="Course" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -208,17 +193,31 @@
       <option name="project" value="LOCAL" />
       <updated>1570698244530</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Netty 的 Channel、Promise、Pipeline">
+      <created>1572081776760</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1572081776760</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Netty 的 Channel、Promise、Pipeline">
+      <created>1572081793733</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1572081793733</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="2075000" />
+    <option name="totallyTimeSpent" value="2456000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="1440" y="-360" width="2560" height="1440" extended-state="6" />
+    <frame x="1475" y="336" width="2560" height="877" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24602544" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.1108903" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Learn" order="2" />
       <window_info id="Designer" order="3" />
@@ -234,14 +233,14 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="8" />
       <window_info anchor="bottom" id="Educational.CheckDetails" order="9" />
-      <window_info anchor="bottom" id="Terminal" order="10" weight="0.32971016" />
+      <window_info anchor="bottom" id="Terminal" order="10" weight="0.5759898" />
       <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="12" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="Palette" order="3" />
-      <window_info anchor="right" id="Maven" order="4" />
+      <window_info anchor="right" id="Maven" order="4" weight="0.32928804" />
       <window_info anchor="right" id="Palette&#9;" order="5" />
       <window_info anchor="right" id="Database" order="6" />
     </layout>
@@ -283,7 +282,8 @@
     <MESSAGE value="浮生六记" />
     <MESSAGE value="Spring AOP 文章" />
     <MESSAGE value="leetcode tree" />
-    <option name="LAST_COMMIT_MESSAGE" value="leetcode tree" />
+    <MESSAGE value="Netty 的 Channel、Promise、Pipeline" />
+    <option name="LAST_COMMIT_MESSAGE" value="Netty 的 Channel、Promise、Pipeline" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/2019-09-21 《浮生六记》.md">
@@ -333,14 +333,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/乐高玩具拼装感悟.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor />
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/乐高玩具拼装感悟.md" />
     <entry file="file://$PROJECT_DIR$/2019-09-24 最简 Spring IOC 容器源码分析.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
@@ -350,7 +343,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/2019-10-10 LeetCode 二叉树系统题解.md">
-      <provider editor-type-id="text-editor" />
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
           <first_editor relative-caret-position="76">
@@ -374,12 +366,27 @@
           <second_editor />
         </state>
       </provider>
+      <provider editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/2019-10-26 Netty 的 Channel、Promise、Pipeline 详解.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="95">
+            <caret line="5" lean-forward="true" selection-start-line="5" selection-end-line="5" />
+            <folding>
+              <element signature="e#86#87#0" expanded="true" />
+              <element signature="e#118#119#0" expanded="true" />
+            </folding>
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="388">
-            <caret line="24" column="197" selection-start-line="24" selection-start-column="197" selection-end-line="24" selection-end-column="197" />
+          <first_editor relative-caret-position="105">
+            <caret line="25" column="42" selection-start-line="25" selection-start-column="42" selection-end-line="25" selection-end-column="42" />
           </first_editor>
           <second_editor />
         </state>

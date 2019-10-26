@@ -23,6 +23,8 @@ coding 笔记、点滴记录，以后的文章也会同步到公众号（Coding 
 - [2019-09-23 最简 Spring AOP 源码分析](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2019-09-23%20%E6%9C%80%E7%AE%80%20Spring%20AOP%20%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90.md)
 - [2019-09-24 最简 Spring IOC 容器源码分析](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2019-09-24%20%E6%9C%80%E7%AE%80%20Spring%20IOC%20%E5%AE%B9%E5%99%A8%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90.md)
 - [2019-10-10 LeetCode 二叉树系统题解](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2019-10-10%20LeetCode%20%E4%BA%8C%E5%8F%89%E6%A0%91%E7%B3%BB%E7%BB%9F%E9%A2%98%E8%A7%A3.md)
+- [2019-10-14 Java NIO、Channel、Selector 详解](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2019-10-14%20Java%20NIO%E3%80%81Channel%E3%80%81Selector%20%E8%AF%A6%E8%A7%A3.md)
+- [2019-10-26 Netty 的 Channel、Promise、Pipeline 详解](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2019-10-26%20Netty%20%E7%9A%84%20Channel%E3%80%81Promise%E3%80%81Pipeline%20%E8%AF%A6%E8%A7%A3.md)
 
 
 ## GitHub 博客
