@@ -3,8 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="901b05e6-5197-4f82-852d-7cc47648ddb1" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/2019-09-23 最简 Spring AOP 源码分析.md" beforeDir="false" afterPath="$PROJECT_DIR$/2019-09-23 最简 Spring AOP 源码分析.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -14,12 +12,12 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="304">
-                <caret line="22" column="32" selection-start-line="22" selection-start-column="32" selection-end-line="22" selection-end-column="32" />
+              <first_editor relative-caret-position="314">
+                <caret line="23" column="37" selection-start-line="23" selection-start-column="37" selection-end-line="23" selection-end-column="37" />
               </first_editor>
               <second_editor />
             </state>
@@ -30,16 +28,32 @@
         <entry file="file://$PROJECT_DIR$/2019-09-23 最简 Spring AOP 源码分析.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="300">
-                <caret line="20" lean-forward="true" selection-start-line="20" selection-end-line="20" />
+              <first_editor relative-caret-position="688">
+                <caret line="416" lean-forward="true" selection-start-line="410" selection-end-line="416" />
                 <folding>
-                  <element signature="e#200#201#0" expanded="true" />
-                  <element signature="e#248#249#0" expanded="true" />
-                  <element signature="e#120#121#0" expanded="true" />
-                  <element signature="e#185#186#0" expanded="true" />
-                  <element signature="e#304#305#0" expanded="true" />
-                  <element signature="e#335#336#0" expanded="true" />
                   <element signature="n#!!doc" expanded="true" />
+                </folding>
+              </first_editor>
+              <second_editor />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/2019-09-24 最简 Spring IOC 容器源码分析.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+            <state split_layout="SPLIT">
+              <first_editor relative-caret-position="225">
+                <caret line="15" lean-forward="true" selection-start-line="15" selection-end-line="15" />
+                <folding>
+                  <element signature="e#1602#1603#0" expanded="true" />
+                  <element signature="e#1657#1658#0" expanded="true" />
+                  <element signature="e#1798#1799#0" expanded="true" />
+                  <element signature="e#1842#1843#0" expanded="true" />
+                  <element signature="e#138#139#0" expanded="true" />
+                  <element signature="e#203#204#0" expanded="true" />
+                  <element signature="e#259#260#0" expanded="true" />
+                  <element signature="e#277#278#0" expanded="true" />
                 </folding>
               </first_editor>
               <second_editor />
@@ -73,8 +87,8 @@
         <entry file="file://$PROJECT_DIR$/2019-06-06对 Kotlin 与 Java 编程语言的思考.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="54">
-                <caret line="5" lean-forward="true" selection-end-line="5" />
+              <first_editor relative-caret-position="75">
+                <caret line="5" selection-end-line="5" />
               </first_editor>
               <second_editor />
             </state>
@@ -92,14 +106,15 @@
         <option value="$PROJECT_DIR$/2019-09-21 《浮生六记》.md" />
         <option value="$PROJECT_DIR$/2019-09-23 最简 Spring AOP 源码分析.md" />
         <option value="$PROJECT_DIR$/README.md" />
+        <option value="$PROJECT_DIR$/2019-09-24 最简 Spring IOC 容器源码分析.md" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" fullScreen="true">
-    <option name="x" value="1440" />
     <option name="width" value="1440" />
     <option name="height" value="900" />
   </component>
+  <component name="ProjectId" id="1W4TxNzhx16Aul5GrYNxuZ1Gh4O" />
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="1" id="Add" />
   </component>
@@ -108,6 +123,9 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
+      <pane id="Course" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -119,9 +137,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Course" />
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -129,6 +144,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="go.gopath.indexing.explicitly.defined" value="true" />
+    <property name="go.import.settings.migrated" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -162,7 +178,9 @@
       <updated>1559873515906</updated>
       <workItem from="1559873517733" duration="980000" />
       <workItem from="1569029327999" duration="460000" />
-      <workItem from="1569204964383" duration="189000" />
+      <workItem from="1569204964383" duration="235000" />
+      <workItem from="1569205326484" duration="369000" />
+      <workItem from="1569421772411" duration="608000" />
     </task>
     <task id="LOCAL-00001" summary="rename">
       <created>1559874286440</created>
@@ -213,17 +231,38 @@
       <option name="project" value="LOCAL" />
       <updated>1569205046311</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Spring AOP 文章">
+      <created>1569205167855</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1569205167855</updated>
+    </task>
+    <task id="LOCAL-00009" summary="最简 Spring IOC 容器源码分析">
+      <created>1569421796817</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1569421796817</updated>
+    </task>
+    <task id="LOCAL-00010" summary="最简 Spring IOC 容器源码分析">
+      <created>1569421905780</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1569421905780</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1629000" />
+    <option name="totallyTimeSpent" value="2652000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="1440" y="0" width="1440" height="900" extended-state="0" />
+    <frame x="0" y="0" width="1440" height="900" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24212034" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24928367" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Learn" order="2" />
       <window_info id="Designer" order="3" />
@@ -287,7 +326,8 @@
     <MESSAGE value="spring xmind" />
     <MESSAGE value="浮生六记" />
     <MESSAGE value="Spring AOP 文章" />
-    <option name="LAST_COMMIT_MESSAGE" value="Spring AOP 文章" />
+    <MESSAGE value="最简 Spring IOC 容器源码分析" />
+    <option name="LAST_COMMIT_MESSAGE" value="最简 Spring IOC 容器源码分析" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/乐高玩具拼装感悟.md">
@@ -319,27 +359,8 @@
     <entry file="file://$PROJECT_DIR$/2019-06-06对 Kotlin 与 Java 编程语言的思考.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="54">
-            <caret line="5" lean-forward="true" selection-end-line="5" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/2019-09-23 最简 Spring AOP 源码分析.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="300">
-            <caret line="20" lean-forward="true" selection-start-line="20" selection-end-line="20" />
-            <folding>
-              <element signature="e#200#201#0" expanded="true" />
-              <element signature="e#248#249#0" expanded="true" />
-              <element signature="e#120#121#0" expanded="true" />
-              <element signature="e#185#186#0" expanded="true" />
-              <element signature="e#304#305#0" expanded="true" />
-              <element signature="e#335#336#0" expanded="true" />
-              <element signature="n#!!doc" expanded="true" />
-            </folding>
+          <first_editor relative-caret-position="75">
+            <caret line="5" selection-end-line="5" />
           </first_editor>
           <second_editor />
         </state>
@@ -348,8 +369,41 @@
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="304">
-            <caret line="22" column="32" selection-start-line="22" selection-start-column="32" selection-end-line="22" selection-end-column="32" />
+          <first_editor relative-caret-position="314">
+            <caret line="23" column="37" selection-start-line="23" selection-start-column="37" selection-end-line="23" selection-end-column="37" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/2019-09-23 最简 Spring AOP 源码分析.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="688">
+            <caret line="416" lean-forward="true" selection-start-line="410" selection-end-line="416" />
+            <folding>
+              <element signature="n#!!doc" expanded="true" />
+            </folding>
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/2019-09-24 最简 Spring IOC 容器源码分析.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="225">
+            <caret line="15" lean-forward="true" selection-start-line="15" selection-end-line="15" />
+            <folding>
+              <element signature="e#1602#1603#0" expanded="true" />
+              <element signature="e#1657#1658#0" expanded="true" />
+              <element signature="e#1798#1799#0" expanded="true" />
+              <element signature="e#1842#1843#0" expanded="true" />
+              <element signature="e#138#139#0" expanded="true" />
+              <element signature="e#203#204#0" expanded="true" />
+              <element signature="e#259#260#0" expanded="true" />
+              <element signature="e#277#278#0" expanded="true" />
+            </folding>
           </first_editor>
           <second_editor />
         </state>
