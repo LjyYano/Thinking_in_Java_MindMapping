@@ -1,15 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="901b05e6-5197-4f82-852d-7cc47648ddb1" name="Default Changelist" comment="Netty 的 Channel、Promise、Pipeline">
-      <change afterPath="$PROJECT_DIR$/2019-10-10 LeetCode 二叉树系统题解.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/2019-10-14 Java NIO、Channel、Selector 详解.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/2019-10-26 Netty 的 Channel、Promise、Pipeline 详解.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/2019-12-17 Yano的2019观影总结.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/乐高玩具拼装感悟.md" beforeDir="false" />
-    </list>
+    <list default="true" id="901b05e6-5197-4f82-852d-7cc47648ddb1" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -17,6 +9,11 @@
   </component>
   <component name="CodeStyleSettingsInfer">
     <option name="done" value="true" />
+  </component>
+  <component name="ComposerSettings">
+    <execution>
+      <executable />
+    </execution>
   </component>
   <component name="DefaultGradleProjectSettings">
     <option name="isMigrated" value="true" />
@@ -165,7 +162,8 @@
     <MESSAGE value="Spring AOP 文章" />
     <MESSAGE value="leetcode tree" />
     <MESSAGE value="Netty 的 Channel、Promise、Pipeline" />
-    <option name="LAST_COMMIT_MESSAGE" value="Netty 的 Channel、Promise、Pipeline" />
+    <MESSAGE value="Netty思维导图" />
+    <option name="LAST_COMMIT_MESSAGE" value="Netty思维导图" />
   </component>
   <component name="WindowStateProjectService">
     <state x="432" y="172" key="MultipleFileMergeDialog" timestamp="1578408243980">
