@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="901b05e6-5197-4f82-852d-7cc47648ddb1" name="Default Changelist" comment="" />
+    <list default="true" id="901b05e6-5197-4f82-852d-7cc47648ddb1" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -30,6 +32,7 @@
     <option name="width" value="2560" />
     <option name="height" value="877" />
   </component>
+  <component name="ProjectId" id="1YPwUSOaw4CcQZ9Jmh4SqhbyHiU" />
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="1" id="Add" />
   </component>
@@ -40,6 +43,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="GO_FMT" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
@@ -47,6 +51,7 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="show.migrate.to.gradle.popup" value="false" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -78,6 +83,7 @@
       <workItem from="1559873517733" duration="980000" />
       <workItem from="1569029327999" duration="460000" />
       <workItem from="1569204964383" duration="189000" />
+      <workItem from="1582857554715" duration="671000" />
     </task>
     <task id="LOCAL-00001" summary="rename">
       <created>1559874286440</created>
@@ -156,7 +162,14 @@
       <option name="project" value="LOCAL" />
       <updated>1582186947432</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Netty思维导图">
+      <created>1582187147090</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1582187147090</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -173,18 +186,18 @@
     <option name="LAST_COMMIT_MESSAGE" value="Netty思维导图" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="267" y="45" key="CommitChangelistDialog2" timestamp="1582186947294">
+    <state x="267" y="45" key="CommitChangelistDialog2" timestamp="1582187145877">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="267" y="45" key="CommitChangelistDialog2/0.0.1440.900@0.0.1440.900" timestamp="1582186947294" />
+    <state x="267" y="45" key="CommitChangelistDialog2/0.0.1440.900@0.0.1440.900" timestamp="1582187145877" />
     <state x="432" y="172" key="MultipleFileMergeDialog" timestamp="1578408243980">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="432" y="172" key="MultipleFileMergeDialog/0.0.1440.900@0.0.1440.900" timestamp="1578408243980" />
-    <state x="319" y="189" key="Vcs.Push.Dialog.v2" timestamp="1582186949099">
+    <state x="319" y="189" key="Vcs.Push.Dialog.v2" timestamp="1582187148570">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="319" y="189" key="Vcs.Push.Dialog.v2/0.0.1440.900@0.0.1440.900" timestamp="1582186949099" />
+    <state x="319" y="189" key="Vcs.Push.Dialog.v2/0.0.1440.900@0.0.1440.900" timestamp="1582187148570" />
   </component>
   <component name="masterDetails">
     <states>
