@@ -83,7 +83,8 @@
       <workItem from="1559873517733" duration="980000" />
       <workItem from="1569029327999" duration="460000" />
       <workItem from="1569204964383" duration="189000" />
-      <workItem from="1582857554715" duration="671000" />
+      <workItem from="1582857554715" duration="926000" />
+      <workItem from="1583143159788" duration="72000" />
     </task>
     <task id="LOCAL-00001" summary="rename">
       <created>1559874286440</created>
@@ -169,7 +170,14 @@
       <option name="project" value="LOCAL" />
       <updated>1582187147090</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="add新文章">
+      <created>1582859522487</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1582859522487</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -183,21 +191,22 @@
     <MESSAGE value="leetcode tree" />
     <MESSAGE value="Netty 的 Channel、Promise、Pipeline" />
     <MESSAGE value="Netty思维导图" />
-    <option name="LAST_COMMIT_MESSAGE" value="Netty思维导图" />
+    <MESSAGE value="add新文章" />
+    <option name="LAST_COMMIT_MESSAGE" value="add新文章" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="267" y="45" key="CommitChangelistDialog2" timestamp="1582187145877">
+    <state x="267" y="45" key="CommitChangelistDialog2" timestamp="1582859522316">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="267" y="45" key="CommitChangelistDialog2/0.0.1440.900@0.0.1440.900" timestamp="1582187145877" />
+    <state x="267" y="45" key="CommitChangelistDialog2/0.0.1440.900@0.0.1440.900" timestamp="1582859522316" />
     <state x="432" y="172" key="MultipleFileMergeDialog" timestamp="1578408243980">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="432" y="172" key="MultipleFileMergeDialog/0.0.1440.900@0.0.1440.900" timestamp="1578408243980" />
-    <state x="319" y="189" key="Vcs.Push.Dialog.v2" timestamp="1582187148570">
+    <state x="319" y="189" key="Vcs.Push.Dialog.v2" timestamp="1582859523729">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="319" y="189" key="Vcs.Push.Dialog.v2/0.0.1440.900@0.0.1440.900" timestamp="1582187148570" />
+    <state x="319" y="189" key="Vcs.Push.Dialog.v2/0.0.1440.900@0.0.1440.900" timestamp="1582859523729" />
   </component>
   <component name="masterDetails">
     <states>
