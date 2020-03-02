@@ -25,6 +25,13 @@ coding 笔记、点滴记录，以后的文章也会同步到公众号（Coding 
 - [2019-10-10 LeetCode 二叉树系统题解](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2019-10-10%20LeetCode%20%E4%BA%8C%E5%8F%89%E6%A0%91%E7%B3%BB%E7%BB%9F%E9%A2%98%E8%A7%A3.md)
 - [2019-10-14 Java NIO、Channel、Selector 详解](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2019-10-14%20Java%20NIO%E3%80%81Channel%E3%80%81Selector%20%E8%AF%A6%E8%A7%A3.md)
 - [2019-10-26 Netty 的 Channel、Promise、Pipeline 详解](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2019-10-26%20Netty%20%E7%9A%84%20Channel%E3%80%81Promise%E3%80%81Pipeline%20%E8%AF%A6%E8%A7%A3.md)
+- [2019-10-26 Netty 的 Channel、Promise、Pipeline 详解](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2019-10-26%20Netty%20%E7%9A%84%20Channel%E3%80%81Promise%E3%80%81Pipeline%20%E8%AF%A6%E8%A7%A3.md)
+- [2019-12-17 Yano的2019观影总结](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2019-12-17%20Yano%E7%9A%842019%E8%A7%82%E5%BD%B1%E6%80%BB%E7%BB%93.md)
+- [2020-01-07 JDK 14即将发布，你所要知道的都在这里！](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2020-01-07%20JDK%2014%E5%8D%B3%E5%B0%86%E5%8F%91%E5%B8%83%EF%BC%8C%E4%BD%A0%E6%89%80%E8%A6%81%E7%9F%A5%E9%81%93%E7%9A%84%E9%83%BD%E5%9C%A8%E8%BF%99%E9%87%8C%EF%BC%81.md)
+- [2020-02-20 思维导图学 Netty](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2020-02-20%20%E6%80%9D%E7%BB%B4%E5%AF%BC%E5%9B%BE%E5%AD%A6%20Netty.md)
+- [2020-02-20 思维导图学 Tomcat & Jetty](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2020-02-20%20%E6%80%9D%E7%BB%B4%E5%AF%BC%E5%9B%BE%E5%AD%A6%20Tomcat%20%26%20Jetty.md)
+- [2020-03-02 左耳朵耗子：技术人员的发展之路](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2020-03-02%20%E5%B7%A6%E8%80%B3%E6%9C%B5%E8%80%97%E5%AD%90%EF%BC%9A%E6%8A%80%E6%9C%AF%E4%BA%BA%E5%91%98%E7%9A%84%E5%8F%91%E5%B1%95%E4%B9%8B%E8%B7%AF.md)
+- [2020-03-02 爬取北京摩拜单车信息（附分析过程和详细代码）](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2020-03-02%20%E7%88%AC%E5%8F%96%E5%8C%97%E4%BA%AC%E6%91%A9%E6%8B%9C%E5%8D%95%E8%BD%A6%E4%BF%A1%E6%81%AF%EF%BC%88%E9%99%84%E5%88%86%E6%9E%90%E8%BF%87%E7%A8%8B%E5%92%8C%E8%AF%A6%E7%BB%86%E4%BB%A3%E7%A0%81%EF%BC%89.md)
 
 
 ## GitHub 博客
