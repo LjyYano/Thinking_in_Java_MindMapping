@@ -70,6 +70,9 @@
       </list>
     </option>
   </component>
+  <component name="SshConsoleOptionsProvider">
+    <option name="myEncoding" value="UTF-8" />
+  </component>
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -84,7 +87,8 @@
       <workItem from="1569029327999" duration="460000" />
       <workItem from="1569204964383" duration="189000" />
       <workItem from="1582857554715" duration="926000" />
-      <workItem from="1583143159788" duration="72000" />
+      <workItem from="1583143159788" duration="316000" />
+      <workItem from="1585375948854" duration="125000" />
     </task>
     <task id="LOCAL-00001" summary="rename">
       <created>1559874286440</created>
@@ -177,7 +181,21 @@
       <option name="project" value="LOCAL" />
       <updated>1582859522487</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="2020-03-02">
+      <created>1583143252467</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1583143252467</updated>
+    </task>
+    <task id="LOCAL-00015" summary="2020-03-02">
+      <created>1583143435350</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1583143435350</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -192,22 +210,23 @@
     <MESSAGE value="Netty 的 Channel、Promise、Pipeline" />
     <MESSAGE value="Netty思维导图" />
     <MESSAGE value="add新文章" />
-    <option name="LAST_COMMIT_MESSAGE" value="add新文章" />
+    <MESSAGE value="2020-03-02" />
+    <option name="LAST_COMMIT_MESSAGE" value="2020-03-02" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="1915" y="-288" key="CommitChangelistDialog2" timestamp="1583143252218">
+    <state x="1915" y="-288" key="CommitChangelistDialog2" timestamp="1583143435116">
       <screen x="1440" y="-360" width="2560" height="1440" />
     </state>
-    <state x="1915" y="-288" key="CommitChangelistDialog2/0.0.1440.900/1440.-360.2560.1440@1440.-360.2560.1440" timestamp="1583143252218" />
+    <state x="1915" y="-288" key="CommitChangelistDialog2/0.0.1440.900/1440.-360.2560.1440@1440.-360.2560.1440" timestamp="1583143435116" />
     <state x="267" y="45" key="CommitChangelistDialog2/0.0.1440.900@0.0.1440.900" timestamp="1582859522316" />
     <state x="432" y="172" key="MultipleFileMergeDialog" timestamp="1578408243980">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="432" y="172" key="MultipleFileMergeDialog/0.0.1440.900@0.0.1440.900" timestamp="1578408243980" />
-    <state x="2007" y="-58" key="Vcs.Push.Dialog.v2" timestamp="1583143254317">
+    <state x="2007" y="-58" key="Vcs.Push.Dialog.v2" timestamp="1583143436679">
       <screen x="1440" y="-360" width="2560" height="1440" />
     </state>
-    <state x="2007" y="-58" key="Vcs.Push.Dialog.v2/0.0.1440.900/1440.-360.2560.1440@1440.-360.2560.1440" timestamp="1583143254317" />
+    <state x="2007" y="-58" key="Vcs.Push.Dialog.v2/0.0.1440.900/1440.-360.2560.1440@1440.-360.2560.1440" timestamp="1583143436679" />
     <state x="319" y="189" key="Vcs.Push.Dialog.v2/0.0.1440.900@0.0.1440.900" timestamp="1582859523729" />
   </component>
   <component name="masterDetails">
