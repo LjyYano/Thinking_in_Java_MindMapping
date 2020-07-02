@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="901b05e6-5197-4f82-852d-7cc47648ddb1" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="901b05e6-5197-4f82-852d-7cc47648ddb1" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -88,8 +86,7 @@
       <workItem from="1569204964383" duration="189000" />
       <workItem from="1582857554715" duration="926000" />
       <workItem from="1583143159788" duration="316000" />
-      <workItem from="1585375948854" duration="283000" />
-      <workItem from="1585473966790" duration="370000" />
+      <workItem from="1585375948854" duration="256000" />
     </task>
     <task id="LOCAL-00001" summary="rename">
       <created>1559874286440</created>
@@ -203,14 +200,7 @@
       <option name="project" value="LOCAL" />
       <updated>1585376116583</updated>
     </task>
-    <task id="LOCAL-00017" summary="2020-03-28">
-      <created>1585376246346</created>
-      <option name="number" value="00017" />
-      <option name="presentableId" value="LOCAL-00017" />
-      <option name="project" value="LOCAL" />
-      <updated>1585376246346</updated>
-    </task>
-    <option name="localTasksCounter" value="18" />
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -230,20 +220,20 @@
     <option name="LAST_COMMIT_MESSAGE" value="2020-03-28" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="267" y="45" key="CommitChangelistDialog2" timestamp="1585376246119">
+    <state x="267" y="45" key="CommitChangelistDialog2" timestamp="1585376116361">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="1915" y="-288" key="CommitChangelistDialog2/0.0.1440.900/1440.-360.2560.1440@1440.-360.2560.1440" timestamp="1583143435116" />
-    <state x="267" y="45" key="CommitChangelistDialog2/0.0.1440.900@0.0.1440.900" timestamp="1585376246119" />
+    <state x="267" y="45" key="CommitChangelistDialog2/0.0.1440.900@0.0.1440.900" timestamp="1585376116361" />
     <state x="432" y="172" key="MultipleFileMergeDialog" timestamp="1578408243980">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="432" y="172" key="MultipleFileMergeDialog/0.0.1440.900@0.0.1440.900" timestamp="1578408243980" />
-    <state x="319" y="189" key="Vcs.Push.Dialog.v2" timestamp="1585376248258">
+    <state x="319" y="189" key="Vcs.Push.Dialog.v2" timestamp="1585376118074">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="2007" y="-58" key="Vcs.Push.Dialog.v2/0.0.1440.900/1440.-360.2560.1440@1440.-360.2560.1440" timestamp="1583143436679" />
-    <state x="319" y="189" key="Vcs.Push.Dialog.v2/0.0.1440.900@0.0.1440.900" timestamp="1585376248258" />
+    <state x="319" y="189" key="Vcs.Push.Dialog.v2/0.0.1440.900@0.0.1440.900" timestamp="1585376118074" />
   </component>
   <component name="masterDetails">
     <states>
