@@ -33,6 +33,11 @@ coding 笔记、点滴记录，以后的文章也会同步到公众号（Coding 
 - [2020-03-02 左耳朵耗子：技术人员的发展之路](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2020-03-02%20%E5%B7%A6%E8%80%B3%E6%9C%B5%E8%80%97%E5%AD%90%EF%BC%9A%E6%8A%80%E6%9C%AF%E4%BA%BA%E5%91%98%E7%9A%84%E5%8F%91%E5%B1%95%E4%B9%8B%E8%B7%AF.md)
 - [2020-03-02 爬取北京摩拜单车信息（附分析过程和详细代码）](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2020-03-02%20%E7%88%AC%E5%8F%96%E5%8C%97%E4%BA%AC%E6%91%A9%E6%8B%9C%E5%8D%95%E8%BD%A6%E4%BF%A1%E6%81%AF%EF%BC%88%E9%99%84%E5%88%86%E6%9E%90%E8%BF%87%E7%A8%8B%E5%92%8C%E8%AF%A6%E7%BB%86%E4%BB%A3%E7%A0%81%EF%BC%89.md)
 - [2020-03-28 思维导图学 Kotlin](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2020-03-28%20%E6%80%9D%E7%BB%B4%E5%AF%BC%E5%9B%BE%E5%AD%A6%20Kotlin.md)
+- [2020-03-28 思维导图学 Kotlin](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2020-03-28%20%E6%80%9D%E7%BB%B4%E5%AF%BC%E5%9B%BE%E5%AD%A6%20Kotlin.md)
+- [2020-04-14 思维导图学《Linux性能优化实战》](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob
+/master/2020-04-14%20%E6%80%9D%E7%BB%B4%E5%AF%BC%E5%9B%BE%E5%AD%A6%E3%80%8ALinux%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96%E5%AE%9E%E6%88%98%E3%80%8B.md)
+- [2020-07-03 Lucene、Elasticsearch、Kibana 入门教程和环境搭建](https://github.com/LjyYano
+/Thinking_in_Java_MindMapping/blob/master/2020-07-03%20Lucene%E3%80%81Elasticsearch%E3%80%81Kibana%20%E5%85%A5%E9%97%A8%E6%95%99%E7%A8%8B%E5%92%8C%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA.md)
 
 
 ## GitHub 博客
