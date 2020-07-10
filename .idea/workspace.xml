@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="901b05e6-5197-4f82-852d-7cc47648ddb1" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-    </list>
+    <list default="true" id="901b05e6-5197-4f82-852d-7cc47648ddb1" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -23,12 +21,6 @@
   </component>
   <component name="ProjectCodeStyleSettingsMigration">
     <option name="version" value="1" />
-  </component>
-  <component name="ProjectFrameBounds">
-    <option name="x" value="1475" />
-    <option name="y" value="336" />
-    <option name="width" value="2560" />
-    <option name="height" value="877" />
   </component>
   <component name="ProjectId" id="1YPwUSOaw4CcQZ9Jmh4SqhbyHiU" />
   <component name="ProjectLevelVcsManager">
