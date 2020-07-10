@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="901b05e6-5197-4f82-852d-7cc47648ddb1" name="Default Changelist" comment="" />
+    <list default="true" id="901b05e6-5197-4f82-852d-7cc47648ddb1" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -183,7 +186,14 @@
       <option name="project" value="LOCAL" />
       <updated>1585376116583</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="2020-0703">
+      <created>1594364890105</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1594364890105</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -204,20 +214,14 @@
     <option name="LAST_COMMIT_MESSAGE" value="2020-0703" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="267" y="45" key="CommitChangelistDialog2" timestamp="1585376116361">
-      <screen x="0" y="0" width="1440" height="900" />
+    <state x="50" y="23" width="943" height="877" key="CommitChangelistDialog2" timestamp="1594364889790">
+      <screen x="50" y="23" width="1390" height="877" />
     </state>
-    <state x="1915" y="-288" key="CommitChangelistDialog2/0.0.1440.900/1440.-360.2560.1440@1440.-360.2560.1440" timestamp="1583143435116" />
-    <state x="267" y="45" key="CommitChangelistDialog2/0.0.1440.900@0.0.1440.900" timestamp="1585376116361" />
-    <state x="432" y="172" key="MultipleFileMergeDialog" timestamp="1578408243980">
-      <screen x="0" y="0" width="1440" height="900" />
+    <state x="50" y="23" width="943" height="877" key="CommitChangelistDialog2/50.23.1390.877/-565.-1417.2560.1417@50.23.1390.877" timestamp="1594364889790" />
+    <state x="344" y="200" key="Vcs.Push.Dialog.v2" timestamp="1594364891589">
+      <screen x="50" y="23" width="1390" height="877" />
     </state>
-    <state x="432" y="172" key="MultipleFileMergeDialog/0.0.1440.900@0.0.1440.900" timestamp="1578408243980" />
-    <state x="319" y="189" key="Vcs.Push.Dialog.v2" timestamp="1585376118074">
-      <screen x="0" y="0" width="1440" height="900" />
-    </state>
-    <state x="2007" y="-58" key="Vcs.Push.Dialog.v2/0.0.1440.900/1440.-360.2560.1440@1440.-360.2560.1440" timestamp="1583143436679" />
-    <state x="319" y="189" key="Vcs.Push.Dialog.v2/0.0.1440.900@0.0.1440.900" timestamp="1585376118074" />
+    <state x="344" y="200" key="Vcs.Push.Dialog.v2/50.23.1390.877/-565.-1417.2560.1417@50.23.1390.877" timestamp="1594364891589" />
   </component>
   <component name="masterDetails">
     <states>
