@@ -37,6 +37,7 @@ coding 笔记、点滴记录，以后的文章也会同步到公众号（Coding 
 - [2020-04-14 思维导图学《Linux性能优化实战》](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2020-04-14%20%E6%80%9D%E7%BB%B4%E5%AF%BC%E5%9B%BE%E5%AD%A6%E3%80%8ALinux%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96%E5%AE%9E%E6%88%98%E3%80%8B.md)
 - [2020-07-03 Lucene、Elasticsearch、Kibana 入门教程和环境搭建](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2020-07-03%20Lucene%E3%80%81Elasticsearch%E3%80%81Kibana%20%E5%85%A5%E9%97%A8%E6%95%99%E7%A8%8B%E5%92%8C%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA.md)
 - [2020-07-10 通过 GraalVM 将 Java 程序编译成本地机器码！](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2020-07-10%20%E9%80%9A%E8%BF%87%20GraalVM%20%E5%B0%86%20Java%20%E7%A8%8B%E5%BA%8F%E7%BC%96%E8%AF%91%E6%88%90%E6%9C%AC%E5%9C%B0%E6%9C%BA%E5%99%A8%E7%A0%81%EF%BC%81.md)
+- [2020-08-03 随笔](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2020-08-03%20%E9%9A%8F%E7%AC%94.md)
 
 
 ## GitHub 博客
