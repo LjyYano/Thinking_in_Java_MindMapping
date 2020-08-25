@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="901b05e6-5197-4f82-852d-7cc47648ddb1" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-    </list>
+    <list default="true" id="901b05e6-5197-4f82-852d-7cc47648ddb1" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -228,12 +225,14 @@
     <MESSAGE value="2020-0703" />
     <MESSAGE value="2020-08-03" />
     <MESSAGE value="2020-08-19" />
-    <option name="LAST_COMMIT_MESSAGE" value="2020-08-19" />
+    <MESSAGE value="2020-08-25" />
+    <option name="LAST_COMMIT_MESSAGE" value="2020-08-25" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="0" y="0" width="848" height="769" key="CommitChangelistDialog2" timestamp="1597847285793">
-      <screen x="0" y="0" width="1440" height="900" />
+    <state x="53" y="23" width="848" height="769" key="CommitChangelistDialog2" timestamp="1598322426454">
+      <screen x="53" y="23" width="1627" height="1027" />
     </state>
+    <state x="53" y="23" key="CommitChangelistDialog2/-366.-1417.2560.1417/53.23.1627.1027@53.23.1627.1027" timestamp="1598322426454" />
     <state x="62" y="23" key="CommitChangelistDialog2/-366.-1417.2560.1417/62.23.1618.1027@62.23.1618.1027" timestamp="1596420484493" />
     <state x="0" y="0" width="848" height="769" key="CommitChangelistDialog2/0.0.1440.900@0.0.1440.900" timestamp="1597847285793" />
     <state x="50" y="23" width="943" height="877" key="CommitChangelistDialog2/50.23.1390.877/-565.-1417.2560.1417@50.23.1390.877" timestamp="1594364889790" />
