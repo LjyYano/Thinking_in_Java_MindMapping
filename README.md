@@ -39,6 +39,7 @@ coding 笔记、点滴记录，以后的文章也会同步到公众号（Coding 
 - [2020-07-10 通过 GraalVM 将 Java 程序编译成本地机器码！](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2020-07-10%20%E9%80%9A%E8%BF%87%20GraalVM%20%E5%B0%86%20Java%20%E7%A8%8B%E5%BA%8F%E7%BC%96%E8%AF%91%E6%88%90%E6%9C%AC%E5%9C%B0%E6%9C%BA%E5%99%A8%E7%A0%81%EF%BC%81.md)
 - [2020-08-03 随笔](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2020-08-03%20%E9%9A%8F%E7%AC%94.md)
 - [2020-08-19 LeetCode 爬取官网所有题目和自己的最近题解](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2020-08-19%20LeetCode%20%E7%88%AC%E5%8F%96%E5%AE%98%E7%BD%91%E6%89%80%E6%9C%89%E9%A2%98%E7%9B%AE%E5%92%8C%E8%87%AA%E5%B7%B1%E7%9A%84%E6%9C%80%E8%BF%91%E9%A2%98%E8%A7%A3.md)
+- [2020-09-19 JDK 15已发布，你所要知道的都在这里！](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2020-09-19%20JDK%2015%E5%B7%B2%E5%8F%91%E5%B8%83%EF%BC%8C%E4%BD%A0%E6%89%80%E8%A6%81%E7%9F%A5%E9%81%93%E7%9A%84%E9%83%BD%E5%9C%A8%E8%BF%99%E9%87%8C%EF%BC%81.md)
 
 
 ## GitHub 博客
