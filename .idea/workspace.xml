@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="901b05e6-5197-4f82-852d-7cc47648ddb1" name="Default Changelist" comment="2020-11-08">
+    <list default="true" id="901b05e6-5197-4f82-852d-7cc47648ddb1" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/2020-11-08 塞尔达 荒野之息 游戏截图.md" beforeDir="false" afterPath="$PROJECT_DIR$/2020-11-08 塞尔达 荒野之息 游戏截图.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/2020-11-08 异度之刃2 CG截图.md" beforeDir="false" afterPath="$PROJECT_DIR$/2020-11-08 异度之刃2 CG截图.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -76,6 +78,7 @@
       <workItem from="1583143159788" duration="316000" />
       <workItem from="1585375948854" duration="256000" />
       <workItem from="1600658950138" duration="264000" />
+      <workItem from="1604892390815" duration="102000" />
     </task>
     <task id="LOCAL-00001" summary="rename">
       <created>1559874286440</created>
@@ -259,7 +262,14 @@
       <option name="project" value="LOCAL" />
       <updated>1604847372066</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="2020-11-08">
+      <created>1604886771635</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1604886771635</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -286,19 +296,21 @@
     <option name="LAST_COMMIT_MESSAGE" value="2020-11-08" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="62" y="23" width="1010" height="811" key="CommitChangelistDialog2" timestamp="1604847410721">
-      <screen x="62" y="23" width="1618" height="1027" />
+    <state x="-366" y="-1417" width="1010" height="811" key="CommitChangelistDialog2" timestamp="1604886771447">
+      <screen x="-366" y="-1417" width="2560" height="1417" />
     </state>
     <state x="53" y="23" key="CommitChangelistDialog2/-366.-1417.2560.1417/53.23.1627.1027@53.23.1627.1027" timestamp="1598322426454" />
     <state x="-366" y="-1417" key="CommitChangelistDialog2/-366.-1417.2560.1417/60.23.1620.1027@-366.-1417.2560.1417" timestamp="1600659139049" />
+    <state x="-366" y="-1417" key="CommitChangelistDialog2/-366.-1417.2560.1417/62.23.1618.1027@-366.-1417.2560.1417" timestamp="1604886771447" />
     <state x="62" y="23" key="CommitChangelistDialog2/-366.-1417.2560.1417/62.23.1618.1027@62.23.1618.1027" timestamp="1596420484493" />
     <state x="0" y="0" width="848" height="769" key="CommitChangelistDialog2/0.0.1440.900@0.0.1440.900" timestamp="1597847285793" />
     <state x="60" y="23" width="848" height="769" key="CommitChangelistDialog2/60.23.1620.1027@60.23.1620.1027" timestamp="1600509454041" />
     <state x="62" y="23" width="1010" height="811" key="CommitChangelistDialog2/62.23.1618.1027@62.23.1618.1027" timestamp="1604847410721" />
-    <state x="403" y="230" key="Vcs.Push.Dialog.v2" timestamp="1604847374282">
-      <screen x="62" y="23" width="1618" height="1027" />
+    <state x="174" y="-1131" key="Vcs.Push.Dialog.v2" timestamp="1604886772765">
+      <screen x="-366" y="-1417" width="2560" height="1417" />
     </state>
     <state x="174" y="-1132" key="Vcs.Push.Dialog.v2/-366.-1417.2560.1417/60.23.1620.1027@-366.-1417.2560.1417" timestamp="1600659140914" />
+    <state x="174" y="-1131" key="Vcs.Push.Dialog.v2/-366.-1417.2560.1417/62.23.1618.1027@-366.-1417.2560.1417" timestamp="1604886772765" />
     <state x="404" y="230" key="Vcs.Push.Dialog.v2/-366.-1417.2560.1417/62.23.1618.1027@62.23.1618.1027" timestamp="1596420486147" />
     <state x="304" y="181" key="Vcs.Push.Dialog.v2/0.0.1440.900@0.0.1440.900" timestamp="1597847287704" />
     <state x="403" y="230" key="Vcs.Push.Dialog.v2/62.23.1618.1027@62.23.1618.1027" timestamp="1604847374282" />
