@@ -41,11 +41,19 @@ coding 笔记、点滴记录，以后的文章也会同步到公众号（Coding 
 - [2020-08-19 LeetCode 爬取官网所有题目和自己的最近题解](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2020-08-19%20LeetCode%20%E7%88%AC%E5%8F%96%E5%AE%98%E7%BD%91%E6%89%80%E6%9C%89%E9%A2%98%E7%9B%AE%E5%92%8C%E8%87%AA%E5%B7%B1%E7%9A%84%E6%9C%80%E8%BF%91%E9%A2%98%E8%A7%A3.md)
 - [2020-09-19 JDK 15已发布，你所要知道的都在这里！](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2020-09-19%20JDK%2015%E5%B7%B2%E5%8F%91%E5%B8%83%EF%BC%8C%E4%BD%A0%E6%89%80%E8%A6%81%E7%9F%A5%E9%81%93%E7%9A%84%E9%83%BD%E5%9C%A8%E8%BF%99%E9%87%8C%EF%BC%81.md)
 - [2020-09-21 思维导图学《JVM 虚拟机规范》](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2020-09-21%20%E6%80%9D%E7%BB%B4%E5%AF%BC%E5%9B%BE%E5%AD%A6%E3%80%8AJVM%20%E8%99%9A%E6%8B%9F%E6%9C%BA%E8%A7%84%E8%8C%83%E3%80%8B.md)
+- [2020-11-08 塞尔达 荒野之息 游戏截图](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2020-11-08%20%E5%A1%9E%E5%B0%94%E8%BE%BE%20%E8%8D%92%E9%87%8E%E4%B9%8B%E6%81%AF%20%E6%B8%B8%E6%88%8F%E6%88%AA%E5%9B%BE.md)
+- [2020-11-08 异度之刃2 CG截图](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2020-11-08%20%E5%BC%82%E5%BA%A6%E4%B9%8B%E5%88%832%20CG%E6%88%AA%E5%9B%BE.md)
+- [2020-11-11 生活、工作总结](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2020-11-11%20%E7%94%9F%E6%B4%BB%E3%80%81%E5%B7%A5%E4%BD%9C%E6%80%BB%E7%BB%93.md)
+- [2020-11-13 Maven 依赖树的解析规则](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2020-11-13%20Maven%20%E4%BE%9D%E8%B5%96%E6%A0%91%E7%9A%84%E8%A7%A3%E6%9E%90%E8%A7%84%E5%88%99.md)
+- [2020-11-24 乐高马里奥](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2020-11-24%20%E4%B9%90%E9%AB%98%E9%A9%AC%E9%87%8C%E5%A5%A5.md)
+- [2020-11-29 Java String 演进全解析](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2020-11-29%20Java%20String%20%E6%BC%94%E8%BF%9B%E5%85%A8%E8%A7%A3%E6%9E%90.md)
+- [2020-12-01 30分钟玩转「正则表达式」](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2020-12-01%2030%E5%88%86%E9%92%9F%E7%8E%A9%E8%BD%AC%E3%80%8C%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E3%80%8D.md)
+- [2020-12-03 Java Stream 源码分析](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2020-12-03%20Java%20Stream%20%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90.md)
+- [2020-12-05 由Java 15废弃偏向锁，谈谈Java Synchronized 的锁机制](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2020-12-05%20%E7%94%B1Java%2015%E5%BA%9F%E5%BC%83%E5%81%8F%E5%90%91%E9%94%81%EF%BC%8C%E8%B0%88%E8%B0%88Java%20Synchronized%20%E7%9A%84%E9%94%81%E6%9C%BA%E5%88%B6.md)
 
+## 博客园
 
-## GitHub 博客
-
-[https://ljyyano.github.io/](https://ljyyano.github.io/)
+[https://www.cnblogs.com/510602159-Yano/](https://www.cnblogs.com/510602159-Yano/)
 
 ## 简书博客
 
@@ -111,9 +119,5 @@ coding 笔记、点滴记录，以后的文章也会同步到公众号（Coding 
 
 ![](http://yano.oss-cn-beijing.aliyuncs.com/2020-09-21-023843.png)
 
-# 公众号
 
-coding 笔记、点滴记录，以后的文章也会同步到公众号（Coding Insight）中，希望大家关注^_^
-
-![](http://yano.oss-cn-beijing.aliyuncs.com/2019-07-29-qrcode_for_gh_a26ce4572791_258.jpg)
 
