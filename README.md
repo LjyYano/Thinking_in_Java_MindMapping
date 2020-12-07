@@ -25,7 +25,6 @@ coding 笔记、点滴记录，以后的文章也会同步到公众号（Coding 
 - [2019-10-10 LeetCode 二叉树系统题解](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2019-10-10%20LeetCode%20%E4%BA%8C%E5%8F%89%E6%A0%91%E7%B3%BB%E7%BB%9F%E9%A2%98%E8%A7%A3.md)
 - [2019-10-14 Java NIO、Channel、Selector 详解](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2019-10-14%20Java%20NIO%E3%80%81Channel%E3%80%81Selector%20%E8%AF%A6%E8%A7%A3.md)
 - [2019-10-26 Netty 的 Channel、Promise、Pipeline 详解](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2019-10-26%20Netty%20%E7%9A%84%20Channel%E3%80%81Promise%E3%80%81Pipeline%20%E8%AF%A6%E8%A7%A3.md)
-- [2019-10-26 Netty 的 Channel、Promise、Pipeline 详解](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2019-10-26%20Netty%20%E7%9A%84%20Channel%E3%80%81Promise%E3%80%81Pipeline%20%E8%AF%A6%E8%A7%A3.md)
 - [2019-12-17 Yano的2019观影总结](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2019-12-17%20Yano%E7%9A%842019%E8%A7%82%E5%BD%B1%E6%80%BB%E7%BB%93.md)
 - [2020-01-07 JDK 14即将发布，你所要知道的都在这里！](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2020-01-07%20JDK%2014%E5%8D%B3%E5%B0%86%E5%8F%91%E5%B8%83%EF%BC%8C%E4%BD%A0%E6%89%80%E8%A6%81%E7%9F%A5%E9%81%93%E7%9A%84%E9%83%BD%E5%9C%A8%E8%BF%99%E9%87%8C%EF%BC%81.md)
 - [2020-02-20 思维导图学 Netty](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2020-02-20%20%E6%80%9D%E7%BB%B4%E5%AF%BC%E5%9B%BE%E5%AD%A6%20Netty.md)
