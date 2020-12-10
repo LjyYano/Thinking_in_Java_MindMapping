@@ -1,5 +1,19 @@
 ![](http://yano.oss-cn-beijing.aliyuncs.com/2019-09-25-142850.png)
 
+<!-- TOC -->
+
+- [前言](#前言)
+- [BeanDefinition](#beandefinition)
+- [BeanFactory 简介](#beanfactory-简介)
+- [Web 容器启动过程](#web-容器启动过程)
+- [bean 的加载](#bean-的加载)
+- [FactoryBean](#factorybean)
+- [循环依赖](#循环依赖)
+- [bean 生命周期](#bean-生命周期)
+- [公众号](#公众号)
+
+<!-- /TOC -->
+
 # 前言
 
 许多文章都是分析的 xml 配置，但是现在 Spring Boot 开发多基于注解。本文从`注解`的角度分析 Spring IOC 容器源码。
@@ -694,8 +708,3 @@ private final Map<String, Object> earlySingletonObjects = new HashMap<>(16);
 coding 笔记、点滴记录，以后的文章也会同步到公众号（Coding Insight）中，希望大家关注^_^
 
 ![](http://yano.oss-cn-beijing.aliyuncs.com/2019-07-29-qrcode_for_gh_a26ce4572791_258.jpg)
-
-
-
-
-
