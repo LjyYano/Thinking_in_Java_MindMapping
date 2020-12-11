@@ -13,9 +13,17 @@
   - [任务调度](#任务调度)
   - [进程与线程的区别](#进程与线程的区别)
   - [线程的实现模型](#线程的实现模型)
-    - [1:1线程模型](#11线程模型)
-    - [N:1线程模型](#n1线程模型)
-    - [N:M线程模型](#nm线程模型)
+    - [多对一模型](#多对一模型)
+    - [多对多模型](#多对多模型)
+  - [线程的“并发”](#线程的并发)
+- [协程](#协程)
+  - [协程的目的](#协程的目的)
+  - [协程的特点](#协程的特点)
+  - [协程的原理](#协程的原理)
+- [Java 的线程与协程](#java-的线程与协程)
+  - [Kilim 协程框架](#kilim-协程框架)
+  - [Kotlin 的协程](#kotlin-的协程)
+  - [Project Loom](#project-loom)
 - [参考资料](#参考资料)
 
 # 前言
@@ -95,15 +103,114 @@ Go 语言比 Java 语言性能优越的一个原因，就是轻量级线程`Goro
 
 程序一般不会直接去使用内核线程，而是去使用内核线程的一种高级接口——`轻量级进程（Lightweight Process，LWP）`，轻量级进程就是我们通常意义上所讲的线程，也被叫做用户线程。
 
-### 1:1线程模型
 
-### N:1线程模型
+一个用户线程对应一个内核线程，如果是多核的 CPU，那么线程之间是真正的并发。
 
-### N:M线程模型
+缺点：
+  
+  - 内核线程的数量有限，一对一模型使用的用户线程数量有限制。
+  - 内核线程的调度，上下文切换的开销较大（虽然没有进程上下文切换的开销大），导致用户线程的执行效率下降。
+
+### 多对一模型
+
+`多个用户线程`映射到`一个内核线程`上，线程间的切换由`用户态`的代码来进行。用户线程的建立、同步、销毁都是在用户态中完成，不需要内核的介入。因此多对一的上下文切换速度快很多，且用户线程的数量几乎没有限制。
+
+缺点：
+
+- 若一个用户线程阻塞，其他所有线程都无法执行，此时内核线程处于阻塞状态。
+- 处理器数量的增加，不会对多对一模型的线程性能造成影响，因为所有的用户线程都映射到了一个处理器上。
+
+### 多对多模型
+
+结合了`一对一模型`和`多对一`模型的优点，多个用户线程映射到多个内核线程上，由`线程库`负责在可用的可调度实体上调度用户线程。这样线程间的上下文切换很快，因为它避免了系统调用。但是增加了系统的复杂性。
+
+优点：
+
+- 一个用户线程的阻塞不会导致所有线程的阻塞，因为此时还有别的内核线程被调度来执行；
+- 多对多模型对用户线程的数量没有限制；
+- 在多处理器的操作系统中，多对多模型的线程也能得到一定的性能提升，但提升的幅度不如一对一模型的高。
+
+## 线程的“并发”
+
+只有在线程的数量 < 处理器的数量时，线程的并发才是真正的并发，这时不同的线程运行在不同的处理器上。但是当线程的数量 > 处理器的数量时，会出现一个处理器运行多个线程的情况。
+
+在单个处理器运行多个线程时，并发是一种模拟出来的状态。操作系统采用时间片轮转的方式轮流执行每一个线程。现在，几乎所有的现代操作系统采用的都是时间片轮转的抢占式调度方式。
+
+# 协程
+
+当在网上搜索协程时，我们会看到：
+
+- 本质上，协程是轻量级的线程。
+- 很多博客提到「不需要从用户态切换到内核态」、「是协作式的」。
+
+协程也并不是 Go 提出来的，协程是一种编程思想，并不局限于特定的语言。Go、Python、Kotlin 都可以在语言层面上实现协程，Java 也可以通过扩展库的方式间接支持协程。
+
+协程比线程更加轻量级，可以由程序员自己管理的轻量级线程，对内核不可见。
+
+## 协程的目的
+
+在传统的 J2EE 系统中都是基于每个请求占用一个线程去完成完整的业务逻辑（包括事务）。所以系统的吞吐能力取决于每个线程的操作耗时。如果遇到很耗时的 I/O 行为，则整个系统的吞吐立刻下降，因为这个时候线程一直处于阻塞状态，如果线程很多的时候，会存在很多线程处于空闲状态（等待该线程执行完才能执行），造成了资源应用不彻底。
+
+最常见的例子就是 JDBC（它是同步阻塞的），这也是为什么很多人都说数据库是瓶颈的原因。这里的耗时其实是让 CPU 一直在等待 I/O 返回，说白了线程根本没有利用 CPU 去做运算，而是处于空转状态。而另外过多的线程，也会带来更多的 ContextSwitch 开销。
+
+对于上述问题，现阶段行业里的比较流行的解决方案之一就是单线程加上异步回调。其代表派是 node.js 以及 Java 里的新秀 Vert.x。
+
+而协程的目的就是当出现长时间的 I/O 操作时，通过让出目前的协程调度，执行下一个任务的方式，来消除 ContextSwitch 上的开销。
+
+## 协程的特点
+
+- 线程的切换由操作系统负责调度，协程由用户自己进行调度，减少了上下文切换，提高了效率
+- 线程的默认 Stack 是1M，协程更加轻量，是 1K，在相同内存中可以开启更多的协程。
+- 由于在同一个线程上，因此可以`避免竞争关系`而使用锁。
+- 适用于`被阻塞的`，且需要大量并发的场景。但不适用于大量计算的多线程，遇到此种情况，更好用线程去解决。
+
+## 协程的原理
+
+当出现IO阻塞的时候，由协程的调度器进行调度，通过将数据流立刻yield掉（主动让出），并且记录当前栈上的数据，阻塞完后立刻再通过线程恢复栈，并把阻塞的结果放到这个线程上去跑，这样看上去好像跟写同步代码没有任何差别，这整个流程可以称为`coroutine`，而跑在由coroutine负责调度的线程称为`Fiber`。比如Golang里的 go关键字其实就是负责开启一个`Fiber`，让func逻辑跑在上面。
+
+由于协程的暂停完全由程序控制，发生在用户态上；而线程的阻塞状态是由操作系统内核来进行切换，发生在内核态上。
+因此，协程的开销远远小于线程的开销，也就没有了 ContextSwitch 上的开销。
+
+假设程序中默认创建两个线程为协程使用，在主线程中创建协程ABCD…，分别存储在就绪队列中，调度器首先会分配一个工作线程A执行协程A，另外一个工作线程B执行协程B，其它创建的协程将会放在队列中进行排队等待。
+
+![](http://yano.oss-cn-beijing.aliyuncs.com/2020-12-10-144133.jpg)
+
+当协程A调用暂停方法或被阻塞时，协程A会进入到挂起队列，调度器会调用等待队列中的其它协程抢占线程A执行。当协程A被唤醒时，它需要重新进入到就绪队列中，通过调度器抢占线程，如果抢占成功，就继续执行协程A，失败则继续等待抢占线程。
+
+![](http://yano.oss-cn-beijing.aliyuncs.com/2020-12-10-144157.jpg)
+
+# Java 的线程与协程
+
+Java 在 Linux 操作系统下使用的是用户线程+轻量级线程，`一个用户线程映射到一个内核线程`，线程之间的切换就涉及到了上下文切换。
+
+## Kilim 协程框架
+
+目前 Java 原生语言暂时不支持协程，可以使用 [kilim](https://github.com/kilim/kilim)，具体原理可以看官方文档，暂时还没有研究~
+
+## Kotlin 的协程
+
+Kotlin 在诞生之初，目标就是完全兼容 Java，却是一门非常务实的语言，其中一个特性，就是支持协程。
+
+但是 Kotlin 最终还是运行在 JVM 中的，目前的 JVM 并不支持协程，Kotlin 作为一门编程语言，也只是能在语言层面支持协程。Kotlin 的协程是用于异步编程等场景的，在语言级提供协程支持，而将大部分功能委托给库。
+
+
+
+
+## Project Loom
+
+Java 也在逐步支持协程，其项目就是 `Project Loom`(https://openjdk.java.net/projects/loom/)。这个项目在18年底的时候已经达到可初步演示的原型阶段。不同于之前的方案，Project Loom 是从 JVM 层面对多线程技术进行彻底的改变。
+
+官方介绍：
+http://cr.openjdk.java.net/~rpressler/loom/Loom-Proposal.html
+
+其中一段介绍了为什么引入这个项目：
+
+    One of Java's most important contributions when it was first released, over twenty years ago, was the easy access to threads and synchronization primitives. Java threads (either used directly, or indirectly through, for example, Java servlets processing HTTP requests) provided a relatively simple abstraction for writing concurrent applications. These days, however, one of the main difficulties in writing concurrent programs that meet today's requirements is that the software unit of concurrency offered by the runtime — the thread — cannot match the scale of the domain's unit of concurrency, be it a user, a transaction or even a single operation. Even if the unit of application concurrency is coarse — say, a session, represented by single socket connection — a server can handle upward of a million concurrent open sockets, yet the Java runtime, which uses the operating system's threads for its implementation of Java threads, cannot efficiently handle more than a few thousand. A mismatch in several orders of magnitude has a big impact.
+
+文章大意就是本文上面所说的，Java 的用户线程与内核线程是一对一的关系，一个 Java 进程很难创建上千个线程，如果是对于 I/O 阻塞的程序（例如数据库读取/Web服务），性能会很低下，所以要采用类似于协程的机制。
 
 # 参考资料
 
 - 极客时间-Java性能调优实战/19.如何用协程来优化多线程业务？
 - https://www.cnblogs.com/Survivalist/p/11527949.html
 - https://www.jianshu.com/p/5db701a764cb
-- 
