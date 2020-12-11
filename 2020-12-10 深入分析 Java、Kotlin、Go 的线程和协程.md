@@ -13,6 +13,7 @@
   - [任务调度](#任务调度)
   - [进程与线程的区别](#进程与线程的区别)
   - [线程的实现模型](#线程的实现模型)
+    - [一对一模型](#一对一模型)
     - [多对一模型](#多对一模型)
     - [多对多模型](#多对多模型)
   - [线程的“并发”](#线程的并发)
@@ -20,10 +21,15 @@
   - [协程的目的](#协程的目的)
   - [协程的特点](#协程的特点)
   - [协程的原理](#协程的原理)
-- [Java 的线程与协程](#java-的线程与协程)
-  - [Kilim 协程框架](#kilim-协程框架)
+- [Java、Kotlin、Go 的线程与协程](#javakotlingo-的线程与协程)
   - [Kotlin 的协程](#kotlin-的协程)
-  - [Project Loom](#project-loom)
+    - [使用「线程」的代码](#使用线程的代码)
+    - [使用「协程」的代码](#使用协程的代码)
+  - [Go 的协程](#go-的协程)
+  - [Java 的 Kilim 协程框架](#java-的-kilim-协程框架)
+  - [Java 的 Project Loom](#java-的-project-loom)
+    - [使用 Fiber](#使用-fiber)
+- [总结](#总结)
 - [参考资料](#参考资料)
 
 # 前言
@@ -103,6 +109,7 @@ Go 语言比 Java 语言性能优越的一个原因，就是轻量级线程`Goro
 
 程序一般不会直接去使用内核线程，而是去使用内核线程的一种高级接口——`轻量级进程（Lightweight Process，LWP）`，轻量级进程就是我们通常意义上所讲的线程，也被叫做用户线程。
 
+### 一对一模型
 
 一个用户线程对应一个内核线程，如果是多核的 CPU，那么线程之间是真正的并发。
 
@@ -179,13 +186,9 @@ Go 语言比 Java 语言性能优越的一个原因，就是轻量级线程`Goro
 
 ![](http://yano.oss-cn-beijing.aliyuncs.com/2020-12-10-144157.jpg)
 
-# Java 的线程与协程
+# Java、Kotlin、Go 的线程与协程
 
-Java 在 Linux 操作系统下使用的是用户线程+轻量级线程，`一个用户线程映射到一个内核线程`，线程之间的切换就涉及到了上下文切换。
-
-## Kilim 协程框架
-
-目前 Java 原生语言暂时不支持协程，可以使用 [kilim](https://github.com/kilim/kilim)，具体原理可以看官方文档，暂时还没有研究~
+Java 在 Linux 操作系统下使用的是用户线程+轻量级线程，`一个用户线程映射到一个内核线程`，线程之间的切换就涉及到了上下文切换。所以在 Java 中并不适合创建大量的线程，否则效率会很低。可以先看下 Kotlin 和 Go 的协程：
 
 ## Kotlin 的协程
 
@@ -193,10 +196,76 @@ Kotlin 在诞生之初，目标就是完全兼容 Java，却是一门非常务�
 
 但是 Kotlin 最终还是运行在 JVM 中的，目前的 JVM 并不支持协程，Kotlin 作为一门编程语言，也只是能在语言层面支持协程。Kotlin 的协程是用于异步编程等场景的，在语言级提供协程支持，而将大部分功能委托给库。
 
+### 使用「线程」的代码
+
+```java
+@Test
+fun testThread() {
+    // 执行时间 1min+
+    val c = AtomicLong()
+    for (i in 1..1_000_000L)
+        thread(start = true) {
+            c.addAndGet(i)
+        }
+    println(c.get())
+}
+```
+
+上述代码创建了 `100 万个线程`，在每个线程里仅仅调用了 add 操作，但是由于创建线程太多，这个测试用例在我的机器上要跑 1 分钟左右。
+
+### 使用「协程」的代码
+
+```java
+@Test
+fun testLaunch() {
+    val c = AtomicLong()
+    runBlocking {
+        for (i in 1..1_000_000L)
+            launch {
+                c.addAndGet(workload(i))
+            }
+    }
+    print(c.get())
+}
+
+suspend fun workload(n: Long): Long {
+    delay(1000)
+    return n
+}
+```
+
+这段代码是创建了 `100 万个协程`，测试用例在我的机器上执行时间大概是 10 秒钟。而且这段代码的每个协程都 delay 了 1 秒钟，执行效率仍然远远高于线程。
+
+详细的语法可以查看 Kotlin 的官方网站：https://www.kotlincn.net/docs/reference/coroutines/basics.html
+
+其中关键字 `launch` 是开启了一个协程，关键字 `suspend` 是挂起一个协程，而不会阻塞。现在在看这个流程，应该就懂了~
+
+![](http://yano.oss-cn-beijing.aliyuncs.com/2020-12-11-082219.jpg)
+
+## Go 的协程
+
+官方例程：https://gobyexample-cn.github.io/goroutines
+
+go语言层面并`不支持多进程或多线程`，但是协程更好用，协程被称为用户态线程，不存在CPU上下文切换问题，效率非常高。下面是一个简单的协程演示代码：
+
+```go
+package main
+
+func main() {
+    go say("Hello World")
+}
+
+func say(s string) {
+    println(s)
+}
+```
+
+## Java 的 Kilim 协程框架
+
+目前 Java 原生语言暂时不支持协程，可以使用 [kilim](https://github.com/kilim/kilim)，具体原理可以看官方文档，暂时还没有研究~
 
 
-
-## Project Loom
+## Java 的 Project Loom
 
 Java 也在逐步支持协程，其项目就是 `Project Loom`(https://openjdk.java.net/projects/loom/)。这个项目在18年底的时候已经达到可初步演示的原型阶段。不同于之前的方案，Project Loom 是从 JVM 层面对多线程技术进行彻底的改变。
 
@@ -208,6 +277,31 @@ http://cr.openjdk.java.net/~rpressler/loom/Loom-Proposal.html
     One of Java's most important contributions when it was first released, over twenty years ago, was the easy access to threads and synchronization primitives. Java threads (either used directly, or indirectly through, for example, Java servlets processing HTTP requests) provided a relatively simple abstraction for writing concurrent applications. These days, however, one of the main difficulties in writing concurrent programs that meet today's requirements is that the software unit of concurrency offered by the runtime — the thread — cannot match the scale of the domain's unit of concurrency, be it a user, a transaction or even a single operation. Even if the unit of application concurrency is coarse — say, a session, represented by single socket connection — a server can handle upward of a million concurrent open sockets, yet the Java runtime, which uses the operating system's threads for its implementation of Java threads, cannot efficiently handle more than a few thousand. A mismatch in several orders of magnitude has a big impact.
 
 文章大意就是本文上面所说的，Java 的用户线程与内核线程是一对一的关系，一个 Java 进程很难创建上千个线程，如果是对于 I/O 阻塞的程序（例如数据库读取/Web服务），性能会很低下，所以要采用类似于协程的机制。
+
+### 使用 Fiber
+
+在引入 Project Loom 之后，JDK 将引入一个新类：java.lang.Fiber。此类与 java.lang.Thread 一起，都成为了 java.lang.Strand 的子类。即线程变成了一个虚拟的概念，有两种实现方法：Fiber 所表示的轻量线程和 Thread 所表示的传统的重量级线程。
+
+```java
+Fiber f = Fiber.schedule(() -> {
+  println("Hello 1");
+  lock.lock(); // 等待锁不会挂起线程
+  try {
+      println("Hello 2");
+  } finally {
+      lock.unlock();
+  }
+  println("Hello 3");
+})
+```
+
+只需执行 `Fiber.schedule(Runnable task)` 就能在 `Fiber` 中执行任务。最重要的是，上面例子中的 lock.lock() 操作将不再挂起底层线程。除了 `Lock 不再挂起线程`以外，像 `Socket BIO 操作也不再挂起线程`。 但 synchronized，以及 Native 方法中线程挂起操作无法避免。
+
+# 总结
+
+协程大法好，比线程更轻量级，但是仅针对 I/O 阻塞才有效；对于 CPU 密集型的应用，因为 CPU 一直都在计算并没有什么空闲，所以没有什么作用。
+
+Kotlin 兼容 Java，在编译器、语言层面实现了协程，JVM 底层并不支持协程；Go 天生就是支持协程的，不支持多进程和多线程。Java 的 `Project Loom` 项目支持协程，
 
 # 参考资料
 
