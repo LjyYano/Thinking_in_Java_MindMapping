@@ -41,3 +41,16 @@ See it in action:
 Visit our [YouTube channel](http://youtube.com/c/notion) to watch 50+ more tutorials
 
 👉**Have a question?** Click the `?` at the bottom right for more guides, or to send us a message.
+
+# Reading List
+
+The modern day reading list includes more than just books. We've created a dashboard to help you track books, articles, podcasts, and videos. **Each** **media type** has its own view based on the **Type** property. 
+
+Change your views to sort content by status, author, type, or publisher ✓
+Rate content out of 5 stars ✓
+
+One more thing... if you install [Notion Web Clipper](https://chrome.google.com/webstore/detail/notion-web-clipper/knheggckgoiihginacbkhaalnibhilkk?hl=en), you can save pages and links off the web directly to these lists.
+
+Click on `Articles` to see what other views might have in store or add your own ✨
+
+[Media](https://www.notion.so/8a3115942b5a4a17acbbf6fad55d8f48)
