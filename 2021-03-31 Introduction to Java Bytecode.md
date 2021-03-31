@@ -6,6 +6,8 @@
 - [The Other Way Around](#the-other-way-around)
 - [Conclusion](#conclusion)
 
+[Introduction to Java Bytecode](https://dzone.com/articles/introduction-to-java-bytecode)
+
 
 Reading compiled Java bytecode can be tedious, even for experienced Java developers. Why do we need to know about such low-level stuff in the first place? Here is a simple scenario that happened to me last week: I had made some code changes on my machine a long time ago, compiled a JAR, and deployed it on a server to test a potential fix for a performance issue. Unfortunately, the code was never checked into a version control system, and for whatever reason, the local changes were deleted without a trace. After a couple of months, I needed those changes in source form again (which took quite an effort to come up with), but I could not find them!
 
