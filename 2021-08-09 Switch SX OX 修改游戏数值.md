@@ -5,6 +5,7 @@
 - [修改数值](#修改数值)
 - [大胆一点，多加一些](#大胆一点多加一些)
 - [写在最后……什么时候应该使用作弊器？](#写在最后什么时候应该使用作弊器)
+- [GitHub LeetCode 项目](#github-leetcode-项目)
 
 # 前言
 
@@ -81,3 +82,11 @@
 # 写在最后……什么时候应该使用作弊器？
 
 异度之刃 2 虽好，但是如果为了刷钱刷了 30h，确实也不太值得，都是枯燥无味的重复工作。我们可以适当修改一下游戏数值，能够更好地体验游戏中的风景，体验游戏中的风土人情和剧情。（数值也不能改太过了，否则就没有游戏性可言了……）
+
+# GitHub LeetCode 项目
+
+项目 [GitHub LeetCode 全解](https://github.com/LjyYano/LeetCode)，欢迎大家 star、fork、merge，共同打造最全 LeetCode 题解！
+
+[Java 编程思想-最全思维导图-GitHub 下载链接](https://github.com/LjyYano/Thinking_in_Java_MindMapping)，需要的小伙伴可以自取~！！！
+
+原创不易，希望大家转载时请先联系我，并标注原文链接。
