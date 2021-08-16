@@ -15,7 +15,7 @@
 
 # LockSupport 类有什么用？
 
-线程阻塞工具类，能够让线程在任意位置阻塞/唤醒。LockSupport 用来创建锁和其他同步类的基本线程阻塞原语。简而言之，当调用 LockSupport.park 时，表示当前线程将会等待，直至获得许可，当调用 LockSupport.unpark 时，必须把等待获得许可的线程作为参数进行传递，好让此线程继续运行。 
+线程阻塞工具类，能够让线程在任意位置`阻塞/唤醒`。LockSupport 用来创建锁和其他同步类的基本线程阻塞原语。简而言之，当调用 LockSupport.park 时，表示当前线程将会等待，直至获得许可，当调用 LockSupport.unpark 时，必须把等待获得许可的线程作为参数进行传递，好让此线程继续运行。 
 
 # 主要有哪些方法？
 
@@ -92,7 +92,7 @@ https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/LockSupport
 
 # 核心函数分析
 
-先引入 sun.misc.Unsafe 类中的 park 和 unpark 函数，因为 LockSupport 的核心函数都是基于 Unsafe 类中定义的 park 和 unpark 函数，下面给出两个函数的定义：
+先引入 `sun.misc.Unsafe` 类中的 park 和 unpark 函数，因为 LockSupport 的核心函数都是基于 Unsafe 类中定义的 park 和 unpark 函数，下面给出两个函数的定义：
 
 ```java
 public native void park(boolean isAbsolute, long time);
@@ -101,7 +101,7 @@ public native void unpark(Thread thread);
 
 ## park 函数
 
-阻塞线程，并且线程在下列情况发生之前都会被阻塞：
+阻塞线程，并且线程在`下列情况发生之前`都会被阻塞：
 - 调用 unpark 函数，释放该线程的许可
 - 该线程被中断
 - 设置的时间到了
@@ -132,16 +132,16 @@ public static void unpark(Thread thread) {
 
 |            | Object.wait()    | Thread.sleep() | LockSupport.park()                  |
 | ---------- | ---------------- | -------------- | ----------------------------------- |
-| 释放锁资源 monitor | 释放           | 不释放         | 不负责（Condition.await()负责释放） |
+| `释放锁资源 monitor` | 释放           | 不释放         | 不负责（Condition.await() 负责释放） |
 | 指定时间   | 必须指定         | 可选           | 可选                                |
 | 外部唤醒   | notify()         | 不可           | unpark()                            |
 | 异常       | 无               | 抛出异常       | 无                                  |
-| 执行位置   | synchronized块中 | 任意           | 任意                                |
+| 执行位置   | synchronized 块中 | 任意           | 任意                                |
 | 死锁       | 使用不当会死锁   | 无             | 顺序反也不会死锁                    |
 
 # 其他说明
 
-LockSupport 类只负责阻塞线程，并不涉及锁相关的内容。Condition.await()的功能和Object.wait()是类似的，不过Condition.await()底层是调用LockSupport.park()来实现线程阻塞的。
+LockSupport 类只负责阻塞线程，并不涉及锁相关的内容。Condition.await() 的功能和 Object.wait() 是类似的，不过 Condition.await() 底层是调用 LockSupport.park() 来实现线程阻塞的。
 
 # 参考链接
 
