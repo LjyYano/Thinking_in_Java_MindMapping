@@ -146,6 +146,7 @@ LockSupport 类只负责阻塞线程，并不涉及锁相关的内容。Conditio
 # 参考链接
 
 - [JUC 锁：LockSupport 详解](https://www.pdai.tech/md/java/thread/java-thread-x-lock-LockSupport.html)
+- [LockSupport 官方文档](https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/LockSupport.html)
 
 # GitHub LeetCode 项目
 
