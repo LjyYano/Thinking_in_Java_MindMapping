@@ -130,14 +130,14 @@ public static void unpark(Thread thread) {
 
 这 3 个方法都能够`阻塞当前线程`，但是还是有很多区别的！
 
-|            | Object.wait()    | Thread.sleep() | LockSupport.park()                  |
-| ---------- | ---------------- | -------------- | ----------------------------------- |
-| `释放锁资源 monitor` | 释放           | 不释放         | 不负责（Condition.await() 负责释放） |
-| 指定时间   | 必须指定         | 可选           | 可选                                |
-| 外部唤醒   | notify()         | 不可           | unpark()                            |
-| 异常       | 无               | 抛出异常       | 无                                  |
-| 执行位置   | synchronized 块中 | 任意           | 任意                                |
-| 死锁       | 使用不当会死锁   | 无             | 顺序反也不会死锁                    |
+|                      | Object.wait()     | Thread.sleep() | LockSupport.park()                   |
+| -------------------- | ----------------- | -------------- | ------------------------------------ |
+| `释放锁资源 monitor` | 释放              | 不释放         | 不负责（Condition.await() 负责释放） |
+| 指定时间             | 必须指定          | 可选           | 可选                                 |
+| 外部唤醒             | notify()          | 不可           | unpark()                             |
+| 异常                 | 无                | 抛出异常       | 无                                   |
+| 执行位置             | synchronized 块中 | 任意           | 任意                                 |
+| 死锁                 | 使用不当会死锁    | 无             | 顺序反也不会死锁                     |
 
 # 其他说明
 
@@ -155,5 +155,3 @@ LockSupport 类只负责阻塞线程，并不涉及锁相关的内容。Conditio
 [Java 编程思想-最全思维导图-GitHub 下载链接](https://github.com/LjyYano/Thinking_in_Java_MindMapping)，需要的小伙伴可以自取~！！！
 
 原创不易，希望大家转载时请先联系我，并标注原文链接。
-
-![](http://yano.oss-cn-beijing.aliyuncs.com/blog/20210817103245.png?x-oss-process=style/yano)
