@@ -95,6 +95,8 @@
 - [Java Agent 使用指南 | 破解 IDEA](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2021-07-31%20Java%20Agent%20%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97%20%7C%20%E7%A0%B4%E8%A7%A3%20IDEA.md)
 - [Java LockSupport 工具类](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2021-08-16%20Java%20LockSupport%20%E5%B7%A5%E5%85%B7%E7%B1%BB.md)
 - [一文看懂 Java 对象的内存](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2021-08-17%20%E4%B8%80%E6%96%87%E7%9C%8B%E6%87%82Java%20%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%86%85%E5%AD%98.md)
+- [Netty HashedWheelTimer 时间轮源码详解](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2021-03-02%20Netty%20HashedWheelTimer%20%E6%97%B6%E9%97%B4%E8%BD%AE%E6%BA%90%E7%A0%81%E8%AF%A6%E8%A7%A3.md)
+- [JVM G1GC的算法与实现](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2021-03-16%20JVM%20G1GC%E7%9A%84%E7%AE%97%E6%B3%95%E4%B8%8E%E5%AE%9E%E7%8E%B0.md)
 
 ### 其他
 
@@ -109,6 +111,7 @@
 - [Raft 算法分析](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2021-01-24%20Raft%E7%AE%97%E6%B3%95%E5%88%86%E6%9E%90.md)
 - [消息中间件](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2021-01-24%20%E6%B6%88%E6%81%AF%E4%B8%AD%E9%97%B4%E4%BB%B6.md)
 - [Linux 虚拟内存](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2021-03-21%20Linux%20%E8%99%9A%E6%8B%9F%E5%86%85%E5%AD%98.md)
+- [并查集](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2021-02-07%20%E5%B9%B6%E6%9F%A5%E9%9B%86.md)
 
 ## 读书笔记
 
@@ -119,6 +122,8 @@
 - [股票知识记录](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2021-01-25%20%E8%82%A1%E7%A5%A8%E7%9F%A5%E8%AF%86%E8%AE%B0%E5%BD%95.md)
 - [《指数基金投资指南》](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2021-02-03%20%E3%80%8A%E6%8C%87%E6%95%B0%E5%9F%BA%E9%87%91%E6%8A%95%E8%B5%84%E6%8C%87%E5%8D%97%E3%80%8B.md)
 - [《十三邀 1-我还是更喜欢失败者》读书笔记](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2021-07-09%20%E3%80%8A%E5%8D%81%E4%B8%89%E9%82%801-%E6%88%91%E8%BF%98%E6%98%AF%E6%9B%B4%E5%96%9C%E6%AC%A2%E5%A4%B1%E8%B4%A5%E8%80%85%E3%80%8B%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0.md)
+- [《量化健身-原理解析》](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2021-03-02%20%E3%80%8A%E9%87%8F%E5%8C%96%E5%81%A5%E8%BA%AB-%E5%8E%9F%E7%90%86%E8%A7%A3%E6%9E%90%E3%80%8B.md)
+- [《学会提问：批判性思维入门》](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2021-03-17%20%E3%80%8A%E5%AD%A6%E4%BC%9A%E6%8F%90%E9%97%AE%EF%BC%9A%E6%89%B9%E5%88%A4%E6%80%A7%E6%80%9D%E7%BB%B4%E5%85%A5%E9%97%A8%E3%80%8B.md)
 
 ## Switch 游戏
 
