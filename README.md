@@ -44,12 +44,10 @@
 ### 随笔
 
 - [由工作中一次无奈的合作想到的](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2019-08-12%20%E7%94%B1%E5%B7%A5%E4%BD%9C%E4%B8%AD%E4%B8%80%E6%AC%A1%E6%97%A0%E5%A5%88%E7%9A%84%E5%90%88%E4%BD%9C%E6%83%B3%E5%88%B0%E7%9A%84.md)
-
 - [左耳朵耗子：技术人员的发展之路](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2020-03-02%20%E5%B7%A6%E8%80%B3%E6%9C%B5%E8%80%97%E5%AD%90%EF%BC%9A%E6%8A%80%E6%9C%AF%E4%BA%BA%E5%91%98%E7%9A%84%E5%8F%91%E5%B1%95%E4%B9%8B%E8%B7%AF.md)
 - [2020-08-03 随笔](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2020-08-03%20%E9%9A%8F%E7%AC%94.md)
 - [2020-11-11 生活、工作总结](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2020-11-11%20%E7%94%9F%E6%B4%BB%E3%80%81%E5%B7%A5%E4%BD%9C%E6%80%BB%E7%BB%93.md)
 - [乐高马里奥](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2020-11-24%20%E4%B9%90%E9%AB%98%E9%A9%AC%E9%87%8C%E5%A5%A5.md)
-
 - [印象笔记吐槽](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2021-06-20%20%E5%8D%B0%E8%B1%A1%E7%AC%94%E8%AE%B0%E5%90%90%E6%A7%BD.md)
 - [2021 随笔](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2021-08-13%202021%20%E9%9A%8F%E7%AC%94.md)
 
@@ -101,23 +99,15 @@
 ### 其他
 
 - [5G 是什么？一篇文章搞定！](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2019-07-30%205G%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0%E6%90%9E%E5%AE%9A%EF%BC%81.md)
-
 - [LeetCode 二叉树系统题解](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2019-10-10%20LeetCode%20%E4%BA%8C%E5%8F%89%E6%A0%91%E7%B3%BB%E7%BB%9F%E9%A2%98%E8%A7%A3.md)
-
 - [爬取北京摩拜单车信息（附分析过程和详细代码）](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2020-03-02%20%E7%88%AC%E5%8F%96%E5%8C%97%E4%BA%AC%E6%91%A9%E6%8B%9C%E5%8D%95%E8%BD%A6%E4%BF%A1%E6%81%AF%EF%BC%88%E9%99%84%E5%88%86%E6%9E%90%E8%BF%87%E7%A8%8B%E5%92%8C%E8%AF%A6%E7%BB%86%E4%BB%A3%E7%A0%81%EF%BC%89.md)
-
 - [Lucene、Elasticsearch、Kibana 入门教程和环境搭建](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2020-07-03%20Lucene%E3%80%81Elasticsearch%E3%80%81Kibana%20%E5%85%A5%E9%97%A8%E6%95%99%E7%A8%8B%E5%92%8C%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA.md)
-
 - [LeetCode 爬取官网所有题目和自己的最近题解](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2020-08-19%20LeetCode%20%E7%88%AC%E5%8F%96%E5%AE%98%E7%BD%91%E6%89%80%E6%9C%89%E9%A2%98%E7%9B%AE%E5%92%8C%E8%87%AA%E5%B7%B1%E7%9A%84%E6%9C%80%E8%BF%91%E9%A2%98%E8%A7%A3.md)
-
 - [Maven 依赖树的解析规则](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2020-11-13%20Maven%20%E4%BE%9D%E8%B5%96%E6%A0%91%E7%9A%84%E8%A7%A3%E6%9E%90%E8%A7%84%E5%88%99.md)
-
 - [30 分钟玩转「正则表达式」](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2020-12-01%2030%E5%88%86%E9%92%9F%E7%8E%A9%E8%BD%AC%E3%80%8C%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E3%80%8D.md)
-
 - [RPC 实战与原理](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2021-01-24%20RPC%20%E5%AE%9E%E6%88%98%E4%B8%8E%E5%8E%9F%E7%90%86.md)
 - [Raft 算法分析](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2021-01-24%20Raft%E7%AE%97%E6%B3%95%E5%88%86%E6%9E%90.md)
 - [消息中间件](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2021-01-24%20%E6%B6%88%E6%81%AF%E4%B8%AD%E9%97%B4%E4%BB%B6.md)
-
 - [Linux 虚拟内存](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2021-03-21%20Linux%20%E8%99%9A%E6%8B%9F%E5%86%85%E5%AD%98.md)
 
 ## 读书笔记
