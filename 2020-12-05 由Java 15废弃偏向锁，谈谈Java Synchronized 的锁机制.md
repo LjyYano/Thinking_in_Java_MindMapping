@@ -1,10 +1,38 @@
-![](http://yano.oss-cn-beijing.aliyuncs.com/2020-12-05-062310.jpg)
+
+- [Java 15 废弃偏向锁](#java-15-废弃偏向锁)
+  - [当时为什么要引入偏向锁？](#当时为什么要引入偏向锁)
+  - [现在为什么又要废弃偏向锁？](#现在为什么又要废弃偏向锁)
+  - [思考](#思考)
+- [锁的发展过程](#锁的发展过程)
+- [Synchronized](#synchronized)
+  - [修饰方法](#修饰方法)
+  - [修饰代码块](#修饰代码块)
+- [JVM 同步指令分析](#jvm-同步指令分析)
+  - [monitorenter](#monitorenter)
+  - [monitorexit](#monitorexit)
+  - [ACC_SYNCHRONIZED](#acc_synchronized)
+- [操作系统的管程（Monitor）](#操作系统的管程monitor)
+  - [管程模型](#管程模型)
+  - [ObjectMonitor](#objectmonitor)
+  - [工作原理](#工作原理)
+- [锁升级](#锁升级)
+  - [Java 对象头](#java-对象头)
+  - [偏向锁](#偏向锁)
+  - [轻量级锁](#轻量级锁)
+  - [自旋锁与重量级锁](#自旋锁与重量级锁)
+- [再深入分析](#再深入分析)
+- [锁优化](#锁优化)
+  - [锁消除](#锁消除)
+  - [锁粗化](#锁粗化)
+  - [减小锁粒度](#减小锁粒度)
+- [总结](#总结)
+- [参考](#参考)
 
 # Java 15 废弃偏向锁
 
-JDK 15已经在2020年9月15日发布,详情见 [JDK 15 官方计划](https://openjdk.java.net/projects/jdk/15/)。其中有一项更新是`废弃偏向锁`，官方的详细说明在：[JEP 374: Disable and Deprecate Biased Locking](https://openjdk.java.net/jeps/374)。
+JDK 15 已经在 2020 年 9 月 15 日发布，详情见 [JDK 15 官方计划](https://openjdk.java.net/projects/jdk/15/)。其中有一项更新是`废弃偏向锁`，官方的详细说明在：[JEP 374: Disable and Deprecate Biased Locking](https://openjdk.java.net/jeps/374)。
 
-具体的说明见：[JDK 15已发布，你所要知道的都在这里！](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2020-09-19%20JDK%2015%E5%B7%B2%E5%8F%91%E5%B8%83%EF%BC%8C%E4%BD%A0%E6%89%80%E8%A6%81%E7%9F%A5%E9%81%93%E7%9A%84%E9%83%BD%E5%9C%A8%E8%BF%99%E9%87%8C%EF%BC%81.md)
+具体的说明见：[JDK 15 已发布，你所要知道的都在这里！](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2020-09-19%20JDK%2015%E5%B7%B2%E5%8F%91%E5%B8%83%EF%BC%8C%E4%BD%A0%E6%89%80%E8%A6%81%E7%9F%A5%E9%81%93%E7%9A%84%E9%83%BD%E5%9C%A8%E8%BF%99%E9%87%8C%EF%BC%81.md)
 
 ## 当时为什么要引入偏向锁？
 
@@ -12,7 +40,7 @@ JDK 15已经在2020年9月15日发布,详情见 [JDK 15 官方计划](https://op
 
 ## 现在为什么又要废弃偏向锁？
 
-但是过去看到的性能提升，在现在看来已经不那么明显了。受益于偏向锁的应用程序，往往是使用了早期 Java 集合 API的程序（JDK 1.1），这些 API（Hasttable 和 Vector） 每次访问时都进行同步。JDK 1.2 引入了针对单线程场景的非同步集合（HashMap 和 ArrayList），JDK 1.5 针对多线程场景推出了性能更高的并发数据结构。这意味着如果代码更新为使用较新的类，由于不必要同步而受益于偏向锁的应用程序，可能会看到很大的性能提高。此外，围绕线程池队列和工作线程构建的应用程序，性能通常在禁用偏向锁的情况下变得更好。
+但是过去看到的性能提升，在现在看来已经不那么明显了。受益于偏向锁的应用程序，往往是使用了早期 Java 集合 API 的程序（JDK 1.1），这些 API（Hasttable 和 Vector） 每次访问时都进行同步。JDK 1.2 引入了针对单线程场景的非同步集合（HashMap 和 ArrayList），JDK 1.5 针对多线程场景推出了性能更高的并发数据结构。这意味着如果代码更新为使用较新的类，由于不必要同步而受益于偏向锁的应用程序，可能会看到很大的性能提高。此外，围绕线程池队列和工作线程构建的应用程序，性能通常在禁用偏向锁的情况下变得更好。
 
 偏向锁为同步系统引入了许多`复杂的代码`，并且对 HotSpot 的其他组件产生了影响。这种复杂性已经成为理解代码的障碍，也阻碍了对同步系统进行重构。因此，我们希望禁用、废弃并最终删除偏向锁。
 
@@ -28,9 +56,9 @@ JDK 15已经在2020年9月15日发布,详情见 [JDK 15 官方计划](https://op
 
 在 JDK 1.5 之前，Java 是依靠 `Synchronized` 关键字实现锁功能来做到这点的。Synchronized 是 JVM 实现的一种内置锁，锁的获取和释放是由 JVM 隐式实现。
 
-到了 JDK 1.5 版本，并发包中新增了 `Lock` 接口来实现锁功能，它提供了与Synchronized 关键字类似的同步功能，只是在使用时需要显示获取和释放锁。
+到了 JDK 1.5 版本，并发包中新增了 `Lock` 接口来实现锁功能，它提供了与 Synchronized 关键字类似的同步功能，只是在使用时需要显示获取和释放锁。
 
-Lock 同步锁是`基于 Java 实现`的，而 Synchronized 是基于`底层操作系统`的 Mutex Lock 实现的，每次获取和释放锁操作都会带来`用户态和内核态的切换`，从而增加系统性能开销。因此，在锁竞争激烈的情况下，Synchronized同步锁在性能上就表现得非常糟糕，它也常被大家称为重量级锁。
+Lock 同步锁是`基于 Java 实现`的，而 Synchronized 是基于`底层操作系统`的 Mutex Lock 实现的，每次获取和释放锁操作都会带来`用户态和内核态的切换`，从而增加系统性能开销。因此，在锁竞争激烈的情况下，Synchronized 同步锁在性能上就表现得非常糟糕，它也常被大家称为重量级锁。
 
 特别是在单个线程重复申请锁的情况下，JDK1.5 版本的 Synchronized 锁性能要比 Lock 的性能差很多。
 
@@ -80,7 +108,7 @@ public void syncCode() {
 
 主要的意思是说：
 
-每个对象都与一个 monitor 相关联。当且仅当 monitor 对象有一个所有者时才会被锁定。执行 monitorenter 的线程试图获得与 objectref 关联的 monitor 的所有权，如下所示:
+每个对象都与一个 monitor 相关联。当且仅当 monitor 对象有一个所有者时才会被锁定。执行 monitorenter 的线程试图获得与 objectref 关联的 monitor 的所有权，如下所示：
 - 若与 objectref 相关联的 monitor 计数为 0，线程进入 monitor 并设置 monitor 计数为 1，这个线程成为这个 monitor 的拥有者。
 - 如果该线程已经拥有与 objectref 关联的 monitor，则该线程重新进入 monitor，并增加 monitor 的计数。
 - 如果另一个线程已经拥有与 objectref 关联的 monitor，则该线程将阻塞，直到 monitor 的计数为零，该线程才会再次尝试获得 monitor 的所有权。
@@ -127,13 +155,13 @@ ObjectMonitor() {
    _recursions = 0;
    _object = NULL;
    _owner = NULL;
-   _WaitSet = NULL; //处于wait状态的线程，会被加入到_WaitSet
+   _WaitSet = NULL; //处于 wait 状态的线程，会被加入到_WaitSet
    _WaitSetLock = 0 ;
    _Responsible = NULL ;
    _succ = NULL ;
    _cxq = NULL ;
    FreeNext = NULL ;
-   _EntryList = NULL ; //处于等待锁block状态的线程，会被加入到该列表
+   _EntryList = NULL ; //处于等待锁 block 状态的线程，会被加入到该列表
    _SpinFreq = 0 ;
    _SpinClock = 0 ;
    OwnerIsThread = 0 ;
@@ -168,11 +196,9 @@ Java Monitor 的工作原理如图：
 
 ![](http://yano.oss-cn-beijing.aliyuncs.com/2020-12-06-084018.jpg)
 
-当多个线程同时访问一段同步代码时，多个线程会先被存放在 `EntryList` 集合中，处于 block 状态的线程，都会被加入到该 列表。接下来当线程获取到对象的 Monitor时，Monitor 是依靠底层操作系统的 `Mutex Lock` 来实现互斥的，线程申请 Mutex 成功，则持有该 Mutex，其它线程将无法获取到该 Mutex。
+当多个线程同时访问一段同步代码时，多个线程会先被存放在 `EntryList` 集合中，处于 block 状态的线程，都会被加入到该 列表。接下来当线程获取到对象的 Monitor 时，Monitor 是依靠底层操作系统的 `Mutex Lock` 来实现互斥的，线程申请 Mutex 成功，则持有该 Mutex，其它线程将无法获取到该 Mutex。
 
 如果线程调用 `wait()` 方法，就会释放当前持有的 Mutex，并且该线程会进入 `WaitSet` 集合中，等待下一次被唤醒。如果当前线程顺利执行完方法，也将释放 Mutex。
-
-
 
 Monitor 依赖于底层操作系统的实现，存在`用户态`和`内核态`的转换，所以增加了性能开销。但是程序中使用了 Synchronized 关键字，程序也不全会使用 Monitor，因为 JVM 对 Synchronized 的实现也有 3 种：偏向锁、轻量级锁、重量级锁。
 
@@ -221,7 +247,9 @@ Monitor 依赖于底层操作系统的实现，存在`用户态`和`内核态`�
 - 成功，直接替换 Mark Word 中的线程 ID 为当前线程 ID，该锁会保持偏向锁。
 - 失败，标识锁有竞争，偏向锁会升级为轻量级锁。
 
-轻量级锁的适用范围：`线程交替执行同步块，大部分锁在整个同步周期内部存在场馆时间的竞争`。
+轻量级锁的适用范围：`线程交替执行同步块，大部分锁在整个同步周期内不存在同一时间的竞争`。
+
+那为什么会有轻量级锁呢？系统认为竞争存在，但是竞争的程度很低。`轻量级锁状态下，线程可以稍微等待一下（自旋）`，并不需要像重量级锁那样创建 monitor 对象，也不需要待获取锁的线程从用户态进入内核态的转换，能够提高效率。
 
 ## 自旋锁与重量级锁
 
@@ -234,8 +262,8 @@ Monitor 依赖于底层操作系统的实现，存在`用户态`和`内核态`�
 在高负载、高并发的场景下，可以通过设置 JVM 参数来关闭自旋锁，优化性能：
 
 ```
--XX:-UseSpinning //参数关闭自旋锁优化(默认打开) 
--XX:PreBlockSpin //参数修改默认的自旋次数。JDK1.7后，去掉此参数，由jvm控制
+-XX:-UseSpinning //参数关闭自旋锁优化（默认打开） 
+-XX:PreBlockSpin //参数修改默认的自旋次数。JDK1.7 后，去掉此参数，由 jvm 控制
 ```
 
 # 再深入分析
@@ -283,4 +311,5 @@ JIT 编译器动态编译时，如果发现几个相邻的同步块使用的是�
 # 参考
 
 1. https://juejin.cn/post/6844903918653145102#heading-13
-2. 极客时间：多线程之锁优化（上）：深入了解Synchronized同步锁的优化方法
+2. 极客时间：多线程之锁优化（上）：深入了解 Synchronized 同步锁的优化方法
+3. [java 偏向锁、轻量级锁及重量级锁synchronized原理](https://www.cnblogs.com/deltadeblog/p/9559035.html)
