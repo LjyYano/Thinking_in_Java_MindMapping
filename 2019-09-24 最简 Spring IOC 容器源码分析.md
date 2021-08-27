@@ -1,5 +1,3 @@
-![](http://yano.oss-cn-beijing.aliyuncs.com/2019-09-25-142850.png)
-
 <!-- TOC -->
 
 - [前言](#前言)
