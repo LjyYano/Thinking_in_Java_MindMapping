@@ -96,7 +96,7 @@
 - [Java LockSupport 工具类](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2021-08-16%20Java%20LockSupport%20%E5%B7%A5%E5%85%B7%E7%B1%BB.md)
 - [一文看懂 Java 对象的内存](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2021-08-17%20%E4%B8%80%E6%96%87%E7%9C%8B%E6%87%82Java%20%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%86%85%E5%AD%98.md)
 - [Netty HashedWheelTimer 时间轮源码详解](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2021-03-02%20Netty%20HashedWheelTimer%20%E6%97%B6%E9%97%B4%E8%BD%AE%E6%BA%90%E7%A0%81%E8%AF%A6%E8%A7%A3.md)
-- [JVM G1GC的算法与实现](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2021-03-16%20JVM%20G1GC%E7%9A%84%E7%AE%97%E6%B3%95%E4%B8%8E%E5%AE%9E%E7%8E%B0.md)
+- [JVM G1GC 的算法与实现](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2021-03-16%20JVM%20G1GC%E7%9A%84%E7%AE%97%E6%B3%95%E4%B8%8E%E5%AE%9E%E7%8E%B0.md)
 - [Java Lambda 表达式源码分析](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2021-08-18%20Java%20Lambda%20%E8%A1%A8%E8%BE%BE%E5%BC%8F%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90.md)
 
 ### 其他
@@ -129,7 +129,9 @@
 ## Switch 游戏
 
 - [塞尔达 荒野之息 游戏截图](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2020-11-08%20%E5%A1%9E%E5%B0%94%E8%BE%BE%20%E8%8D%92%E9%87%8E%E4%B9%8B%E6%81%AF%20%E6%B8%B8%E6%88%8F%E6%88%AA%E5%9B%BE.md)
-- [异度之刃 2 CG 截图](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2020-11-08%20%E5%BC%82%E5%BA%A6%E4%B9%8B%E5%88%832%20CG%E6%88%AA%E5%9B%BE.md)
+- [游戏-异度之刃 2 CG 截图](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2020-11-08%20%E5%BC%82%E5%BA%A6%E4%B9%8B%E5%88%832%20CG%E6%88%AA%E5%9B%BE.md)
+- [游戏-异度之刃 2 剧情解析（转载）](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2021-09-05%20%E5%BC%82%E5%BA%A6%E4%B9%8B%E5%88%832%20%E5%89%A7%E6%83%85%E8%A7%A3%E6%9E%90%EF%BC%88%E8%BD%AC%E8%BD%BD%EF%BC%89.md)
+- [游戏-异度之刃系列的个人向浅析（转载）](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2021-09-05%20%E5%BC%82%E5%BA%A6%E4%B9%8B%E5%88%83%E7%B3%BB%E5%88%97%E7%9A%84%E4%B8%AA%E4%BA%BA%E5%90%91%E6%B5%85%E6%9E%90%EF%BC%88%E8%BD%AC%E8%BD%BD%EF%BC%89.md)
 - [游戏-八方旅人-基础](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2021-01-13%20%E6%B8%B8%E6%88%8F-%E5%85%AB%E6%96%B9%E6%97%85%E4%BA%BA-%E5%9F%BA%E7%A1%80.md)
 - [游戏-八方旅人-故事简介](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2021-01-21%20%E6%B8%B8%E6%88%8F-%E5%85%AB%E6%96%B9%E6%97%85%E4%BA%BA-%E6%95%85%E4%BA%8B%E7%AE%80%E4%BB%8B.md)
 - [Switch SX OX 修改游戏数值](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2021-08-09%20Switch%20SX%20OX%20%E4%BF%AE%E6%94%B9%E6%B8%B8%E6%88%8F%E6%95%B0%E5%80%BC.md)
