@@ -114,6 +114,7 @@
 - [消息中间件](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2021-01-24%20%E6%B6%88%E6%81%AF%E4%B8%AD%E9%97%B4%E4%BB%B6.md)
 - [Linux 虚拟内存](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2021-03-21%20Linux%20%E8%99%9A%E6%8B%9F%E5%86%85%E5%AD%98.md)
 - [并查集](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2021-02-07%20%E5%B9%B6%E6%9F%A5%E9%9B%86.md)
+- [MySQL 面试：为什么B+树比B树更适合磁盘存储？](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2021-09-13%20MySQL%20%E9%9D%A2%E8%AF%95%EF%BC%9A%E4%B8%BA%E4%BB%80%E4%B9%88B%2B%E6%A0%91%E6%AF%94B%E6%A0%91%E6%9B%B4%E9%80%82%E5%90%88%E7%A3%81%E7%9B%98%E5%AD%98%E5%82%A8%EF%BC%9F.md)
 
 ## 读书笔记
 
@@ -136,6 +137,7 @@
 - [游戏-八方旅人-基础](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2021-01-13%20%E6%B8%B8%E6%88%8F-%E5%85%AB%E6%96%B9%E6%97%85%E4%BA%BA-%E5%9F%BA%E7%A1%80.md)
 - [游戏-八方旅人-故事简介](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2021-01-21%20%E6%B8%B8%E6%88%8F-%E5%85%AB%E6%96%B9%E6%97%85%E4%BA%BA-%E6%95%85%E4%BA%8B%E7%AE%80%E4%BB%8B.md)
 - [Switch SX OX 修改游戏数值](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2021-08-09%20Switch%20SX%20OX%20%E4%BF%AE%E6%94%B9%E6%B8%B8%E6%88%8F%E6%95%B0%E5%80%BC.md)
+- [游戏类型分类大全](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2021-09-13%20%E6%B8%B8%E6%88%8F%E7%B1%BB%E5%9E%8B%E5%88%86%E7%B1%BB%E5%A4%A7%E5%85%A8.md)
 
 # 我的博客
 
