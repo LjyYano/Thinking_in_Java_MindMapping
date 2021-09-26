@@ -11,6 +11,7 @@
   - [验证](#验证)
   - [结论](#结论)
 - [参考链接](#参考链接)
+- [GitHub 项目](#github-项目)
 
 # ClassLoader 简介
 
@@ -340,3 +341,9 @@ java: 通过 javax.lang.model.util.Elements.getTypeElement 在模块 'java.base,
 # 参考链接
 
 - [基础补完计划 – Java 类加载器 ( ClassLoader )](https://www.guildhab.top/2021/03/java%E5%9F%BA%E7%A1%80%E7%AC%94%E8%AE%B0-%E7%B1%BB%E5%8A%A0%E8%BD%BD%E5%99%A8-classloader/)
+
+# GitHub 项目
+
+[Java 编程思想-最全思维导图-GitHub 下载链接](https://github.com/LjyYano/Thinking_in_Java_MindMapping)，需要的小伙伴可以自取~
+
+原创不易，希望大家转载时请先联系我，并标注原文链接。
