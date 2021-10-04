@@ -116,6 +116,7 @@
 - [并查集](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2021-02-07%20%E5%B9%B6%E6%9F%A5%E9%9B%86.md)
 - [MySQL 面试：为什么B+树比B树更适合磁盘存储？](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2021-09-13%20MySQL%20%E9%9D%A2%E8%AF%95%EF%BC%9A%E4%B8%BA%E4%BB%80%E4%B9%88B%2B%E6%A0%91%E6%AF%94B%E6%A0%91%E6%9B%B4%E9%80%82%E5%90%88%E7%A3%81%E7%9B%98%E5%AD%98%E5%82%A8%EF%BC%9F.md)
 - [Linux mmap 技术](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2021-09-23%20Linux%20mmap%20%E6%8A%80%E6%9C%AF.md)
+- [字符编码](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2021-10-04%20%E5%AD%97%E7%AC%A6%E7%BC%96%E7%A0%81.md)
 
 ## 读书笔记
 
