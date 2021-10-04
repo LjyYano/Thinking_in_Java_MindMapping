@@ -70,6 +70,7 @@
 - [JDK 14 即将发布，你所要知道的都在这里！](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2020-01-07%20JDK%2014%E5%8D%B3%E5%B0%86%E5%8F%91%E5%B8%83%EF%BC%8C%E4%BD%A0%E6%89%80%E8%A6%81%E7%9F%A5%E9%81%93%E7%9A%84%E9%83%BD%E5%9C%A8%E8%BF%99%E9%87%8C%EF%BC%81.md)
 - [JDK 15 已发布，你所要知道的都在这里！](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2020-09-19%20JDK%2015%E5%B7%B2%E5%8F%91%E5%B8%83%EF%BC%8C%E4%BD%A0%E6%89%80%E8%A6%81%E7%9F%A5%E9%81%93%E7%9A%84%E9%83%BD%E5%9C%A8%E8%BF%99%E9%87%8C%EF%BC%81.md)
 - [Java 16 正式发布，新特性一一解析](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2021-03-21%20Java%2016%20%E6%AD%A3%E5%BC%8F%E5%8F%91%E5%B8%83%EF%BC%8C%E6%96%B0%E7%89%B9%E6%80%A7%E4%B8%80%E4%B8%80%E8%A7%A3%E6%9E%90.md)
+- [JDK 17 新特性解析](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2021-10-04%20JDK%2017%20%E6%96%B0%E7%89%B9%E6%80%A7%E8%A7%A3%E6%9E%90.md)
 
 ### Java 相关
 
