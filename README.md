@@ -18,7 +18,7 @@
 
 # 我的 2021 计划/执行
 
-[我的 2021 计划](https://paper-berry-bb9.notion.site/YANO-SPACE-ff42bde7acd1467eb3ae63dc0d4a9f8c)
+[我的 2021 计划](https://yano-nankai.notion.site/YANO-SPACE-ff42bde7acd1467eb3ae63dc0d4a9f8c)
 
 # 前言
 
