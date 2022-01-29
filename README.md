@@ -1,6 +1,6 @@
 
-- [我的 2021 计划/执行](#我的-2021-计划执行)
 - [前言](#前言)
+- [我的 2022 计划/执行](#我的-2022-计划执行)
 - [文章导航](#文章导航)
   - [生活 & 工作感悟](#生活--工作感悟)
     - [影视](#影视)
@@ -17,15 +17,15 @@
 - [我的博客](#我的博客)
 - [关于转载](#关于转载)
 
-# 我的 2021 计划/执行
-
-[我的 2021 计划](https://yano-nankai.notion.site/YANO-SPACE-ff42bde7acd1467eb3ae63dc0d4a9f8c)
-
 # 前言
 
 很早之前读《Java 编程思想》，用思维导图做笔记并将思维导图的截图放到了简书上，没想到期间有很多人留言要这份思维导图。最终创建了这个项目，但是又写入了很多文章，也许这个项目叫做 `Thinking_in_Java_MindMapping` 已经不合适了。
 
 编程笔记、博客、读书笔记、生活感悟、Switch 游戏都会写在这里，内容比较繁杂，随心写吧，贵在坚持 0_o
+
+# 我的 2022 计划/执行
+
+[我的 2022 计划](https://yano-nankai.notion.site/YANO-SPACE-ff42bde7acd1467eb3ae63dc0d4a9f8c)
 
 # 文章导航
 
@@ -35,6 +35,7 @@
 
 - [Yano 的 2019 观影总结](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2019-12-17%20Yano%E7%9A%842019%E8%A7%82%E5%BD%B1%E6%80%BB%E7%BB%93.md)
 - [Yano 的 2020 观影总结](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2020-12-28%20Yano%E7%9A%842020%E8%A7%82%E5%BD%B1%E6%80%BB%E7%BB%93.md)
+- [Yano 的 2021 观影总结](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2021-12-29%20Yano%E7%9A%842021%E8%A7%82%E5%BD%B1%E6%80%BB%E7%BB%93.md)
 
 ### 感悟
 
@@ -105,12 +106,16 @@
 - [GC progress from JDK 8 to JDK 17](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2021-12-06%20GC%20progress%20from%20JDK%208%20to%20JDK%2017.md)
 - [Java Features from Java 8 to Java 17](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2021-12-06%20Java%20Features%20from%20Java%208%20to%20Java%2017.md)
 - [Apache Log4j 远程代码执行漏洞源码级分析](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2021-12-12%20Apache%20Log4j%20%E8%BF%9C%E7%A8%8B%E4%BB%A3%E7%A0%81%E6%89%A7%E8%A1%8C%E6%BC%8F%E6%B4%9E%E6%BA%90%E7%A0%81%E7%BA%A7%E5%88%86%E6%9E%90.md)
+- [Spring Boot Native](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2021-12-19%20Spring%20Boot%20Native.md)
+- [A tentative comparison of fault tolerance libraries on the JVM](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2022-01-16%20A%20tentative%20comparison%20of%20fault%20tolerance%20libraries%20on%20the%20JVM.md)
+- [Tracing with Spring Boot, OpenTelemetry, and Jaeger](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2022-01-16%20Tracing%20with%20Spring%20Boot%2C%20OpenTelemetry%2C%20and%20Jaeger.md)
 
 ## Redis 源码简洁剖析
 
 - [Redis 源码简洁剖析 01 - 环境配置](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2021-11-17%20Redis%20%E6%BA%90%E7%A0%81%E7%AE%80%E6%B4%81%E5%89%96%E6%9E%90%2001%20-%20%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE.md)
 - [Redis 源码简洁剖析 02 - SDS 字符串](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2021-11-18%20Redis%20%E6%BA%90%E7%A0%81%E7%AE%80%E6%B4%81%E5%89%96%E6%9E%90%2002%20-%20SDS%20%E5%AD%97%E7%AC%A6%E4%B8%B2.md)
 - [Redis 源码简洁剖析 03 - Dict Hash 基础](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2021-12-03%20Redis%20%E6%BA%90%E7%A0%81%E7%AE%80%E6%B4%81%E5%89%96%E6%9E%90%2003%20-%20Dict%20Hash%20%E5%9F%BA%E7%A1%80.md)
+- [Redis 源码简洁剖析 04 - Sorted Set 有序集合](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2022-01-29%20Redis%20%E6%BA%90%E7%A0%81%E7%AE%80%E6%B4%81%E5%89%96%E6%9E%90%2004%20-%20Sorted%20Set%20%E6%9C%89%E5%BA%8F%E9%9B%86%E5%90%88.md)
 
 ### 其他
 
@@ -126,7 +131,7 @@
 - [消息中间件](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2021-01-24%20%E6%B6%88%E6%81%AF%E4%B8%AD%E9%97%B4%E4%BB%B6.md)
 - [Linux 虚拟内存](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2021-03-21%20Linux%20%E8%99%9A%E6%8B%9F%E5%86%85%E5%AD%98.md)
 - [并查集](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2021-02-07%20%E5%B9%B6%E6%9F%A5%E9%9B%86.md)
-- [MySQL 面试：为什么B+树比B树更适合磁盘存储？](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2021-09-13%20MySQL%20%E9%9D%A2%E8%AF%95%EF%BC%9A%E4%B8%BA%E4%BB%80%E4%B9%88B%2B%E6%A0%91%E6%AF%94B%E6%A0%91%E6%9B%B4%E9%80%82%E5%90%88%E7%A3%81%E7%9B%98%E5%AD%98%E5%82%A8%EF%BC%9F.md)
+- [MySQL 面试：为什么 B+树比 B 树更适合磁盘存储？](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2021-09-13%20MySQL%20%E9%9D%A2%E8%AF%95%EF%BC%9A%E4%B8%BA%E4%BB%80%E4%B9%88B%2B%E6%A0%91%E6%AF%94B%E6%A0%91%E6%9B%B4%E9%80%82%E5%90%88%E7%A3%81%E7%9B%98%E5%AD%98%E5%82%A8%EF%BC%9F.md)
 - [Linux mmap 技术](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2021-09-23%20Linux%20mmap%20%E6%8A%80%E6%9C%AF.md)
 - [字符编码](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2021-10-04%20%E5%AD%97%E7%AC%A6%E7%BC%96%E7%A0%81.md)
 - [OceanBase 企业级开源分布式数据库](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2021-11-17%20OceanBase%20%E4%BC%81%E4%B8%9A%E7%BA%A7%E5%BC%80%E6%BA%90%E5%88%86%E5%B8%83%E5%BC%8F%E6%95%B0%E6%8D%AE%E5%BA%93.md)
