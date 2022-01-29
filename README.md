@@ -2,10 +2,7 @@
 - [前言](#前言)
 - [我的 2022 计划/执行](#我的-2022-计划执行)
 - [文章导航](#文章导航)
-  - [生活 & 工作感悟](#生活--工作感悟)
-    - [影视](#影视)
-    - [感悟](#感悟)
-    - [随笔](#随笔)
+  - [影视](#影视)
   - [技术文章](#技术文章)
     - [思维导图系列](#思维导图系列)
     - [Java 新特性](#java-新特性)
@@ -29,29 +26,11 @@
 
 # 文章导航
 
-## 生活 & 工作感悟
-
-### 影视
+## 影视
 
 - [Yano 的 2019 观影总结](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2019-12-17%20Yano%E7%9A%842019%E8%A7%82%E5%BD%B1%E6%80%BB%E7%BB%93.md)
 - [Yano 的 2020 观影总结](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2020-12-28%20Yano%E7%9A%842020%E8%A7%82%E5%BD%B1%E6%80%BB%E7%BB%93.md)
 - [Yano 的 2021 观影总结](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2021-12-29%20Yano%E7%9A%842021%E8%A7%82%E5%BD%B1%E6%80%BB%E7%BB%93.md)
-
-### 感悟
-
-- [2016 年终总结——学生时代的结束、北漂生活的开始](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2017-01-01%202016%E5%B9%B4%E7%BB%88%E6%80%BB%E7%BB%93%E2%80%94%E2%80%94%E5%AD%A6%E7%94%9F%E6%97%B6%E4%BB%A3%E7%9A%84%E7%BB%93%E6%9D%9F%E3%80%81%E5%8C%97%E6%BC%82%E7%94%9F%E6%B4%BB%E7%9A%84%E5%BC%80%E5%A7%8B.md)
-- [2018-11-04 工作感悟](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2018-11-04%E5%B7%A5%E4%BD%9C%E6%84%9F%E6%82%9F.md)
-- [乐高积木感悟](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2019-06-03%E4%B9%90%E9%AB%98%E7%A7%AF%E6%9C%A8%E6%84%9F%E6%82%9F.md)
-
-### 随笔
-
-- [由工作中一次无奈的合作想到的](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2019-08-12%20%E7%94%B1%E5%B7%A5%E4%BD%9C%E4%B8%AD%E4%B8%80%E6%AC%A1%E6%97%A0%E5%A5%88%E7%9A%84%E5%90%88%E4%BD%9C%E6%83%B3%E5%88%B0%E7%9A%84.md)
-- [左耳朵耗子：技术人员的发展之路](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2020-03-02%20%E5%B7%A6%E8%80%B3%E6%9C%B5%E8%80%97%E5%AD%90%EF%BC%9A%E6%8A%80%E6%9C%AF%E4%BA%BA%E5%91%98%E7%9A%84%E5%8F%91%E5%B1%95%E4%B9%8B%E8%B7%AF.md)
-- [2020-08-03 随笔](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2020-08-03%20%E9%9A%8F%E7%AC%94.md)
-- [2020-11-11 生活、工作总结](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2020-11-11%20%E7%94%9F%E6%B4%BB%E3%80%81%E5%B7%A5%E4%BD%9C%E6%80%BB%E7%BB%93.md)
-- [乐高马里奥](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2020-11-24%20%E4%B9%90%E9%AB%98%E9%A9%AC%E9%87%8C%E5%A5%A5.md)
-- [印象笔记吐槽](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2021-06-20%20%E5%8D%B0%E8%B1%A1%E7%AC%94%E8%AE%B0%E5%90%90%E6%A7%BD.md)
-- [2021 随笔](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2021-08-13%202021%20%E9%9A%8F%E7%AC%94.md)
 
 ## 技术文章
 
