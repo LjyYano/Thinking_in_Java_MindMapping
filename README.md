@@ -7,7 +7,7 @@
     - [思维导图系列](#思维导图系列)
     - [Java 新特性](#java-新特性)
     - [Java 相关](#java-相关)
-  - [Redis 源码简洁剖析](#redis-源码简洁剖析)
+    - [Redis 源码简洁剖析](#redis-源码简洁剖析)
     - [其他](#其他)
   - [读书笔记](#读书笔记)
   - [Switch 游戏](#switch-游戏)
@@ -89,7 +89,7 @@
 - [A tentative comparison of fault tolerance libraries on the JVM](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2022-01-16%20A%20tentative%20comparison%20of%20fault%20tolerance%20libraries%20on%20the%20JVM.md)
 - [Tracing with Spring Boot, OpenTelemetry, and Jaeger](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2022-01-16%20Tracing%20with%20Spring%20Boot%2C%20OpenTelemetry%2C%20and%20Jaeger.md)
 
-## Redis 源码简洁剖析
+### Redis 源码简洁剖析
 
 - [Redis 源码简洁剖析 01 - 环境配置](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2021-11-17%20Redis%20%E6%BA%90%E7%A0%81%E7%AE%80%E6%B4%81%E5%89%96%E6%9E%90%2001%20-%20%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE.md)
 - [Redis 源码简洁剖析 02 - SDS 字符串](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2021-11-18%20Redis%20%E6%BA%90%E7%A0%81%E7%AE%80%E6%B4%81%E5%89%96%E6%9E%90%2002%20-%20SDS%20%E5%AD%97%E7%AC%A6%E4%B8%B2.md)
