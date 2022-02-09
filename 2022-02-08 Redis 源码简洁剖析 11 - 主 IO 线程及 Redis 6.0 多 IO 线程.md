@@ -1,4 +1,16 @@
 
+- [Redis 到底是不是单线程的程序？](#redis-%E5%88%B0%E5%BA%95%E6%98%AF%E4%B8%8D%E6%98%AF%E5%8D%95%E7%BA%BF%E7%A8%8B%E7%9A%84%E7%A8%8B%E5%BA%8F)
+- [多 IO 线程的初始化](#%E5%A4%9A-io-%E7%BA%BF%E7%A8%8B%E7%9A%84%E5%88%9D%E5%A7%8B%E5%8C%96)
+- [IO 线程运行函数 IOThreadMain](#io-%E7%BA%BF%E7%A8%8B%E8%BF%90%E8%A1%8C%E5%87%BD%E6%95%B0-iothreadmain)
+    - [如何推迟客户端「读」操作？](#%E5%A6%82%E4%BD%95%E6%8E%A8%E8%BF%9F%E5%AE%A2%E6%88%B7%E7%AB%AF%E8%AF%BB%E6%93%8D%E4%BD%9C)
+    - [如何推迟客户端「写」操作？](#%E5%A6%82%E4%BD%95%E6%8E%A8%E8%BF%9F%E5%AE%A2%E6%88%B7%E7%AB%AF%E5%86%99%E6%93%8D%E4%BD%9C)
+    - [如何把待「读」客户端分配给 IO 线程执行？](#%E5%A6%82%E4%BD%95%E6%8A%8A%E5%BE%85%E8%AF%BB%E5%AE%A2%E6%88%B7%E7%AB%AF%E5%88%86%E9%85%8D%E7%BB%99-io-%E7%BA%BF%E7%A8%8B%E6%89%A7%E8%A1%8C)
+    - [如何把待「写」客户端分配给 IO 线程执行？](#%E5%A6%82%E4%BD%95%E6%8A%8A%E5%BE%85%E5%86%99%E5%AE%A2%E6%88%B7%E7%AB%AF%E5%88%86%E9%85%8D%E7%BB%99-io-%E7%BA%BF%E7%A8%8B%E6%89%A7%E8%A1%8C)
+- [总结](#%E6%80%BB%E7%BB%93)
+- [参考链接](#%E5%8F%82%E8%80%83%E9%93%BE%E6%8E%A5)
+- [Redis 源码简洁剖析系列](#redis-%E6%BA%90%E7%A0%81%E7%AE%80%E6%B4%81%E5%89%96%E6%9E%90%E7%B3%BB%E5%88%97)
+
+
 # Redis 到底是不是单线程的程序？
 
 Redis 只有在处理「客户端请求」时，是单线程的；整个 Redis server 不是单线程的，还有后台线程在辅助处理任务。
