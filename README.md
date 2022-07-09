@@ -44,6 +44,7 @@
 - [思维导图学《JVM 虚拟机规范》](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2020-09-21%20%E6%80%9D%E7%BB%B4%E5%AF%BC%E5%9B%BE%E5%AD%A6%E3%80%8AJVM%20%E8%99%9A%E6%8B%9F%E6%9C%BA%E8%A7%84%E8%8C%83%E3%80%8B.md)
 - [思维导图学《Java 性能权威指南》](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2021-04-12%20%E6%80%9D%E7%BB%B4%E5%AF%BC%E5%9B%BE%E5%AD%A6%E3%80%8AJava%E6%80%A7%E8%83%BD%E6%9D%83%E5%A8%81%E6%8C%87%E5%8D%97%E3%80%8B.md)
 - [思维导图学 HTTP](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2021-04-22%20%E6%80%9D%E7%BB%B4%E5%AF%BC%E5%9B%BE%E5%AD%A6%20HTTP.md)
+- [一个思维导图，带你深入理解 Linux 网络](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2022-07-09%20%E4%B8%80%E4%B8%AA%E6%80%9D%E7%BB%B4%E5%AF%BC%E5%9B%BE%EF%BC%8C%E5%B8%A6%E4%BD%A0%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3%20Linux%20%E7%BD%91%E7%BB%9C.md)
 
 ### Java 新特性
 
@@ -108,6 +109,8 @@
 - [Redis 源码简洁剖析 15 - AOF](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2022-02-15%20Redis%20%E6%BA%90%E7%A0%81%E7%AE%80%E6%B4%81%E5%89%96%E6%9E%90%2015%20-%20AOF.md)
 - [Redis 源码简洁剖析 16 - 客户端](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2022-02-20%20Redis%20%E6%BA%90%E7%A0%81%E7%AE%80%E6%B4%81%E5%89%96%E6%9E%90%2016%20-%20%E5%AE%A2%E6%88%B7%E7%AB%AF.md)
 - [Redis 源码简洁剖析 17 - 服务器](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2022-02-21%20Redis%20%E6%BA%90%E7%A0%81%E7%AE%80%E6%B4%81%E5%89%96%E6%9E%90%2017%20-%20%E6%9C%8D%E5%8A%A1%E5%99%A8.md)
+- [Redis 源码简洁剖析 18 - 复制、哨兵 Sentinel](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2022-02-26%20Redis%20%E6%BA%90%E7%A0%81%E7%AE%80%E6%B4%81%E5%89%96%E6%9E%90%2018%20-%20%E5%A4%8D%E5%88%B6%E3%80%81%E5%93%A8%E5%85%B5%20Sentinel.md)
+- [Redis 7.0](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2022-06-04%20Redis%207.0.md)
 
 ### 其他
 
@@ -127,6 +130,7 @@
 - [Linux mmap 技术](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2021-09-23%20Linux%20mmap%20%E6%8A%80%E6%9C%AF.md)
 - [字符编码](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2021-10-04%20%E5%AD%97%E7%AC%A6%E7%BC%96%E7%A0%81.md)
 - [OceanBase 企业级开源分布式数据库](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2021-11-17%20OceanBase%20%E4%BC%81%E4%B8%9A%E7%BA%A7%E5%BC%80%E6%BA%90%E5%88%86%E5%B8%83%E5%BC%8F%E6%95%B0%E6%8D%AE%E5%BA%93.md)
+- [一个思维导图，带你深入理解 Linux 网络](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2022-07-09%20%E4%B8%80%E4%B8%AA%E6%80%9D%E7%BB%B4%E5%AF%BC%E5%9B%BE%EF%BC%8C%E5%B8%A6%E4%BD%A0%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3%20Linux%20%E7%BD%91%E7%BB%9C.md)
 
 ## 读书笔记
 
@@ -139,6 +143,8 @@
 - [《十三邀 1-我还是更喜欢失败者》读书笔记](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2021-07-09%20%E3%80%8A%E5%8D%81%E4%B8%89%E9%82%801-%E6%88%91%E8%BF%98%E6%98%AF%E6%9B%B4%E5%96%9C%E6%AC%A2%E5%A4%B1%E8%B4%A5%E8%80%85%E3%80%8B%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0.md)
 - [《量化健身-原理解析》](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2021-03-02%20%E3%80%8A%E9%87%8F%E5%8C%96%E5%81%A5%E8%BA%AB-%E5%8E%9F%E7%90%86%E8%A7%A3%E6%9E%90%E3%80%8B.md)
 - [《学会提问：批判性思维入门》](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2021-03-17%20%E3%80%8A%E5%AD%A6%E4%BC%9A%E6%8F%90%E9%97%AE%EF%BC%9A%E6%89%B9%E5%88%A4%E6%80%A7%E6%80%9D%E7%BB%B4%E5%85%A5%E9%97%A8%E3%80%8B.md)
+- [《如何阅读一本书》摘抄](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2022-06-26%20%E3%80%8A%E5%A6%82%E4%BD%95%E9%98%85%E8%AF%BB%E4%B8%80%E6%9C%AC%E4%B9%A6%E3%80%8B%E6%91%98%E6%8A%84.md)
+- [《毛泽东传》摘抄](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2022-06-26%E3%80%8A%E6%AF%9B%E6%B3%BD%E4%B8%9C%E4%BC%A0%E3%80%8B%E6%91%98%E6%8A%84.md)
 
 ## Switch 游戏
 
