@@ -1,3 +1,4 @@
+
 - [复制](#%E5%A4%8D%E5%88%B6)
     - [什么是复制](#%E4%BB%80%E4%B9%88%E6%98%AF%E5%A4%8D%E5%88%B6)
     - [为什么需要复制](#%E4%B8%BA%E4%BB%80%E4%B9%88%E9%9C%80%E8%A6%81%E5%A4%8D%E5%88%B6)
@@ -11,6 +12,7 @@
     - [Sentinel 系统选举](#sentinel-%E7%B3%BB%E7%BB%9F%E9%80%89%E4%B8%BE)
 - [参考链接](#%E5%8F%82%E8%80%83%E9%93%BE%E6%8E%A5)
 - [Redis 源码简洁剖析系列](#redis-%E6%BA%90%E7%A0%81%E7%AE%80%E6%B4%81%E5%89%96%E6%9E%90%E7%B3%BB%E5%88%97)
+- [我的公众号](#%E6%88%91%E7%9A%84%E5%85%AC%E4%BC%97%E5%8F%B7)
 
 # 复制
 
@@ -102,3 +104,9 @@ Sentinel 系统选举领头 Sentinel 的方法是 `Raft` 算法。
 [Java 编程思想-最全思维导图-GitHub 下载链接](https://github.com/LjyYano/Thinking_in_Java_MindMapping)，需要的小伙伴可以自取~
 
 原创不易，希望大家转载时请先联系我，并标注原文链接。
+
+# 我的公众号
+
+coding 笔记、读书笔记、点滴记录，以后的文章也会同步到公众号（Coding Insight）中，希望大家关注^_^
+
+![](http://yano.oss-cn-beijing.aliyuncs.com/2019-07-29-qrcode_for_gh_a26ce4572791_258.jpg)

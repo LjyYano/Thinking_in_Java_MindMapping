@@ -537,3 +537,9 @@ IO 线程创建之后，会一直检测 `io_threads_list` 列表，如果有待�
 [Java 编程思想-最全思维导图-GitHub 下载链接](https://github.com/LjyYano/Thinking_in_Java_MindMapping)，需要的小伙伴可以自取~
 
 原创不易，希望大家转载时请先联系我，并标注原文链接。
+
+# 我的公众号
+
+coding 笔记、读书笔记、点滴记录，以后的文章也会同步到公众号（Coding Insight）中，希望大家关注^_^
+
+![](http://yano.oss-cn-beijing.aliyuncs.com/2019-07-29-qrcode_for_gh_a26ce4572791_258.jpg)
