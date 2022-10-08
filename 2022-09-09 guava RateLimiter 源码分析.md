@@ -12,6 +12,7 @@
     - [创建](#创建)
     - [获取令牌](#获取令牌)
 - [参考链接](#参考链接)
+- [我的公众号](#我的公众号)
 
 <!-- /TOC -->
 
@@ -176,7 +177,6 @@ checkArgument(
 synchronized (mutex()) {
     doSetRate(permitsPerSecond, stopwatch.readMicros());
 }
-}
 ```
 
 在 setRate 时需要对实例对象加锁，调用了 mutex() 方法。
@@ -192,7 +192,6 @@ if (mutex == null) {
     mutex = mutexDoNotUseDirectly;
     if (mutex == null) {
         mutexDoNotUseDirectly = mutex = new Object();
-    }
     }
 }
 return mutex;
@@ -319,3 +318,9 @@ abstract long queryEarliestAvailable(long nowMicros);
 # 参考链接
 
 - [谷歌 Guava 限流工具 RateLimiter](https://zhuanlan.zhihu.com/p/205266820)
+
+# 我的公众号
+
+coding 笔记、读书笔记、点滴记录，以后的文章也会同步到公众号（Coding Insight）中，希望大家关注^_^
+
+![](http://yano.oss-cn-beijing.aliyuncs.com/2019-07-29-qrcode_for_gh_a26ce4572791_258.jpg)
