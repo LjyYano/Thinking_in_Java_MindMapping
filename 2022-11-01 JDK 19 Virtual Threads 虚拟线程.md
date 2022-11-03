@@ -1,4 +1,22 @@
 
+- [前言](#前言)
+- [Project Loom](#project-loom)
+  - [Loom 是什么？](#loom-是什么)
+  - [为什么要引入 Loom？](#为什么要引入-loom)
+- [Virtual threads](#virtual-threads)
+  - [Platform thread 是什么？](#platform-thread-是什么)
+  - [Virtual thread 是什么？](#virtual-thread-是什么)
+  - [Virtual thread 的好处？](#virtual-thread-的好处)
+  - [使用 virtual thread](#使用-virtual-thread)
+    - [使用 Thread.Builder 创建 virtual thread](#使用-threadbuilder-创建-virtual-thread)
+    - [使用 Executors.newVirtualThreadPerTaskExecutor() 创建 virtual thread](#使用-executorsnewvirtualthreadpertaskexecutor-创建-virtual-thread)
+    - [调度 virtual thread](#调度-virtual-thread)
+- [补充说明](#补充说明)
+  - [JDK 19 使用说明](#jdk-19-使用说明)
+  - [JVM 源码分析](#jvm-源码分析)
+- [参考链接](#参考链接)
+- [我的公众号](#我的公众号)
+
 # 前言
 
 JDK 19 支持了`virtual thread`（虚拟线程）：[JEP 425: Virtual Threads (Preview)](https://openjdk.org/jeps/425)，虚拟线程是 [Loom](https://cr.openjdk.java.net/~rpressler/loom/Loom-Proposal.html) 项目中的一个重要特性。
