@@ -15,6 +15,7 @@
   - [JDK 19 使用说明](#jdk-19-使用说明)
   - [JVM 源码分析](#jvm-源码分析)
 - [参考链接](#参考链接)
+- [GitHub 项目](#github-项目)
 - [我的公众号](#我的公众号)
 
 # 前言
@@ -200,6 +201,12 @@ static JNINativeMethod methods[] = {
 # 参考链接
 
 - [Oracle Core Libraries 12 Virtual Threads](https://docs.oracle.com/en/java/javase/19/core/virtual-threads.html#GUID-DC4306FC-D6C1-4BCC-AECE-48C32C1A8DAA)
+
+# GitHub 项目
+
+[Java 编程思想-最全思维导图-GitHub 下载链接](https://github.com/LjyYano/Thinking_in_Java_MindMapping)，需要的小伙伴可以自取~
+
+原创不易，希望大家转载时请先联系我，并标注原文链接。
 
 # 我的公众号
 
