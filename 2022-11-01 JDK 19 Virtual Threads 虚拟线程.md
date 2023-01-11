@@ -72,9 +72,9 @@ Virtual thread 适合使用在高吞吐量的并发应用程序中，尤其是�
 
 下面的代码需要使用 JDK 19，可以直接在 IDEA 中下载：
 
-![](http://yano.oss-cn-beijing.aliyuncs.com/blog/2022-11-02-17-53-38.png)
+![](http://yano.oss-cn-beijing.aliyuncs.com/blog/2022-11-02-17-53-38.png?x-oss-process=image/resize,h_600)
 
-![](http://yano.oss-cn-beijing.aliyuncs.com/blog/2022-11-02-17-54-16.png)
+![](http://yano.oss-cn-beijing.aliyuncs.com/blog/2022-11-02-17-54-16.png?x-oss-process=image/resize,h_600)
 
 ### 使用 Thread.Builder 创建 virtual thread
 
@@ -151,9 +151,9 @@ Virtual thread 也能固定到 platform thread 上，此时在阻塞操作期间
 - IDEA 需要升级到最新版（2022.2.3），因为最新版才包含 JDK 19 的语言特性
 - 在 Project Structure 中将 Language Level 设置为 `19 (Preview)`
 
-![](http://yano.oss-cn-beijing.aliyuncs.com/blog/2022-11-03-11-52-54.png)
+![](http://yano.oss-cn-beijing.aliyuncs.com/blog/2022-11-03-11-52-54.png?x-oss-process=image/resize,h_600)
 
-![](http://yano.oss-cn-beijing.aliyuncs.com/blog/2022-11-03-11-53-18.png)
+![](http://yano.oss-cn-beijing.aliyuncs.com/blog/2022-11-03-11-53-18.png?x-oss-process=image/resize,h_600)
 
 ## JVM 源码分析
 
@@ -161,11 +161,11 @@ Virtual thread 也能固定到 platform thread 上，此时在阻塞操作期间
 
 JDK 源码在这里：[https://github.com/openjdk/jdk](https://github.com/openjdk/jdk)，里面有每个 JDK 版本的源码。
 
-![](http://yano.oss-cn-beijing.aliyuncs.com/blog/2022-11-03-11-58-27.png)
+![](http://yano.oss-cn-beijing.aliyuncs.com/blog/2022-11-03-11-58-27.png?x-oss-process=image/resize,h_600)
 
 我们可以直接在里面搜索文件，响应速度还可以。
 
-![](http://yano.oss-cn-beijing.aliyuncs.com/blog/2022-11-03-11-59-08.png)
+![](http://yano.oss-cn-beijing.aliyuncs.com/blog/2022-11-03-11-59-08.png?x-oss-process=image/resize,h_600)
 
 比如想查看 Thread.c 源码，直接在网页上就能查看（除了跳转功能）：
 
@@ -191,7 +191,7 @@ static JNINativeMethod methods[] = {
 };
 ```
 
-![](http://yano.oss-cn-beijing.aliyuncs.com/blog/2022-11-03-19-43-13.png)
+![](http://yano.oss-cn-beijing.aliyuncs.com/blog/2022-11-03-19-43-13.png?x-oss-process=image/resize,h_600)
 
 扩展阅读：
 - [如何阅读 JVM 源码](https://developer.aliyun.com/article/935147)
