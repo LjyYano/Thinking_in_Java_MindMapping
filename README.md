@@ -8,6 +8,7 @@
     - [Java 新特性](#java-新特性)
     - [Java 相关](#java-相关)
     - [Redis 源码简洁剖析](#redis-源码简洁剖析)
+    - [RocketMQ 源码分析系列](#rocketmq-源码分析系列)
     - [其他](#其他)
   - [读书笔记](#读书笔记)
   - [Switch 游戏](#switch-游戏)
@@ -32,6 +33,7 @@
 - [Yano 的 2019 观影总结](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2019-12-17%20Yano%E7%9A%842019%E8%A7%82%E5%BD%B1%E6%80%BB%E7%BB%93.md)
 - [Yano 的 2020 观影总结](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2020-12-28%20Yano%E7%9A%842020%E8%A7%82%E5%BD%B1%E6%80%BB%E7%BB%93.md)
 - [Yano 的 2021 观影总结](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2021-12-29%20Yano%E7%9A%842021%E8%A7%82%E5%BD%B1%E6%80%BB%E7%BB%93.md)
+- [Yano 的 2022 观影总结](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2022-12-31%20Yano%E7%9A%842022%E8%A7%82%E5%BD%B1%E6%80%BB%E7%BB%93.md)
 
 ## 技术文章
 
@@ -92,6 +94,7 @@
 - [A tentative comparison of fault tolerance libraries on the JVM](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2022-01-16%20A%20tentative%20comparison%20of%20fault%20tolerance%20libraries%20on%20the%20JVM.md)
 - [Tracing with Spring Boot, OpenTelemetry, and Jaeger](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2022-01-16%20Tracing%20with%20Spring%20Boot%2C%20OpenTelemetry%2C%20and%20Jaeger.md)
 - [guava RateLimiter 源码分析](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2022-09-09%20guava%20RateLimiter%20%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90.md)
+- [JDK 19 Virtual Threads 虚拟线程](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2022-11-01%20JDK%2019%20Virtual%20Threads%20%E8%99%9A%E6%8B%9F%E7%BA%BF%E7%A8%8B.md)
 
 ### Redis 源码简洁剖析
 
@@ -114,6 +117,10 @@
 - [Redis 源码简洁剖析 17 - 服务器](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2022-02-21%20Redis%20%E6%BA%90%E7%A0%81%E7%AE%80%E6%B4%81%E5%89%96%E6%9E%90%2017%20-%20%E6%9C%8D%E5%8A%A1%E5%99%A8.md)
 - [Redis 源码简洁剖析 18 - 复制、哨兵 Sentinel](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2022-02-26%20Redis%20%E6%BA%90%E7%A0%81%E7%AE%80%E6%B4%81%E5%89%96%E6%9E%90%2018%20-%20%E5%A4%8D%E5%88%B6%E3%80%81%E5%93%A8%E5%85%B5%20Sentinel.md)
 - [Redis 7.0](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2022-06-04%20Redis%207.0.md)
+
+### RocketMQ 源码分析系列
+
+- [RocketMQ 源码分析系列 00 - 消息发送和消息接收 Hello world](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2022-11-30%20RocketMQ%20%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90%E7%B3%BB%E5%88%97%2000%20-%20%E6%B6%88%E6%81%AF%E5%8F%91%E9%80%81%E5%92%8C%E6%B6%88%E6%81%AF%E6%8E%A5%E6%94%B6%20Hello%20world.md)
 
 ### 其他
 
@@ -160,6 +167,7 @@
 - [游戏-八方旅人-故事简介](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2021-01-21%20%E6%B8%B8%E6%88%8F-%E5%85%AB%E6%96%B9%E6%97%85%E4%BA%BA-%E6%95%85%E4%BA%8B%E7%AE%80%E4%BB%8B.md)
 - [Switch SX OX 修改游戏数值](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2021-08-09%20Switch%20SX%20OX%20%E4%BF%AE%E6%94%B9%E6%B8%B8%E6%88%8F%E6%95%B0%E5%80%BC.md)
 - [游戏类型分类大全](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2021-09-13%20%E6%B8%B8%E6%88%8F%E7%B1%BB%E5%9E%8B%E5%88%86%E7%B1%BB%E5%A4%A7%E5%85%A8.md)
+- [异度神剑系列 | 异度神剑 3 | 异度之刃 3 剧情梳理解析](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2022-11-25%20%E5%BC%82%E5%BA%A6%E7%A5%9E%E5%89%91%E7%B3%BB%E5%88%97%20%7C%20%E5%BC%82%E5%BA%A6%E7%A5%9E%E5%89%91%203%20%7C%20%E5%BC%82%E5%BA%A6%E4%B9%8B%E5%88%83%203%20%E5%89%A7%E6%83%85%E6%A2%B3%E7%90%86%E8%A7%A3%E6%9E%90.md)
 
 # 我的博客
 
