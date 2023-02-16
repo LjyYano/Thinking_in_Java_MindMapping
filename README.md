@@ -91,8 +91,6 @@
 - [Java Features from Java 8 to Java 17](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2021-12-06%20Java%20Features%20from%20Java%208%20to%20Java%2017.md)
 - [Apache Log4j 远程代码执行漏洞源码级分析](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2021-12-12%20Apache%20Log4j%20%E8%BF%9C%E7%A8%8B%E4%BB%A3%E7%A0%81%E6%89%A7%E8%A1%8C%E6%BC%8F%E6%B4%9E%E6%BA%90%E7%A0%81%E7%BA%A7%E5%88%86%E6%9E%90.md)
 - [Spring Boot Native](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2021-12-19%20Spring%20Boot%20Native.md)
-- [A tentative comparison of fault tolerance libraries on the JVM](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2022-01-16%20A%20tentative%20comparison%20of%20fault%20tolerance%20libraries%20on%20the%20JVM.md)
-- [Tracing with Spring Boot, OpenTelemetry, and Jaeger](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2022-01-16%20Tracing%20with%20Spring%20Boot%2C%20OpenTelemetry%2C%20and%20Jaeger.md)
 - [guava RateLimiter 源码分析](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2022-09-09%20guava%20RateLimiter%20%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90.md)
 - [JDK 19 Virtual Threads 虚拟线程](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2022-11-01%20JDK%2019%20Virtual%20Threads%20%E8%99%9A%E6%8B%9F%E7%BA%BF%E7%A8%8B.md)
 
