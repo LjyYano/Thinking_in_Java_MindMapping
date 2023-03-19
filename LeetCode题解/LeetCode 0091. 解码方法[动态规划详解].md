@@ -1,15 +1,16 @@
+# LeetCode 0091. 解码方法\[动态规划详解]
 
-- [题目描述](#题目描述)
-- [解题思路](#解题思路)
-- [代码](#代码)
-- [复杂度分析](#复杂度分析)
-- [GitHub LeetCode 项目](#github-leetcode-项目)
+* [题目描述](<LeetCode 0091. 解码方法\[动态规划详解].md#题目描述>)
+* [解题思路](<LeetCode 0091. 解码方法\[动态规划详解].md#解题思路>)
+* [代码](<LeetCode 0091. 解码方法\[动态规划详解].md#代码>)
+* [复杂度分析](<LeetCode 0091. 解码方法\[动态规划详解].md#复杂度分析>)
+* [GitHub LeetCode 项目](<LeetCode 0091. 解码方法\[动态规划详解].md#github-leetcode-项目>)
 
-# 题目描述
+## 题目描述
 
 [题目链接](https://leetcode-cn.com/problems/decode-ways/)
 
-一条包含字母 A-Z 的消息通过以下映射进行了 编码 ：
+一条包含字母 A-Z 的消息通过以下映射进行了 编码 ：
 
 ```
 
@@ -26,7 +27,7 @@
 
 题目数据保证答案肯定是一个 32 位 的整数。
 
- 
+&#x20;
 
 示例 1：
 
@@ -68,17 +69,19 @@
 
 ```
 
-# 解题思路
+## 解题思路
 
-这个和爬楼梯是一个类型，爬楼梯是可以爬一个台阶，也可以爬两个台阶，没有限制。但是这道题是有限制的，假设当前位置是 i，则 
-- s[i] 不是 0，才能走到下一步；
-- s[i, i + 1] >= 10 && s[i, i + 1] <= 26，才能走两步。
+这个和爬楼梯是一个类型，爬楼梯是可以爬一个台阶，也可以爬两个台阶，没有限制。但是这道题是有限制的，假设当前位置是 i，则
 
-定义 dp[i] 为到第 i 个字符的解码方法总数，则：
-- s[i - 1] != 0，则 dp[i] += dp[i - 1]
-- s[i-2, i-1] >= 10 && s[i-2, i-1] <= 26，则 dp[i] += dp[i - 2]
+* s\[i] 不是 0，才能走到下一步；
+* s\[i, i + 1] >= 10 && s\[i, i + 1] <= 26，才能走两步。
 
-# 代码
+定义 dp\[i] 为到第 i 个字符的解码方法总数，则：
+
+* s\[i - 1] != 0，则 dp\[i] += dp\[i - 1]
+* s\[i-2, i-1] >= 10 && s\[i-2, i-1] <= 26，则 dp\[i] += dp\[i - 2]
+
+## 代码
 
 ```java
 class Solution {
@@ -101,13 +104,13 @@ class Solution {
 }
 ```
 
-# 复杂度分析
+## 复杂度分析
 
-- 时间复杂度：O(n)
-- 空间复杂度：O(n)
+* 时间复杂度：O(n)
+* 空间复杂度：O(n)
 
-# GitHub LeetCode 项目
+## GitHub LeetCode 项目
 
 项目 [GitHub LeetCode 全解](https://github.com/LjyYano/LeetCode)，欢迎大家 star、fork、merge，共同打造最全 LeetCode 题解！
 
-[Java 编程思想-最全思维导图-GitHub 下载链接](https://github.com/LjyYano/Thinking_in_Java_MindMapping)，需要的小伙伴可以自取~！！！
+[Java 编程思想-最全思维导图-GitHub 下载链接](https://github.com/LjyYano/Thinking\_in\_Java\_MindMapping)，需要的小伙伴可以自取\~！！！

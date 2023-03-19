@@ -1,25 +1,28 @@
+# LeetCode 0072. 编辑距离\[动态规划详解]
 
-- [题目描述](#题目描述)
-- [解题思路](#解题思路)
-- [代码](#代码)
-- [复杂度分析](#复杂度分析)
-- [GitHub LeetCode 项目](#github-leetcode-项目)
+* [题目描述](<LeetCode 0072. 编辑距离\[动态规划详解].md#题目描述>)
+* [解题思路](<LeetCode 0072. 编辑距离\[动态规划详解].md#解题思路>)
+* [代码](<LeetCode 0072. 编辑距离\[动态规划详解].md#代码>)
+* [复杂度分析](<LeetCode 0072. 编辑距离\[动态规划详解].md#复杂度分析>)
+* [GitHub LeetCode 项目](<LeetCode 0072. 编辑距离\[动态规划详解].md#github-leetcode-项目>)
 
-# 题目描述
+## 题目描述
 
 [题目链接](https://leetcode-cn.com/problems/edit-distance/)
 
-给你两个单词 word1 和 word2，请你计算出将 word1 转换成 word2 所使用的最少操作数 。
+给你两个单词 word1 和 word2，请你计算出将 word1 转换成 word2 所使用的最少操作数 。
 
 你可以对一个单词进行如下三种操作：
 
-	插入一个字符
-	删除一个字符
-	替换一个字符
+```
+插入一个字符
+删除一个字符
+替换一个字符
+```
 
- 
+&#x20;
 
-示例 1：
+示例 1：
 
 ```
 
@@ -32,7 +35,7 @@ rose -> ros （删除 'e')
 
 ```
 
-示例 2：
+示例 2：
 
 ```
 
@@ -47,16 +50,17 @@ exection -> execution （插入 'u')
 
 ```
 
-# 解题思路
+## 解题思路
 
-定义 dp[i][j] 为 w1[0:i] 和 w2[0:j] 的编辑距离，则分为两种情况：
-- w1[i] == w2[j]，则这个字符不用编辑，dp[i][j] = dp[i-1][j-1]
-- w1[i] != w2[j]，则有三种情况：
-  - 删除 w1[i]，则 dp[i][j] = dp[i-1][j] + 1
-  - 删除 w2[j]，则 dp[i][j] = dp[i][j-1] + 1
-  - 更改字符 w1[i] 或 w2[j]，则 dp[i][j] = dp[i-1][j-1] + 1
+定义 dp\[i]\[j] 为 w1\[0:i] 和 w2\[0:j] 的编辑距离，则分为两种情况：
 
-# 代码
+* w1\[i] == w2\[j]，则这个字符不用编辑，dp\[i]\[j] = dp\[i-1]\[j-1]
+* w1\[i] != w2\[j]，则有三种情况：
+  * 删除 w1\[i]，则 dp\[i]\[j] = dp\[i-1]\[j] + 1
+  * 删除 w2\[j]，则 dp\[i]\[j] = dp\[i]\[j-1] + 1
+  * 更改字符 w1\[i] 或 w2\[j]，则 dp\[i]\[j] = dp\[i-1]\[j-1] + 1
+
+## 代码
 
 ```java
 class Solution {
@@ -85,13 +89,13 @@ class Solution {
 }
 ```
 
-# 复杂度分析
+## 复杂度分析
 
-- 时间复杂度：w1 的长度是 m，w2 的长度是 n，则复杂度是 O(m*n)
-- 空间复杂度：O(m*n)
+* 时间复杂度：w1 的长度是 m，w2 的长度是 n，则复杂度是 O(m\*n)
+* 空间复杂度：O(m\*n)
 
-# GitHub LeetCode 项目
+## GitHub LeetCode 项目
 
 项目 [GitHub LeetCode 全解](https://github.com/LjyYano/LeetCode)，欢迎大家 star、fork、merge，共同打造最全 LeetCode 题解！
 
-[Java 编程思想-最全思维导图-GitHub 下载链接](https://github.com/LjyYano/Thinking_in_Java_MindMapping)，需要的小伙伴可以自取~！！！
+[Java 编程思想-最全思维导图-GitHub 下载链接](https://github.com/LjyYano/Thinking\_in\_Java\_MindMapping)，需要的小伙伴可以自取\~！！！

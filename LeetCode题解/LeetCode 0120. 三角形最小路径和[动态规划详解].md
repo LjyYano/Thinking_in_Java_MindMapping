@@ -1,11 +1,12 @@
+# LeetCode 0120. 三角形最小路径和\[动态规划详解]
 
-- [题目描述](#题目描述)
-- [解题思路](#解题思路)
-- [代码](#代码)
-- [复杂度分析](#复杂度分析)
-- [GitHub LeetCode 项目](#github-leetcode-项目)
+* [题目描述](<LeetCode 0120. 三角形最小路径和\[动态规划详解].md#题目描述>)
+* [解题思路](<LeetCode 0120. 三角形最小路径和\[动态规划详解].md#解题思路>)
+* [代码](<LeetCode 0120. 三角形最小路径和\[动态规划详解].md#代码>)
+* [复杂度分析](<LeetCode 0120. 三角形最小路径和\[动态规划详解].md#复杂度分析>)
+* [GitHub LeetCode 项目](<LeetCode 0120. 三角形最小路径和\[动态规划详解].md#github-leetcode-项目>)
 
-# 题目描述
+## 题目描述
 
 [题目链接](https://leetcode-cn.com/problems/triangle/)
 
@@ -13,7 +14,7 @@
 
 每一步只能移动到下一行中相邻的结点上。相邻的结点 在这里指的是 下标 与 上一层结点下标 相同或者等于 上一层结点下标 + 1 的两个结点。也就是说，如果正位于当前行的下标 i ，那么下一步可以移动到下一行的下标 i 或 i + 1 。
 
- 
+&#x20;
 
 示例 1：
 
@@ -41,13 +42,15 @@
 
 进阶：
 
-	你可以只使用 O(n) 的额外空间（n 为三角形的总行数）来解决这个问题吗？
+```
+你可以只使用 O(n) 的额外空间（n 为三角形的总行数）来解决这个问题吗？
+```
 
-# 解题思路
+## 解题思路
 
 这道题和二叉树的节点路径和是一样的，只不过这道题是数组的形式。核心思想就是记录从根节点到每个子节点的最小和，然后在最后一行中找最小值即可。
 
-# 代码
+## 代码
 
 ```java
 class Solution {
@@ -73,13 +76,13 @@ class Solution {
 }
 ```
 
-# 复杂度分析
+## 复杂度分析
 
-- 时间复杂度：O(n)
-- 空间复杂度：O(n)
+* 时间复杂度：O(n)
+* 空间复杂度：O(n)
 
-# GitHub LeetCode 项目
+## GitHub LeetCode 项目
 
 项目 [GitHub LeetCode 全解](https://github.com/LjyYano/LeetCode)，欢迎大家 star、fork、merge，共同打造最全 LeetCode 题解！
 
-[Java 编程思想-最全思维导图-GitHub 下载链接](https://github.com/LjyYano/Thinking_in_Java_MindMapping)，需要的小伙伴可以自取~！！！
+[Java 编程思想-最全思维导图-GitHub 下载链接](https://github.com/LjyYano/Thinking\_in\_Java\_MindMapping)，需要的小伙伴可以自取\~！！！

@@ -1,25 +1,28 @@
+# LeetCode 1260. 二维网格迁移
 
-- [题目描述](#题目描述)
-- [解题思路](#解题思路)
-- [代码](#代码)
-- [复杂度分析](#复杂度分析)
-- [GitHub LeetCode 项目](#github-leetcode-项目)
+* [题目描述](<LeetCode 1260. 二维网格迁移.md#题目描述>)
+* [解题思路](<LeetCode 1260. 二维网格迁移.md#解题思路>)
+* [代码](<LeetCode 1260. 二维网格迁移.md#代码>)
+* [复杂度分析](<LeetCode 1260. 二维网格迁移.md#复杂度分析>)
+* [GitHub LeetCode 项目](<LeetCode 1260. 二维网格迁移.md#github-leetcode-项目>)
 
-# 题目描述
+## 题目描述
 
 [题目链接](https://leetcode-cn.com/problems/shift-2d-grid/)
 
-给你一个 m 行 n 列的二维网格 grid 和一个整数 k。你需要将 grid 迁移 k 次。
+给你一个 m 行 n 列的二维网格 grid 和一个整数 k。你需要将 grid 迁移 k 次。
 
 每次「迁移」操作将会引发下述活动：
 
-	位于 grid[i][j] 的元素将会移动到 grid[i][j + 1]。
-	位于 grid[i][n - 1] 的元素将会移动到 grid[i + 1][0]。
-	位于 grid[m - 1][n - 1] 的元素将会移动到 grid[0][0]。
+```
+位于 grid[i][j] 的元素将会移动到 grid[i][j + 1]。
+位于 grid[i][n - 1] 的元素将会移动到 grid[i + 1][0]。
+位于 grid[m - 1][n - 1] 的元素将会移动到 grid[0][0]。
+```
 
-请你返回 k 次迁移操作后最终得到的 二维网格。
+请你返回 k 次迁移操作后最终得到的 二维网格。
 
- 
+&#x20;
 
 示例 1：
 
@@ -52,7 +55,7 @@
 
 ```
 
-# 解题思路
+## 解题思路
 
 参考 https://leetcode-cn.com/problems/shift-2d-grid/solution/er-wei-wang-ge-qian-yi-by-leetcode/
 
@@ -60,9 +63,9 @@
 
 ![20210226095313](http://yano.oss-cn-beijing.aliyuncs.com/blog/20210226095313.png)
 
-优化：如果 k 非常大，可以对数组元素长度取模，因为假如是 2*2 的二维数组，移动 4 次、400 次、4000 次结果都是一样的。
+优化：如果 k 非常大，可以对数组元素长度取模，因为假如是 2\*2 的二维数组，移动 4 次、400 次、4000 次结果都是一样的。
 
-# 代码
+## 代码
 
 ```java
 class Solution {
@@ -90,11 +93,11 @@ class Solution {
 }
 ```
 
-# 复杂度分析
+## 复杂度分析
 
-- 时间复杂度：O(n*m)，网格数量是 n*m
-- 空间复杂度：O(n*m)，因为输出结果是一个与输入等大的 list
+* 时间复杂度：O(n_m)，网格数量是 n_m
+* 空间复杂度：O(n\*m)，因为输出结果是一个与输入等大的 list
 
-# GitHub LeetCode 项目
+## GitHub LeetCode 项目
 
 项目 [GitHub LeetCode 全解](https://github.com/LjyYano/LeetCode)，欢迎大家 star、fork、merge，共同打造最全 LeetCode 题解！

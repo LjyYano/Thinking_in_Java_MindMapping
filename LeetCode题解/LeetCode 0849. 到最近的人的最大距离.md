@@ -1,15 +1,16 @@
+# LeetCode 0849. 到最近的人的最大距离
 
-- [题目描述](#题目描述)
-- [解题思路](#解题思路)
-- [代码](#代码)
-- [复杂度分析](#复杂度分析)
-- [GitHub LeetCode 项目](#github-leetcode-项目)
+* [题目描述](<LeetCode 0849. 到最近的人的最大距离.md#题目描述>)
+* [解题思路](<LeetCode 0849. 到最近的人的最大距离.md#解题思路>)
+* [代码](<LeetCode 0849. 到最近的人的最大距离.md#代码>)
+* [复杂度分析](<LeetCode 0849. 到最近的人的最大距离.md#复杂度分析>)
+* [GitHub LeetCode 项目](<LeetCode 0849. 到最近的人的最大距离.md#github-leetcode-项目>)
 
-# 题目描述
+## 题目描述
 
 [题目链接](https://leetcode-cn.com/problems/maximize-distance-to-closest-person/)
 
-给你一个数组 seats 表示一排座位，其中 seats[i] = 1 代表有人坐在第 i 个座位上，seats[i] = 0 代表座位 i 上是空的（下标从 0 开始）。
+给你一个数组 seats 表示一排座位，其中 seats\[i] = 1 代表有人坐在第 i 个座位上，seats\[i] = 0 代表座位 i 上是空的（下标从 0 开始）。
 
 至少有一个空座位，且至少有一人已经坐在座位上。
 
@@ -17,7 +18,7 @@
 
 返回他到离他最近的人的最大距离。
 
- 
+&#x20;
 
 示例 1：
 
@@ -55,16 +56,16 @@
 
 ```
 
-# 解题思路
+## 解题思路
 
-- 先判断开始的连续 0、结尾的连续 0，即为 offset
-- 接着判断中间的连续 0，个数即为 max，结果是 (max + 1) / 2，因为 1 2 个连续 0 的距离为 1，3 4 个连续 0 的距离为 2
+* 先判断开始的连续 0、结尾的连续 0，即为 offset
+* 接着判断中间的连续 0，个数即为 max，结果是 (max + 1) / 2，因为 1 2 个连续 0 的距离为 1，3 4 个连续 0 的距离为 2
 
 取 offset 和 (max + 1) / 2 的最大值。
 
 核心就在于两端的连续 0，和中间的连续 0 的计算规则是不一样的。
 
-# 代码
+## 代码
 
 ```java
 public int maxDistToClosest(int[] seats) {
@@ -93,11 +94,11 @@ public int maxDistToClosest(int[] seats) {
 }
 ```
 
-# 复杂度分析
+## 复杂度分析
 
-- 时间复杂度：O(n)
-- 空间复杂度：O(1)
+* 时间复杂度：O(n)
+* 空间复杂度：O(1)
 
-# GitHub LeetCode 项目
+## GitHub LeetCode 项目
 
 项目 [GitHub LeetCode 全解](https://github.com/LjyYano/LeetCode)，欢迎大家 star、fork、merge，共同打造最全 LeetCode 题解！

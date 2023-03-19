@@ -1,15 +1,16 @@
+# LeetCode 0053. 最大子序和\[动态规划详解]
 
-- [题目描述](#题目描述)
-- [复杂度分析](#复杂度分析)
-- [GitHub LeetCode 项目](#github-leetcode-项目)
+* [题目描述](<LeetCode 0053. 最大子序和\[动态规划详解].md#题目描述>)
+* [复杂度分析](<LeetCode 0053. 最大子序和\[动态规划详解].md#复杂度分析>)
+* [GitHub LeetCode 项目](<LeetCode 0053. 最大子序和\[动态规划详解].md#github-leetcode-项目>)
 
-# 题目描述
+## 题目描述
 
 [题目链接](https://leetcode-cn.com/problems/maximum-subarray/)
 
-给定一个整数数组 nums ，找到一个具有最大和的连续子数组（子数组最少包含一个元素），返回其最大和。
+给定一个整数数组 nums ，找到一个具有最大和的连续子数组（子数组最少包含一个元素），返回其最大和。
 
- 
+&#x20;
 
 示例 1：
 
@@ -50,7 +51,7 @@
 
 示例 5：
 
-```
+````
 
 输入：nums = [-100000]
 输出：-100000
@@ -87,15 +88,15 @@ class Solution {
         return max;
     }
 }
-```
+````
 
-# 复杂度分析
+## 复杂度分析
 
-- 时间复杂度：O(n)
-- 空间复杂度：O(n)
+* 时间复杂度：O(n)
+* 空间复杂度：O(n)
 
-# GitHub LeetCode 项目
+## GitHub LeetCode 项目
 
 项目 [GitHub LeetCode 全解](https://github.com/LjyYano/LeetCode)，欢迎大家 star、fork、merge，共同打造最全 LeetCode 题解！
 
-[Java 编程思想-最全思维导图-GitHub 下载链接](https://github.com/LjyYano/Thinking_in_Java_MindMapping)，需要的小伙伴可以自取~！！！
+[Java 编程思想-最全思维导图-GitHub 下载链接](https://github.com/LjyYano/Thinking\_in\_Java\_MindMapping)，需要的小伙伴可以自取\~！！！

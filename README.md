@@ -1,188 +1,137 @@
-
-- [前言](#前言)
-- [我的年度计划](#我的年度计划)
-- [文章导航](#文章导航)
-  - [影视](#影视)
-  - [技术文章](#技术文章)
-    - [思维导图系列](#思维导图系列)
-    - [Java 新特性](#java-新特性)
-    - [Java 相关](#java-相关)
-    - [Redis 源码简洁剖析](#redis-源码简洁剖析)
-    - [RocketMQ 源码分析系列](#rocketmq-源码分析系列)
-    - [其他](#其他)
-  - [读书笔记](#读书笔记)
-  - [Switch 游戏](#switch-游戏)
-- [我的博客](#我的博客)
+- [1. 年流水账](#1-年流水账)
+  - [学生时代的结束](#学生时代的结束)
+  - [北漂生活的开始](#北漂生活的开始)
+- [2. 几点感悟](#2-几点感悟)
+  - [精力、时间、金钱](#精力时间金钱)
+  - [享受北京生活](#享受北京生活)
+  - [感恩](#感恩)
+  - [关于记日记](#关于记日记)
+  - [优秀是一种习惯](#优秀是一种习惯)
+- [3. 我与简书](#3-我与简书)
+  - [读书、总结](#读书总结)
+  - [Java 编程](#java-编程)
+- [4. 总结 2016](#4-总结-2016)
+- [5. 年目标](#5-年目标)
 - [我的公众号](#我的公众号)
-- [关于转载](#关于转载)
 
-# 前言
+![TB 拍摄-三亚日出](http://yano.oss-cn-beijing.aliyuncs.com/blog/20210422135537.png?x-oss-process=image/resize,h_400)
 
-很早之前读《Java 编程思想》，用思维导图做笔记并将思维导图的截图放到了简书上，没想到期间有很多人留言要这份思维导图。最终创建了这个项目，但是又写入了很多文章，也许这个项目叫做 `Thinking_in_Java_MindMapping` 已经不合适了。
+# 1. 年流水账
 
-编程笔记、博客、读书笔记、生活感悟、Switch 游戏都会写在这里，内容比较繁杂，随心写吧，贵在坚持 0_o
+2016 年，我的 25 周岁：6 月 30 号读研毕业离校，7 月 4 号北京工作入职。所以我的 2016 年可以很工整地划分成两部分：学生时代的结束、北漂生活的开始。我有写日记、周总结和月总结的习惯，所以回顾了整个 2016 年。
 
-# 我的年度计划
+## 学生时代的结束
 
-[我的 2023 计划](https://yano-nankai.notion.site/Yano-Space-ff42bde7acd1467eb3ae63dc0d4a9f8c)
+ - `1 月份`：学校体育馆举办「跨年演唱会」，所以我是和小伙伴们在倒计时中进入 2016 年的。最心塞的是，我用微信小视频在倒计时 8s 时录制，因为小视频只能够录制 7s，刚好错过最后一瞬间；给一个本科生指导毕设；在图书馆编写论文大纲，准备论文材料；看完《四月是你的谎言》；寒假放假回家。
+ - `2 月份`：看 Java 源码；和老爸老妈看《功夫熊猫 3》；刻苦写论文（大年初二都在写）；读了李笑来老师的《新生——七年就是一辈子》。
+ - `3 月份`：写论文；读完《学会提问》；分类总结好刷完的 300 道 LeetCode；每天早晨对着医学院的墙打网球；图书馆看电影；因为看过电影《遗愿清单》，所以用思维导图列了一个`「毕业清单」`，包括旁听最后一次课、拍摄学校的一组照片、在图书馆读一天书、和师弟师妹谈心、去本科学校看望两位老师等等。
+ - `4 月份`：论文查重；买了《那花》的面麻手办，用面麻拍摄了学校的一组照片；和小伙伴打乒乓球、羽毛球、网球；去北京实习；和 CC 去国家博物馆、后海、国家图书馆。
+ - `5 月份`：修改论文；和 CC 去动物园、天文馆；制作答辩 PPT、预答辩、答辩；和导师一起吃饭。
+ - `6 月份`：实验室聚餐；办理三方、户口、档案、党组织关系；办理各种离校手续；毕业晚会、毕业典礼；照毕业照；宿舍、班级、朋友各种聚会；看望本科老师；北京回龙观租房。
 
-# 文章导航
+我的学生时代，最终凝结成了 100 页的论文、2 张毕业证书。我并不怀念或遗憾毕业，因为我认认真真地规划了这半年的时光：和小伙伴们一起玩耍、看电影、聚餐；认真地写完了论文、顺利地完成了答辩；办理繁琐的离校手续；和师弟师妹聊选题方向、和女神散步聊天；一项项完成毕业清单的内容……
 
-## 影视
+## 北漂生活的开始
 
-- [Yano 的 2019 观影总结](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2019-12-17%20Yano%E7%9A%842019%E8%A7%82%E5%BD%B1%E6%80%BB%E7%BB%93.md)
-- [Yano 的 2020 观影总结](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2020-12-28%20Yano%E7%9A%842020%E8%A7%82%E5%BD%B1%E6%80%BB%E7%BB%93.md)
-- [Yano 的 2021 观影总结](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2021-12-29%20Yano%E7%9A%842021%E8%A7%82%E5%BD%B1%E6%80%BB%E7%BB%93.md)
-- [Yano 的 2022 观影总结](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2022-12-31%20Yano%E7%9A%842022%E8%A7%82%E5%BD%B1%E6%80%BB%E7%BB%93.md)
+- `7 月份`的关键词是：「颠簸」。7 月 4 号正式入职上班；分别找了 4 个小伙伴聚餐；在回龙观和 3 个同学合租；终于见识到了北京 13 号线地铁，回龙观排 8 分钟到不了刷卡口；一天晚上不小心把手划个口子，和同学去医院打破伤风，半夜两点才回来；TB 聚餐；将回龙观房子转租，自己租到苏州街公司附近。
+- `8 月份`的关键词是：「适应」。租房离公司走路 7 分钟，每天中午还回家午休；读《Java 编程思想》；新员工入职培训；看 BBC 纪录片《人生 7 年》（真的感触颇深，尤其是以旁观者的视角，观察十几个人的一生）；国家地理频道纪录片：《宇宙时空之旅》（对于电子、光谱等讲解，实在太棒了！）；入职的小伙伴聚餐。
+- `9 月份`的关键词是：「高校」。开启了“吃遍北京高校”计划，在每一个学校约一个同学吃饭（北外、人大、北理工、清华、北语、师范、地大、北大）；重看了《全职猎人》的贪婪之岛篇；一口气看完《Re0》；玩手游《Fate Grand Order》；订阅《得到》专栏；TB 聚餐；自如换房。
+- `10 月份`的关键词是：「提高」。国庆回家；去山东参加师兄婚礼；万圣节刻南瓜；读《Effective Java》；在编程上有显著提高。
+- `11 月份`的关键词是：「稳定」。工作上负责的模块投入使用；看完《深入理解 Java 虚拟机》；和胖哥在国图看《海贼王-黄金城》；TB 三亚（蜈支洲岛、天涯海角、泡温泉、游泳、撸串、看日出、喝椰子）；发现人大的校网外人也能注册，并且能够上六维！东门食堂二楼可以用支付宝，而且很便宜。
+- `12 月份`的关键词是：「规律」。看了《你的名字》；回家；体检；公司年会；买了新款 MacBook Pro；规律作息，早起去公司跑步；同时基本掌握了项目组上线流程、代码框架、常用技能。
 
-## 技术文章
+刚开始到北京很不适应，没想到 13 号线在上班高峰期会那么挤，上班下班就浪费了大量的时间和精力。后来将房子转租出去，住在了公司对面，逐渐适应了北京的生活：工作日每天早晨 8 点 10 分到公司（公司要求 10 点），去健身房跑步或走路 30 分钟；周末找小伙伴吃饭、玩耍、去人大上网、去公司整理资料。
 
-### 思维导图系列
+# 2. 几点感悟
 
-- [思维导图学 Spring](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2019-06-07%E6%80%9D%E7%BB%B4%E5%AF%BC%E5%9B%BE%E5%AD%A6Spring.md)
-- [思维导图学 Netty](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2020-02-20%20%E6%80%9D%E7%BB%B4%E5%AF%BC%E5%9B%BE%E5%AD%A6%20Netty.md)
-- [思维导图学 Tomcat & Jetty](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2020-02-20%20%E6%80%9D%E7%BB%B4%E5%AF%BC%E5%9B%BE%E5%AD%A6%20Tomcat%20%26%20Jetty.md)
-- [思维导图学 Kotlin](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2020-03-28%20%E6%80%9D%E7%BB%B4%E5%AF%BC%E5%9B%BE%E5%AD%A6%20Kotlin.md)
-- [思维导图学《Linux 性能优化实战》](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2020-04-14%20%E6%80%9D%E7%BB%B4%E5%AF%BC%E5%9B%BE%E5%AD%A6%E3%80%8ALinux%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96%E5%AE%9E%E6%88%98%E3%80%8B.md)
-- [思维导图学《JVM 虚拟机规范》](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2020-09-21%20%E6%80%9D%E7%BB%B4%E5%AF%BC%E5%9B%BE%E5%AD%A6%E3%80%8AJVM%20%E8%99%9A%E6%8B%9F%E6%9C%BA%E8%A7%84%E8%8C%83%E3%80%8B.md)
-- [思维导图学《Java 性能权威指南》](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2021-04-12%20%E6%80%9D%E7%BB%B4%E5%AF%BC%E5%9B%BE%E5%AD%A6%E3%80%8AJava%E6%80%A7%E8%83%BD%E6%9D%83%E5%A8%81%E6%8C%87%E5%8D%97%E3%80%8B.md)
-- [思维导图学 HTTP](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2021-04-22%20%E6%80%9D%E7%BB%B4%E5%AF%BC%E5%9B%BE%E5%AD%A6%20HTTP.md)
-- [一个思维导图，带你深入理解 Linux 网络](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2022-07-09%20%E4%B8%80%E4%B8%AA%E6%80%9D%E7%BB%B4%E5%AF%BC%E5%9B%BE%EF%BC%8C%E5%B8%A6%E4%BD%A0%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3%20Linux%20%E7%BD%91%E7%BB%9C.md)
-- [思维导图学《On Java》基础卷 + 进阶卷](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2022-07-22%20%E6%80%9D%E7%BB%B4%E5%AF%BC%E5%9B%BE%E5%AD%A6%E3%80%8AOn%20Java%E3%80%8B%E5%9F%BA%E7%A1%80%E5%8D%B7%20%2B%20%E8%BF%9B%E9%98%B6%E5%8D%B7.md)
+## 精力、时间、金钱
 
-### Java 新特性
+刚毕业时为了省钱，将租房选在了离公司（苏州街）30 分钟地铁路程的回龙观。每天上班下班挤地铁筋疲力竭，只想瘫在床上。后来将回龙观的房子转租出去，通过自如租到了公司附近。虽然贵了 1000 块钱，但是：
 
-- [JDK 13 新特性简介](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2019-07-31%20JDK%2013%20%E6%96%B0%E7%89%B9%E6%80%A7%E7%AE%80%E4%BB%8B.md)
-- [JDK 14 即将发布，你所要知道的都在这里！](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2020-01-07%20JDK%2014%E5%8D%B3%E5%B0%86%E5%8F%91%E5%B8%83%EF%BC%8C%E4%BD%A0%E6%89%80%E8%A6%81%E7%9F%A5%E9%81%93%E7%9A%84%E9%83%BD%E5%9C%A8%E8%BF%99%E9%87%8C%EF%BC%81.md)
-- [JDK 15 已发布，你所要知道的都在这里！](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2020-09-19%20JDK%2015%E5%B7%B2%E5%8F%91%E5%B8%83%EF%BC%8C%E4%BD%A0%E6%89%80%E8%A6%81%E7%9F%A5%E9%81%93%E7%9A%84%E9%83%BD%E5%9C%A8%E8%BF%99%E9%87%8C%EF%BC%81.md)
-- [Java 16 正式发布，新特性一一解析](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2021-03-21%20Java%2016%20%E6%AD%A3%E5%BC%8F%E5%8F%91%E5%B8%83%EF%BC%8C%E6%96%B0%E7%89%B9%E6%80%A7%E4%B8%80%E4%B8%80%E8%A7%A3%E6%9E%90.md)
-- [JDK 17 新特性解析](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2021-10-04%20JDK%2017%20%E6%96%B0%E7%89%B9%E6%80%A7%E8%A7%A3%E6%9E%90.md)
+1. 每天上下班节约 1 个半小时的时间；
+2. 每天中午可以回家午休（每天午休 30 分钟），不必在工位上趴着睡觉；
+3. 下午工作时精力充沛，写代码效率高；
+4. 节约了大量的精力；
+5. 每天早起去公司健身房跑步，周末去公司上网（电脑是工作站、双屏、网速快、可翻墙）
+6. 上下班不用坐地铁，节省了 150 块/月；
+7. 由于在市区，去哪里都比较方便；
 
-### Java 相关
+单单前三条的价值，对我来说就已经超过了 1000 块钱。通过挤地铁我才算是彻底明白了：`精力 > 时间 > 金钱`。我们最宝贵的，其实是我们的精力，能花钱解决的事，就尽量花钱解决。同时我在 2016 年`养成了付费的习惯`，如果一个软件、一项服务、一个订阅专栏，能够大大提高我的效率、节约我的时间，我会毫不犹豫地选择付费。
 
-- [对 Kotlin 与 Java 编程语言的思考](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2019-06-06%E5%AF%B9%20Kotlin%20%E4%B8%8E%20Java%20%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80%E7%9A%84%E6%80%9D%E8%80%83.md)
-- [最简 Spring AOP 源码分析](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2019-09-23%20%E6%9C%80%E7%AE%80%20Spring%20AOP%20%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90.md)
-- [最简 Spring IOC 容器源码分析](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2019-09-24%20%E6%9C%80%E7%AE%80%20Spring%20IOC%20%E5%AE%B9%E5%99%A8%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90.md)
-- [Java NIO、Channel、Selector 详解](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2019-10-14%20Java%20NIO%E3%80%81Channel%E3%80%81Selector%20%E8%AF%A6%E8%A7%A3.md)
-- [Netty 的 Channel、Promise、Pipeline 详解](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2019-10-26%20Netty%20%E7%9A%84%20Channel%E3%80%81Promise%E3%80%81Pipeline%20%E8%AF%A6%E8%A7%A3.md)
-- [通过 GraalVM 将 Java 程序编译成本地机器码！](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2020-07-10%20%E9%80%9A%E8%BF%87%20GraalVM%20%E5%B0%86%20Java%20%E7%A8%8B%E5%BA%8F%E7%BC%96%E8%AF%91%E6%88%90%E6%9C%AC%E5%9C%B0%E6%9C%BA%E5%99%A8%E7%A0%81%EF%BC%81.md)
-- [Java String 演进全解析](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2020-11-29%20Java%20String%20%E6%BC%94%E8%BF%9B%E5%85%A8%E8%A7%A3%E6%9E%90.md)
-- [Java Stream 源码分析](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2020-12-03%20Java%20Stream%20%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90.md)
-- [由 Java 15 废弃偏向锁，谈谈 Java Synchronized 的锁机制](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2020-12-05%20%E7%94%B1Java%2015%E5%BA%9F%E5%BC%83%E5%81%8F%E5%90%91%E9%94%81%EF%BC%8C%E8%B0%88%E8%B0%88Java%20Synchronized%20%E7%9A%84%E9%94%81%E6%9C%BA%E5%88%B6.md)
-- [深入分析 Java 乐观锁](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2020-12-08%20%E6%B7%B1%E5%85%A5%E5%88%86%E6%9E%90%20Java%20%E4%B9%90%E8%A7%82%E9%94%81.md)
-- [深入分析 Java、Kotlin、Go 的线程和协程](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2020-12-10%20%E6%B7%B1%E5%85%A5%E5%88%86%E6%9E%90%20Java%E3%80%81Kotlin%E3%80%81Go%20%E7%9A%84%E7%BA%BF%E7%A8%8B%E5%92%8C%E5%8D%8F%E7%A8%8B.md)
-- [JVM 即时编译器](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2020-12-12%20JVM%20%E5%8D%B3%E6%97%B6%E7%BC%96%E8%AF%91%E5%99%A8.md)
-- [云原生时代，Java 的危与机](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2020-12-18%20%E4%BA%91%E5%8E%9F%E7%94%9F%E6%97%B6%E4%BB%A3%EF%BC%8CJava%20%E7%9A%84%E5%8D%B1%E4%B8%8E%E6%9C%BA.md)
-- [Introduction to Java Bytecode](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2021-03-31%20Introduction%20to%20Java%20Bytecode.md)
-- [对谷歌甲骨文 Java 纠纷案判决结果的感想](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2021-04-12%20%20%E5%AF%B9%E8%B0%B7%E6%AD%8C%E7%94%B2%E9%AA%A8%E6%96%87Java%20%E7%BA%A0%E7%BA%B7%E6%A1%88%E5%88%A4%E5%86%B3%E7%BB%93%E6%9E%9C%E7%9A%84%E6%84%9F%E6%83%B3.md)
-- [通过 Netty、ZooKeeper 手撸一个 RPC 服务](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2021-05-08%20%E9%80%9A%E8%BF%87%20Netty%E3%80%81ZooKeeper%20%E6%89%8B%E6%92%B8%E4%B8%80%E4%B8%AA%20RPC%20%E6%9C%8D%E5%8A%A1.md)
-- [Spring Bean 的 Scope、生命周期和循环依赖分析](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2021-05-13%20Spring%20Bean%20%E7%9A%84%20Scope%E3%80%81%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E5%92%8C%E5%BE%AA%E7%8E%AF%E4%BE%9D%E8%B5%96%E5%88%86%E6%9E%90.md)
-- [Spring Native 项目，把 Spring 项目编译成原生程序！](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2021-06-20%20Spring%20Native%20%E9%A1%B9%E7%9B%AE%EF%BC%8C%E6%8A%8A%20Spring%20%E9%A1%B9%E7%9B%AE%E7%BC%96%E8%AF%91%E6%88%90%E5%8E%9F%E7%94%9F%E7%A8%8B%E5%BA%8F%EF%BC%81.md)
-- [Java 资源大全中文版](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2021-07-27%20Java%E8%B5%84%E6%BA%90%E5%A4%A7%E5%85%A8%E4%B8%AD%E6%96%87%E7%89%88.md)
-- [Java Agent 使用指南 | 破解 IDEA](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2021-07-31%20Java%20Agent%20%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97%20%7C%20%E7%A0%B4%E8%A7%A3%20IDEA.md)
-- [Java LockSupport 工具类](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2021-08-16%20Java%20LockSupport%20%E5%B7%A5%E5%85%B7%E7%B1%BB.md)
-- [一文看懂 Java 对象的内存](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2021-08-17%20%E4%B8%80%E6%96%87%E7%9C%8B%E6%87%82Java%20%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%86%85%E5%AD%98.md)
-- [Netty HashedWheelTimer 时间轮源码详解](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2021-03-02%20Netty%20HashedWheelTimer%20%E6%97%B6%E9%97%B4%E8%BD%AE%E6%BA%90%E7%A0%81%E8%AF%A6%E8%A7%A3.md)
-- [JVM G1GC 的算法与实现](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2021-03-16%20JVM%20G1GC%E7%9A%84%E7%AE%97%E6%B3%95%E4%B8%8E%E5%AE%9E%E7%8E%B0.md)
-- [Java Lambda 表达式源码分析](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2021-08-18%20Java%20Lambda%20%E8%A1%A8%E8%BE%BE%E5%BC%8F%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90.md)
-- [Java ClassLoader](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2021-09-13%20Java%20ClassLoader.md)
-- [深入分析 ZGC](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2021-12-07%20%E6%B7%B1%E5%85%A5%E5%88%86%E6%9E%90%20ZGC.md)
-- [GC progress from JDK 8 to JDK 17](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2021-12-06%20GC%20progress%20from%20JDK%208%20to%20JDK%2017.md)
-- [Java Features from Java 8 to Java 17](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2021-12-06%20Java%20Features%20from%20Java%208%20to%20Java%2017.md)
-- [Apache Log4j 远程代码执行漏洞源码级分析](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2021-12-12%20Apache%20Log4j%20%E8%BF%9C%E7%A8%8B%E4%BB%A3%E7%A0%81%E6%89%A7%E8%A1%8C%E6%BC%8F%E6%B4%9E%E6%BA%90%E7%A0%81%E7%BA%A7%E5%88%86%E6%9E%90.md)
-- [Spring Boot Native](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2021-12-19%20Spring%20Boot%20Native.md)
-- [guava RateLimiter 源码分析](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2022-09-09%20guava%20RateLimiter%20%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90.md)
-- [JDK 19 Virtual Threads 虚拟线程](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2022-11-01%20JDK%2019%20Virtual%20Threads%20%E8%99%9A%E6%8B%9F%E7%BA%BF%E7%A8%8B.md)
+## 享受北京生活
 
-### Redis 源码简洁剖析
+我实施了两个计划：「吃遍北京高校」计划和「IMDb 观影」计划。
 
-- [Redis 源码简洁剖析 01 - 环境配置](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2021-11-17%20Redis%20%E6%BA%90%E7%A0%81%E7%AE%80%E6%B4%81%E5%89%96%E6%9E%90%2001%20-%20%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE.md)
-- [Redis 源码简洁剖析 02 - SDS 字符串](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2021-11-18%20Redis%20%E6%BA%90%E7%A0%81%E7%AE%80%E6%B4%81%E5%89%96%E6%9E%90%2002%20-%20SDS%20%E5%AD%97%E7%AC%A6%E4%B8%B2.md)
-- [Redis 源码简洁剖析 03 - Dict Hash 基础](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2021-12-03%20Redis%20%E6%BA%90%E7%A0%81%E7%AE%80%E6%B4%81%E5%89%96%E6%9E%90%2003%20-%20Dict%20Hash%20%E5%9F%BA%E7%A1%80.md)
-- [Redis 源码简洁剖析 04 - Sorted Set 有序集合](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2022-01-29%20Redis%20%E6%BA%90%E7%A0%81%E7%AE%80%E6%B4%81%E5%89%96%E6%9E%90%2004%20-%20Sorted%20Set%20%E6%9C%89%E5%BA%8F%E9%9B%86%E5%90%88.md)
-- [Redis 源码简洁剖析 05 - ziplist 压缩列表](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2022-02-02%20Redis%20%E6%BA%90%E7%A0%81%E7%AE%80%E6%B4%81%E5%89%96%E6%9E%90%2005%20-%20ziplist%20%E5%8E%8B%E7%BC%A9%E5%88%97%E8%A1%A8.md)
-- [Redis 源码简洁剖析 06 - quicklist 和 listpack](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2022-02-04%20Redis%20%E6%BA%90%E7%A0%81%E7%AE%80%E6%B4%81%E5%89%96%E6%9E%90%2006%20-%20quicklist%20%E5%92%8C%20listpack.md)
-- [Redis 源码简洁剖析 07 - main 函数启动](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2022-02-05%20Redis%20%E6%BA%90%E7%A0%81%E7%AE%80%E6%B4%81%E5%89%96%E6%9E%90%2007%20-%20main%20%E5%87%BD%E6%95%B0%E5%90%AF%E5%8A%A8.md)
-- [Redis 源码简洁剖析 08 - epoll](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2022-02-05%20Redis%20%E6%BA%90%E7%A0%81%E7%AE%80%E6%B4%81%E5%89%96%E6%9E%90%2008%20-%20epoll.md)
-- [Redis 源码简洁剖析 09 - Reactor 模型](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2022-02-06%20Redis%20%E6%BA%90%E7%A0%81%E7%AE%80%E6%B4%81%E5%89%96%E6%9E%90%2009%20-%20Reactor%20%E6%A8%A1%E5%9E%8B.md)
-- [Redis 源码简洁剖析 10 - aeEventLoop 及事件](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2022-02-06%20Redis%20%E6%BA%90%E7%A0%81%E7%AE%80%E6%B4%81%E5%89%96%E6%9E%90%2010%20-%20aeEventLoop%20%E5%8F%8A%E4%BA%8B%E4%BB%B6.md)
-- [Redis 源码简洁剖析 11 - 主 IO 线程及 Redis 6.0 多 IO 线程](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2022-02-08%20Redis%20%E6%BA%90%E7%A0%81%E7%AE%80%E6%B4%81%E5%89%96%E6%9E%90%2011%20-%20%E4%B8%BB%20IO%20%E7%BA%BF%E7%A8%8B%E5%8F%8A%20Redis%206.0%20%E5%A4%9A%20IO%20%E7%BA%BF%E7%A8%8B.md)
-- [Redis 源码简洁剖析 12 - 一条命令的处理过程](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2022-02-09%20Redis%20%E6%BA%90%E7%A0%81%E7%AE%80%E6%B4%81%E5%89%96%E6%9E%90%2012%20-%20%E4%B8%80%E6%9D%A1%E5%91%BD%E4%BB%A4%E7%9A%84%E5%A4%84%E7%90%86%E8%BF%87%E7%A8%8B.md)
-- [Redis 源码简洁剖析 13 - RDB 文件](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2022-02-10%20Redis%20%E6%BA%90%E7%A0%81%E7%AE%80%E6%B4%81%E5%89%96%E6%9E%90%2013%20-%20RDB%20%E6%96%87%E4%BB%B6.md)
-- [Redis 源码简洁剖析 14 - Redis 持久化](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2022-02-15%20Redis%20%E6%BA%90%E7%A0%81%E7%AE%80%E6%B4%81%E5%89%96%E6%9E%90%2014%20-%20Redis%20%E6%8C%81%E4%B9%85%E5%8C%96.md)
-- [Redis 源码简洁剖析 15 - AOF](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2022-02-15%20Redis%20%E6%BA%90%E7%A0%81%E7%AE%80%E6%B4%81%E5%89%96%E6%9E%90%2015%20-%20AOF.md)
-- [Redis 源码简洁剖析 16 - 客户端](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2022-02-20%20Redis%20%E6%BA%90%E7%A0%81%E7%AE%80%E6%B4%81%E5%89%96%E6%9E%90%2016%20-%20%E5%AE%A2%E6%88%B7%E7%AB%AF.md)
-- [Redis 源码简洁剖析 17 - 服务器](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2022-02-21%20Redis%20%E6%BA%90%E7%A0%81%E7%AE%80%E6%B4%81%E5%89%96%E6%9E%90%2017%20-%20%E6%9C%8D%E5%8A%A1%E5%99%A8.md)
-- [Redis 源码简洁剖析 18 - 复制、哨兵 Sentinel](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2022-02-26%20Redis%20%E6%BA%90%E7%A0%81%E7%AE%80%E6%B4%81%E5%89%96%E6%9E%90%2018%20-%20%E5%A4%8D%E5%88%B6%E3%80%81%E5%93%A8%E5%85%B5%20Sentinel.md)
-- [Redis 7.0](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2022-06-04%20Redis%207.0.md)
+「吃遍北京高校」：每周计划去找一到两个同学，分别去北京的高校食堂，食堂不能用现金就在学校周边吃。最大的收获有 3 点：
+- 有个朋友特意给我发了北京美食攻略；
+- 老妈跟老爸说：你不用惦记你儿子吃不好，你儿子在北京吃得可好了；
+- 钱包瘪了。
 
-### RocketMQ 源码分析系列
+「IMDb 观影」：IMDb 评分前 100 的电影，从前往后看。电影都是在人大通过六维 BT 下载，看一部电影后，在豆瓣上看热门的影评分析。果然能够经过时间沉淀的影片，都是经典并且能够引发思考。
 
-- [RocketMQ 源码分析系列 00 - 消息发送和消息接收 Hello world](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2022-11-30%20RocketMQ%20%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90%E7%B3%BB%E5%88%97%2000%20-%20%E6%B6%88%E6%81%AF%E5%8F%91%E9%80%81%E5%92%8C%E6%B6%88%E6%81%AF%E6%8E%A5%E6%94%B6%20Hello%20world.md)
+## 感恩
 
-### 其他
+刚开始来北京时，有挤地铁的烦躁，有工作上的迷茫，有生活上的焦虑，后来渐渐学会了换位思考和感恩。
 
-- [5G 是什么？一篇文章搞定！](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2019-07-30%205G%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0%E6%90%9E%E5%AE%9A%EF%BC%81.md)
-- [LeetCode 二叉树系统题解](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2019-10-10%20LeetCode%20%E4%BA%8C%E5%8F%89%E6%A0%91%E7%B3%BB%E7%BB%9F%E9%A2%98%E8%A7%A3.md)
-- [爬取北京摩拜单车信息（附分析过程和详细代码）](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2020-03-02%20%E7%88%AC%E5%8F%96%E5%8C%97%E4%BA%AC%E6%91%A9%E6%8B%9C%E5%8D%95%E8%BD%A6%E4%BF%A1%E6%81%AF%EF%BC%88%E9%99%84%E5%88%86%E6%9E%90%E8%BF%87%E7%A8%8B%E5%92%8C%E8%AF%A6%E7%BB%86%E4%BB%A3%E7%A0%81%EF%BC%89.md)
-- [Lucene、Elasticsearch、Kibana 入门教程和环境搭建](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2020-07-03%20Lucene%E3%80%81Elasticsearch%E3%80%81Kibana%20%E5%85%A5%E9%97%A8%E6%95%99%E7%A8%8B%E5%92%8C%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA.md)
-- [LeetCode 爬取官网所有题目和自己的最近题解](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2020-08-19%20LeetCode%20%E7%88%AC%E5%8F%96%E5%AE%98%E7%BD%91%E6%89%80%E6%9C%89%E9%A2%98%E7%9B%AE%E5%92%8C%E8%87%AA%E5%B7%B1%E7%9A%84%E6%9C%80%E8%BF%91%E9%A2%98%E8%A7%A3.md)
-- [Maven 依赖树的解析规则](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2020-11-13%20Maven%20%E4%BE%9D%E8%B5%96%E6%A0%91%E7%9A%84%E8%A7%A3%E6%9E%90%E8%A7%84%E5%88%99.md)
-- [30 分钟玩转「正则表达式」](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2020-12-01%2030%E5%88%86%E9%92%9F%E7%8E%A9%E8%BD%AC%E3%80%8C%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E3%80%8D.md)
-- [RPC 实战与原理](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2021-01-24%20RPC%20%E5%AE%9E%E6%88%98%E4%B8%8E%E5%8E%9F%E7%90%86.md)
-- [Raft 算法分析](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2021-01-24%20Raft%E7%AE%97%E6%B3%95%E5%88%86%E6%9E%90.md)
-- [消息中间件](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2021-01-24%20%E6%B6%88%E6%81%AF%E4%B8%AD%E9%97%B4%E4%BB%B6.md)
-- [Linux 虚拟内存](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2021-03-21%20Linux%20%E8%99%9A%E6%8B%9F%E5%86%85%E5%AD%98.md)
-- [并查集](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2021-02-07%20%E5%B9%B6%E6%9F%A5%E9%9B%86.md)
-- [MySQL 面试：为什么 B+树比 B 树更适合磁盘存储？](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2021-09-13%20MySQL%20%E9%9D%A2%E8%AF%95%EF%BC%9A%E4%B8%BA%E4%BB%80%E4%B9%88B%2B%E6%A0%91%E6%AF%94B%E6%A0%91%E6%9B%B4%E9%80%82%E5%90%88%E7%A3%81%E7%9B%98%E5%AD%98%E5%82%A8%EF%BC%9F.md)
-- [Linux mmap 技术](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2021-09-23%20Linux%20mmap%20%E6%8A%80%E6%9C%AF.md)
-- [字符编码](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2021-10-04%20%E5%AD%97%E7%AC%A6%E7%BC%96%E7%A0%81.md)
-- [OceanBase 企业级开源分布式数据库](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2021-11-17%20OceanBase%20%E4%BC%81%E4%B8%9A%E7%BA%A7%E5%BC%80%E6%BA%90%E5%88%86%E5%B8%83%E5%BC%8F%E6%95%B0%E6%8D%AE%E5%BA%93.md)
+公司为每个新入职的员工分配一个“mentor”，我的“mentor”是高老师。我觉得门特这个词太别扭，一直就是叫师傅。我真的很幸运能够遇见这样一个师傅，能够这么耐心指导我。如果说 2016 年最值得感恩的事，这绝对是第一个了。真的真的真的是一个非常好的师傅，在我问他代码的时候，他总能特别耐心地给我讲解。项目组的其他同事都非常非常好，我语文功底不高，只能多加几个“非常”来表示程度了。
 
-## 读书笔记
+下半年回家了 4 次，每次回家老妈都往书包里塞吃的，还偷偷地往我书包里塞吃的……10 月份就怕我冷，快递了一个大大的棉被……
 
-- [《你有你的计划，世界另有计划》](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2019-06-01%E3%80%8A%E4%BD%A0%E6%9C%89%E4%BD%A0%E7%9A%84%E8%AE%A1%E5%88%92%EF%BC%8C%E4%B8%96%E7%95%8C%E5%8F%A6%E6%9C%89%E8%AE%A1%E5%88%92%E3%80%8B.md)
-- [《强风吹拂》摘抄](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2019-08-06%20%E3%80%8A%E5%BC%BA%E9%A3%8E%E5%90%B9%E6%8B%82%E3%80%8B%E6%91%98%E6%8A%84.md)
-- [《浮生六记》](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2019-09-21%20%E3%80%8A%E6%B5%AE%E7%94%9F%E5%85%AD%E8%AE%B0%E3%80%8B.md)
-- [吐槽下《MongoDB 实战》（第二版）的翻译](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2020-08-25%20%E5%90%90%E6%A7%BD%E4%B8%8B%E3%80%8AMongoDB%20%E5%AE%9E%E6%88%98%E3%80%8B%EF%BC%88%E7%AC%AC%E4%BA%8C%E7%89%88%EF%BC%89%E7%9A%84%E7%BF%BB%E8%AF%91.md)
-- [股票知识记录](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2021-01-25%20%E8%82%A1%E7%A5%A8%E7%9F%A5%E8%AF%86%E8%AE%B0%E5%BD%95.md)
-- [《指数基金投资指南》](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2021-02-03%20%E3%80%8A%E6%8C%87%E6%95%B0%E5%9F%BA%E9%87%91%E6%8A%95%E8%B5%84%E6%8C%87%E5%8D%97%E3%80%8B.md)
-- [《十三邀 1-我还是更喜欢失败者》读书笔记](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2021-07-09%20%E3%80%8A%E5%8D%81%E4%B8%89%E9%82%801-%E6%88%91%E8%BF%98%E6%98%AF%E6%9B%B4%E5%96%9C%E6%AC%A2%E5%A4%B1%E8%B4%A5%E8%80%85%E3%80%8B%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0.md)
-- [《量化健身-原理解析》](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2021-03-02%20%E3%80%8A%E9%87%8F%E5%8C%96%E5%81%A5%E8%BA%AB-%E5%8E%9F%E7%90%86%E8%A7%A3%E6%9E%90%E3%80%8B.md)
-- [《学会提问：批判性思维入门》](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2021-03-17%20%E3%80%8A%E5%AD%A6%E4%BC%9A%E6%8F%90%E9%97%AE%EF%BC%9A%E6%89%B9%E5%88%A4%E6%80%A7%E6%80%9D%E7%BB%B4%E5%85%A5%E9%97%A8%E3%80%8B.md)
-- [《如何阅读一本书》摘抄](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2022-06-26%20%E3%80%8A%E5%A6%82%E4%BD%95%E9%98%85%E8%AF%BB%E4%B8%80%E6%9C%AC%E4%B9%A6%E3%80%8B%E6%91%98%E6%8A%84.md)
-- [《毛泽东传》摘抄](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2022-06-26%E3%80%8A%E6%AF%9B%E6%B3%BD%E4%B8%9C%E4%BC%A0%E3%80%8B%E6%91%98%E6%8A%84.md)
-- [《十三邀 2：偶像是生意，是符号，是忍辱负重》](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2022-07-25%20%E3%80%8A%E5%8D%81%E4%B8%89%E9%82%80%202%EF%BC%9A%E5%81%B6%E5%83%8F%E6%98%AF%E7%94%9F%E6%84%8F%EF%BC%8C%E6%98%AF%E7%AC%A6%E5%8F%B7%EF%BC%8C%E6%98%AF%E5%BF%8D%E8%BE%B1%E8%B4%9F%E9%87%8D%E3%80%8B.md)
-- [《UNIX 传奇》](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2022-08-29%20%E3%80%8AUNIX%20%E4%BC%A0%E5%A5%87%E3%80%8B.md)
+## 关于记日记
 
-## Switch 游戏
+我会经常记日记，进行周总结和月总结，记日记的习惯已经有 7 年了，周总结和月总结的习惯差不多 3 年。我觉得：
 
-- [塞尔达 荒野之息 游戏截图](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2020-11-08%20%E5%A1%9E%E5%B0%94%E8%BE%BE%20%E8%8D%92%E9%87%8E%E4%B9%8B%E6%81%AF%20%E6%B8%B8%E6%88%8F%E6%88%AA%E5%9B%BE.md)
-- [游戏-异度之刃 2 CG 截图](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2020-11-08%20%E5%BC%82%E5%BA%A6%E4%B9%8B%E5%88%832%20CG%E6%88%AA%E5%9B%BE.md)
-- [游戏-异度之刃 2 剧情解析（转载）](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2021-09-05%20%E5%BC%82%E5%BA%A6%E4%B9%8B%E5%88%832%20%E5%89%A7%E6%83%85%E8%A7%A3%E6%9E%90%EF%BC%88%E8%BD%AC%E8%BD%BD%EF%BC%89.md)
-- [游戏-异度之刃系列的个人向浅析（转载）](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2021-09-05%20%E5%BC%82%E5%BA%A6%E4%B9%8B%E5%88%83%E7%B3%BB%E5%88%97%E7%9A%84%E4%B8%AA%E4%BA%BA%E5%90%91%E6%B5%85%E6%9E%90%EF%BC%88%E8%BD%AC%E8%BD%BD%EF%BC%89.md)
-- [游戏-八方旅人-基础](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2021-01-13%20%E6%B8%B8%E6%88%8F-%E5%85%AB%E6%96%B9%E6%97%85%E4%BA%BA-%E5%9F%BA%E7%A1%80.md)
-- [游戏-八方旅人-故事简介](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2021-01-21%20%E6%B8%B8%E6%88%8F-%E5%85%AB%E6%96%B9%E6%97%85%E4%BA%BA-%E6%95%85%E4%BA%8B%E7%AE%80%E4%BB%8B.md)
-- [Switch SX OX 修改游戏数值](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2021-08-09%20Switch%20SX%20OX%20%E4%BF%AE%E6%94%B9%E6%B8%B8%E6%88%8F%E6%95%B0%E5%80%BC.md)
-- [游戏类型分类大全](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2021-09-13%20%E6%B8%B8%E6%88%8F%E7%B1%BB%E5%9E%8B%E5%88%86%E7%B1%BB%E5%A4%A7%E5%85%A8.md)
-- [异度神剑系列 | 异度神剑 3 | 异度之刃 3 剧情梳理解析](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2022-11-25%20%E5%BC%82%E5%BA%A6%E7%A5%9E%E5%89%91%E7%B3%BB%E5%88%97%20%7C%20%E5%BC%82%E5%BA%A6%E7%A5%9E%E5%89%91%203%20%7C%20%E5%BC%82%E5%BA%A6%E4%B9%8B%E5%88%83%203%20%E5%89%A7%E6%83%85%E6%A2%B3%E7%90%86%E8%A7%A3%E6%9E%90.md)
+>日记不单单是记录当时发生的事情和想法，更重要的是能够在以后，能够以客观的态度重新审视过去，反思自己，增加生命的深度。
 
-# 我的博客
+>《彼得潘》的作者詹姆斯·巴里说过：“每个人的生活都是一本日记，日记里他原本想写一个故事，却写成了另一个；最糟心的莫过于他对照这现实与理想的差异的一刻。”
+    
+日记不仅要持续记录，还要经常回顾、反思，并且改进，如此反复。教练会将运动员的训练录成视频，然后指给运动员看哪里有问题；日记就是“视频”，而教练和运动员都是我们自己。记日记并不重要，通过日记观察、反思自己才重要。通过「记录-反思-行动」的循环，我清楚地了解了我是如何思考的，为什么会这样思考，应该如何思考。
 
-最近才发现博客园能够自定义主题，实验了一下，决定以后技术文章都同步更新到博客园了。
+## 优秀是一种习惯
 
-- 博客园：[https://www.cnblogs.com/510602159-Yano/](https://www.cnblogs.com/510602159-Yano/)
+>若是一个人生活空间很混乱，那么他的内心也一定是混乱的。
 
-在简书上也积累了大概 7500 个粉丝，不过简书越来越偏网文风格，并不是一个技术社区，忍痛放弃……
+我就有这样的感觉，当我把工位整理地很整齐时，我写的代码都变得简洁了~看到一种解释是：当周围的环境变好时，人们的「自尊心水平」、「对自我的认知程度」变高了，自然工作效率也就高了。优秀是一种习惯，来自周围的环境，来自自身的行为方式，但是根本上还是来自我们的内心。由内而外、由外而内。
+
+>当对生活不满时，即使只有一点，也一定要改变。当你为了一点点小事而让步时，事情会慢慢发展到你不得不正视它的程度。而且，当你一开始懒惰时，你会越来越懒，越来越惧怕生活。
+    
+# 3. 我与简书
+
+下面是我 2016 年在简书上发表的博客：
+
+## 读书、总结
+
+- [学会提问 —— 批判性思维入门](http://www.jianshu.com/p/2f8985f0890e)
+- [自我管理 —— 从好习惯开始](http://www.jianshu.com/p/591ce33db416)
+- [我的电子学习之路](http://www.jianshu.com/p/e1a8bfd4cc89)
+- [编程大师访谈录](http://www.jianshu.com/p/4423b044c2e8)
+
+## Java 编程
+
+用思维导图整理了《鸟叔的 Linux 私房菜》和《深入理解 Java 虚拟机》。
+
+- [《Effective Java》中学到的思想](http://www.jianshu.com/p/bbeeeafd3cd2)
+- [思维导图学 Linux](http://www.jianshu.com/p/ec06e1ace0bd)
+- [思维导图学 Java 虚拟机](http://www.jianshu.com/p/ff4a1795e462)
+- [Java 虚拟机面试题全面解析（干货）](http://www.jianshu.com/p/f2e81ae3cc3a)
+- [Java 反射详解](http://www.jianshu.com/p/53eb4e16d00e)
+
+# 4. 总结 2016
+
+2016 年最幸运的事情，就是工作上遇到了一个`非常好的师傅`，一群很好的同事。
+
+我的 2016，毕业，结束了学生时代；工作能力得到了很大提升；我能够感受到自身的进步，养成了良好的习惯；适应了北京的工作和生活；同时 TB 去三亚，感受到了蓝天、白云、大海、沙滩~
+
+# 5. 年目标
+
+你还记得自己 2016 年的计划么？
+
+> 我 2016 年的目标就是为了搞定 2015 年那些原定于 2014 年的安排。
+> 
+> 不为别的，只为了兑现我 2013 年时要完成的 2012 年年度计划的诺言。
 
 # 我的公众号
 
 coding 笔记、读书笔记、点滴记录，以后的文章也会同步到公众号（Coding Insight）中，希望大家关注^_^
 
 ![](http://yano.oss-cn-beijing.aliyuncs.com/2019-07-29-qrcode_for_gh_a26ce4572791_258.jpg)
-
-# 关于转载
-
-其实有段时间不想发博客了，因为自己花几个小时辛辛苦苦写的文章，被很多网站爬虫过去，甚至连署名都没有。觉得很寒心，又很无奈；不过后来想到，文章是写给自己的。
-
-希望各位小伙伴在转载时注明出处~ 0_o

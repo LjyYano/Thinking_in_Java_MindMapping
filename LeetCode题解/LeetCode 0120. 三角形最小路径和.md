@@ -1,11 +1,12 @@
+# LeetCode 0120. 三角形最小路径和
 
-- [题目描述](#题目描述)
-- [解题思路](#解题思路)
-- [代码](#代码)
-- [复杂度分析](#复杂度分析)
-- [GitHub LeetCode 项目](#github-leetcode-项目)
+* [题目描述](<LeetCode 0120. 三角形最小路径和.md#题目描述>)
+* [解题思路](<LeetCode 0120. 三角形最小路径和.md#解题思路>)
+* [代码](<LeetCode 0120. 三角形最小路径和.md#代码>)
+* [复杂度分析](<LeetCode 0120. 三角形最小路径和.md#复杂度分析>)
+* [GitHub LeetCode 项目](<LeetCode 0120. 三角形最小路径和.md#github-leetcode-项目>)
 
-# 题目描述
+## 题目描述
 
 [题目链接](https://leetcode-cn.com/problems/triangle/)
 
@@ -13,7 +14,7 @@
 
 每一步只能移动到下一行中相邻的结点上。相邻的结点 在这里指的是 下标 与 上一层结点下标 相同或者等于 上一层结点下标 + 1 的两个结点。也就是说，如果正位于当前行的下标 i ，那么下一步可以移动到下一行的下标 i 或 i + 1 。
 
- 
+&#x20;
 
 示例 1：
 
@@ -39,17 +40,20 @@
 
 进阶：
 
-	你可以只使用 O(n) 的额外空间（n 为三角形的总行数）来解决这个问题吗？
+```
+你可以只使用 O(n) 的额外空间（n 为三角形的总行数）来解决这个问题吗？
+```
 
-# 解题思路
+## 解题思路
 
 对于第 i 行的第 j 个元素，其最小路径和可能为：
-- 第 i-1 行的第 j-1 个元素 + 该元素
-- 第 i-1 行的第 j 个元素 + 该元素
+
+* 第 i-1 行的第 j-1 个元素 + 该元素
+* 第 i-1 行的第 j 个元素 + 该元素
 
 注意元素越界的问题，同时需要对第一行特殊处理。
 
-# 代码
+## 代码
 
 ```java
 public int minimumTotal(List<List<Integer>> triangle) {
@@ -73,11 +77,11 @@ public int minimumTotal(List<List<Integer>> triangle) {
 }
 ```
 
-# 复杂度分析
+## 复杂度分析
 
-- 时间复杂度：实际上只是遍历了一遍输入 triangle，所以复杂度是 O(n)
-- 空间复杂度：是 triangle 最后一行的长度，其长度可以根据行数计算出来，记行数为 h，则复杂度为 O(h)
+* 时间复杂度：实际上只是遍历了一遍输入 triangle，所以复杂度是 O(n)
+* 空间复杂度：是 triangle 最后一行的长度，其长度可以根据行数计算出来，记行数为 h，则复杂度为 O(h)
 
-# GitHub LeetCode 项目
+## GitHub LeetCode 项目
 
 项目 [GitHub LeetCode 全解](https://github.com/LjyYano/LeetCode)，欢迎大家 star、fork、merge，共同打造最全 LeetCode 题解！

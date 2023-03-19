@@ -1,23 +1,24 @@
+# LeetCode 0123. 买卖股票的最佳时机 III\[动态规划详解]
 
-- [题目描述](#题目描述)
-- [解题思路](#解题思路)
-- [代码](#代码)
-- [复杂度分析](#复杂度分析)
-- [GitHub LeetCode 项目](#github-leetcode-项目)
+* [题目描述](<LeetCode 0123. 买卖股票的最佳时机 III\[动态规划详解].md#题目描述>)
+* [解题思路](<LeetCode 0123. 买卖股票的最佳时机 III\[动态规划详解].md#解题思路>)
+* [代码](<LeetCode 0123. 买卖股票的最佳时机 III\[动态规划详解].md#代码>)
+* [复杂度分析](<LeetCode 0123. 买卖股票的最佳时机 III\[动态规划详解].md#复杂度分析>)
+* [GitHub LeetCode 项目](<LeetCode 0123. 买卖股票的最佳时机 III\[动态规划详解].md#github-leetcode-项目>)
 
-# 题目描述
+## 题目描述
 
 [题目链接](https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-iii/)
 
 给定一个数组，它的第 i 个元素是一支给定的股票在第 i 天的价格。
 
-设计一个算法来计算你所能获取的最大利润。你最多可以完成 两笔 交易。
+设计一个算法来计算你所能获取的最大利润。你最多可以完成 两笔 交易。
 
 注意：你不能同时参与多笔交易（你必须在再次购买前出售掉之前的股票）。
 
- 
+&#x20;
 
-示例 1:
+示例 1:
 
 ```
 
@@ -57,9 +58,9 @@
 
 ```
 
-# 解题思路
+## 解题思路
 
-# 代码
+## 代码
 
 ```java
 class Solution {
@@ -97,13 +98,13 @@ class Solution {
 }
 ```
 
-# 复杂度分析
+## 复杂度分析
 
-- 时间复杂度：O(n)
-- 空间复杂度：O(n)
+* 时间复杂度：O(n)
+* 空间复杂度：O(n)
 
-# GitHub LeetCode 项目
+## GitHub LeetCode 项目
 
 项目 [GitHub LeetCode 全解](https://github.com/LjyYano/LeetCode)，欢迎大家 star、fork、merge，共同打造最全 LeetCode 题解！
 
-[Java 编程思想-最全思维导图-GitHub 下载链接](https://github.com/LjyYano/Thinking_in_Java_MindMapping)，需要的小伙伴可以自取~！！！
+[Java 编程思想-最全思维导图-GitHub 下载链接](https://github.com/LjyYano/Thinking\_in\_Java\_MindMapping)，需要的小伙伴可以自取\~！！！
