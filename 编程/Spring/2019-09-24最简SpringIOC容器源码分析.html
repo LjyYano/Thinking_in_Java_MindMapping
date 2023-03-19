@@ -1,0 +1,3508 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>2019-09-24最简SpringIOC容器源码分析 · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="2021-05-13SpringBean的Scope、生命周期和循环依赖分析.html" />
+    
+    
+    <link rel="prev" href="2019-09-23最简SpringAOP源码分析.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../../">
+            
+                <a href="../../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" >
+            
+                <span>
+            
+                    
+                    游戏
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="../../游戏/《八方旅人》基础.html">
+            
+                <a href="../../游戏/《八方旅人》基础.html">
+            
+                    
+                    《八方旅人》基础
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="../../游戏/《八方旅人》故事简介.html">
+            
+                <a href="../../游戏/《八方旅人》故事简介.html">
+            
+                    
+                    《八方旅人》故事简介
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="../../游戏/《八方旅人2》-JRPG的魅力.html">
+            
+                <a href="../../游戏/《八方旅人2》-JRPG的魅力.html">
+            
+                    
+                    《八方旅人2》-JRPG的魅力
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4" data-path="../../游戏/《塞尔达·荒野之息》游戏截图.html">
+            
+                <a href="../../游戏/《塞尔达·荒野之息》游戏截图.html">
+            
+                    
+                    《塞尔达·荒野之息》游戏截图
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5" data-path="../../游戏/《异度神剑》系列的个人向浅析（转载）.html">
+            
+                <a href="../../游戏/《异度神剑》系列的个人向浅析（转载）.html">
+            
+                    
+                    《异度神剑》系列的个人向浅析（转载）
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.6" data-path="../../游戏/《异度神剑2》CG截图.html">
+            
+                <a href="../../游戏/《异度神剑2》CG截图.html">
+            
+                    
+                    《异度神剑2》CG截图
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.7" data-path="../../游戏/《异度神剑2》剧情解析（转载）.html">
+            
+                <a href="../../游戏/《异度神剑2》剧情解析（转载）.html">
+            
+                    
+                    《异度神剑2》剧情解析（转载）
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.8" data-path="../../游戏/《异度神剑3》剧情梳理解析.html">
+            
+                <a href="../../游戏/《异度神剑3》剧情梳理解析.html">
+            
+                    
+                    《异度神剑3》剧情梳理解析
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.9" data-path="../../游戏/SwitchSXOX修改游戏数值（废弃）.html">
+            
+                <a href="../../游戏/SwitchSXOX修改游戏数值（废弃）.html">
+            
+                    
+                    SwitchSXOX修改游戏数值（废弃）
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.10" data-path="../../游戏/游戏类型分类大全.html">
+            
+                <a href="../../游戏/游戏类型分类大全.html">
+            
+                    
+                    游戏类型分类大全
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" >
+            
+                <span>
+            
+                    
+                    编程
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" >
+            
+                <span>
+            
+                    
+                    Java
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1.1" data-path="../Java/2019-10-14JavaNIO、Channel、Selector详解.html">
+            
+                <a href="../Java/2019-10-14JavaNIO、Channel、Selector详解.html">
+            
+                    
+                    2019-10-14JavaNIO、Channel、Selector详解
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.2" data-path="../Java/2019-10-26Netty的Channel、Promise、Pipeline详解.html">
+            
+                <a href="../Java/2019-10-26Netty的Channel、Promise、Pipeline详解.html">
+            
+                    
+                    2019-10-26Netty的Channel、Promise、Pipeline详解
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.3" data-path="../Java/2020-01-07JDK14即将发布，你所要知道的都在这里！.html">
+            
+                <a href="../Java/2020-01-07JDK14即将发布，你所要知道的都在这里！.html">
+            
+                    
+                    2020-01-07JDK14即将发布，你所要知道的都在这里！
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.4" data-path="../Java/2020-07-03Lucene、Elasticsearch、Kibana入门教程和环境搭建.html">
+            
+                <a href="../Java/2020-07-03Lucene、Elasticsearch、Kibana入门教程和环境搭建.html">
+            
+                    
+                    2020-07-03Lucene、Elasticsearch、Kibana入门教程和环境搭建
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.5" data-path="../Java/2020-07-10通过GraalVM将Java程序编译成本地机器码！.html">
+            
+                <a href="../Java/2020-07-10通过GraalVM将Java程序编译成本地机器码！.html">
+            
+                    
+                    2020-07-10通过GraalVM将Java程序编译成本地机器码！
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.6" data-path="../Java/2020-09-19JDK15已发布，你所要知道的都在这里！.html">
+            
+                <a href="../Java/2020-09-19JDK15已发布，你所要知道的都在这里！.html">
+            
+                    
+                    2020-09-19JDK15已发布，你所要知道的都在这里！
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.7" data-path="../Java/2020-11-29JavaString演进全解析.html">
+            
+                <a href="../Java/2020-11-29JavaString演进全解析.html">
+            
+                    
+                    2020-11-29JavaString演进全解析
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.8" data-path="../Java/2020-12-03JavaStream源码分析.html">
+            
+                <a href="../Java/2020-12-03JavaStream源码分析.html">
+            
+                    
+                    2020-12-03JavaStream源码分析
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.9" data-path="../Java/2020-12-05由Java15废弃偏向锁，谈谈JavaSynchronized的锁机制.html">
+            
+                <a href="../Java/2020-12-05由Java15废弃偏向锁，谈谈JavaSynchronized的锁机制.html">
+            
+                    
+                    2020-12-05由Java15废弃偏向锁，谈谈JavaSynchronized的锁机制
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.10" data-path="../Java/2020-12-07深入分析JavaLock同步锁.html">
+            
+                <a href="../Java/2020-12-07深入分析JavaLock同步锁.html">
+            
+                    
+                    2020-12-07深入分析JavaLock同步锁
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.11" data-path="../Java/2020-12-08深入分析Java乐观锁.html">
+            
+                <a href="../Java/2020-12-08深入分析Java乐观锁.html">
+            
+                    
+                    2020-12-08深入分析Java乐观锁
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.12" data-path="../Java/2020-12-10深入分析Java、Kotlin、Go的线程和协程.html">
+            
+                <a href="../Java/2020-12-10深入分析Java、Kotlin、Go的线程和协程.html">
+            
+                    
+                    2020-12-10深入分析Java、Kotlin、Go的线程和协程
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.13" data-path="../Java/2020-12-12JVM即时编译器.html">
+            
+                <a href="../Java/2020-12-12JVM即时编译器.html">
+            
+                    
+                    2020-12-12JVM即时编译器
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.14" data-path="../Java/2020-12-18云原生时代，Java的危与机.html">
+            
+                <a href="../Java/2020-12-18云原生时代，Java的危与机.html">
+            
+                    
+                    2020-12-18云原生时代，Java的危与机
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.15" data-path="../Java/2021-03-02NettyHashedWheelTimer时间轮源码详解.html">
+            
+                <a href="../Java/2021-03-02NettyHashedWheelTimer时间轮源码详解.html">
+            
+                    
+                    2021-03-02NettyHashedWheelTimer时间轮源码详解
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.16" data-path="../Java/2021-03-16JVMG1GC的算法与实现.html">
+            
+                <a href="../Java/2021-03-16JVMG1GC的算法与实现.html">
+            
+                    
+                    2021-03-16JVMG1GC的算法与实现
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.17" data-path="../Java/2021-03-21Java16正式发布，新特性一一解析.html">
+            
+                <a href="../Java/2021-03-21Java16正式发布，新特性一一解析.html">
+            
+                    
+                    2021-03-21Java16正式发布，新特性一一解析
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.18" data-path="../Java/2021-04-12对谷歌甲骨文Java纠纷案判决结果的感想.html">
+            
+                <a href="../Java/2021-04-12对谷歌甲骨文Java纠纷案判决结果的感想.html">
+            
+                    
+                    2021-04-12对谷歌甲骨文Java纠纷案判决结果的感想
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.19" data-path="../Java/2021-07-27Java资源大全中文版.html">
+            
+                <a href="../Java/2021-07-27Java资源大全中文版.html">
+            
+                    
+                    2021-07-27Java资源大全中文版
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.20" data-path="../Java/2021-07-31JavaAgent使用指南-破解IDEA.html">
+            
+                <a href="../Java/2021-07-31JavaAgent使用指南-破解IDEA.html">
+            
+                    
+                    2021-07-31JavaAgent使用指南-破解IDEA
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.21" data-path="../Java/2021-08-16JavaLockSupport工具类.html">
+            
+                <a href="../Java/2021-08-16JavaLockSupport工具类.html">
+            
+                    
+                    2021-08-16JavaLockSupport工具类
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.22" data-path="../Java/2021-08-17一文看懂Java对象的内存.html">
+            
+                <a href="../Java/2021-08-17一文看懂Java对象的内存.html">
+            
+                    
+                    2021-08-17一文看懂Java对象的内存
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.23" data-path="../Java/2021-08-18JavaLambda表达式源码分析.html">
+            
+                <a href="../Java/2021-08-18JavaLambda表达式源码分析.html">
+            
+                    
+                    2021-08-18JavaLambda表达式源码分析
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.24" data-path="../Java/2021-09-13JavaClassLoader.html">
+            
+                <a href="../Java/2021-09-13JavaClassLoader.html">
+            
+                    
+                    2021 09 13 Java Class Loader
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.25" data-path="../Java/2021-10-04JDK17新特性解析.html">
+            
+                <a href="../Java/2021-10-04JDK17新特性解析.html">
+            
+                    
+                    2021-10-04JDK17新特性解析
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.26" data-path="../Java/2021-12-06GCprogressfromJDK8toJDK17.html">
+            
+                <a href="../Java/2021-12-06GCprogressfromJDK8toJDK17.html">
+            
+                    
+                    2021 12 06 G Cprogressfrom JDK 8 To JDK 17
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.27" data-path="../Java/2021-12-06JavaFeaturesfromJava8toJava17.html">
+            
+                <a href="../Java/2021-12-06JavaFeaturesfromJava8toJava17.html">
+            
+                    
+                    2021 12 06 Java Featuresfrom Java 8 To Java 17
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.28" data-path="../Java/2021-12-07深入分析ZGC.html">
+            
+                <a href="../Java/2021-12-07深入分析ZGC.html">
+            
+                    
+                    2021-12-07深入分析ZGC
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.29" data-path="../Java/2021-12-12ApacheLog4j远程代码执行漏洞源码级分析.html">
+            
+                <a href="../Java/2021-12-12ApacheLog4j远程代码执行漏洞源码级分析.html">
+            
+                    
+                    2021-12-12ApacheLog4j远程代码执行漏洞源码级分析
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.30" data-path="../Java/2022-11-01JDK19VirtualThreads虚拟线程.html">
+            
+                <a href="../Java/2022-11-01JDK19VirtualThreads虚拟线程.html">
+            
+                    
+                    2022-11-01JDK19VirtualThreads虚拟线程
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.31" data-path="../Java/JDK13新特性简介.html">
+            
+                <a href="../Java/JDK13新特性简介.html">
+            
+                    
+                    JDK13新特性简介
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.32" data-path="../Java/JVM源码深入分析00-环境配置.html">
+            
+                <a href="../Java/JVM源码深入分析00-环境配置.html">
+            
+                    
+                    JVM源码深入分析00-环境配置
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.33" data-path="../Java/对Kotlin与Java编程语言的思考.html">
+            
+                <a href="../Java/对Kotlin与Java编程语言的思考.html">
+            
+                    
+                    对Kotlin与Java编程语言的思考
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" >
+            
+                <span>
+            
+                    
+                    LeetCode题解
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.2.1" data-path="../LeetCode题解/LeetCode0000.爬取官网所有题目和自己的最近题解.html">
+            
+                <a href="../LeetCode题解/LeetCode0000.爬取官网所有题目和自己的最近题解.html">
+            
+                    
+                    LeetCode0000.爬取官网所有题目和自己的最近题解
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.2" data-path="../LeetCode题解/LeetCode0005.最长回文子串[动态规划详解].html">
+            
+                <a href="../LeetCode题解/LeetCode0005.最长回文子串[动态规划详解].html">
+            
+                    
+                    LeetCode0005.最长回文子串[动态规划详解]
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.3" data-path="../LeetCode题解/LeetCode0010.正则表达式匹配[动态规划详解].html">
+            
+                <a href="../LeetCode题解/LeetCode0010.正则表达式匹配[动态规划详解].html">
+            
+                    
+                    LeetCode0010.正则表达式匹配[动态规划详解]
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.4" data-path="../LeetCode题解/LeetCode0032.最长有效括号[动态规划详解].html">
+            
+                <a href="../LeetCode题解/LeetCode0032.最长有效括号[动态规划详解].html">
+            
+                    
+                    LeetCode0032.最长有效括号[动态规划详解]
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.5" data-path="../LeetCode题解/LeetCode0042.接雨水[动态规划详解].html">
+            
+                <a href="../LeetCode题解/LeetCode0042.接雨水[动态规划详解].html">
+            
+                    
+                    LeetCode0042.接雨水[动态规划详解]
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.6" data-path="../LeetCode题解/LeetCode0044.通配符匹配[动态规划详解].html">
+            
+                <a href="../LeetCode题解/LeetCode0044.通配符匹配[动态规划详解].html">
+            
+                    
+                    LeetCode0044.通配符匹配[动态规划详解]
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.7" data-path="../LeetCode题解/LeetCode0053.最大子序和[动态规划详解].html">
+            
+                <a href="../LeetCode题解/LeetCode0053.最大子序和[动态规划详解].html">
+            
+                    
+                    LeetCode0053.最大子序和[动态规划详解]
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.8" data-path="../LeetCode题解/LeetCode0062.不同路径[动态规划详解].html">
+            
+                <a href="../LeetCode题解/LeetCode0062.不同路径[动态规划详解].html">
+            
+                    
+                    LeetCode0062.不同路径[动态规划详解]
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.9" data-path="../LeetCode题解/LeetCode0063.不同路径II[动态规划详解].html">
+            
+                <a href="../LeetCode题解/LeetCode0063.不同路径II[动态规划详解].html">
+            
+                    
+                    LeetCode0063.不同路径II[动态规划详解]
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.10" data-path="../LeetCode题解/LeetCode0064.最小路径和[动态规划详解].html">
+            
+                <a href="../LeetCode题解/LeetCode0064.最小路径和[动态规划详解].html">
+            
+                    
+                    LeetCode0064.最小路径和[动态规划详解]
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.11" data-path="../LeetCode题解/LeetCode0070.爬楼梯[动态规划详解].html">
+            
+                <a href="../LeetCode题解/LeetCode0070.爬楼梯[动态规划详解].html">
+            
+                    
+                    LeetCode0070.爬楼梯[动态规划详解]
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.12" data-path="../LeetCode题解/LeetCode0072.编辑距离[动态规划详解].html">
+            
+                <a href="../LeetCode题解/LeetCode0072.编辑距离[动态规划详解].html">
+            
+                    
+                    LeetCode0072.编辑距离[动态规划详解]
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.13" data-path="../LeetCode题解/LeetCode0074.搜索二维矩阵.html">
+            
+                <a href="../LeetCode题解/LeetCode0074.搜索二维矩阵.html">
+            
+                    
+                    LeetCode0074.搜索二维矩阵
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.14" data-path="../LeetCode题解/LeetCode0079.单词搜索.html">
+            
+                <a href="../LeetCode题解/LeetCode0079.单词搜索.html">
+            
+                    
+                    LeetCode0079.单词搜索
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.15" data-path="../LeetCode题解/LeetCode0084.柱状图中最大的矩形.html">
+            
+                <a href="../LeetCode题解/LeetCode0084.柱状图中最大的矩形.html">
+            
+                    
+                    LeetCode0084.柱状图中最大的矩形
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.16" data-path="../LeetCode题解/LeetCode0085.最大矩形[动态规划详解].html">
+            
+                <a href="../LeetCode题解/LeetCode0085.最大矩形[动态规划详解].html">
+            
+                    
+                    LeetCode0085.最大矩形[动态规划详解]
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.17" data-path="../LeetCode题解/LeetCode0088.合并两个有序数组.html">
+            
+                <a href="../LeetCode题解/LeetCode0088.合并两个有序数组.html">
+            
+                    
+                    LeetCode0088.合并两个有序数组
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.18" data-path="../LeetCode题解/LeetCode0091.解码方法[动态规划详解].html">
+            
+                <a href="../LeetCode题解/LeetCode0091.解码方法[动态规划详解].html">
+            
+                    
+                    LeetCode0091.解码方法[动态规划详解]
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.19" data-path="../LeetCode题解/LeetCode0095.不同的二叉搜索树II[动态规划详解].html">
+            
+                <a href="../LeetCode题解/LeetCode0095.不同的二叉搜索树II[动态规划详解].html">
+            
+                    
+                    LeetCode0095.不同的二叉搜索树II[动态规划详解]
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.20" data-path="../LeetCode题解/LeetCode0096.不同的二叉搜索树[动态规划详解].html">
+            
+                <a href="../LeetCode题解/LeetCode0096.不同的二叉搜索树[动态规划详解].html">
+            
+                    
+                    LeetCode0096.不同的二叉搜索树[动态规划详解]
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.21" data-path="../LeetCode题解/LeetCode0097.交错字符串[动态规划详解].html">
+            
+                <a href="../LeetCode题解/LeetCode0097.交错字符串[动态规划详解].html">
+            
+                    
+                    LeetCode0097.交错字符串[动态规划详解]
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.22" data-path="../LeetCode题解/LeetCode0106.从中序与后序遍历序列构造二叉树.html">
+            
+                <a href="../LeetCode题解/LeetCode0106.从中序与后序遍历序列构造二叉树.html">
+            
+                    
+                    LeetCode0106.从中序与后序遍历序列构造二叉树
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.23" data-path="../LeetCode题解/LeetCode0115.不同的子序列[动态规划详解].html">
+            
+                <a href="../LeetCode题解/LeetCode0115.不同的子序列[动态规划详解].html">
+            
+                    
+                    LeetCode0115.不同的子序列[动态规划详解]
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.24" data-path="../LeetCode题解/LeetCode0120.三角形最小路径和.html">
+            
+                <a href="../LeetCode题解/LeetCode0120.三角形最小路径和.html">
+            
+                    
+                    LeetCode0120.三角形最小路径和
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.25" data-path="../LeetCode题解/LeetCode0120.三角形最小路径和[动态规划详解].html">
+            
+                <a href="../LeetCode题解/LeetCode0120.三角形最小路径和[动态规划详解].html">
+            
+                    
+                    LeetCode0120.三角形最小路径和[动态规划详解]
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.26" data-path="../LeetCode题解/LeetCode0121.买卖股票的最佳时机[动态规划详解].html">
+            
+                <a href="../LeetCode题解/LeetCode0121.买卖股票的最佳时机[动态规划详解].html">
+            
+                    
+                    LeetCode0121.买卖股票的最佳时机[动态规划详解]
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.27" data-path="../LeetCode题解/LeetCode0123.买卖股票的最佳时机III[动态规划详解].html">
+            
+                <a href="../LeetCode题解/LeetCode0123.买卖股票的最佳时机III[动态规划详解].html">
+            
+                    
+                    LeetCode0123.买卖股票的最佳时机III[动态规划详解]
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.28" data-path="../LeetCode题解/LeetCode0131.分割回文串[动态规划详解].html">
+            
+                <a href="../LeetCode题解/LeetCode0131.分割回文串[动态规划详解].html">
+            
+                    
+                    LeetCode0131.分割回文串[动态规划详解]
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.29" data-path="../LeetCode题解/LeetCode0132.分割回文串II[动态规划详解].html">
+            
+                <a href="../LeetCode题解/LeetCode0132.分割回文串II[动态规划详解].html">
+            
+                    
+                    LeetCode0132.分割回文串II[动态规划详解]
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.30" data-path="../LeetCode题解/LeetCode0139.单词拆分[动态规划详解].html">
+            
+                <a href="../LeetCode题解/LeetCode0139.单词拆分[动态规划详解].html">
+            
+                    
+                    LeetCode0139.单词拆分[动态规划详解]
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.31" data-path="../LeetCode题解/LeetCode0140.单词拆分II[动态规划详解].html">
+            
+                <a href="../LeetCode题解/LeetCode0140.单词拆分II[动态规划详解].html">
+            
+                    
+                    LeetCode0140.单词拆分II[动态规划详解]
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.32" data-path="../LeetCode题解/LeetCode0152.乘积最大子数组[动态规划详解].html">
+            
+                <a href="../LeetCode题解/LeetCode0152.乘积最大子数组[动态规划详解].html">
+            
+                    
+                    LeetCode0152.乘积最大子数组[动态规划详解]
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.33" data-path="../LeetCode题解/LeetCode0209.长度最小的子数组.html">
+            
+                <a href="../LeetCode题解/LeetCode0209.长度最小的子数组.html">
+            
+                    
+                    LeetCode0209.长度最小的子数组
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.34" data-path="../LeetCode题解/LeetCode0219.存在重复元素II.html">
+            
+                <a href="../LeetCode题解/LeetCode0219.存在重复元素II.html">
+            
+                    
+                    LeetCode0219.存在重复元素II
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.35" data-path="../LeetCode题解/LeetCode0228.汇总区间.html">
+            
+                <a href="../LeetCode题解/LeetCode0228.汇总区间.html">
+            
+                    
+                    LeetCode0228.汇总区间
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.36" data-path="../LeetCode题解/LeetCode0381.O(1">
+            
+                <span>
+            
+                    
+                    LeetCode0381.O(1)时间插入、删除和获取随机元素-允许重复
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.37" data-path="../LeetCode题解/LeetCode0509.斐波那契数.html">
+            
+                <a href="../LeetCode题解/LeetCode0509.斐波那契数.html">
+            
+                    
+                    LeetCode0509.斐波那契数
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.38" data-path="../LeetCode题解/LeetCode0605.种花问题.html">
+            
+                <a href="../LeetCode题解/LeetCode0605.种花问题.html">
+            
+                    
+                    LeetCode0605.种花问题
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.39" data-path="../LeetCode题解/LeetCode0628.三个数的最大乘积.html">
+            
+                <a href="../LeetCode题解/LeetCode0628.三个数的最大乘积.html">
+            
+                    
+                    LeetCode0628.三个数的最大乘积
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.40" data-path="../LeetCode题解/LeetCode0747.至少是其他数字两倍的最大数.html">
+            
+                <a href="../LeetCode题解/LeetCode0747.至少是其他数字两倍的最大数.html">
+            
+                    
+                    LeetCode0747.至少是其他数字两倍的最大数
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.41" data-path="../LeetCode题解/LeetCode0832.翻转图像.html">
+            
+                <a href="../LeetCode题解/LeetCode0832.翻转图像.html">
+            
+                    
+                    LeetCode0832.翻转图像
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.42" data-path="../LeetCode题解/LeetCode0840.矩阵中的幻方.html">
+            
+                <a href="../LeetCode题解/LeetCode0840.矩阵中的幻方.html">
+            
+                    
+                    LeetCode0840.矩阵中的幻方
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.43" data-path="../LeetCode题解/LeetCode0849.到最近的人的最大距离.html">
+            
+                <a href="../LeetCode题解/LeetCode0849.到最近的人的最大距离.html">
+            
+                    
+                    LeetCode0849.到最近的人的最大距离
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.44" data-path="../LeetCode题解/LeetCode0945.使数组唯一的最小增量.html">
+            
+                <a href="../LeetCode题解/LeetCode0945.使数组唯一的最小增量.html">
+            
+                    
+                    LeetCode0945.使数组唯一的最小增量
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.45" data-path="../LeetCode题解/LeetCode0954.二倍数对数组.html">
+            
+                <a href="../LeetCode题解/LeetCode0954.二倍数对数组.html">
+            
+                    
+                    LeetCode0954.二倍数对数组
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.46" data-path="../LeetCode题解/LeetCode0969.煎饼排序.html">
+            
+                <a href="../LeetCode题解/LeetCode0969.煎饼排序.html">
+            
+                    
+                    LeetCode0969.煎饼排序
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.47" data-path="../LeetCode题解/LeetCode0977.有序数组的平方.html">
+            
+                <a href="../LeetCode题解/LeetCode0977.有序数组的平方.html">
+            
+                    
+                    LeetCode0977.有序数组的平方
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.48" data-path="../LeetCode题解/LeetCode1074.元素和为目标值的子矩阵数量.html">
+            
+                <a href="../LeetCode题解/LeetCode1074.元素和为目标值的子矩阵数量.html">
+            
+                    
+                    LeetCode1074.元素和为目标值的子矩阵数量
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.49" data-path="../LeetCode题解/LeetCode1144.递减元素使数组呈锯齿状.html">
+            
+                <a href="../LeetCode题解/LeetCode1144.递减元素使数组呈锯齿状.html">
+            
+                    
+                    LeetCode1144.递减元素使数组呈锯齿状
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.50" data-path="../LeetCode题解/LeetCode1160.拼写单词.html">
+            
+                <a href="../LeetCode题解/LeetCode1160.拼写单词.html">
+            
+                    
+                    LeetCode1160.拼写单词
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.51" data-path="../LeetCode题解/LeetCode1260.二维网格迁移.html">
+            
+                <a href="../LeetCode题解/LeetCode1260.二维网格迁移.html">
+            
+                    
+                    LeetCode1260.二维网格迁移
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.52" data-path="../LeetCode题解/LeetCode1266.访问所有点的最小时间.html">
+            
+                <a href="../LeetCode题解/LeetCode1266.访问所有点的最小时间.html">
+            
+                    
+                    LeetCode1266.访问所有点的最小时间
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.53" data-path="../LeetCode题解/LeetCode1267.统计参与通信的服务器.html">
+            
+                <a href="../LeetCode题解/LeetCode1267.统计参与通信的服务器.html">
+            
+                    
+                    LeetCode1267.统计参与通信的服务器
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.54" data-path="../LeetCode题解/LeetCode1331.数组序号转换.html">
+            
+                <a href="../LeetCode题解/LeetCode1331.数组序号转换.html">
+            
+                    
+                    LeetCode1331.数组序号转换
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.55" data-path="../LeetCode题解/LeetCode1424.对角线遍历II.html">
+            
+                <a href="../LeetCode题解/LeetCode1424.对角线遍历II.html">
+            
+                    
+                    LeetCode1424.对角线遍历II
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.56" data-path="../LeetCode题解/LeetCode1438.绝对差不超过限制的最长连续子数组.html">
+            
+                <a href="../LeetCode题解/LeetCode1438.绝对差不超过限制的最长连续子数组.html">
+            
+                    
+                    LeetCode1438.绝对差不超过限制的最长连续子数组
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.57" data-path="../LeetCode题解/LeetCode1442.形成两个异或相等数组的三元组数目.html">
+            
+                <a href="../LeetCode题解/LeetCode1442.形成两个异或相等数组的三元组数目.html">
+            
+                    
+                    LeetCode1442.形成两个异或相等数组的三元组数目
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.58" data-path="../LeetCode题解/LeetCode1476.子矩形查询.html">
+            
+                <a href="../LeetCode题解/LeetCode1476.子矩形查询.html">
+            
+                    
+                    LeetCode1476.子矩形查询
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.59" data-path="../LeetCode题解/LeetCode1534.统计好三元组.html">
+            
+                <a href="../LeetCode题解/LeetCode1534.统计好三元组.html">
+            
+                    
+                    LeetCode1534.统计好三元组
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.60" data-path="../LeetCode题解/LeetCode1535.找出数组游戏的赢家.html">
+            
+                <a href="../LeetCode题解/LeetCode1535.找出数组游戏的赢家.html">
+            
+                    
+                    LeetCode1535.找出数组游戏的赢家
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.61" data-path="../LeetCode题解/LeetCode1550.存在连续三个奇数的数组.html">
+            
+                <a href="../LeetCode题解/LeetCode1550.存在连续三个奇数的数组.html">
+            
+                    
+                    LeetCode1550.存在连续三个奇数的数组
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.62" data-path="../LeetCode题解/LeetCode1552.两球之间的磁力.html">
+            
+                <a href="../LeetCode题解/LeetCode1552.两球之间的磁力.html">
+            
+                    
+                    LeetCode1552.两球之间的磁力
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.63" data-path="../LeetCode题解/LeetCode1574.删除最短的子数组使剩余数组有序.html">
+            
+                <a href="../LeetCode题解/LeetCode1574.删除最短的子数组使剩余数组有序.html">
+            
+                    
+                    LeetCode1574.删除最短的子数组使剩余数组有序
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.64" data-path="../LeetCode题解/LeetCode1588.所有奇数长度子数组的和.html">
+            
+                <a href="../LeetCode题解/LeetCode1588.所有奇数长度子数组的和.html">
+            
+                    
+                    LeetCode1588.所有奇数长度子数组的和
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.65" data-path="../LeetCode题解/LeetCode1672.最富有客户的资产总量.html">
+            
+                <a href="../LeetCode题解/LeetCode1672.最富有客户的资产总量.html">
+            
+                    
+                    LeetCode1672.最富有客户的资产总量
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" >
+            
+                <span>
+            
+                    
+                    Redis源码剖析系列
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.3.1" data-path="../Redis源码剖析系列/Redis7.0.html">
+            
+                <a href="../Redis源码剖析系列/Redis7.0.html">
+            
+                    
+                    Redis7.0
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3.2" data-path="../Redis源码剖析系列/Redis源码简洁剖析01-环境配置.html">
+            
+                <a href="../Redis源码剖析系列/Redis源码简洁剖析01-环境配置.html">
+            
+                    
+                    Redis源码简洁剖析01-环境配置
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3.3" data-path="../Redis源码剖析系列/Redis源码简洁剖析02-SDS字符串.html">
+            
+                <a href="../Redis源码剖析系列/Redis源码简洁剖析02-SDS字符串.html">
+            
+                    
+                    Redis源码简洁剖析02-SDS字符串
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3.4" data-path="../Redis源码剖析系列/Redis源码简洁剖析03-DictHash基础.html">
+            
+                <a href="../Redis源码剖析系列/Redis源码简洁剖析03-DictHash基础.html">
+            
+                    
+                    Redis源码简洁剖析03-DictHash基础
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3.5" data-path="../Redis源码剖析系列/Redis源码简洁剖析04-SortedSet有序集合.html">
+            
+                <a href="../Redis源码剖析系列/Redis源码简洁剖析04-SortedSet有序集合.html">
+            
+                    
+                    Redis源码简洁剖析04-SortedSet有序集合
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3.6" data-path="../Redis源码剖析系列/Redis源码简洁剖析05-ziplist压缩列表.html">
+            
+                <a href="../Redis源码剖析系列/Redis源码简洁剖析05-ziplist压缩列表.html">
+            
+                    
+                    Redis源码简洁剖析05-ziplist压缩列表
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3.7" data-path="../Redis源码剖析系列/Redis源码简洁剖析06-quicklist和listpack.html">
+            
+                <a href="../Redis源码剖析系列/Redis源码简洁剖析06-quicklist和listpack.html">
+            
+                    
+                    Redis源码简洁剖析06-quicklist和listpack
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3.8" data-path="../Redis源码剖析系列/Redis源码简洁剖析07-main函数启动.html">
+            
+                <a href="../Redis源码剖析系列/Redis源码简洁剖析07-main函数启动.html">
+            
+                    
+                    Redis源码简洁剖析07-main函数启动
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3.9" data-path="../Redis源码剖析系列/Redis源码简洁剖析08-epoll.html">
+            
+                <a href="../Redis源码剖析系列/Redis源码简洁剖析08-epoll.html">
+            
+                    
+                    Redis源码简洁剖析08-epoll
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3.10" data-path="../Redis源码剖析系列/Redis源码简洁剖析09-Reactor模型.html">
+            
+                <a href="../Redis源码剖析系列/Redis源码简洁剖析09-Reactor模型.html">
+            
+                    
+                    Redis源码简洁剖析09-Reactor模型
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3.11" data-path="../Redis源码剖析系列/Redis源码简洁剖析10-aeEventLoop及事件.html">
+            
+                <a href="../Redis源码剖析系列/Redis源码简洁剖析10-aeEventLoop及事件.html">
+            
+                    
+                    Redis源码简洁剖析10-aeEventLoop及事件
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3.12" data-path="../Redis源码剖析系列/Redis源码简洁剖析11-主IO线程及Redis6.0多IO线程.html">
+            
+                <a href="../Redis源码剖析系列/Redis源码简洁剖析11-主IO线程及Redis6.0多IO线程.html">
+            
+                    
+                    Redis源码简洁剖析11-主IO线程及Redis6.0多IO线程
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3.13" data-path="../Redis源码剖析系列/Redis源码简洁剖析12-一条命令的处理过程.html">
+            
+                <a href="../Redis源码剖析系列/Redis源码简洁剖析12-一条命令的处理过程.html">
+            
+                    
+                    Redis源码简洁剖析12-一条命令的处理过程
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3.14" data-path="../Redis源码剖析系列/Redis源码简洁剖析13-RDB文件.html">
+            
+                <a href="../Redis源码剖析系列/Redis源码简洁剖析13-RDB文件.html">
+            
+                    
+                    Redis源码简洁剖析13-RDB文件
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3.15" data-path="../Redis源码剖析系列/Redis源码简洁剖析14-Redis持久化.html">
+            
+                <a href="../Redis源码剖析系列/Redis源码简洁剖析14-Redis持久化.html">
+            
+                    
+                    Redis源码简洁剖析14-Redis持久化
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3.16" data-path="../Redis源码剖析系列/Redis源码简洁剖析15-AOF.html">
+            
+                <a href="../Redis源码剖析系列/Redis源码简洁剖析15-AOF.html">
+            
+                    
+                    Redis源码简洁剖析15-AOF
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3.17" data-path="../Redis源码剖析系列/Redis源码简洁剖析16-客户端.html">
+            
+                <a href="../Redis源码剖析系列/Redis源码简洁剖析16-客户端.html">
+            
+                    
+                    Redis源码简洁剖析16-客户端
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3.18" data-path="../Redis源码剖析系列/Redis源码简洁剖析17-服务器.html">
+            
+                <a href="../Redis源码剖析系列/Redis源码简洁剖析17-服务器.html">
+            
+                    
+                    Redis源码简洁剖析17-服务器
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3.19" data-path="../Redis源码剖析系列/Redis源码简洁剖析18-复制、哨兵Sentinel.html">
+            
+                <a href="../Redis源码剖析系列/Redis源码简洁剖析18-复制、哨兵Sentinel.html">
+            
+                    
+                    Redis源码简洁剖析18-复制、哨兵Sentinel
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" >
+            
+                <span>
+            
+                    
+                    Spring
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.4.1" data-path="2019-09-23最简SpringAOP源码分析.html">
+            
+                <a href="2019-09-23最简SpringAOP源码分析.html">
+            
+                    
+                    2019-09-23最简SpringAOP源码分析
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.3.4.2" data-path="2019-09-24最简SpringIOC容器源码分析.html">
+            
+                <a href="2019-09-24最简SpringIOC容器源码分析.html">
+            
+                    
+                    2019-09-24最简SpringIOC容器源码分析
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4.3" data-path="2021-05-13SpringBean的Scope、生命周期和循环依赖分析.html">
+            
+                <a href="2021-05-13SpringBean的Scope、生命周期和循环依赖分析.html">
+            
+                    
+                    2021-05-13SpringBean的Scope、生命周期和循环依赖分析
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4.4" data-path="2021-06-20SpringNative项目，把Spring项目编译成原生程序！.html">
+            
+                <a href="2021-06-20SpringNative项目，把Spring项目编译成原生程序！.html">
+            
+                    
+                    2021-06-20SpringNative项目，把Spring项目编译成原生程序！
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4.5" data-path="2021-12-19SpringBootNative.html">
+            
+                <a href="2021-12-19SpringBootNative.html">
+            
+                    
+                    2021 12 19 Spring Boot Native
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5" >
+            
+                <span>
+            
+                    
+                    其他
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.5.1" data-path="../其他/2019-10-10LeetCode二叉树系统题解.html">
+            
+                <a href="../其他/2019-10-10LeetCode二叉树系统题解.html">
+            
+                    
+                    2019-10-10LeetCode二叉树系统题解
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5.2" data-path="../其他/2020-03-02Java知乎爬虫.html">
+            
+                <a href="../其他/2020-03-02Java知乎爬虫.html">
+            
+                    
+                    2020-03-02Java知乎爬虫
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5.3" data-path="../其他/2020-03-02左耳朵耗子：技术人员的发展之路.html">
+            
+                <a href="../其他/2020-03-02左耳朵耗子：技术人员的发展之路.html">
+            
+                    
+                    2020-03-02左耳朵耗子：技术人员的发展之路
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5.4" data-path="../其他/2020-03-02爬取北京摩拜单车信息（附分析过程和详细代码）.html">
+            
+                <a href="../其他/2020-03-02爬取北京摩拜单车信息（附分析过程和详细代码）.html">
+            
+                    
+                    2020-03-02爬取北京摩拜单车信息（附分析过程和详细代码）
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5.5" data-path="../其他/2020-11-13Maven依赖树的解析规则.html">
+            
+                <a href="../其他/2020-11-13Maven依赖树的解析规则.html">
+            
+                    
+                    2020-11-13Maven依赖树的解析规则
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5.6" data-path="../其他/2020-12-0130分钟玩转「正则表达式」.html">
+            
+                <a href="../其他/2020-12-0130分钟玩转「正则表达式」.html">
+            
+                    
+                    2020-12-0130分钟玩转「正则表达式」
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5.7" data-path="../其他/2021-01-24Raft算法分析.html">
+            
+                <a href="../其他/2021-01-24Raft算法分析.html">
+            
+                    
+                    2021-01-24Raft算法分析
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5.8" data-path="../其他/2021-01-24RPC实战与原理.html">
+            
+                <a href="../其他/2021-01-24RPC实战与原理.html">
+            
+                    
+                    2021-01-24RPC实战与原理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5.9" data-path="../其他/2021-01-24消息中间件.html">
+            
+                <a href="../其他/2021-01-24消息中间件.html">
+            
+                    
+                    2021-01-24消息中间件
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5.10" data-path="../其他/2021-02-07并查集.html">
+            
+                <a href="../其他/2021-02-07并查集.html">
+            
+                    
+                    2021-02-07并查集
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5.11" data-path="../其他/2021-03-21Linux虚拟内存.html">
+            
+                <a href="../其他/2021-03-21Linux虚拟内存.html">
+            
+                    
+                    2021-03-21Linux虚拟内存
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5.12" data-path="../其他/2021-05-08通过Netty、ZooKeeper手撸一个RPC服务.html">
+            
+                <a href="../其他/2021-05-08通过Netty、ZooKeeper手撸一个RPC服务.html">
+            
+                    
+                    2021-05-08通过Netty、ZooKeeper手撸一个RPC服务
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5.13" data-path="../其他/2021-09-13MySQL面试：为什么B+树比B树更适合磁盘存储？.html">
+            
+                <a href="../其他/2021-09-13MySQL面试：为什么B+树比B树更适合磁盘存储？.html">
+            
+                    
+                    2021-09-13MySQL面试：为什么B+树比B树更适合磁盘存储？
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5.14" data-path="../其他/2021-09-23Linuxmmap技术.html">
+            
+                <a href="../其他/2021-09-23Linuxmmap技术.html">
+            
+                    
+                    2021-09-23Linuxmmap技术
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5.15" data-path="../其他/2021-10-04字符编码.html">
+            
+                <a href="../其他/2021-10-04字符编码.html">
+            
+                    
+                    2021-10-04字符编码
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5.16" data-path="../其他/2021-11-17OceanBase企业级开源分布式数据库.html">
+            
+                <a href="../其他/2021-11-17OceanBase企业级开源分布式数据库.html">
+            
+                    
+                    2021-11-17OceanBase企业级开源分布式数据库
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5.17" data-path="../其他/2022-09-09guavaRateLimiter源码分析.html">
+            
+                <a href="../其他/2022-09-09guavaRateLimiter源码分析.html">
+            
+                    
+                    2022-09-09guavaRateLimiter源码分析
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5.18" data-path="../其他/2022-11-30RocketMQ源码分析系列00-消息发送和消息接收Helloworld.html">
+            
+                <a href="../其他/2022-11-30RocketMQ源码分析系列00-消息发送和消息接收Helloworld.html">
+            
+                    
+                    2022-11-30RocketMQ源码分析系列00-消息发送和消息接收Helloworld
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6" >
+            
+                <span>
+            
+                    
+                    思维导图系列
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.6.1" data-path="../思维导图系列/一个思维导图，带你深入理解Linux网络.html">
+            
+                <a href="../思维导图系列/一个思维导图，带你深入理解Linux网络.html">
+            
+                    
+                    一个思维导图，带你深入理解Linux网络
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6.2" data-path="../思维导图系列/思维导图学《Java性能权威指南》.html">
+            
+                <a href="../思维导图系列/思维导图学《Java性能权威指南》.html">
+            
+                    
+                    思维导图学《Java性能权威指南》
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6.3" data-path="../思维导图系列/思维导图学《JVM虚拟机规范》.html">
+            
+                <a href="../思维导图系列/思维导图学《JVM虚拟机规范》.html">
+            
+                    
+                    思维导图学《JVM虚拟机规范》
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6.4" data-path="../思维导图系列/思维导图学《Linux性能优化实战》.html">
+            
+                <a href="../思维导图系列/思维导图学《Linux性能优化实战》.html">
+            
+                    
+                    思维导图学《Linux性能优化实战》
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6.5" data-path="../思维导图系列/思维导图学《OnJava》基础卷+进阶卷.html">
+            
+                <a href="../思维导图系列/思维导图学《OnJava》基础卷+进阶卷.html">
+            
+                    
+                    思维导图学《OnJava》基础卷+进阶卷
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6.6" data-path="../思维导图系列/思维导图学HTTP.html">
+            
+                <a href="../思维导图系列/思维导图学HTTP.html">
+            
+                    
+                    思维导图学HTTP
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6.7" data-path="../思维导图系列/思维导图学Kotlin.html">
+            
+                <a href="../思维导图系列/思维导图学Kotlin.html">
+            
+                    
+                    思维导图学Kotlin
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6.8" data-path="../思维导图系列/思维导图学Netty.html">
+            
+                <a href="../思维导图系列/思维导图学Netty.html">
+            
+                    
+                    思维导图学Netty
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6.9" data-path="../思维导图系列/思维导图学Spring.html">
+            
+                <a href="../思维导图系列/思维导图学Spring.html">
+            
+                    
+                    思维导图学Spring
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6.10" data-path="../思维导图系列/思维导图学Tomcat&Jetty.html">
+            
+                <a href="../思维导图系列/思维导图学Tomcat&Jetty.html">
+            
+                    
+                    思维导图学Tomcat&Jetty
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" >
+            
+                <span>
+            
+                    
+                    观影
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../../观影/Yano的2019观影总结.html">
+            
+                <a href="../../观影/Yano的2019观影总结.html">
+            
+                    
+                    Yano的2019观影总结
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="../../观影/Yano的2020观影总结.html">
+            
+                <a href="../../观影/Yano的2020观影总结.html">
+            
+                    
+                    Yano的2020观影总结
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="../../观影/Yano的2021观影总结.html">
+            
+                <a href="../../观影/Yano的2021观影总结.html">
+            
+                    
+                    Yano的2021观影总结
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4" data-path="../../观影/Yano的2022观影总结.html">
+            
+                <a href="../../观影/Yano的2022观影总结.html">
+            
+                    
+                    Yano的2022观影总结
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" >
+            
+                <span>
+            
+                    
+                    读书
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="../../读书/《UNIX传奇》.html">
+            
+                <a href="../../读书/《UNIX传奇》.html">
+            
+                    
+                    《UNIX传奇》
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="../../读书/《你有你的计划，世界另有计划》.html">
+            
+                <a href="../../读书/《你有你的计划，世界另有计划》.html">
+            
+                    
+                    《你有你的计划，世界另有计划》
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.3" data-path="../../读书/《十三邀1-我还是更喜欢失败者》读书笔记.html">
+            
+                <a href="../../读书/《十三邀1-我还是更喜欢失败者》读书笔记.html">
+            
+                    
+                    《十三邀1-我还是更喜欢失败者》读书笔记
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.4" data-path="../../读书/《十三邀2：偶像是生意，是符号，是忍辱负重》.html">
+            
+                <a href="../../读书/《十三邀2：偶像是生意，是符号，是忍辱负重》.html">
+            
+                    
+                    《十三邀2：偶像是生意，是符号，是忍辱负重》
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.5" data-path="../../读书/《如何阅读一本书》摘抄.html">
+            
+                <a href="../../读书/《如何阅读一本书》摘抄.html">
+            
+                    
+                    《如何阅读一本书》摘抄
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.6" data-path="../../读书/《学会提问：批判性思维入门》.html">
+            
+                <a href="../../读书/《学会提问：批判性思维入门》.html">
+            
+                    
+                    《学会提问：批判性思维入门》
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.7" data-path="../../读书/《强风吹拂》摘抄.html">
+            
+                <a href="../../读书/《强风吹拂》摘抄.html">
+            
+                    
+                    《强风吹拂》摘抄
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.8" data-path="../../读书/《指数基金投资指南》.html">
+            
+                <a href="../../读书/《指数基金投资指南》.html">
+            
+                    
+                    《指数基金投资指南》
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.9" data-path="../../读书/《毛泽东传》摘抄.html">
+            
+                <a href="../../读书/《毛泽东传》摘抄.html">
+            
+                    
+                    《毛泽东传》摘抄
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.10" data-path="../../读书/《浮生六记》.html">
+            
+                <a href="../../读书/《浮生六记》.html">
+            
+                    
+                    《浮生六记》
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.11" data-path="../../读书/《量化健身-原理解析》.html">
+            
+                <a href="../../读书/《量化健身-原理解析》.html">
+            
+                    
+                    《量化健身-原理解析》
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" >
+            
+                <span>
+            
+                    
+                    随笔
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.1" data-path="../../随笔/2016年终总结——学生时代的结束、北漂生活的开始.html">
+            
+                <a href="../../随笔/2016年终总结——学生时代的结束、北漂生活的开始.html">
+            
+                    
+                    2016年终总结——学生时代的结束、北漂生活的开始
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.2" data-path="../../随笔/2019-06-03乐高积木感悟.html">
+            
+                <a href="../../随笔/2019-06-03乐高积木感悟.html">
+            
+                    
+                    2019-06-03乐高积木感悟
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.3" data-path="../../随笔/2019-07-305G是什么？一篇文章搞定！.html">
+            
+                <a href="../../随笔/2019-07-305G是什么？一篇文章搞定！.html">
+            
+                    
+                    2019-07-305G是什么？一篇文章搞定！
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.4" data-path="../../随笔/2019-08-12由工作中一次无奈的合作想到的.html">
+            
+                <a href="../../随笔/2019-08-12由工作中一次无奈的合作想到的.html">
+            
+                    
+                    2019-08-12由工作中一次无奈的合作想到的
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.5" data-path="../../随笔/2020-08-03随笔.html">
+            
+                <a href="../../随笔/2020-08-03随笔.html">
+            
+                    
+                    2020-08-03随笔
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.6" data-path="../../随笔/2020-08-25吐槽下《MongoDB实战》（第二版）的翻译.html">
+            
+                <a href="../../随笔/2020-08-25吐槽下《MongoDB实战》（第二版）的翻译.html">
+            
+                    
+                    2020-08-25吐槽下《MongoDB实战》（第二版）的翻译
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.7" data-path="../../随笔/2020-11-11生活、工作总结.html">
+            
+                <a href="../../随笔/2020-11-11生活、工作总结.html">
+            
+                    
+                    2020-11-11生活、工作总结
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.8" data-path="../../随笔/2020-11-24乐高马里奥.html">
+            
+                <a href="../../随笔/2020-11-24乐高马里奥.html">
+            
+                    
+                    2020-11-24乐高马里奥
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.9" data-path="../../随笔/2021-01-25股票知识记录.html">
+            
+                <a href="../../随笔/2021-01-25股票知识记录.html">
+            
+                    
+                    2021-01-25股票知识记录
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.10" data-path="../../随笔/2021-06-20印象笔记吐槽.html">
+            
+                <a href="../../随笔/2021-06-20印象笔记吐槽.html">
+            
+                    
+                    2021-06-20印象笔记吐槽
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.11" data-path="../../随笔/2021-08-132021随笔.html">
+            
+                <a href="../../随笔/2021-08-132021随笔.html">
+            
+                    
+                    2021-08-132021随笔
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.12" data-path="../../随笔/中文技术文档写作规范.html">
+            
+                <a href="../../随笔/中文技术文档写作规范.html">
+            
+                    
+                    中文技术文档写作规范
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../.." >2019-09-24最简SpringIOC容器源码分析</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <!-- TOC -->
+<ul>
+<li><a href="#&#x524D;&#x8A00;">&#x524D;&#x8A00;</a></li>
+<li><a href="#beandefinition">BeanDefinition</a></li>
+<li><a href="#beanfactory-&#x7B80;&#x4ECB;">BeanFactory &#x7B80;&#x4ECB;</a></li>
+<li><a href="#web-&#x5BB9;&#x5668;&#x542F;&#x52A8;&#x8FC7;&#x7A0B;">Web &#x5BB9;&#x5668;&#x542F;&#x52A8;&#x8FC7;&#x7A0B;</a></li>
+<li><a href="#bean-&#x7684;&#x52A0;&#x8F7D;">bean &#x7684;&#x52A0;&#x8F7D;</a></li>
+<li><a href="#factorybean">FactoryBean</a></li>
+<li><a href="#&#x5FAA;&#x73AF;&#x4F9D;&#x8D56;">&#x5FAA;&#x73AF;&#x4F9D;&#x8D56;</a></li>
+<li><a href="#bean-&#x751F;&#x547D;&#x5468;&#x671F;">bean &#x751F;&#x547D;&#x5468;&#x671F;</a></li>
+<li><a href="#&#x516C;&#x4F17;&#x53F7;">&#x516C;&#x4F17;&#x53F7;</a></li>
+</ul>
+<!-- /TOC -->
+<h1 id="&#x524D;&#x8A00;">&#x524D;&#x8A00;</h1>
+<p>&#x8BB8;&#x591A;&#x6587;&#x7AE0;&#x90FD;&#x662F;&#x5206;&#x6790;&#x7684; xml &#x914D;&#x7F6E;&#xFF0C;&#x4F46;&#x662F;&#x73B0;&#x5728; Spring Boot &#x5F00;&#x53D1;&#x591A;&#x57FA;&#x4E8E;&#x6CE8;&#x89E3;&#x3002;&#x672C;&#x6587;&#x4ECE;<code>&#x6CE8;&#x89E3;</code>&#x7684;&#x89D2;&#x5EA6;&#x5206;&#x6790; Spring IOC &#x5BB9;&#x5668;&#x6E90;&#x7801;&#x3002;</p>
+<p>&#x7248;&#x672C;&#xFF1A;</p>
+<ul>
+<li>Spring Boot&#xFF1A;2.1.6.RELEASE</li>
+<li>Spring FrameWork&#xFF1A;5.1.8.RELEASE</li>
+<li>Java 8</li>
+</ul>
+<p>&#x6587;&#x7AE0;&#x90E8;&#x5206;&#x5185;&#x5BB9;&#x53C2;&#x8003;&#x81EA;&#xFF1A;<a href="https://www.javadoop.com/post/spring-ioc" target="_blank">https://www.javadoop.com/post/spring-ioc</a></p>
+<h1 id="beandefinition">BeanDefinition</h1>
+<p>BeanDefinition &#x63A5;&#x53E3;&#x5B9A;&#x4E49;&#x4E86;&#x4E00;&#x4E2A;&#x5305;&#x542B;&#x5C5E;&#x6027;&#x3001;&#x6784;&#x9020;&#x5668;&#x53C2;&#x6570;&#x3001;&#x5176;&#x4ED6;&#x5177;&#x4F53;&#x4FE1;&#x606F;&#x7684; bean &#x5B9E;&#x4F8B;&#x3002;</p>
+<pre><code class="lang-java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">interface</span> <span class="hljs-title">BeanDefinition</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">AttributeAccessor</span>, <span class="hljs-title">BeanMetadataElement</span> </span>{
+
+    <span class="hljs-comment">// ConfigurableBeanFactory &#x4E2D;&#x53EA;&#x6709; 2 &#x79CD;&#xFF1A;singleton &#x548C; prototype&#x3002;</span>
+    <span class="hljs-comment">// request, session &#x7B49;&#x662F;&#x57FA;&#x4E8E; Web &#x7684;&#x6269;&#x5C55;</span>
+    String SCOPE_SINGLETON = ConfigurableBeanFactory.SCOPE_SINGLETON;
+    String SCOPE_PROTOTYPE = ConfigurableBeanFactory.SCOPE_PROTOTYPE;
+
+    <span class="hljs-comment">// &#x4E0D;&#x91CD;&#x8981;</span>
+    <span class="hljs-keyword">int</span> ROLE_APPLICATION = <span class="hljs-number">0</span>;
+    <span class="hljs-keyword">int</span> ROLE_SUPPORT = <span class="hljs-number">1</span>;
+    <span class="hljs-keyword">int</span> ROLE_INFRASTRUCTURE = <span class="hljs-number">2</span>;
+
+
+    <span class="hljs-comment">// &#x8BBE;&#x7F6E;&#x7236; Bean &#x7684;&#x4FE1;&#x606F;&#xFF08;&#x7EE7;&#x627F;&#x7236; Bean &#x7684;&#x914D;&#x7F6E;&#x4FE1;&#x606F;&#xFF09;</span>
+    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">setParentName</span><span class="hljs-params">(@Nullable String parentName)</span></span>;
+
+    <span class="hljs-meta">@Nullable</span>
+    <span class="hljs-function">String <span class="hljs-title">getParentName</span><span class="hljs-params">()</span></span>;
+
+    <span class="hljs-comment">// &#x8BBE;&#x7F6E; Bean &#x7684;&#x7C7B;&#x540D;&#x79F0;&#xFF0C;&#x8981;&#x901A;&#x8FC7;&#x53CD;&#x5C04;&#x6765;&#x751F;&#x6210;&#x5B9E;&#x4F8B;</span>
+    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">setBeanClassName</span><span class="hljs-params">(@Nullable String beanClassName)</span></span>;
+
+    <span class="hljs-comment">// &#x8FD4;&#x56DE;&#x5F53;&#x524D; Bean &#x7684; class name</span>
+    <span class="hljs-function">String <span class="hljs-title">getBeanClassName</span><span class="hljs-params">()</span></span>;
+
+
+    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">setScope</span><span class="hljs-params">(@Nullable String scope)</span></span>;
+
+    <span class="hljs-meta">@Nullable</span>
+    <span class="hljs-function">String <span class="hljs-title">getScope</span><span class="hljs-params">()</span></span>;
+
+    <span class="hljs-comment">// &#x662F;&#x5426;&#x5EF6;&#x8FDF;&#x521D;&#x59CB;&#x5316;</span>
+    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">setLazyInit</span><span class="hljs-params">(<span class="hljs-keyword">boolean</span> lazyInit)</span></span>;
+
+    <span class="hljs-function"><span class="hljs-keyword">boolean</span> <span class="hljs-title">isLazyInit</span><span class="hljs-params">()</span></span>;
+
+    <span class="hljs-comment">// &#x8BBE;&#x7F6E;&#x8BE5; Bean &#x4F9D;&#x8D56;&#x7684;&#x6240;&#x6709;&#x7684; Bean&#xFF0C;&#x5E76;&#x975E; @Autowire &#x6807;&#x8BB0;&#x7684;</span>
+    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">setDependsOn</span><span class="hljs-params">(@Nullable String... dependsOn)</span></span>;
+
+    <span class="hljs-meta">@Nullable</span>
+    String[] getDependsOn();
+
+    <span class="hljs-comment">// &#x8BBE;&#x7F6E;&#x8BE5; Bean &#x662F;&#x5426;&#x53EF;&#x4EE5;&#x6CE8;&#x5165;&#x5230;&#x5176;&#x4ED6; Bean &#x4E2D;&#xFF0C;&#x53EA;&#x5BF9;&#x6839;&#x636E;&#x7C7B;&#x578B;&#x6CE8;&#x5165;&#x6709;&#x6548;&#xFF0C;</span>
+   <span class="hljs-comment">// &#x5982;&#x679C;&#x6839;&#x636E;&#x540D;&#x79F0;&#x6CE8;&#x5165;&#xFF0C;&#x5373;&#x4F7F;&#x8FD9;&#x8FB9;&#x8BBE;&#x7F6E;&#x4E86; false&#xFF0C;&#x4E5F;&#x662F;&#x53EF;&#x4EE5;&#x7684;</span>
+    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">setAutowireCandidate</span><span class="hljs-params">(<span class="hljs-keyword">boolean</span> autowireCandidate)</span></span>;
+
+    <span class="hljs-function"><span class="hljs-keyword">boolean</span> <span class="hljs-title">isAutowireCandidate</span><span class="hljs-params">()</span></span>;
+
+    <span class="hljs-comment">// &#x540C;&#x4E00;&#x63A5;&#x53E3;&#x7684;&#x591A;&#x4E2A;&#x5B9E;&#x73B0;&#xFF0C;&#x5982;&#x679C;&#x4E0D;&#x6307;&#x5B9A;&#x540D;&#x5B57;&#xFF0C;Spring &#x4F1A;&#x4F18;&#x5148;&#x9009;&#x62E9;&#x8BBE;&#x7F6E; primary &#x4E3A; true &#x7684; bean</span>
+    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">setPrimary</span><span class="hljs-params">(<span class="hljs-keyword">boolean</span> primary)</span></span>;
+
+    <span class="hljs-function"><span class="hljs-keyword">boolean</span> <span class="hljs-title">isPrimary</span><span class="hljs-params">()</span></span>;
+
+    <span class="hljs-comment">// &#x5982;&#x679C;&#x8BE5; Bean &#x91C7;&#x7528;&#x5DE5;&#x5382;&#x65B9;&#x6CD5;&#x751F;&#x6210;&#xFF0C;&#x6307;&#x5B9A;&#x5DE5;&#x5382;&#x540D;&#x79F0;&#xFF1B;&#x5426;&#x5219;&#x7528;&#x53CD;&#x5C04;&#x751F;&#x6210;</span>
+    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">setFactoryBeanName</span><span class="hljs-params">(@Nullable String factoryBeanName)</span></span>;
+
+    <span class="hljs-meta">@Nullable</span>
+    <span class="hljs-function">String <span class="hljs-title">getFactoryBeanName</span><span class="hljs-params">()</span></span>;
+
+    <span class="hljs-comment">// &#x6307;&#x5B9A;&#x5DE5;&#x5382;&#x7C7B;&#x4E2D;&#x7684; &#x5DE5;&#x5382;&#x65B9;&#x6CD5;&#x540D;&#x79F0;</span>
+    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">setFactoryMethodName</span><span class="hljs-params">(@Nullable String factoryMethodName)</span></span>;
+
+    <span class="hljs-meta">@Nullable</span>
+    <span class="hljs-function">String <span class="hljs-title">getFactoryMethodName</span><span class="hljs-params">()</span></span>;
+
+    <span class="hljs-comment">// &#x8FD4;&#x56DE;&#x8BE5; bean &#x7684;&#x6784;&#x9020;&#x5668;&#x53C2;&#x6570;</span>
+    <span class="hljs-function">ConstructorArgumentValues <span class="hljs-title">getConstructorArgumentValues</span><span class="hljs-params">()</span></span>;
+
+    <span class="hljs-function"><span class="hljs-keyword">default</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">hasConstructorArgumentValues</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-keyword">return</span> !getConstructorArgumentValues().isEmpty();
+    }
+
+    <span class="hljs-comment">// Bean &#x4E2D;&#x7684;&#x5C5E;&#x6027;&#x503C;&#xFF0C;&#x8FD4;&#x56DE;&#x7684;&#x5B9E;&#x4F8B;&#x5728; bean factory post-processing &#x671F;&#x95F4;&#x4F1A;&#x88AB;&#x66F4;&#x6539;</span>
+    <span class="hljs-function">MutablePropertyValues <span class="hljs-title">getPropertyValues</span><span class="hljs-params">()</span></span>;
+
+    <span class="hljs-function"><span class="hljs-keyword">default</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">hasPropertyValues</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-keyword">return</span> !getPropertyValues().isEmpty();
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">setInitMethodName</span><span class="hljs-params">(@Nullable String initMethodName)</span></span>;
+
+    <span class="hljs-meta">@Nullable</span>
+    <span class="hljs-function">String <span class="hljs-title">getInitMethodName</span><span class="hljs-params">()</span></span>;
+
+    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">setDestroyMethodName</span><span class="hljs-params">(@Nullable String destroyMethodName)</span></span>;
+
+    <span class="hljs-meta">@Nullable</span>
+    <span class="hljs-function">String <span class="hljs-title">getDestroyMethodName</span><span class="hljs-params">()</span></span>;
+
+
+    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">setRole</span><span class="hljs-params">(<span class="hljs-keyword">int</span> role)</span></span>;
+    <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">getRole</span><span class="hljs-params">()</span></span>;
+    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">setDescription</span><span class="hljs-params">(@Nullable String description)</span></span>;
+    <span class="hljs-meta">@Nullable</span>
+    <span class="hljs-function">String <span class="hljs-title">getDescription</span><span class="hljs-params">()</span></span>;
+
+    <span class="hljs-comment">// Read-only attributes</span>
+    <span class="hljs-function"><span class="hljs-keyword">boolean</span> <span class="hljs-title">isSingleton</span><span class="hljs-params">()</span></span>;
+    <span class="hljs-function"><span class="hljs-keyword">boolean</span> <span class="hljs-title">isPrototype</span><span class="hljs-params">()</span></span>;
+    <span class="hljs-function"><span class="hljs-keyword">boolean</span> <span class="hljs-title">isAbstract</span><span class="hljs-params">()</span></span>;
+    <span class="hljs-meta">@Nullable</span>
+    <span class="hljs-function">String <span class="hljs-title">getResourceDescription</span><span class="hljs-params">()</span></span>;
+    <span class="hljs-meta">@Nullable</span>
+    <span class="hljs-function">BeanDefinition <span class="hljs-title">getOriginatingBeanDefinition</span><span class="hljs-params">()</span></span>;
+}
+</code></pre>
+<p>AnnotationConfigUtils#processCommonDefinitionAnnotations(...)</p>
+<pre><code class="lang-java"><span class="hljs-function"><span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">processCommonDefinitionAnnotations</span><span class="hljs-params">(AnnotatedBeanDefinition abd, AnnotatedTypeMetadata metadata)</span> </span>{
+    AnnotationAttributes lazy = attributesFor(metadata, Lazy.class);
+    <span class="hljs-keyword">if</span> (lazy != <span class="hljs-keyword">null</span>) {
+        abd.setLazyInit(lazy.getBoolean(<span class="hljs-string">&quot;value&quot;</span>));
+    }
+    <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (abd.getMetadata() != metadata) {
+        lazy = attributesFor(abd.getMetadata(), Lazy.class);
+        <span class="hljs-keyword">if</span> (lazy != <span class="hljs-keyword">null</span>) {
+            abd.setLazyInit(lazy.getBoolean(<span class="hljs-string">&quot;value&quot;</span>));
+        }
+    }
+
+    <span class="hljs-keyword">if</span> (metadata.isAnnotated(Primary.class.getName())) {
+        abd.setPrimary(<span class="hljs-keyword">true</span>);
+    }
+    AnnotationAttributes dependsOn = attributesFor(metadata, DependsOn.class);
+    <span class="hljs-keyword">if</span> (dependsOn != <span class="hljs-keyword">null</span>) {
+        abd.setDependsOn(dependsOn.getStringArray(<span class="hljs-string">&quot;value&quot;</span>));
+    }
+
+    AnnotationAttributes role = attributesFor(metadata, Role.class);
+    <span class="hljs-keyword">if</span> (role != <span class="hljs-keyword">null</span>) {
+        abd.setRole(role.getNumber(<span class="hljs-string">&quot;value&quot;</span>).intValue());
+    }
+    AnnotationAttributes description = attributesFor(metadata, Description.class);
+    <span class="hljs-keyword">if</span> (description != <span class="hljs-keyword">null</span>) {
+        abd.setDescription(description.getString(<span class="hljs-string">&quot;value&quot;</span>));
+    }
+}
+</code></pre>
+<p>&#x53EF;&#x4EE5;&#x770B;&#x5230;&#xFF0C;processCommonDefinitionAnnotations &#x65B9;&#x6CD5;&#x4F1A;&#x6839;&#x636E;&#x6CE8;&#x89E3;&#x6765;&#x586B;&#x5145; AnnotatedBeanDefinition&#xFF0C;&#x8FD9;&#x4E9B;&#x6CE8;&#x89E3;&#x6709;&#xFF1A;</p>
+<ul>
+<li>Lazy</li>
+<li>Primary</li>
+<li>DependsOn</li>
+<li>Role</li>
+<li>Description</li>
+</ul>
+<p>&#x5411;&#x4E0A;&#x67E5;&#x770B;&#x8C03;&#x7528;&#xFF0C;&#x53D1;&#x73B0;&#x4F1A;&#x5728; ConfigurationClassBeanDefinitionReader#registerBeanDefinitionForImportedConfigurationClass &#x5C06;&#x5176;&#x6CE8;&#x518C;&#x4E3A;&#x4E00;&#x4E2A; bean definition&#x3002;</p>
+<pre><code class="lang-java"><span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title">registerBeanDefinitionForImportedConfigurationClass</span><span class="hljs-params">(ConfigurationClass configClass)</span> </span>{
+    AnnotationMetadata metadata = configClass.getMetadata();
+    AnnotatedGenericBeanDefinition configBeanDef = <span class="hljs-keyword">new</span> AnnotatedGenericBeanDefinition(metadata);
+
+    ScopeMetadata scopeMetadata = scopeMetadataResolver.resolveScopeMetadata(configBeanDef);
+    configBeanDef.setScope(scopeMetadata.getScopeName());
+    String configBeanName = <span class="hljs-keyword">this</span>.importBeanNameGenerator.generateBeanName(configBeanDef, <span class="hljs-keyword">this</span>.registry);
+    <span class="hljs-comment">// 1. &#x901A;&#x8FC7;&#x6CE8;&#x89E3;&#x586B;&#x5145; configBeanDef</span>
+    AnnotationConfigUtils.processCommonDefinitionAnnotations(configBeanDef, metadata);
+
+    BeanDefinitionHolder definitionHolder = <span class="hljs-keyword">new</span> BeanDefinitionHolder(configBeanDef, configBeanName);
+    definitionHolder = AnnotationConfigUtils.applyScopedProxyMode(scopeMetadata, definitionHolder, <span class="hljs-keyword">this</span>.registry);
+    <span class="hljs-comment">// 2. &#x5C06; bean definition &#x6CE8;&#x518C;&#x5230; registry &#x4E2D;</span>
+    <span class="hljs-keyword">this</span>.registry.registerBeanDefinition(definitionHolder.getBeanName(), definitionHolder.getBeanDefinition());
+    configClass.setBeanName(configBeanName);
+
+    <span class="hljs-keyword">if</span> (logger.isTraceEnabled()) {
+        logger.trace(<span class="hljs-string">&quot;Registered bean definition for imported class &apos;&quot;</span> + configBeanName + <span class="hljs-string">&quot;&apos;&quot;</span>);
+    }
+}
+</code></pre>
+<p>&#x6700;&#x7EC8;&#x4F1A;&#x88AB; AbstractApplicationContext#refresh &#x7684; invokeBeanFactoryPostProcessors(beanFactory) &#x65B9;&#x6CD5;&#x8C03;&#x7528;&#x3002;</p>
+<pre><code class="lang-java"><span class="hljs-meta">@Override</span>
+<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">refresh</span><span class="hljs-params">()</span> <span class="hljs-keyword">throws</span> BeansException, IllegalStateException </span>{
+    <span class="hljs-keyword">synchronized</span> (<span class="hljs-keyword">this</span>.startupShutdownMonitor) {
+        <span class="hljs-comment">// Prepare this context for refreshing.</span>
+        prepareRefresh();
+
+        <span class="hljs-comment">// Tell the subclass to refresh the internal bean factory.</span>
+        ConfigurableListableBeanFactory beanFactory = obtainFreshBeanFactory();
+
+        <span class="hljs-comment">// Prepare the bean factory for use in this context.</span>
+        prepareBeanFactory(beanFactory);
+
+        <span class="hljs-keyword">try</span> {
+            <span class="hljs-comment">// Allows post-processing of the bean factory in context subclasses.</span>
+            postProcessBeanFactory(beanFactory);
+
+            <span class="hljs-comment">// Invoke factory processors registered as beans in the context.</span>
+            invokeBeanFactoryPostProcessors(beanFactory);
+
+            <span class="hljs-comment">// Register bean processors that intercept bean creation.</span>
+            registerBeanPostProcessors(beanFactory);
+
+            <span class="hljs-comment">// Initialize message source for this context.</span>
+            initMessageSource();
+
+            <span class="hljs-comment">// Initialize event multicaster for this context.</span>
+            initApplicationEventMulticaster();
+
+            <span class="hljs-comment">// Initialize other special beans in specific context subclasses.</span>
+            onRefresh();
+
+            <span class="hljs-comment">// Check for listener beans and register them.</span>
+            registerListeners();
+
+            <span class="hljs-comment">// Instantiate all remaining (non-lazy-init) singletons.</span>
+            finishBeanFactoryInitialization(beanFactory);
+
+            <span class="hljs-comment">// Last step: publish corresponding event.</span>
+            finishRefresh();
+        }
+
+        ...
+    }
+}
+</code></pre>
+<h1 id="beanfactory-&#x7B80;&#x4ECB;">BeanFactory &#x7B80;&#x4ECB;</h1>
+<p>BeanFactory &#x662F;&#x751F;&#x4EA7; bean &#x7684;&#x5DE5;&#x5382;&#xFF0C;&#x5B83;&#x8D1F;&#x8D23;&#x751F;&#x4EA7;&#x548C;&#x7BA1;&#x7406;&#x5404;&#x4E2A; bean &#x5B9E;&#x4F8B;&#x3002;&#x4ECE;&#x4E0B;&#x56FE;&#x53EF;&#x4EE5;&#x770B;&#x5230;&#xFF0C;ApplicationContext &#x4E5F;&#x662F;&#x4E00;&#x4E2A; BeanFactory&#x3002;&#x5982;&#x679C;&#x8BF4; BeanFactory &#x662F; Spring &#x7684;&#x5FC3;&#x810F;&#xFF0C;&#x90A3;&#x4E48; ApplicationContext &#x5C31;&#x662F;&#x5B8C;&#x6574;&#x7684;&#x8EAB;&#x8EAF;&#x3002;</p>
+<p><img src="http://yano.oss-cn-beijing.aliyuncs.com/2019-09-24-000154.jpg" alt=""></p>
+<p>ApplicationContext &#x662F;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x8FD0;&#x884C;&#x65F6;&#x63D0;&#x4F9B;&#x914D;&#x7F6E;&#x4FE1;&#x606F;&#x7684;&#x901A;&#x7528;&#x63A5;&#x53E3;&#x3002;ApplicationContext &#x5728;&#x7A0B;&#x5E8F;&#x8FD0;&#x884C;&#x65F6;&#x662F;&#x4E0D;&#x53EF;&#x66F4;&#x6539;&#x7684;&#xFF0C;&#x4F46;&#x662F;&#x5B9E;&#x73B0;&#x7C7B;&#x53EF;&#x4EE5;&#x91CD;&#x65B0;&#x518D;&#x5165;&#x914D;&#x7F6E;&#x4FE1;&#x606F;&#x3002;</p>
+<p>ApplicationContext &#x7684;&#x5B9E;&#x73B0;&#x7C7B;&#x6709;&#x5F88;&#x591A;&#xFF0C;&#x6BD4;&#x5982; AnnotationConfigApplicationContext, AnnotationConfigWebApplicationContext, ClassPathXmlApplicationContext, FileSystemXmlApplicationContext, XmlWebApplicationContext &#x7B49;&#x3002;&#x6211;&#x4EEC;&#x4E0A;&#x9762;&#x5206;&#x6790;&#x7684;&#x5C31;&#x662F; AnnotationConfigApplicationContext&#xFF0C;&#x5176;&#x91C7;&#x7528;&#x6CE8;&#x89E3;&#x7684;&#x65B9;&#x5F0F;&#x63D0;&#x4F9B;&#x914D;&#x7F6E;&#x4FE1;&#x606F;&#xFF0C;&#x8FD9;&#x6837;&#x6211;&#x4EEC;&#x5C31;&#x4E0D;&#x7528;&#x5199; XML &#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x4E86;&#xFF0C;&#x975E;&#x5E38;&#x7B80;&#x6D01;&#x3002;</p>
+<p><img src="http://yano.oss-cn-beijing.aliyuncs.com/2019-09-24-234601.jpg" alt=""></p>
+<h1 id="web-&#x5BB9;&#x5668;&#x542F;&#x52A8;&#x8FC7;&#x7A0B;">Web &#x5BB9;&#x5668;&#x542F;&#x52A8;&#x8FC7;&#x7A0B;</h1>
+<p>&#x672C;&#x6587;&#x4F7F;&#x7528; Spring Boot &#x5F00;&#x53D1;&#xFF0C;&#x5176;&#x542F;&#x52A8;&#x7684;&#x4EE3;&#x7801;&#x662F;&#xFF1A;</p>
+<pre><code class="lang-java"><span class="hljs-meta">@SpringBootApplication</span>
+<span class="hljs-meta">@EnableScheduling</span>
+<span class="hljs-meta">@EnableAspectJAutoProxy</span>
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">AppApplication</span> </span>{
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>{
+        SpringApplication.run(AppApplication.class, args);
+    }
+
+}
+</code></pre>
+<p>&#x6838;&#x5FC3;&#x7684;&#x70B9;&#x662F;&#x8FD9;&#x4E00;&#x53E5;&#xFF1A;</p>
+<pre><code class="lang-java">SpringApplication.run(AppApplication.class, args);
+</code></pre>
+<p>SpringApplication &#x7684;&#x4EE3;&#x7801;&#x5C31;&#x4E0D;&#x5206;&#x6790;&#x4E86;&#xFF0C;&#x660E;&#x786E;&#x672C;&#x6B21;&#x770B;&#x6E90;&#x7801;&#x7684;&#x76EE;&#x7684;&#x662F;&#x5206;&#x6790;<code>&#x5BB9;&#x5668;&#x6E90;&#x7801;</code>&#xFF0C;Spring Boot &#x7684;&#x542F;&#x52A8;&#x8FC7;&#x7A0B;&#x548C;&#x5176;&#x4ED6;&#x4FE1;&#x606F;&#x90FD;&#x5FFD;&#x7565;&#x4E86;&#xFF0C;&#x56E0;&#x4E3A; Spring &#x4EE3;&#x7801;&#x5B9E;&#x5728;&#x662F;&#x5E9E;&#x6742;&#x3002;&#x5206;&#x6790;&#x4E0A;&#x9762;&#x7684; run &#x65B9;&#x6CD5;&#xFF0C;&#x6700;&#x7EC8;&#x4F1A;&#x8FFD;&#x8E2A;&#x5230; SpringApplication#run(...) &#x65B9;&#x6CD5;&#x3002;</p>
+<pre><code class="lang-java"><span class="hljs-function"><span class="hljs-keyword">public</span> ConfigurableApplicationContext <span class="hljs-title">run</span><span class="hljs-params">(String... args)</span> </span>{
+    StopWatch stopWatch = <span class="hljs-keyword">new</span> StopWatch();
+    stopWatch.start();
+    ConfigurableApplicationContext context = <span class="hljs-keyword">null</span>;
+    Collection&lt;SpringBootExceptionReporter&gt; exceptionReporters = <span class="hljs-keyword">new</span> ArrayList&lt;&gt;();
+    configureHeadlessProperty();
+    SpringApplicationRunListeners listeners = getRunListeners(args);
+    listeners.starting();
+    <span class="hljs-keyword">try</span> {
+        ApplicationArguments applicationArguments = <span class="hljs-keyword">new</span> DefaultApplicationArguments(args);
+        ConfigurableEnvironment environment = prepareEnvironment(listeners, applicationArguments);
+        configureIgnoreBeanInfo(environment);
+        Banner printedBanner = printBanner(environment);
+        context = createApplicationContext();
+        exceptionReporters = getSpringFactoriesInstances(SpringBootExceptionReporter.class,
+                <span class="hljs-keyword">new</span> Class[] { ConfigurableApplicationContext.class }, context);
+        prepareContext(context, environment, listeners, applicationArguments, printedBanner);
+        refreshContext(context);
+        afterRefresh(context, applicationArguments);
+        stopWatch.stop();
+        <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>.logStartupInfo) {
+            <span class="hljs-keyword">new</span> StartupInfoLogger(<span class="hljs-keyword">this</span>.mainApplicationClass).logStarted(getApplicationLog(), stopWatch);
+        }
+        listeners.started(context);
+        callRunners(context, applicationArguments);
+    }
+    <span class="hljs-keyword">catch</span> (Throwable ex) {
+        handleRunFailure(context, ex, exceptionReporters, listeners);
+        <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> IllegalStateException(ex);
+    }
+
+    <span class="hljs-keyword">try</span> {
+        listeners.running(context);
+    }
+    <span class="hljs-keyword">catch</span> (Throwable ex) {
+        handleRunFailure(context, ex, exceptionReporters, <span class="hljs-keyword">null</span>);
+        <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> IllegalStateException(ex);
+    }
+    <span class="hljs-keyword">return</span> context;
+}
+</code></pre>
+<p>&#x8DDF; context &#x76F8;&#x5173;&#x7684;&#xFF0C;&#x662F;&#x4E0B;&#x9762;&#x8FD9; 3 &#x53E5;&#x4EE3;&#x7801;&#xFF1A;</p>
+<pre><code class="lang-java">prepareContext(context, environment, listeners, applicationArguments, printedBanner);
+refreshContext(context);
+afterRefresh(context, applicationArguments);
+</code></pre>
+<p>refreshContext &#x65B9;&#x6CD5;&#x5C31;&#x662F;&#x5237;&#x65B0;&#x7ED9;&#x5B9A;&#x7684; context&#xFF1A;</p>
+<pre><code class="lang-java"><span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title">refreshContext</span><span class="hljs-params">(ConfigurableApplicationContext context)</span> </span>{
+    refresh(context);
+    <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>.registerShutdownHook) {
+        <span class="hljs-keyword">try</span> {
+            context.registerShutdownHook();
+        }
+        <span class="hljs-keyword">catch</span> (AccessControlException ex) {
+            <span class="hljs-comment">// Not allowed in some environments.</span>
+        }
+    }
+}
+</code></pre>
+<pre><code class="lang-java"><span class="hljs-function"><span class="hljs-keyword">protected</span> <span class="hljs-keyword">void</span> <span class="hljs-title">refresh</span><span class="hljs-params">(ApplicationContext applicationContext)</span> </span>{
+    Assert.isInstanceOf(AbstractApplicationContext.class, applicationContext);
+    ((AbstractApplicationContext) applicationContext).refresh();
+}
+</code></pre>
+<p>&#x4F1A;&#x53D1;&#x73B0;&#x6700;&#x7EC8;&#x8C03;&#x7528;&#x5230;&#x4E86; AbstractApplicationContext#refresh &#x65B9;&#x6CD5;&#x3002;&#x6CE8;&#x91CA;&#x53C2;&#x8003;&#x81EA;&#xFF1A;<a href="https://www.javadoop.com/post/spring-ioc" target="_blank">https://www.javadoop.com/post/spring-ioc</a></p>
+<pre><code class="lang-java"><span class="hljs-meta">@Override</span>
+<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">refresh</span><span class="hljs-params">()</span> <span class="hljs-keyword">throws</span> BeansException, IllegalStateException </span>{
+   <span class="hljs-comment">// &#x6765;&#x4E2A;&#x9501;&#xFF0C;&#x4E0D;&#x7136; refresh() &#x8FD8;&#x6CA1;&#x7ED3;&#x675F;&#xFF0C;&#x4F60;&#x53C8;&#x6765;&#x4E2A;&#x542F;&#x52A8;&#x6216;&#x9500;&#x6BC1;&#x5BB9;&#x5668;&#x7684;&#x64CD;&#x4F5C;&#xFF0C;&#x90A3;&#x4E0D;&#x5C31;&#x4E71;&#x5957;&#x4E86;&#x561B;</span>
+   <span class="hljs-keyword">synchronized</span> (<span class="hljs-keyword">this</span>.startupShutdownMonitor) {
+
+      <span class="hljs-comment">// &#x51C6;&#x5907;&#x5DE5;&#x4F5C;&#xFF0C;&#x8BB0;&#x5F55;&#x4E0B;&#x5BB9;&#x5668;&#x7684;&#x542F;&#x52A8;&#x65F6;&#x95F4;&#x3001;&#x6807;&#x8BB0;&#x201C;&#x5DF2;&#x542F;&#x52A8;&#x201D;&#x72B6;&#x6001;&#x3001;&#x5904;&#x7406;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x4E2D;&#x7684;&#x5360;&#x4F4D;&#x7B26;</span>
+      prepareRefresh();
+
+      <span class="hljs-comment">// &#x8FD9;&#x6B65;&#x6BD4;&#x8F83;&#x5173;&#x952E;&#xFF0C;&#x8FD9;&#x6B65;&#x5B8C;&#x6210;&#x540E;&#xFF0C;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x5C31;&#x4F1A;&#x89E3;&#x6790;&#x6210;&#x4E00;&#x4E2A;&#x4E2A; Bean &#x5B9A;&#x4E49;&#xFF0C;&#x6CE8;&#x518C;&#x5230; BeanFactory &#x4E2D;&#xFF0C;</span>
+      <span class="hljs-comment">// &#x5F53;&#x7136;&#xFF0C;&#x8FD9;&#x91CC;&#x8BF4;&#x7684; Bean &#x8FD8;&#x6CA1;&#x6709;&#x521D;&#x59CB;&#x5316;&#xFF0C;&#x53EA;&#x662F;&#x914D;&#x7F6E;&#x4FE1;&#x606F;&#x90FD;&#x63D0;&#x53D6;&#x51FA;&#x6765;&#x4E86;&#xFF0C;</span>
+      <span class="hljs-comment">// &#x6CE8;&#x518C;&#x4E5F;&#x53EA;&#x662F;&#x5C06;&#x8FD9;&#x4E9B;&#x4FE1;&#x606F;&#x90FD;&#x4FDD;&#x5B58;&#x5230;&#x4E86;&#x6CE8;&#x518C;&#x4E2D;&#x5FC3;(&#x8BF4;&#x5230;&#x5E95;&#x6838;&#x5FC3;&#x662F;&#x4E00;&#x4E2A; beanName-&gt; beanDefinition &#x7684; map)</span>
+      ConfigurableListableBeanFactory beanFactory = obtainFreshBeanFactory();
+
+      <span class="hljs-comment">// &#x8BBE;&#x7F6E; BeanFactory &#x7684;&#x7C7B;&#x52A0;&#x8F7D;&#x5668;&#xFF0C;&#x6DFB;&#x52A0;&#x51E0;&#x4E2A; BeanPostProcessor&#xFF0C;&#x624B;&#x52A8;&#x6CE8;&#x518C;&#x51E0;&#x4E2A;&#x7279;&#x6B8A;&#x7684; bean</span>
+      prepareBeanFactory(beanFactory);
+
+      <span class="hljs-keyword">try</span> {
+         <span class="hljs-comment">// &#x3010;&#x8FD9;&#x91CC;&#x9700;&#x8981;&#x77E5;&#x9053; BeanFactoryPostProcessor &#x8FD9;&#x4E2A;&#x77E5;&#x8BC6;&#x70B9;&#xFF0C;Bean &#x5982;&#x679C;&#x5B9E;&#x73B0;&#x4E86;&#x6B64;&#x63A5;&#x53E3;&#xFF0C;</span>
+         <span class="hljs-comment">// &#x90A3;&#x4E48;&#x5728;&#x5BB9;&#x5668;&#x521D;&#x59CB;&#x5316;&#x4EE5;&#x540E;&#xFF0C;Spring &#x4F1A;&#x8D1F;&#x8D23;&#x8C03;&#x7528;&#x91CC;&#x9762;&#x7684; postProcessBeanFactory &#x65B9;&#x6CD5;&#x3002;&#x3011;</span>
+
+         <span class="hljs-comment">// &#x8FD9;&#x91CC;&#x662F;&#x63D0;&#x4F9B;&#x7ED9;&#x5B50;&#x7C7B;&#x7684;&#x6269;&#x5C55;&#x70B9;&#xFF0C;&#x5230;&#x8FD9;&#x91CC;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x6240;&#x6709;&#x7684; Bean &#x90FD;&#x52A0;&#x8F7D;&#x3001;&#x6CE8;&#x518C;&#x5B8C;&#x6210;&#x4E86;&#xFF0C;&#x4F46;&#x662F;&#x90FD;&#x8FD8;&#x6CA1;&#x6709;&#x521D;&#x59CB;&#x5316;</span>
+         <span class="hljs-comment">// &#x5177;&#x4F53;&#x7684;&#x5B50;&#x7C7B;&#x53EF;&#x4EE5;&#x5728;&#x8FD9;&#x6B65;&#x7684;&#x65F6;&#x5019;&#x6DFB;&#x52A0;&#x4E00;&#x4E9B;&#x7279;&#x6B8A;&#x7684; BeanFactoryPostProcessor &#x7684;&#x5B9E;&#x73B0;&#x7C7B;&#x6216;&#x505A;&#x70B9;&#x4EC0;&#x4E48;&#x4E8B;</span>
+         postProcessBeanFactory(beanFactory);
+         <span class="hljs-comment">// &#x8C03;&#x7528; BeanFactoryPostProcessor &#x5404;&#x4E2A;&#x5B9E;&#x73B0;&#x7C7B;&#x7684; postProcessBeanFactory(factory) &#x65B9;&#x6CD5;</span>
+         invokeBeanFactoryPostProcessors(beanFactory);
+
+         <span class="hljs-comment">// &#x6CE8;&#x518C; BeanPostProcessor &#x7684;&#x5B9E;&#x73B0;&#x7C7B;&#xFF0C;&#x6CE8;&#x610F;&#x770B;&#x548C; BeanFactoryPostProcessor &#x7684;&#x533A;&#x522B;</span>
+         <span class="hljs-comment">// &#x6B64;&#x63A5;&#x53E3;&#x4E24;&#x4E2A;&#x65B9;&#x6CD5;: postProcessBeforeInitialization &#x548C; postProcessAfterInitialization</span>
+         <span class="hljs-comment">// &#x4E24;&#x4E2A;&#x65B9;&#x6CD5;&#x5206;&#x522B;&#x5728; Bean &#x521D;&#x59CB;&#x5316;&#x4E4B;&#x524D;&#x548C;&#x521D;&#x59CB;&#x5316;&#x4E4B;&#x540E;&#x5F97;&#x5230;&#x6267;&#x884C;&#x3002;&#x6CE8;&#x610F;&#xFF0C;&#x5230;&#x8FD9;&#x91CC; Bean &#x8FD8;&#x6CA1;&#x521D;&#x59CB;&#x5316;</span>
+         registerBeanPostProcessors(beanFactory);
+
+         <span class="hljs-comment">// &#x521D;&#x59CB;&#x5316;&#x5F53;&#x524D; ApplicationContext &#x7684; MessageSource&#xFF0C;&#x56FD;&#x9645;&#x5316;&#x8FD9;&#x91CC;&#x5C31;&#x4E0D;&#x5C55;&#x5F00;&#x8BF4;&#x4E86;&#xFF0C;&#x4E0D;&#x7136;&#x6CA1;&#x5B8C;&#x6CA1;&#x4E86;&#x4E86;</span>
+         initMessageSource();
+
+         <span class="hljs-comment">// &#x521D;&#x59CB;&#x5316;&#x5F53;&#x524D; ApplicationContext &#x7684;&#x4E8B;&#x4EF6;&#x5E7F;&#x64AD;&#x5668;&#xFF0C;&#x8FD9;&#x91CC;&#x4E5F;&#x4E0D;&#x5C55;&#x5F00;&#x4E86;</span>
+         initApplicationEventMulticaster();
+
+         <span class="hljs-comment">// &#x4ECE;&#x65B9;&#x6CD5;&#x540D;&#x5C31;&#x53EF;&#x4EE5;&#x77E5;&#x9053;&#xFF0C;&#x5178;&#x578B;&#x7684;&#x6A21;&#x677F;&#x65B9;&#x6CD5;(&#x94A9;&#x5B50;&#x65B9;&#x6CD5;)&#xFF0C;</span>
+         <span class="hljs-comment">// &#x5177;&#x4F53;&#x7684;&#x5B50;&#x7C7B;&#x53EF;&#x4EE5;&#x5728;&#x8FD9;&#x91CC;&#x521D;&#x59CB;&#x5316;&#x4E00;&#x4E9B;&#x7279;&#x6B8A;&#x7684; Bean&#xFF08;&#x5728;&#x521D;&#x59CB;&#x5316; singleton beans &#x4E4B;&#x524D;&#xFF09;</span>
+         onRefresh();
+
+         <span class="hljs-comment">// &#x6CE8;&#x518C;&#x4E8B;&#x4EF6;&#x76D1;&#x542C;&#x5668;&#xFF0C;&#x76D1;&#x542C;&#x5668;&#x9700;&#x8981;&#x5B9E;&#x73B0; ApplicationListener &#x63A5;&#x53E3;&#x3002;&#x8FD9;&#x4E5F;&#x4E0D;&#x662F;&#x6211;&#x4EEC;&#x7684;&#x91CD;&#x70B9;&#xFF0C;&#x8FC7;</span>
+         registerListeners();
+
+         <span class="hljs-comment">// &#x91CD;&#x70B9;&#xFF0C;&#x91CD;&#x70B9;&#xFF0C;&#x91CD;&#x70B9;</span>
+         <span class="hljs-comment">// &#x521D;&#x59CB;&#x5316;&#x6240;&#x6709;&#x7684; singleton beans</span>
+         <span class="hljs-comment">//&#xFF08;lazy-init &#x7684;&#x9664;&#x5916;&#xFF09;</span>
+         finishBeanFactoryInitialization(beanFactory);
+
+         <span class="hljs-comment">// &#x6700;&#x540E;&#xFF0C;&#x5E7F;&#x64AD;&#x4E8B;&#x4EF6;&#xFF0C;ApplicationContext &#x521D;&#x59CB;&#x5316;&#x5B8C;&#x6210;</span>
+         finishRefresh();
+      }
+
+      <span class="hljs-keyword">catch</span> (BeansException ex) {
+         <span class="hljs-keyword">if</span> (logger.isWarnEnabled()) {
+            logger.warn(<span class="hljs-string">&quot;Exception encountered during context initialization - &quot;</span> +
+                  <span class="hljs-string">&quot;cancelling refresh attempt: &quot;</span> + ex);
+         }
+
+         <span class="hljs-comment">// Destroy already created singletons to avoid dangling resources.</span>
+         <span class="hljs-comment">// &#x9500;&#x6BC1;&#x5DF2;&#x7ECF;&#x521D;&#x59CB;&#x5316;&#x7684; singleton &#x7684; Beans&#xFF0C;&#x4EE5;&#x514D;&#x6709;&#x4E9B; bean &#x4F1A;&#x4E00;&#x76F4;&#x5360;&#x7528;&#x8D44;&#x6E90;</span>
+         destroyBeans();
+
+         <span class="hljs-comment">// Reset &apos;active&apos; flag.</span>
+         cancelRefresh(ex);
+
+         <span class="hljs-keyword">throw</span> ex;
+      }
+
+      <span class="hljs-keyword">finally</span> {
+         <span class="hljs-comment">// Reset common introspection caches in Spring&apos;s core, since we</span>
+         <span class="hljs-comment">// might not ever need metadata for singleton beans anymore...</span>
+         resetCommonCaches();
+      }
+   }
+}
+</code></pre>
+<p>&#x6838;&#x5FC3;&#x6D41;&#x7A0B;&#x5C31;&#x662F; try &#x4EE3;&#x7801;&#x5757;&#x91CC;&#x7684;&#x5185;&#x5BB9;&#xFF0C;&#x6211;&#x4EEC;&#x5E94;&#x8BE5;&#x4E86;&#x89E3;&#x6574;&#x4F53;&#x539F;&#x7406;&#xFF0C;&#x672C;&#x7BC7;&#x6587;&#x7AE0;&#x5E76;&#x4E0D;&#x80FD;&#x9010;&#x884C;&#x9010;&#x53E5;&#x5206;&#x6790;&#x3002;&#x5982;&#x679C;&#x90A3;&#x6837;&#x505A;&#xFF0C;&#x5B8C;&#x5168;&#x5C31;&#x53D8;&#x6210;&#x4E00;&#x90E8;&#x5B57;&#x5178;&#x4E86;&#x2026;&#x2026;</p>
+<h1 id="bean-&#x7684;&#x52A0;&#x8F7D;">bean &#x7684;&#x52A0;&#x8F7D;</h1>
+<p>bean &#x52A0;&#x8F7D;&#x7684;&#x8C03;&#x7528;&#x51FD;&#x6570;&#xFF1A;org.springframework.beans.factory.support.AbstractBeanFactory#doGetBean</p>
+<pre><code class="lang-java"><span class="hljs-keyword">protected</span> &lt;T&gt; <span class="hljs-function">T <span class="hljs-title">doGetBean</span><span class="hljs-params">(<span class="hljs-keyword">final</span> String name, @Nullable <span class="hljs-keyword">final</span> Class&lt;T&gt; requiredType,
+        @Nullable <span class="hljs-keyword">final</span> Object[] args, <span class="hljs-keyword">boolean</span> typeCheckOnly)</span> <span class="hljs-keyword">throws</span> BeansException </span>{
+
+    <span class="hljs-comment">// &#x63D0;&#x53D6;&#x5BF9;&#x5E94; bean &#x7684;&#x540D;&#x5B57;</span>
+    <span class="hljs-keyword">final</span> String beanName = transformedBeanName(name);
+    Object bean;
+
+    <span class="hljs-comment">// 1. &#x91CD;&#x8981;&#xFF0C;&#x91CD;&#x8981;&#xFF0C;&#x91CD;&#x8981;&#xFF01;</span>
+    <span class="hljs-comment">// &#x521B;&#x5EFA;&#x5355;&#x4F8B; bean &#x907F;&#x514D;&#x5FAA;&#x73AF;&#x4F9D;&#x8D56;&#xFF0C;&#x5C1D;&#x8BD5;&#x4ECE;&#x7F13;&#x5B58;&#x4E2D;&#x83B7;&#x53D6;</span>
+    Object sharedInstance = getSingleton(beanName);
+    <span class="hljs-keyword">if</span> (sharedInstance != <span class="hljs-keyword">null</span> &amp;&amp; args == <span class="hljs-keyword">null</span>) {
+        <span class="hljs-keyword">if</span> (logger.isTraceEnabled()) {
+            <span class="hljs-keyword">if</span> (isSingletonCurrentlyInCreation(beanName)) {
+                logger.trace(<span class="hljs-string">&quot;Returning eagerly cached instance of singleton bean &apos;&quot;</span> + beanName +
+                        <span class="hljs-string">&quot;&apos; that is not fully initialized yet - a consequence of a circular reference&quot;</span>);
+            }
+            <span class="hljs-keyword">else</span> {
+                logger.trace(<span class="hljs-string">&quot;Returning cached instance of singleton bean &apos;&quot;</span> + beanName + <span class="hljs-string">&quot;&apos;&quot;</span>);
+            }
+        }
+        bean = getObjectForBeanInstance(sharedInstance, name, beanName, <span class="hljs-keyword">null</span>);
+    }
+
+    <span class="hljs-keyword">else</span> {
+        <span class="hljs-comment">// &#x5B58;&#x5728;&#x5FAA;&#x73AF;&#x4F9D;&#x8D56;</span>
+        <span class="hljs-keyword">if</span> (isPrototypeCurrentlyInCreation(beanName)) {
+            <span class="hljs-comment">// &#x539F;&#x578B;&#x6A21;&#x5F0F;&#x76F4;&#x63A5;&#x629B;&#x51FA;&#x5F02;&#x5E38;&#xFF08;&#x5FAA;&#x73AF;&#x4F9D;&#x8D56;&#x4EC5;&#x80FD;&#x5728;&#x5355;&#x4F8B;&#x6A21;&#x5F0F;&#x4E0B;&#x89E3;&#x51B3;&#xFF09;</span>
+            <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> BeanCurrentlyInCreationException(beanName);
+        }
+
+        <span class="hljs-comment">// Check if bean definition exists in this factory.</span>
+        BeanFactory parentBeanFactory = getParentBeanFactory();
+        <span class="hljs-keyword">if</span> (parentBeanFactory != <span class="hljs-keyword">null</span> &amp;&amp; !containsBeanDefinition(beanName)) {
+            <span class="hljs-comment">// Not found -&gt; check parent.</span>
+            String nameToLookup = originalBeanName(name);
+            <span class="hljs-keyword">if</span> (parentBeanFactory <span class="hljs-keyword">instanceof</span> AbstractBeanFactory) {
+                <span class="hljs-keyword">return</span> ((AbstractBeanFactory) parentBeanFactory).doGetBean(
+                        nameToLookup, requiredType, args, typeCheckOnly);
+            }
+            <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (args != <span class="hljs-keyword">null</span>) {
+                <span class="hljs-comment">// Delegation to parent with explicit args.</span>
+                <span class="hljs-keyword">return</span> (T) parentBeanFactory.getBean(nameToLookup, args);
+            }
+            <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (requiredType != <span class="hljs-keyword">null</span>) {
+                <span class="hljs-comment">// No args -&gt; delegate to standard getBean method.</span>
+                <span class="hljs-keyword">return</span> parentBeanFactory.getBean(nameToLookup, requiredType);
+            }
+            <span class="hljs-keyword">else</span> {
+                <span class="hljs-keyword">return</span> (T) parentBeanFactory.getBean(nameToLookup);
+            }
+        }
+
+        <span class="hljs-comment">// &#x5982;&#x679C;&#x4E0D;&#x662F;&#x4EC5;&#x4EC5;&#x505A;&#x7C7B;&#x578B;&#x68C0;&#x67E5;&#xFF0C;&#x5219;&#x662F;&#x521B;&#x5EFA; bean&#xFF0C;&#x9700;&#x8981;&#x505A;&#x8BB0;&#x5F55;</span>
+        <span class="hljs-keyword">if</span> (!typeCheckOnly) {
+            markBeanAsCreated(beanName);
+        }
+
+        <span class="hljs-keyword">try</span> {
+            <span class="hljs-comment">// &#x83B7;&#x53D6; RootBeanDefinition&#xFF0C;&#x5982;&#x679C;&#x6307;&#x5B9A; beanName &#x662F;&#x5B50; bean &#x7684;&#x8BDD;&#xFF0C;&#x9700;&#x8981;&#x5408;&#x5E76;&#x7236;&#x7C7B;&#x5C5E;&#x6027;</span>
+            <span class="hljs-keyword">final</span> RootBeanDefinition mbd = getMergedLocalBeanDefinition(beanName);
+            checkMergedBeanDefinition(mbd, beanName, args);
+
+            <span class="hljs-comment">// &#x82E5;&#x5B58;&#x5728;&#x4F9D;&#x8D56;&#xFF0C;&#x9700;&#x8981;&#x9012;&#x5F52;&#x5B9E;&#x4F8B;&#x5316;&#x4F9D;&#x8D56;&#x7684; bean</span>
+            String[] dependsOn = mbd.getDependsOn();
+            <span class="hljs-keyword">if</span> (dependsOn != <span class="hljs-keyword">null</span>) {
+                <span class="hljs-keyword">for</span> (String dep : dependsOn) {
+                    <span class="hljs-keyword">if</span> (isDependent(beanName, dep)) {
+                        <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> BeanCreationException(mbd.getResourceDescription(), beanName,
+                                <span class="hljs-string">&quot;Circular depends-on relationship between &apos;&quot;</span> + beanName + <span class="hljs-string">&quot;&apos; and &apos;&quot;</span> + dep + <span class="hljs-string">&quot;&apos;&quot;</span>);
+                    }
+                    registerDependentBean(dep, beanName);
+                    <span class="hljs-keyword">try</span> {
+                        getBean(dep);
+                    }
+                    <span class="hljs-keyword">catch</span> (NoSuchBeanDefinitionException ex) {
+                        <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> BeanCreationException(mbd.getResourceDescription(), beanName,
+                                <span class="hljs-string">&quot;&apos;&quot;</span> + beanName + <span class="hljs-string">&quot;&apos; depends on missing bean &apos;&quot;</span> + dep + <span class="hljs-string">&quot;&apos;&quot;</span>, ex);
+                    }
+                }
+            }
+
+            <span class="hljs-comment">// &#x521B;&#x5EFA; bean &#x5B9E;&#x4F8B;</span>
+
+            <span class="hljs-comment">// Singleton &#x6A21;&#x5F0F;&#x7684;&#x521B;&#x5EFA;</span>
+            <span class="hljs-keyword">if</span> (mbd.isSingleton()) {
+                sharedInstance = getSingleton(beanName, () -&gt; {
+                    <span class="hljs-keyword">try</span> {
+                        <span class="hljs-keyword">return</span> createBean(beanName, mbd, args);
+                    }
+                    <span class="hljs-keyword">catch</span> (BeansException ex) {
+                        <span class="hljs-comment">// Explicitly remove instance from singleton cache: It might have been put there</span>
+                        <span class="hljs-comment">// eagerly by the creation process, to allow for circular reference resolution.</span>
+                        <span class="hljs-comment">// Also remove any beans that received a temporary reference to the bean.</span>
+                        destroySingleton(beanName);
+                        <span class="hljs-keyword">throw</span> ex;
+                    }
+                });
+                bean = getObjectForBeanInstance(sharedInstance, name, beanName, mbd);
+            }
+
+            <span class="hljs-comment">// Prototype &#x6A21;&#x5F0F;&#x7684;&#x521B;&#x5EFA;</span>
+            <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (mbd.isPrototype()) {
+                Object prototypeInstance = <span class="hljs-keyword">null</span>;
+                <span class="hljs-keyword">try</span> {
+                    beforePrototypeCreation(beanName);
+                    prototypeInstance = createBean(beanName, mbd, args);
+                }
+                <span class="hljs-keyword">finally</span> {
+                    afterPrototypeCreation(beanName);
+                }
+                bean = getObjectForBeanInstance(prototypeInstance, name, beanName, mbd);
+            }
+
+            <span class="hljs-keyword">else</span> {
+                String scopeName = mbd.getScope();
+                <span class="hljs-keyword">final</span> Scope scope = <span class="hljs-keyword">this</span>.scopes.get(scopeName);
+                <span class="hljs-keyword">if</span> (scope == <span class="hljs-keyword">null</span>) {
+                    <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> IllegalStateException(<span class="hljs-string">&quot;No Scope registered for scope name &apos;&quot;</span> + scopeName + <span class="hljs-string">&quot;&apos;&quot;</span>);
+                }
+                <span class="hljs-keyword">try</span> {
+                    Object scopedInstance = scope.get(beanName, () -&gt; {
+                        beforePrototypeCreation(beanName);
+                        <span class="hljs-keyword">try</span> {
+                            <span class="hljs-keyword">return</span> createBean(beanName, mbd, args);
+                        }
+                        <span class="hljs-keyword">finally</span> {
+                            afterPrototypeCreation(beanName);
+                        }
+                    });
+                    bean = getObjectForBeanInstance(scopedInstance, name, beanName, mbd);
+                }
+                <span class="hljs-keyword">catch</span> (IllegalStateException ex) {
+                    <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> BeanCreationException(beanName,
+                            <span class="hljs-string">&quot;Scope &apos;&quot;</span> + scopeName + <span class="hljs-string">&quot;&apos; is not active for the current thread; consider &quot;</span> +
+                            <span class="hljs-string">&quot;defining a scoped proxy for this bean if you intend to refer to it from a singleton&quot;</span>,
+                            ex);
+                }
+            }
+        }
+        <span class="hljs-keyword">catch</span> (BeansException ex) {
+            cleanupAfterBeanCreationFailure(beanName);
+            <span class="hljs-keyword">throw</span> ex;
+        }
+    }
+
+    <span class="hljs-comment">// &#x68C0;&#x6D4B; requiredType &#x662F;&#x5426;&#x4E3A; bean &#x7684;&#x5B9E;&#x9645;&#x7C7B;&#x578B;&#xFF0C;&#x4E0D;&#x662F;&#x5219;&#x8F6C;&#x6362;&#xFF0C;&#x4E0D;&#x6210;&#x529F;&#x5219;&#x629B;&#x51FA;&#x5F02;&#x5E38;</span>
+    <span class="hljs-keyword">if</span> (requiredType != <span class="hljs-keyword">null</span> &amp;&amp; !requiredType.isInstance(bean)) {
+        <span class="hljs-keyword">try</span> {
+            T convertedBean = getTypeConverter().convertIfNecessary(bean, requiredType);
+            <span class="hljs-keyword">if</span> (convertedBean == <span class="hljs-keyword">null</span>) {
+                <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> BeanNotOfRequiredTypeException(name, requiredType, bean.getClass());
+            }
+            <span class="hljs-keyword">return</span> convertedBean;
+        }
+        <span class="hljs-keyword">catch</span> (TypeMismatchException ex) {
+            <span class="hljs-keyword">if</span> (logger.isTraceEnabled()) {
+                logger.trace(<span class="hljs-string">&quot;Failed to convert bean &apos;&quot;</span> + name + <span class="hljs-string">&quot;&apos; to required type &apos;&quot;</span> +
+                        ClassUtils.getQualifiedName(requiredType) + <span class="hljs-string">&quot;&apos;&quot;</span>, ex);
+            }
+            <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> BeanNotOfRequiredTypeException(name, requiredType, bean.getClass());
+        }
+    }
+    <span class="hljs-keyword">return</span> (T) bean;
+}
+</code></pre>
+<p>&#x53EF;&#x4EE5;&#x770B;&#x5230; bean &#x7684;&#x52A0;&#x8F7D;&#x662F;&#x76F8;&#x5F53;&#x590D;&#x6742;&#x7684;&#x3002;&#x52A0;&#x8F7D;&#x7684;&#x6B65;&#x9AA4;&#x5927;&#x81F4;&#x5982;&#x4E0B;&#xFF1A;</p>
+<ol>
+<li>&#x8F6C;&#x6362;&#x5BF9;&#x5E94; beanName</li>
+<li>&#x5C1D;&#x8BD5;&#x4ECE;&#x7F13;&#x5B58;&#x4E2D;&#x52A0;&#x8F7D;&#x5355;&#x4F8B;</li>
+<li>bean &#x7684;&#x5B9E;&#x4F8B;&#x5316;</li>
+<li>&#x539F;&#x578B;&#x6A21;&#x5F0F;&#x7684;&#x4F9D;&#x8D56;&#x68C0;&#x67E5;</li>
+<li>&#x68C0;&#x6D4B; parentBeanFactory</li>
+<li>&#x5C06;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x8F6C;&#x6362;&#x4E3A; RootBeanDefinition</li>
+<li>&#x5BFB;&#x627E;&#x4F9D;&#x8D56;</li>
+<li>&#x9488;&#x5BF9;&#x4E0D;&#x540C;&#x7684; scope &#x8FDB;&#x884C; bean &#x7684;&#x521B;&#x5EFA;</li>
+<li>&#x7C7B;&#x578B;&#x8F6C;&#x6362;</li>
+</ol>
+<h1 id="factorybean">FactoryBean</h1>
+<p>&#x524D;&#x9762;&#x63D0;&#x5230;&#x4E86; BeanFactory&#xFF0C;&#x8FD9;&#x91CC;&#x53C8;&#x6765;&#x4E86;&#x4E2A; FactoryBean &#x2026;&#x2026; &#x636E;&#x8BF4; Spring &#x63D0;&#x4F9B;&#x4E86; 70 &#x591A;&#x4E2A; FactoryBean &#x7684;&#x5B9E;&#x73B0;&#xFF0C;&#x53EF;&#x89C1;&#x5176;&#x5728; Spring &#x6846;&#x67B6;&#x4E2D;&#x7684;&#x5730;&#x4F4D;&#x3002;&#x5B83;&#x4EEC;&#x9690;&#x85CF;&#x4E86;&#x5B9E;&#x4F8B;&#x5316;&#x590D;&#x6742; bean &#x7684;&#x7EC6;&#x8282;&#xFF0C;&#x7ED9;&#x4E0A;&#x5C42;&#x5E94;&#x7528;&#x5E26;&#x6765;&#x4FBF;&#x6377;&#x3002;</p>
+<pre><code class="lang-java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">interface</span> <span class="hljs-title">FactoryBean</span>&lt;<span class="hljs-title">T</span>&gt; </span>{
+
+    <span class="hljs-comment">// &#x8FD4;&#x56DE; FactoryBean &#x521B;&#x5EFA;&#x7684; bean &#x5B9E;&#x4F8B;&#xFF0C;&#x5982;&#x679C; isSingleton() &#x8FD4;&#x56DE; true&#xFF0C;&#x5219;&#x8BE5;&#x5B9E;&#x4F8B;&#x4F1A;&#x653E;&#x5230; Spring &#x5BB9;&#x5668;&#x7684;&#x5355;&#x4F8B;&#x7F13;&#x5B58;&#x6C60;&#x4E2D;</span>
+    <span class="hljs-meta">@Nullable</span>
+    <span class="hljs-function">T <span class="hljs-title">getObject</span><span class="hljs-params">()</span> <span class="hljs-keyword">throws</span> Exception</span>;
+
+    <span class="hljs-comment">// &#x8FD4;&#x56DE; FactoryBean &#x521B;&#x5EFA;&#x7684; bean &#x7C7B;&#x578B;</span>
+    <span class="hljs-meta">@Nullable</span>
+    Class&lt;?&gt; getObjectType();
+
+    <span class="hljs-function"><span class="hljs-keyword">default</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">isSingleton</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">true</span>;
+    }
+}
+</code></pre>
+<h1 id="&#x5FAA;&#x73AF;&#x4F9D;&#x8D56;">&#x5FAA;&#x73AF;&#x4F9D;&#x8D56;</h1>
+<p>&#x5FAA;&#x73AF;&#x4F9D;&#x8D56;&#x5C31;&#x662F;<code>&#x5FAA;&#x73AF;&#x5F15;&#x7528;</code>&#xFF0C;&#x4E24;&#x4E2A;&#x6216;&#x591A;&#x4E2A; bean &#x76F8;&#x4E92;&#x4E4B;&#x95F4;&#x6301;&#x6709;&#x5BF9;&#x65B9;&#x3002;&#x90A3;&#x4E48; Spring &#x662F;&#x5982;&#x4F55;&#x89E3;&#x51B3;&#x5FAA;&#x73AF;&#x4F9D;&#x8D56;&#x7684;&#xFF1F;</p>
+<p>&#x5728; Spring &#x4E2D;&#x5FAA;&#x73AF;&#x4F9D;&#x8D56;&#x4E00;&#x5171;&#x6709; 3 &#x79CD;&#x60C5;&#x51B5;&#xFF1A;</p>
+<ol>
+<li>&#x6784;&#x9020;&#x5668;&#x5FAA;&#x73AF;&#x4F9D;&#x8D56;</li>
+<li>setter &#x5FAA;&#x73AF;&#x4F9D;&#x8D56;</li>
+<li>prototype &#x8303;&#x56F4;&#x7684;&#x4F9D;&#x8D56;&#x5904;&#x7406;</li>
+</ol>
+<p>&#x5176;&#x4E2D;&#x6784;&#x9020;&#x5668;&#x5FAA;&#x73AF;&#x4F9D;&#x8D56;&#x662F;&#x65E0;&#x6CD5;&#x89E3;&#x51B3;&#x7684;&#xFF0C;&#x56E0;&#x4E3A;&#x4E00;&#x4E2A; bean &#x521B;&#x5EFA;&#x65F6;&#x9996;&#x5148;&#x8981;&#x7ECF;&#x8FC7;&#x6784;&#x9020;&#x5668;&#xFF0C;&#x4F46;&#x662F;&#x6784;&#x9020;&#x5668;&#x76F8;&#x4E92;&#x4F9D;&#x8D56;&#xFF0C;&#x5C31;&#x76F8;&#x5F53;&#x4E8E; Java &#x4E2D;&#x591A;&#x7EBF;&#x7A0B;&#x6B7B;&#x9501;&#x3002;</p>
+<p>setter &#x6CE8;&#x5165;&#x9020;&#x6210;&#x7684;&#x4F9D;&#x8D56;&#x662F;&#x901A;&#x8FC7; Spring &#x5BB9;&#x5668;&#x63D0;&#x524D;&#x66B4;&#x9732;&#x521A;&#x5B8C;&#x6210;&#x6784;&#x9020;&#x5668;&#x6CE8;&#x5165;&#x4F46;&#x672A;&#x5B8C;&#x6210;&#x5176;&#x4ED6;&#x6B65;&#x9AA4;&#xFF08;&#x5982; setter &#x6CE8;&#x5165;&#xFF09;&#x7684; bean &#x6765;&#x5B8C;&#x6210;&#x7684;&#xFF0C;&#x800C;&#x4E14;&#x53EA;&#x80FD;&#x89E3;&#x51B3;<code>&#x5355;&#x4F8B;&#x4F5C;&#x7528;&#x57DF;&#x7684; bean &#x5FAA;&#x73AF;&#x4F9D;&#x8D56;</code>&#x3002;&#x901A;&#x8FC7;&#x63D0;&#x524D;&#x66B4;&#x9732;&#x4E00;&#x4E2A;&#x5355;&#x4F8B;&#x5DE5;&#x5382;&#x65B9;&#x6CD5;&#xFF0C;&#x4ECE;&#x800C;&#x4F7F;&#x5176;&#x4ED6; bean &#x80FD;&#x5F15;&#x7528;&#x5230;&#x8BE5; bean&#xFF0C;&#x4EE3;&#x7801;&#x5982;&#x4E0B;&#xFF1A;</p>
+<pre><code class="lang-java"><span class="hljs-meta">@Nullable</span>
+<span class="hljs-function"><span class="hljs-keyword">protected</span> Object <span class="hljs-title">getSingleton</span><span class="hljs-params">(String beanName, <span class="hljs-keyword">boolean</span> allowEarlyReference)</span> </span>{
+    Object singletonObject = <span class="hljs-keyword">this</span>.singletonObjects.get(beanName);
+    <span class="hljs-keyword">if</span> (singletonObject == <span class="hljs-keyword">null</span> &amp;&amp; isSingletonCurrentlyInCreation(beanName)) {
+        <span class="hljs-keyword">synchronized</span> (<span class="hljs-keyword">this</span>.singletonObjects) {
+            singletonObject = <span class="hljs-keyword">this</span>.earlySingletonObjects.get(beanName);
+            <span class="hljs-keyword">if</span> (singletonObject == <span class="hljs-keyword">null</span> &amp;&amp; allowEarlyReference) {
+                ObjectFactory&lt;?&gt; singletonFactory = <span class="hljs-keyword">this</span>.singletonFactories.get(beanName);
+                <span class="hljs-keyword">if</span> (singletonFactory != <span class="hljs-keyword">null</span>) {
+                    singletonObject = singletonFactory.getObject();
+                    <span class="hljs-keyword">this</span>.earlySingletonObjects.put(beanName, singletonObject);
+                    <span class="hljs-keyword">this</span>.singletonFactories.remove(beanName);
+                }
+            }
+        }
+    }
+    <span class="hljs-keyword">return</span> singletonObject;
+}
+</code></pre>
+<p>&#x5176;&#x4E2D; earlySingletonObjects &#x7684;&#x5B9A;&#x4E49;&#x4E3A;&#xFF1A;</p>
+<pre><code class="lang-java"><span class="hljs-comment">/** Cache of early singleton objects: bean name to bean instance. */</span>
+<span class="hljs-keyword">private</span> <span class="hljs-keyword">final</span> Map&lt;String, Object&gt; earlySingletonObjects = <span class="hljs-keyword">new</span> HashMap&lt;&gt;(<span class="hljs-number">16</span>);
+</code></pre>
+<p>&#x5BF9;&#x4E8E; prototype &#x4F5C;&#x7528;&#x57DF;&#x7684; bean&#xFF0C;Spring &#x5BB9;&#x5668;&#x65E0;&#x6CD5;&#x5B8C;&#x6210;&#x4F9D;&#x8D56;&#x6CE8;&#x5165;&#xFF0C;&#x56E0;&#x4E3A; Spring &#x5BB9;&#x5668;&#x4E0D;&#x7F13;&#x5B58; prototype &#x4F5C;&#x7528;&#x57DF;&#x7684; bean&#x3002;</p>
+<h1 id="bean-&#x751F;&#x547D;&#x5468;&#x671F;">bean &#x751F;&#x547D;&#x5468;&#x671F;</h1>
+<p>&#x9762;&#x8BD5;&#x7684;&#x8BDD;&#xFF0C;Spring &#x7684;&#x6838;&#x5FC3;&#x5C31;&#x5728;&#x8FD9;&#x91CC;&#x4E86;&#xFF0C;&#x4E0D;&#x8FC7;&#x53EA;&#x8981;&#x8BB0;&#x4F4F;&#x5927;&#x4F53;&#x6D41;&#x7A0B;&#x5C31;&#x884C;&#x3002;</p>
+<p><img src="http://yano.oss-cn-beijing.aliyuncs.com/2019-09-25-142459.jpg" alt=""></p>
+<h1 id="&#x516C;&#x4F17;&#x53F7;">&#x516C;&#x4F17;&#x53F7;</h1>
+<p>coding &#x7B14;&#x8BB0;&#x3001;&#x70B9;&#x6EF4;&#x8BB0;&#x5F55;&#xFF0C;&#x4EE5;&#x540E;&#x7684;&#x6587;&#x7AE0;&#x4E5F;&#x4F1A;&#x540C;&#x6B65;&#x5230;&#x516C;&#x4F17;&#x53F7;&#xFF08;Coding Insight&#xFF09;&#x4E2D;&#xFF0C;&#x5E0C;&#x671B;&#x5927;&#x5BB6;&#x5173;&#x6CE8;^_^</p>
+<p><img src="http://yano.oss-cn-beijing.aliyuncs.com/2019-07-29-qrcode_for_gh_a26ce4572791_258.jpg" alt=""></p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="2019-09-23最简SpringAOP源码分析.html" class="navigation navigation-prev " aria-label="Previous page: 2019-09-23最简SpringAOP源码分析">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="2021-05-13SpringBean的Scope、生命周期和循环依赖分析.html" class="navigation navigation-next " aria-label="Next page: 2021-05-13SpringBean的Scope、生命周期和循环依赖分析">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"2019-09-24最简SpringIOC容器源码分析","level":"1.3.4.2","depth":3,"next":{"title":"2021-05-13SpringBean的Scope、生命周期和循环依赖分析","level":"1.3.4.3","depth":3,"path":"编程/Spring/2021-05-13SpringBean的Scope、生命周期和循环依赖分析.md","ref":"编程/Spring/2021-05-13SpringBean的Scope、生命周期和循环依赖分析.md","articles":[]},"previous":{"title":"2019-09-23最简SpringAOP源码分析","level":"1.3.4.1","depth":3,"path":"编程/Spring/2019-09-23最简SpringAOP源码分析.md","ref":"编程/Spring/2019-09-23最简SpringAOP源码分析.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"编程/Spring/2019-09-24最简SpringIOC容器源码分析.md","mtime":"2023-03-19T09:00:30.971Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-03-19T09:01:12.007Z"},"basePath":"../..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../../gitbook/gitbook.js"></script>
+    <script src="../../gitbook/theme.js"></script>
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
