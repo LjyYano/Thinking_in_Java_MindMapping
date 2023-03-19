@@ -1,0 +1,54 @@
+name: auto-generate-gitbook
+on:                                 # 在 master 分支上进行  push 时触发  
+  push:
+    branches:
+    - master
+
+jobs:
+  master-to-gh-pages:
+    runs-on: ubuntu-latest
+        
+    steps:                          
+    - name: checkout master
+      uses: actions/checkout@v2
+      with:
+        ref: master
+            
+    - name: install nodejs
+      uses: actions/setup-node@v1
+      
+    - name: configue gitbook
+      run: |
+        npm install -g gitbook-cli          
+        gitbook install
+        npm install -g gitbook-summary
+                
+    - name: generate _book folder
+      run: |
+        book sm
+        gitbook build
+        cp SUMMARY.md _book
+        
+    - name: copy _book
+      run: |
+        cp -r _book ../_book
+        
+    - name: checkout gh-pages
+      uses: actions/checkout@master
+      with:
+        persist-credentials: false
+        fetch-depth: 0
+        ref: gh-pages
+
+    - name: move _book
+      run: |
+        git config --global user.email "15822882820@163.com"
+        git config --global user.name "${{github.repository_owner}}"
+        rm -rf *
+        cp -r ../_book/* ./
+        
+    - name: Commit & Push changes
+      uses: Andro999b/push@v1.3
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        branch: gh-pages
