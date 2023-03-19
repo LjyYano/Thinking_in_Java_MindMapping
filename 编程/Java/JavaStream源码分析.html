@@ -1,0 +1,3276 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>JavaStream源码分析 · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="JavaString演进全解析.html" />
+    
+    
+    <link rel="prev" href="JavaNIO、Channel、Selector详解.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../../">
+            
+                <a href="../../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" >
+            
+                <span>
+            
+                    
+                    游戏
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="../../游戏/《八方旅人》基础.html">
+            
+                <a href="../../游戏/《八方旅人》基础.html">
+            
+                    
+                    《八方旅人》基础
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="../../游戏/《八方旅人》故事简介.html">
+            
+                <a href="../../游戏/《八方旅人》故事简介.html">
+            
+                    
+                    《八方旅人》故事简介
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="../../游戏/《八方旅人2》-JRPG的魅力.html">
+            
+                <a href="../../游戏/《八方旅人2》-JRPG的魅力.html">
+            
+                    
+                    《八方旅人2》-JRPG的魅力
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4" data-path="../../游戏/《塞尔达·荒野之息》游戏截图.html">
+            
+                <a href="../../游戏/《塞尔达·荒野之息》游戏截图.html">
+            
+                    
+                    《塞尔达·荒野之息》游戏截图
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5" data-path="../../游戏/《异度神剑》系列的个人向浅析（转载）.html">
+            
+                <a href="../../游戏/《异度神剑》系列的个人向浅析（转载）.html">
+            
+                    
+                    《异度神剑》系列的个人向浅析（转载）
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.6" data-path="../../游戏/《异度神剑2》CG截图.html">
+            
+                <a href="../../游戏/《异度神剑2》CG截图.html">
+            
+                    
+                    《异度神剑2》CG截图
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.7" data-path="../../游戏/《异度神剑2》剧情解析（转载）.html">
+            
+                <a href="../../游戏/《异度神剑2》剧情解析（转载）.html">
+            
+                    
+                    《异度神剑2》剧情解析（转载）
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.8" data-path="../../游戏/《异度神剑3》剧情梳理解析.html">
+            
+                <a href="../../游戏/《异度神剑3》剧情梳理解析.html">
+            
+                    
+                    《异度神剑3》剧情梳理解析
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.9" data-path="../../游戏/SwitchSXOX修改游戏数值（废弃）.html">
+            
+                <a href="../../游戏/SwitchSXOX修改游戏数值（废弃）.html">
+            
+                    
+                    SwitchSXOX修改游戏数值（废弃）
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.10" data-path="../../游戏/游戏类型分类大全.html">
+            
+                <a href="../../游戏/游戏类型分类大全.html">
+            
+                    
+                    游戏类型分类大全
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" >
+            
+                <span>
+            
+                    
+                    编程
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" >
+            
+                <span>
+            
+                    
+                    Java
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1.1" data-path="ApacheLog4j远程代码执行漏洞源码级分析.html">
+            
+                <a href="ApacheLog4j远程代码执行漏洞源码级分析.html">
+            
+                    
+                    ApacheLog4j远程代码执行漏洞源码级分析
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.2" data-path="GCprogressfromJDK8toJDK17.html">
+            
+                <a href="GCprogressfromJDK8toJDK17.html">
+            
+                    
+                    G Cprogressfrom JDK 8 To JDK 17
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.3" data-path="Java16正式发布，新特性一一解析.html">
+            
+                <a href="Java16正式发布，新特性一一解析.html">
+            
+                    
+                    Java16正式发布，新特性一一解析
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.4" data-path="JavaAgent使用指南-破解IDEA.html">
+            
+                <a href="JavaAgent使用指南-破解IDEA.html">
+            
+                    
+                    JavaAgent使用指南-破解IDEA
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.5" data-path="JavaClassLoader.html">
+            
+                <a href="JavaClassLoader.html">
+            
+                    
+                    Java Class Loader
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.6" data-path="JavaFeaturesfromJava8toJava17.html">
+            
+                <a href="JavaFeaturesfromJava8toJava17.html">
+            
+                    
+                    Java Featuresfrom Java 8 To Java 17
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.7" data-path="JavaLambda表达式源码分析.html">
+            
+                <a href="JavaLambda表达式源码分析.html">
+            
+                    
+                    JavaLambda表达式源码分析
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.8" data-path="JavaLockSupport工具类.html">
+            
+                <a href="JavaLockSupport工具类.html">
+            
+                    
+                    JavaLockSupport工具类
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.9" data-path="JavaNIO、Channel、Selector详解.html">
+            
+                <a href="JavaNIO、Channel、Selector详解.html">
+            
+                    
+                    JavaNIO、Channel、Selector详解
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.3.1.10" data-path="JavaStream源码分析.html">
+            
+                <a href="JavaStream源码分析.html">
+            
+                    
+                    JavaStream源码分析
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.11" data-path="JavaString演进全解析.html">
+            
+                <a href="JavaString演进全解析.html">
+            
+                    
+                    JavaString演进全解析
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.12" data-path="Java资源大全中文版.html">
+            
+                <a href="Java资源大全中文版.html">
+            
+                    
+                    Java资源大全中文版
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.13" data-path="JDK13新特性简介.html">
+            
+                <a href="JDK13新特性简介.html">
+            
+                    
+                    JDK13新特性简介
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.14" data-path="JDK14即将发布，你所要知道的都在这里！.html">
+            
+                <a href="JDK14即将发布，你所要知道的都在这里！.html">
+            
+                    
+                    JDK14即将发布，你所要知道的都在这里！
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.15" data-path="JDK15已发布，你所要知道的都在这里！.html">
+            
+                <a href="JDK15已发布，你所要知道的都在这里！.html">
+            
+                    
+                    JDK15已发布，你所要知道的都在这里！
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.16" data-path="JDK17新特性解析.html">
+            
+                <a href="JDK17新特性解析.html">
+            
+                    
+                    JDK17新特性解析
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.17" data-path="JDK19VirtualThreads虚拟线程.html">
+            
+                <a href="JDK19VirtualThreads虚拟线程.html">
+            
+                    
+                    JDK19VirtualThreads虚拟线程
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.18" data-path="JVMG1GC的算法与实现.html">
+            
+                <a href="JVMG1GC的算法与实现.html">
+            
+                    
+                    JVMG1GC的算法与实现
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.19" data-path="JVM即时编译器.html">
+            
+                <a href="JVM即时编译器.html">
+            
+                    
+                    JVM即时编译器
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.20" data-path="JVM源码深入分析00-环境配置.html">
+            
+                <a href="JVM源码深入分析00-环境配置.html">
+            
+                    
+                    JVM源码深入分析00-环境配置
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.21" data-path="Lucene、Elasticsearch、Kibana入门教程和环境搭建.html">
+            
+                <a href="Lucene、Elasticsearch、Kibana入门教程和环境搭建.html">
+            
+                    
+                    Lucene、Elasticsearch、Kibana入门教程和环境搭建
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.22" data-path="NettyHashedWheelTimer时间轮源码详解.html">
+            
+                <a href="NettyHashedWheelTimer时间轮源码详解.html">
+            
+                    
+                    NettyHashedWheelTimer时间轮源码详解
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.23" data-path="Netty的Channel、Promise、Pipeline详解.html">
+            
+                <a href="Netty的Channel、Promise、Pipeline详解.html">
+            
+                    
+                    Netty的Channel、Promise、Pipeline详解
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.24" data-path="一文看懂Java对象的内存.html">
+            
+                <a href="一文看懂Java对象的内存.html">
+            
+                    
+                    一文看懂Java对象的内存
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.25" data-path="云原生时代，Java的危与机.html">
+            
+                <a href="云原生时代，Java的危与机.html">
+            
+                    
+                    云原生时代，Java的危与机
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.26" data-path="对Kotlin与Java编程语言的思考.html">
+            
+                <a href="对Kotlin与Java编程语言的思考.html">
+            
+                    
+                    对Kotlin与Java编程语言的思考
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.27" data-path="对谷歌甲骨文Java纠纷案判决结果的感想.html">
+            
+                <a href="对谷歌甲骨文Java纠纷案判决结果的感想.html">
+            
+                    
+                    对谷歌甲骨文Java纠纷案判决结果的感想
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.28" data-path="深入分析Java、Kotlin、Go的线程和协程.html">
+            
+                <a href="深入分析Java、Kotlin、Go的线程和协程.html">
+            
+                    
+                    深入分析Java、Kotlin、Go的线程和协程
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.29" data-path="深入分析JavaLock同步锁.html">
+            
+                <a href="深入分析JavaLock同步锁.html">
+            
+                    
+                    深入分析JavaLock同步锁
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.30" data-path="深入分析Java乐观锁.html">
+            
+                <a href="深入分析Java乐观锁.html">
+            
+                    
+                    深入分析Java乐观锁
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.31" data-path="深入分析ZGC.html">
+            
+                <a href="深入分析ZGC.html">
+            
+                    
+                    深入分析ZGC
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.32" data-path="由Java15废弃偏向锁，谈谈JavaSynchronized的锁机制.html">
+            
+                <a href="由Java15废弃偏向锁，谈谈JavaSynchronized的锁机制.html">
+            
+                    
+                    由Java15废弃偏向锁，谈谈JavaSynchronized的锁机制
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.33" data-path="通过GraalVM将Java程序编译成本地机器码！.html">
+            
+                <a href="通过GraalVM将Java程序编译成本地机器码！.html">
+            
+                    
+                    通过GraalVM将Java程序编译成本地机器码！
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" >
+            
+                <span>
+            
+                    
+                    LeetCode题解
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.2.1" data-path="../LeetCode题解/LeetCode0000.爬取官网所有题目和自己的最近题解.html">
+            
+                <a href="../LeetCode题解/LeetCode0000.爬取官网所有题目和自己的最近题解.html">
+            
+                    
+                    LeetCode0000.爬取官网所有题目和自己的最近题解
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.2" data-path="../LeetCode题解/LeetCode0005.最长回文子串[动态规划详解].html">
+            
+                <a href="../LeetCode题解/LeetCode0005.最长回文子串[动态规划详解].html">
+            
+                    
+                    LeetCode0005.最长回文子串[动态规划详解]
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.3" data-path="../LeetCode题解/LeetCode0010.正则表达式匹配[动态规划详解].html">
+            
+                <a href="../LeetCode题解/LeetCode0010.正则表达式匹配[动态规划详解].html">
+            
+                    
+                    LeetCode0010.正则表达式匹配[动态规划详解]
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.4" data-path="../LeetCode题解/LeetCode0032.最长有效括号[动态规划详解].html">
+            
+                <a href="../LeetCode题解/LeetCode0032.最长有效括号[动态规划详解].html">
+            
+                    
+                    LeetCode0032.最长有效括号[动态规划详解]
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.5" data-path="../LeetCode题解/LeetCode0042.接雨水[动态规划详解].html">
+            
+                <a href="../LeetCode题解/LeetCode0042.接雨水[动态规划详解].html">
+            
+                    
+                    LeetCode0042.接雨水[动态规划详解]
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.6" data-path="../LeetCode题解/LeetCode0044.通配符匹配[动态规划详解].html">
+            
+                <a href="../LeetCode题解/LeetCode0044.通配符匹配[动态规划详解].html">
+            
+                    
+                    LeetCode0044.通配符匹配[动态规划详解]
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.7" data-path="../LeetCode题解/LeetCode0053.最大子序和[动态规划详解].html">
+            
+                <a href="../LeetCode题解/LeetCode0053.最大子序和[动态规划详解].html">
+            
+                    
+                    LeetCode0053.最大子序和[动态规划详解]
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.8" data-path="../LeetCode题解/LeetCode0062.不同路径[动态规划详解].html">
+            
+                <a href="../LeetCode题解/LeetCode0062.不同路径[动态规划详解].html">
+            
+                    
+                    LeetCode0062.不同路径[动态规划详解]
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.9" data-path="../LeetCode题解/LeetCode0063.不同路径II[动态规划详解].html">
+            
+                <a href="../LeetCode题解/LeetCode0063.不同路径II[动态规划详解].html">
+            
+                    
+                    LeetCode0063.不同路径II[动态规划详解]
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.10" data-path="../LeetCode题解/LeetCode0064.最小路径和[动态规划详解].html">
+            
+                <a href="../LeetCode题解/LeetCode0064.最小路径和[动态规划详解].html">
+            
+                    
+                    LeetCode0064.最小路径和[动态规划详解]
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.11" data-path="../LeetCode题解/LeetCode0070.爬楼梯[动态规划详解].html">
+            
+                <a href="../LeetCode题解/LeetCode0070.爬楼梯[动态规划详解].html">
+            
+                    
+                    LeetCode0070.爬楼梯[动态规划详解]
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.12" data-path="../LeetCode题解/LeetCode0072.编辑距离[动态规划详解].html">
+            
+                <a href="../LeetCode题解/LeetCode0072.编辑距离[动态规划详解].html">
+            
+                    
+                    LeetCode0072.编辑距离[动态规划详解]
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.13" data-path="../LeetCode题解/LeetCode0074.搜索二维矩阵.html">
+            
+                <a href="../LeetCode题解/LeetCode0074.搜索二维矩阵.html">
+            
+                    
+                    LeetCode0074.搜索二维矩阵
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.14" data-path="../LeetCode题解/LeetCode0079.单词搜索.html">
+            
+                <a href="../LeetCode题解/LeetCode0079.单词搜索.html">
+            
+                    
+                    LeetCode0079.单词搜索
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.15" data-path="../LeetCode题解/LeetCode0084.柱状图中最大的矩形.html">
+            
+                <a href="../LeetCode题解/LeetCode0084.柱状图中最大的矩形.html">
+            
+                    
+                    LeetCode0084.柱状图中最大的矩形
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.16" data-path="../LeetCode题解/LeetCode0085.最大矩形[动态规划详解].html">
+            
+                <a href="../LeetCode题解/LeetCode0085.最大矩形[动态规划详解].html">
+            
+                    
+                    LeetCode0085.最大矩形[动态规划详解]
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.17" data-path="../LeetCode题解/LeetCode0088.合并两个有序数组.html">
+            
+                <a href="../LeetCode题解/LeetCode0088.合并两个有序数组.html">
+            
+                    
+                    LeetCode0088.合并两个有序数组
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.18" data-path="../LeetCode题解/LeetCode0091.解码方法[动态规划详解].html">
+            
+                <a href="../LeetCode题解/LeetCode0091.解码方法[动态规划详解].html">
+            
+                    
+                    LeetCode0091.解码方法[动态规划详解]
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.19" data-path="../LeetCode题解/LeetCode0095.不同的二叉搜索树II[动态规划详解].html">
+            
+                <a href="../LeetCode题解/LeetCode0095.不同的二叉搜索树II[动态规划详解].html">
+            
+                    
+                    LeetCode0095.不同的二叉搜索树II[动态规划详解]
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.20" data-path="../LeetCode题解/LeetCode0096.不同的二叉搜索树[动态规划详解].html">
+            
+                <a href="../LeetCode题解/LeetCode0096.不同的二叉搜索树[动态规划详解].html">
+            
+                    
+                    LeetCode0096.不同的二叉搜索树[动态规划详解]
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.21" data-path="../LeetCode题解/LeetCode0097.交错字符串[动态规划详解].html">
+            
+                <a href="../LeetCode题解/LeetCode0097.交错字符串[动态规划详解].html">
+            
+                    
+                    LeetCode0097.交错字符串[动态规划详解]
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.22" data-path="../LeetCode题解/LeetCode0106.从中序与后序遍历序列构造二叉树.html">
+            
+                <a href="../LeetCode题解/LeetCode0106.从中序与后序遍历序列构造二叉树.html">
+            
+                    
+                    LeetCode0106.从中序与后序遍历序列构造二叉树
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.23" data-path="../LeetCode题解/LeetCode0115.不同的子序列[动态规划详解].html">
+            
+                <a href="../LeetCode题解/LeetCode0115.不同的子序列[动态规划详解].html">
+            
+                    
+                    LeetCode0115.不同的子序列[动态规划详解]
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.24" data-path="../LeetCode题解/LeetCode0120.三角形最小路径和.html">
+            
+                <a href="../LeetCode题解/LeetCode0120.三角形最小路径和.html">
+            
+                    
+                    LeetCode0120.三角形最小路径和
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.25" data-path="../LeetCode题解/LeetCode0120.三角形最小路径和[动态规划详解].html">
+            
+                <a href="../LeetCode题解/LeetCode0120.三角形最小路径和[动态规划详解].html">
+            
+                    
+                    LeetCode0120.三角形最小路径和[动态规划详解]
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.26" data-path="../LeetCode题解/LeetCode0121.买卖股票的最佳时机[动态规划详解].html">
+            
+                <a href="../LeetCode题解/LeetCode0121.买卖股票的最佳时机[动态规划详解].html">
+            
+                    
+                    LeetCode0121.买卖股票的最佳时机[动态规划详解]
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.27" data-path="../LeetCode题解/LeetCode0123.买卖股票的最佳时机III[动态规划详解].html">
+            
+                <a href="../LeetCode题解/LeetCode0123.买卖股票的最佳时机III[动态规划详解].html">
+            
+                    
+                    LeetCode0123.买卖股票的最佳时机III[动态规划详解]
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.28" data-path="../LeetCode题解/LeetCode0131.分割回文串[动态规划详解].html">
+            
+                <a href="../LeetCode题解/LeetCode0131.分割回文串[动态规划详解].html">
+            
+                    
+                    LeetCode0131.分割回文串[动态规划详解]
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.29" data-path="../LeetCode题解/LeetCode0132.分割回文串II[动态规划详解].html">
+            
+                <a href="../LeetCode题解/LeetCode0132.分割回文串II[动态规划详解].html">
+            
+                    
+                    LeetCode0132.分割回文串II[动态规划详解]
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.30" data-path="../LeetCode题解/LeetCode0139.单词拆分[动态规划详解].html">
+            
+                <a href="../LeetCode题解/LeetCode0139.单词拆分[动态规划详解].html">
+            
+                    
+                    LeetCode0139.单词拆分[动态规划详解]
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.31" data-path="../LeetCode题解/LeetCode0140.单词拆分II[动态规划详解].html">
+            
+                <a href="../LeetCode题解/LeetCode0140.单词拆分II[动态规划详解].html">
+            
+                    
+                    LeetCode0140.单词拆分II[动态规划详解]
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.32" data-path="../LeetCode题解/LeetCode0152.乘积最大子数组[动态规划详解].html">
+            
+                <a href="../LeetCode题解/LeetCode0152.乘积最大子数组[动态规划详解].html">
+            
+                    
+                    LeetCode0152.乘积最大子数组[动态规划详解]
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.33" data-path="../LeetCode题解/LeetCode0209.长度最小的子数组.html">
+            
+                <a href="../LeetCode题解/LeetCode0209.长度最小的子数组.html">
+            
+                    
+                    LeetCode0209.长度最小的子数组
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.34" data-path="../LeetCode题解/LeetCode0219.存在重复元素II.html">
+            
+                <a href="../LeetCode题解/LeetCode0219.存在重复元素II.html">
+            
+                    
+                    LeetCode0219.存在重复元素II
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.35" data-path="../LeetCode题解/LeetCode0228.汇总区间.html">
+            
+                <a href="../LeetCode题解/LeetCode0228.汇总区间.html">
+            
+                    
+                    LeetCode0228.汇总区间
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.36" data-path="../LeetCode题解/LeetCode0381.O(1">
+            
+                <span>
+            
+                    
+                    LeetCode0381.O(1)时间插入、删除和获取随机元素-允许重复
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.37" data-path="../LeetCode题解/LeetCode0509.斐波那契数.html">
+            
+                <a href="../LeetCode题解/LeetCode0509.斐波那契数.html">
+            
+                    
+                    LeetCode0509.斐波那契数
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.38" data-path="../LeetCode题解/LeetCode0605.种花问题.html">
+            
+                <a href="../LeetCode题解/LeetCode0605.种花问题.html">
+            
+                    
+                    LeetCode0605.种花问题
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.39" data-path="../LeetCode题解/LeetCode0628.三个数的最大乘积.html">
+            
+                <a href="../LeetCode题解/LeetCode0628.三个数的最大乘积.html">
+            
+                    
+                    LeetCode0628.三个数的最大乘积
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.40" data-path="../LeetCode题解/LeetCode0747.至少是其他数字两倍的最大数.html">
+            
+                <a href="../LeetCode题解/LeetCode0747.至少是其他数字两倍的最大数.html">
+            
+                    
+                    LeetCode0747.至少是其他数字两倍的最大数
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.41" data-path="../LeetCode题解/LeetCode0832.翻转图像.html">
+            
+                <a href="../LeetCode题解/LeetCode0832.翻转图像.html">
+            
+                    
+                    LeetCode0832.翻转图像
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.42" data-path="../LeetCode题解/LeetCode0840.矩阵中的幻方.html">
+            
+                <a href="../LeetCode题解/LeetCode0840.矩阵中的幻方.html">
+            
+                    
+                    LeetCode0840.矩阵中的幻方
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.43" data-path="../LeetCode题解/LeetCode0849.到最近的人的最大距离.html">
+            
+                <a href="../LeetCode题解/LeetCode0849.到最近的人的最大距离.html">
+            
+                    
+                    LeetCode0849.到最近的人的最大距离
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.44" data-path="../LeetCode题解/LeetCode0945.使数组唯一的最小增量.html">
+            
+                <a href="../LeetCode题解/LeetCode0945.使数组唯一的最小增量.html">
+            
+                    
+                    LeetCode0945.使数组唯一的最小增量
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.45" data-path="../LeetCode题解/LeetCode0954.二倍数对数组.html">
+            
+                <a href="../LeetCode题解/LeetCode0954.二倍数对数组.html">
+            
+                    
+                    LeetCode0954.二倍数对数组
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.46" data-path="../LeetCode题解/LeetCode0969.煎饼排序.html">
+            
+                <a href="../LeetCode题解/LeetCode0969.煎饼排序.html">
+            
+                    
+                    LeetCode0969.煎饼排序
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.47" data-path="../LeetCode题解/LeetCode0977.有序数组的平方.html">
+            
+                <a href="../LeetCode题解/LeetCode0977.有序数组的平方.html">
+            
+                    
+                    LeetCode0977.有序数组的平方
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.48" data-path="../LeetCode题解/LeetCode1074.元素和为目标值的子矩阵数量.html">
+            
+                <a href="../LeetCode题解/LeetCode1074.元素和为目标值的子矩阵数量.html">
+            
+                    
+                    LeetCode1074.元素和为目标值的子矩阵数量
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.49" data-path="../LeetCode题解/LeetCode1144.递减元素使数组呈锯齿状.html">
+            
+                <a href="../LeetCode题解/LeetCode1144.递减元素使数组呈锯齿状.html">
+            
+                    
+                    LeetCode1144.递减元素使数组呈锯齿状
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.50" data-path="../LeetCode题解/LeetCode1160.拼写单词.html">
+            
+                <a href="../LeetCode题解/LeetCode1160.拼写单词.html">
+            
+                    
+                    LeetCode1160.拼写单词
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.51" data-path="../LeetCode题解/LeetCode1260.二维网格迁移.html">
+            
+                <a href="../LeetCode题解/LeetCode1260.二维网格迁移.html">
+            
+                    
+                    LeetCode1260.二维网格迁移
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.52" data-path="../LeetCode题解/LeetCode1266.访问所有点的最小时间.html">
+            
+                <a href="../LeetCode题解/LeetCode1266.访问所有点的最小时间.html">
+            
+                    
+                    LeetCode1266.访问所有点的最小时间
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.53" data-path="../LeetCode题解/LeetCode1267.统计参与通信的服务器.html">
+            
+                <a href="../LeetCode题解/LeetCode1267.统计参与通信的服务器.html">
+            
+                    
+                    LeetCode1267.统计参与通信的服务器
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.54" data-path="../LeetCode题解/LeetCode1331.数组序号转换.html">
+            
+                <a href="../LeetCode题解/LeetCode1331.数组序号转换.html">
+            
+                    
+                    LeetCode1331.数组序号转换
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.55" data-path="../LeetCode题解/LeetCode1424.对角线遍历II.html">
+            
+                <a href="../LeetCode题解/LeetCode1424.对角线遍历II.html">
+            
+                    
+                    LeetCode1424.对角线遍历II
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.56" data-path="../LeetCode题解/LeetCode1438.绝对差不超过限制的最长连续子数组.html">
+            
+                <a href="../LeetCode题解/LeetCode1438.绝对差不超过限制的最长连续子数组.html">
+            
+                    
+                    LeetCode1438.绝对差不超过限制的最长连续子数组
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.57" data-path="../LeetCode题解/LeetCode1442.形成两个异或相等数组的三元组数目.html">
+            
+                <a href="../LeetCode题解/LeetCode1442.形成两个异或相等数组的三元组数目.html">
+            
+                    
+                    LeetCode1442.形成两个异或相等数组的三元组数目
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.58" data-path="../LeetCode题解/LeetCode1476.子矩形查询.html">
+            
+                <a href="../LeetCode题解/LeetCode1476.子矩形查询.html">
+            
+                    
+                    LeetCode1476.子矩形查询
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.59" data-path="../LeetCode题解/LeetCode1534.统计好三元组.html">
+            
+                <a href="../LeetCode题解/LeetCode1534.统计好三元组.html">
+            
+                    
+                    LeetCode1534.统计好三元组
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.60" data-path="../LeetCode题解/LeetCode1535.找出数组游戏的赢家.html">
+            
+                <a href="../LeetCode题解/LeetCode1535.找出数组游戏的赢家.html">
+            
+                    
+                    LeetCode1535.找出数组游戏的赢家
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.61" data-path="../LeetCode题解/LeetCode1550.存在连续三个奇数的数组.html">
+            
+                <a href="../LeetCode题解/LeetCode1550.存在连续三个奇数的数组.html">
+            
+                    
+                    LeetCode1550.存在连续三个奇数的数组
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.62" data-path="../LeetCode题解/LeetCode1552.两球之间的磁力.html">
+            
+                <a href="../LeetCode题解/LeetCode1552.两球之间的磁力.html">
+            
+                    
+                    LeetCode1552.两球之间的磁力
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.63" data-path="../LeetCode题解/LeetCode1574.删除最短的子数组使剩余数组有序.html">
+            
+                <a href="../LeetCode题解/LeetCode1574.删除最短的子数组使剩余数组有序.html">
+            
+                    
+                    LeetCode1574.删除最短的子数组使剩余数组有序
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.64" data-path="../LeetCode题解/LeetCode1588.所有奇数长度子数组的和.html">
+            
+                <a href="../LeetCode题解/LeetCode1588.所有奇数长度子数组的和.html">
+            
+                    
+                    LeetCode1588.所有奇数长度子数组的和
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.65" data-path="../LeetCode题解/LeetCode1672.最富有客户的资产总量.html">
+            
+                <a href="../LeetCode题解/LeetCode1672.最富有客户的资产总量.html">
+            
+                    
+                    LeetCode1672.最富有客户的资产总量
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" >
+            
+                <span>
+            
+                    
+                    Redis源码剖析系列
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.3.1" data-path="../Redis源码剖析系列/Redis7.0.html">
+            
+                <a href="../Redis源码剖析系列/Redis7.0.html">
+            
+                    
+                    Redis7.0
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3.2" data-path="../Redis源码剖析系列/Redis源码简洁剖析01-环境配置.html">
+            
+                <a href="../Redis源码剖析系列/Redis源码简洁剖析01-环境配置.html">
+            
+                    
+                    Redis源码简洁剖析01-环境配置
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3.3" data-path="../Redis源码剖析系列/Redis源码简洁剖析02-SDS字符串.html">
+            
+                <a href="../Redis源码剖析系列/Redis源码简洁剖析02-SDS字符串.html">
+            
+                    
+                    Redis源码简洁剖析02-SDS字符串
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3.4" data-path="../Redis源码剖析系列/Redis源码简洁剖析03-DictHash基础.html">
+            
+                <a href="../Redis源码剖析系列/Redis源码简洁剖析03-DictHash基础.html">
+            
+                    
+                    Redis源码简洁剖析03-DictHash基础
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3.5" data-path="../Redis源码剖析系列/Redis源码简洁剖析04-SortedSet有序集合.html">
+            
+                <a href="../Redis源码剖析系列/Redis源码简洁剖析04-SortedSet有序集合.html">
+            
+                    
+                    Redis源码简洁剖析04-SortedSet有序集合
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3.6" data-path="../Redis源码剖析系列/Redis源码简洁剖析05-ziplist压缩列表.html">
+            
+                <a href="../Redis源码剖析系列/Redis源码简洁剖析05-ziplist压缩列表.html">
+            
+                    
+                    Redis源码简洁剖析05-ziplist压缩列表
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3.7" data-path="../Redis源码剖析系列/Redis源码简洁剖析06-quicklist和listpack.html">
+            
+                <a href="../Redis源码剖析系列/Redis源码简洁剖析06-quicklist和listpack.html">
+            
+                    
+                    Redis源码简洁剖析06-quicklist和listpack
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3.8" data-path="../Redis源码剖析系列/Redis源码简洁剖析07-main函数启动.html">
+            
+                <a href="../Redis源码剖析系列/Redis源码简洁剖析07-main函数启动.html">
+            
+                    
+                    Redis源码简洁剖析07-main函数启动
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3.9" data-path="../Redis源码剖析系列/Redis源码简洁剖析08-epoll.html">
+            
+                <a href="../Redis源码剖析系列/Redis源码简洁剖析08-epoll.html">
+            
+                    
+                    Redis源码简洁剖析08-epoll
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3.10" data-path="../Redis源码剖析系列/Redis源码简洁剖析09-Reactor模型.html">
+            
+                <a href="../Redis源码剖析系列/Redis源码简洁剖析09-Reactor模型.html">
+            
+                    
+                    Redis源码简洁剖析09-Reactor模型
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3.11" data-path="../Redis源码剖析系列/Redis源码简洁剖析10-aeEventLoop及事件.html">
+            
+                <a href="../Redis源码剖析系列/Redis源码简洁剖析10-aeEventLoop及事件.html">
+            
+                    
+                    Redis源码简洁剖析10-aeEventLoop及事件
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3.12" data-path="../Redis源码剖析系列/Redis源码简洁剖析11-主IO线程及Redis6.0多IO线程.html">
+            
+                <a href="../Redis源码剖析系列/Redis源码简洁剖析11-主IO线程及Redis6.0多IO线程.html">
+            
+                    
+                    Redis源码简洁剖析11-主IO线程及Redis6.0多IO线程
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3.13" data-path="../Redis源码剖析系列/Redis源码简洁剖析12-一条命令的处理过程.html">
+            
+                <a href="../Redis源码剖析系列/Redis源码简洁剖析12-一条命令的处理过程.html">
+            
+                    
+                    Redis源码简洁剖析12-一条命令的处理过程
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3.14" data-path="../Redis源码剖析系列/Redis源码简洁剖析13-RDB文件.html">
+            
+                <a href="../Redis源码剖析系列/Redis源码简洁剖析13-RDB文件.html">
+            
+                    
+                    Redis源码简洁剖析13-RDB文件
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3.15" data-path="../Redis源码剖析系列/Redis源码简洁剖析14-Redis持久化.html">
+            
+                <a href="../Redis源码剖析系列/Redis源码简洁剖析14-Redis持久化.html">
+            
+                    
+                    Redis源码简洁剖析14-Redis持久化
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3.16" data-path="../Redis源码剖析系列/Redis源码简洁剖析15-AOF.html">
+            
+                <a href="../Redis源码剖析系列/Redis源码简洁剖析15-AOF.html">
+            
+                    
+                    Redis源码简洁剖析15-AOF
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3.17" data-path="../Redis源码剖析系列/Redis源码简洁剖析16-客户端.html">
+            
+                <a href="../Redis源码剖析系列/Redis源码简洁剖析16-客户端.html">
+            
+                    
+                    Redis源码简洁剖析16-客户端
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3.18" data-path="../Redis源码剖析系列/Redis源码简洁剖析17-服务器.html">
+            
+                <a href="../Redis源码剖析系列/Redis源码简洁剖析17-服务器.html">
+            
+                    
+                    Redis源码简洁剖析17-服务器
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3.19" data-path="../Redis源码剖析系列/Redis源码简洁剖析18-复制、哨兵Sentinel.html">
+            
+                <a href="../Redis源码剖析系列/Redis源码简洁剖析18-复制、哨兵Sentinel.html">
+            
+                    
+                    Redis源码简洁剖析18-复制、哨兵Sentinel
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" >
+            
+                <span>
+            
+                    
+                    Spring
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.4.1" data-path="../Spring/SpringBean的Scope、生命周期和循环依赖分析.html">
+            
+                <a href="../Spring/SpringBean的Scope、生命周期和循环依赖分析.html">
+            
+                    
+                    SpringBean的Scope、生命周期和循环依赖分析
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4.2" data-path="../Spring/SpringBootNative.html">
+            
+                <a href="../Spring/SpringBootNative.html">
+            
+                    
+                    Spring Boot Native
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4.3" data-path="../Spring/SpringNative项目，把Spring项目编译成原生程序！.html">
+            
+                <a href="../Spring/SpringNative项目，把Spring项目编译成原生程序！.html">
+            
+                    
+                    SpringNative项目，把Spring项目编译成原生程序！
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4.4" data-path="../Spring/最简SpringAOP源码分析.html">
+            
+                <a href="../Spring/最简SpringAOP源码分析.html">
+            
+                    
+                    最简SpringAOP源码分析
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4.5" data-path="../Spring/最简SpringIOC容器源码分析.html">
+            
+                <a href="../Spring/最简SpringIOC容器源码分析.html">
+            
+                    
+                    最简SpringIOC容器源码分析
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5" >
+            
+                <span>
+            
+                    
+                    其他
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.5.1" data-path="../其他/30分钟玩转「正则表达式」.html">
+            
+                <a href="../其他/30分钟玩转「正则表达式」.html">
+            
+                    
+                    30分钟玩转「正则表达式」
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5.2" data-path="../其他/guavaRateLimiter源码分析.html">
+            
+                <a href="../其他/guavaRateLimiter源码分析.html">
+            
+                    
+                    guavaRateLimiter源码分析
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5.3" data-path="../其他/Java知乎爬虫.html">
+            
+                <a href="../其他/Java知乎爬虫.html">
+            
+                    
+                    Java知乎爬虫
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5.4" data-path="../其他/LeetCode二叉树系统题解.html">
+            
+                <a href="../其他/LeetCode二叉树系统题解.html">
+            
+                    
+                    LeetCode二叉树系统题解
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5.5" data-path="../其他/Linuxmmap技术.html">
+            
+                <a href="../其他/Linuxmmap技术.html">
+            
+                    
+                    Linuxmmap技术
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5.6" data-path="../其他/Linux虚拟内存.html">
+            
+                <a href="../其他/Linux虚拟内存.html">
+            
+                    
+                    Linux虚拟内存
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5.7" data-path="../其他/Maven依赖树的解析规则.html">
+            
+                <a href="../其他/Maven依赖树的解析规则.html">
+            
+                    
+                    Maven依赖树的解析规则
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5.8" data-path="../其他/MySQL面试：为什么B+树比B树更适合磁盘存储？.html">
+            
+                <a href="../其他/MySQL面试：为什么B+树比B树更适合磁盘存储？.html">
+            
+                    
+                    MySQL面试：为什么B+树比B树更适合磁盘存储？
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5.9" data-path="../其他/OceanBase企业级开源分布式数据库.html">
+            
+                <a href="../其他/OceanBase企业级开源分布式数据库.html">
+            
+                    
+                    OceanBase企业级开源分布式数据库
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5.10" data-path="../其他/Raft算法分析.html">
+            
+                <a href="../其他/Raft算法分析.html">
+            
+                    
+                    Raft算法分析
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5.11" data-path="../其他/RocketMQ源码分析系列00-消息发送和消息接收Helloworld.html">
+            
+                <a href="../其他/RocketMQ源码分析系列00-消息发送和消息接收Helloworld.html">
+            
+                    
+                    RocketMQ源码分析系列00-消息发送和消息接收Helloworld
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5.12" data-path="../其他/RPC实战与原理.html">
+            
+                <a href="../其他/RPC实战与原理.html">
+            
+                    
+                    RPC实战与原理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5.13" data-path="../其他/字符编码.html">
+            
+                <a href="../其他/字符编码.html">
+            
+                    
+                    字符编码
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5.14" data-path="../其他/左耳朵耗子：技术人员的发展之路.html">
+            
+                <a href="../其他/左耳朵耗子：技术人员的发展之路.html">
+            
+                    
+                    左耳朵耗子：技术人员的发展之路
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5.15" data-path="../其他/并查集.html">
+            
+                <a href="../其他/并查集.html">
+            
+                    
+                    并查集
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5.16" data-path="../其他/消息中间件.html">
+            
+                <a href="../其他/消息中间件.html">
+            
+                    
+                    消息中间件
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5.17" data-path="../其他/爬取北京摩拜单车信息（附分析过程和详细代码）.html">
+            
+                <a href="../其他/爬取北京摩拜单车信息（附分析过程和详细代码）.html">
+            
+                    
+                    爬取北京摩拜单车信息（附分析过程和详细代码）
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5.18" data-path="../其他/通过Netty、ZooKeeper手撸一个RPC服务.html">
+            
+                <a href="../其他/通过Netty、ZooKeeper手撸一个RPC服务.html">
+            
+                    
+                    通过Netty、ZooKeeper手撸一个RPC服务
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6" >
+            
+                <span>
+            
+                    
+                    思维导图系列
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.6.1" data-path="../思维导图系列/一个思维导图，带你深入理解Linux网络.html">
+            
+                <a href="../思维导图系列/一个思维导图，带你深入理解Linux网络.html">
+            
+                    
+                    一个思维导图，带你深入理解Linux网络
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6.2" data-path="../思维导图系列/思维导图学《Java性能权威指南》.html">
+            
+                <a href="../思维导图系列/思维导图学《Java性能权威指南》.html">
+            
+                    
+                    思维导图学《Java性能权威指南》
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6.3" data-path="../思维导图系列/思维导图学《JVM虚拟机规范》.html">
+            
+                <a href="../思维导图系列/思维导图学《JVM虚拟机规范》.html">
+            
+                    
+                    思维导图学《JVM虚拟机规范》
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6.4" data-path="../思维导图系列/思维导图学《Linux性能优化实战》.html">
+            
+                <a href="../思维导图系列/思维导图学《Linux性能优化实战》.html">
+            
+                    
+                    思维导图学《Linux性能优化实战》
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6.5" data-path="../思维导图系列/思维导图学《OnJava》基础卷+进阶卷.html">
+            
+                <a href="../思维导图系列/思维导图学《OnJava》基础卷+进阶卷.html">
+            
+                    
+                    思维导图学《OnJava》基础卷+进阶卷
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6.6" data-path="../思维导图系列/思维导图学HTTP.html">
+            
+                <a href="../思维导图系列/思维导图学HTTP.html">
+            
+                    
+                    思维导图学HTTP
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6.7" data-path="../思维导图系列/思维导图学Kotlin.html">
+            
+                <a href="../思维导图系列/思维导图学Kotlin.html">
+            
+                    
+                    思维导图学Kotlin
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6.8" data-path="../思维导图系列/思维导图学Netty.html">
+            
+                <a href="../思维导图系列/思维导图学Netty.html">
+            
+                    
+                    思维导图学Netty
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6.9" data-path="../思维导图系列/思维导图学Spring.html">
+            
+                <a href="../思维导图系列/思维导图学Spring.html">
+            
+                    
+                    思维导图学Spring
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6.10" data-path="../思维导图系列/思维导图学Tomcat&Jetty.html">
+            
+                <a href="../思维导图系列/思维导图学Tomcat&Jetty.html">
+            
+                    
+                    思维导图学Tomcat&Jetty
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" >
+            
+                <span>
+            
+                    
+                    观影
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../../观影/Yano的2019观影总结.html">
+            
+                <a href="../../观影/Yano的2019观影总结.html">
+            
+                    
+                    Yano的2019观影总结
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="../../观影/Yano的2020观影总结.html">
+            
+                <a href="../../观影/Yano的2020观影总结.html">
+            
+                    
+                    Yano的2020观影总结
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="../../观影/Yano的2021观影总结.html">
+            
+                <a href="../../观影/Yano的2021观影总结.html">
+            
+                    
+                    Yano的2021观影总结
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4" data-path="../../观影/Yano的2022观影总结.html">
+            
+                <a href="../../观影/Yano的2022观影总结.html">
+            
+                    
+                    Yano的2022观影总结
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" >
+            
+                <span>
+            
+                    
+                    读书
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="../../读书/《UNIX传奇》.html">
+            
+                <a href="../../读书/《UNIX传奇》.html">
+            
+                    
+                    《UNIX传奇》
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="../../读书/《你有你的计划，世界另有计划》.html">
+            
+                <a href="../../读书/《你有你的计划，世界另有计划》.html">
+            
+                    
+                    《你有你的计划，世界另有计划》
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.3" data-path="../../读书/《十三邀1-我还是更喜欢失败者》读书笔记.html">
+            
+                <a href="../../读书/《十三邀1-我还是更喜欢失败者》读书笔记.html">
+            
+                    
+                    《十三邀1-我还是更喜欢失败者》读书笔记
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.4" data-path="../../读书/《十三邀2：偶像是生意，是符号，是忍辱负重》.html">
+            
+                <a href="../../读书/《十三邀2：偶像是生意，是符号，是忍辱负重》.html">
+            
+                    
+                    《十三邀2：偶像是生意，是符号，是忍辱负重》
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.5" data-path="../../读书/《如何阅读一本书》摘抄.html">
+            
+                <a href="../../读书/《如何阅读一本书》摘抄.html">
+            
+                    
+                    《如何阅读一本书》摘抄
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.6" data-path="../../读书/《学会提问：批判性思维入门》.html">
+            
+                <a href="../../读书/《学会提问：批判性思维入门》.html">
+            
+                    
+                    《学会提问：批判性思维入门》
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.7" data-path="../../读书/《强风吹拂》摘抄.html">
+            
+                <a href="../../读书/《强风吹拂》摘抄.html">
+            
+                    
+                    《强风吹拂》摘抄
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.8" data-path="../../读书/《指数基金投资指南》.html">
+            
+                <a href="../../读书/《指数基金投资指南》.html">
+            
+                    
+                    《指数基金投资指南》
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.9" data-path="../../读书/《毛泽东传》摘抄.html">
+            
+                <a href="../../读书/《毛泽东传》摘抄.html">
+            
+                    
+                    《毛泽东传》摘抄
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.10" data-path="../../读书/《浮生六记》.html">
+            
+                <a href="../../读书/《浮生六记》.html">
+            
+                    
+                    《浮生六记》
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.11" data-path="../../读书/《量化健身-原理解析》.html">
+            
+                <a href="../../读书/《量化健身-原理解析》.html">
+            
+                    
+                    《量化健身-原理解析》
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../../随笔/随笔.html">
+            
+                <a href="../../随笔/随笔.html">
+            
+                    
+                    随笔
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.1" data-path="../../随笔/2016年终总结——学生时代的结束、北漂生活的开始.html">
+            
+                <a href="../../随笔/2016年终总结——学生时代的结束、北漂生活的开始.html">
+            
+                    
+                    2016年终总结——学生时代的结束、北漂生活的开始
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.2" data-path="../../随笔/2021随笔.html">
+            
+                <a href="../../随笔/2021随笔.html">
+            
+                    
+                    2021随笔
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.3" data-path="../../随笔/5G是什么？一篇文章搞定！.html">
+            
+                <a href="../../随笔/5G是什么？一篇文章搞定！.html">
+            
+                    
+                    5G是什么？一篇文章搞定！
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.4" data-path="../../随笔/中文技术文档写作规范.html">
+            
+                <a href="../../随笔/中文技术文档写作规范.html">
+            
+                    
+                    中文技术文档写作规范
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.5" data-path="../../随笔/乐高积木感悟.html">
+            
+                <a href="../../随笔/乐高积木感悟.html">
+            
+                    
+                    乐高积木感悟
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.6" data-path="../../随笔/乐高马里奥.html">
+            
+                <a href="../../随笔/乐高马里奥.html">
+            
+                    
+                    乐高马里奥
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.7" data-path="../../随笔/印象笔记吐槽.html">
+            
+                <a href="../../随笔/印象笔记吐槽.html">
+            
+                    
+                    印象笔记吐槽
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.8" data-path="../../随笔/吐槽下《MongoDB实战》（第二版）的翻译.html">
+            
+                <a href="../../随笔/吐槽下《MongoDB实战》（第二版）的翻译.html">
+            
+                    
+                    吐槽下《MongoDB实战》（第二版）的翻译
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.9" data-path="../../随笔/生活、工作总结.html">
+            
+                <a href="../../随笔/生活、工作总结.html">
+            
+                    
+                    生活、工作总结
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.10" data-path="../../随笔/由工作中一次无奈的合作想到的.html">
+            
+                <a href="../../随笔/由工作中一次无奈的合作想到的.html">
+            
+                    
+                    由工作中一次无奈的合作想到的
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.11" data-path="../../随笔/股票知识记录.html">
+            
+                <a href="../../随笔/股票知识记录.html">
+            
+                    
+                    股票知识记录
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../.." >JavaStream源码分析</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <ul>
+<li><a href="#&#x524D;&#x8A00;">&#x524D;&#x8A00;</a></li>
+<li><a href="#&#x64CD;&#x4F5C;&#x5206;&#x7C7B;">&#x64CD;&#x4F5C;&#x5206;&#x7C7B;</a></li>
+<li><a href="#&#x6E90;&#x7801;&#x7ED3;&#x6784;">&#x6E90;&#x7801;&#x7ED3;&#x6784;</a><ul>
+<li><a href="#basestream">BaseStream</a></li>
+<li><a href="#stream">Stream</a></li>
+<li><a href="#referencepipeline">ReferencePipeline</a></li>
+<li><a href="#sink">Sink</a></li>
+</ul>
+</li>
+<li><a href="#&#x64CD;&#x4F5C;&#x53E0;&#x52A0;">&#x64CD;&#x4F5C;&#x53E0;&#x52A0;</a><ul>
+<li><a href="#&#x52A0;&#x8F7D;&#x6570;&#x636E;&#x6E90;">&#x52A0;&#x8F7D;&#x6570;&#x636E;&#x6E90;</a></li>
+<li><a href="#&#x4E2D;&#x95F4;&#x64CD;&#x4F5C;">&#x4E2D;&#x95F4;&#x64CD;&#x4F5C;</a></li>
+<li><a href="#&#x7EC8;&#x7ED3;&#x64CD;&#x4F5C;">&#x7EC8;&#x7ED3;&#x64CD;&#x4F5C;</a></li>
+</ul>
+</li>
+<li><a href="#&#x5E76;&#x884C;&#x5904;&#x7406;">&#x5E76;&#x884C;&#x5904;&#x7406;</a><ul>
+<li><a href="#&#x5E76;&#x884C;&#x9519;&#x8BEF;&#x7684;&#x4F7F;&#x7528;&#x65B9;&#x6CD5;">&#x5E76;&#x884C;&#x9519;&#x8BEF;&#x7684;&#x4F7F;&#x7528;&#x65B9;&#x6CD5;</a></li>
+<li><a href="#&#x5E76;&#x884C;&#x6B63;&#x786E;&#x7684;&#x4F7F;&#x7528;&#x65B9;&#x6CD5;">&#x5E76;&#x884C;&#x6B63;&#x786E;&#x7684;&#x4F7F;&#x7528;&#x65B9;&#x6CD5;</a></li>
+</ul>
+</li>
+<li><a href="#&#x6027;&#x80FD;">&#x6027;&#x80FD;</a><ul>
+<li><a href="#&#x6D4B;&#x8BD5;&#x65B9;&#x6CD5;&#x548C;&#x6D4B;&#x8BD5;&#x6570;&#x636E;">&#x6D4B;&#x8BD5;&#x65B9;&#x6CD5;&#x548C;&#x6D4B;&#x8BD5;&#x6570;&#x636E;</a></li>
+<li><a href="#&#x5B9E;&#x9A8C;&#x4E00;-&#x57FA;&#x672C;&#x7C7B;&#x578B;&#x8FED;&#x4EE3;">&#x5B9E;&#x9A8C;&#x4E00; &#x57FA;&#x672C;&#x7C7B;&#x578B;&#x8FED;&#x4EE3;</a></li>
+<li><a href="#&#x5B9E;&#x9A8C;&#x4E8C;-&#x5BF9;&#x8C61;&#x8FED;&#x4EE3;">&#x5B9E;&#x9A8C;&#x4E8C; &#x5BF9;&#x8C61;&#x8FED;&#x4EE3;</a></li>
+<li><a href="#&#x5B9E;&#x9A8C;&#x4E09;-&#x590D;&#x6742;&#x5BF9;&#x8C61;&#x5F52;&#x7EA6;">&#x5B9E;&#x9A8C;&#x4E09; &#x590D;&#x6742;&#x5BF9;&#x8C61;&#x5F52;&#x7EA6;</a></li>
+<li><a href="#&#x7ED3;&#x8BBA;">&#x7ED3;&#x8BBA;</a></li>
+<li><a href="#&#x4E3A;&#x4EC0;&#x4E48;&#x7B80;&#x5355;&#x64CD;&#x4F5C;stream-api-&#x4E0D;&#x5982;&#x8FED;&#x4EE3;&#x800C;&#x590D;&#x6742;&#x64CD;&#x4F5C;&#x6027;&#x80FD;&#x5DEE;&#x4E0D;&#x591A;">&#x4E3A;&#x4EC0;&#x4E48;&#x7B80;&#x5355;&#x64CD;&#x4F5C;&#xFF0C;Stream API &#x4E0D;&#x5982;&#x8FED;&#x4EE3;&#xFF0C;&#x800C;&#x590D;&#x6742;&#x64CD;&#x4F5C;&#x6027;&#x80FD;&#x5DEE;&#x4E0D;&#x591A;&#xFF1F;</a></li>
+</ul>
+</li>
+<li><a href="#github-&#x9879;&#x76EE;">GitHub &#x9879;&#x76EE;</a></li>
+<li><a href="#&#x53C2;&#x8003;&#x6587;&#x7AE0;">&#x53C2;&#x8003;&#x6587;&#x7AE0;</a></li>
+</ul>
+<h1 id="&#x524D;&#x8A00;">&#x524D;&#x8A00;</h1>
+<p>Java 8 &#x7684; Stream &#x4F7F;&#x5F97;&#x4EE3;&#x7801;&#x66F4;&#x52A0;&#x7B80;&#x6D01;&#x6613;&#x61C2;&#xFF0C;&#x672C;&#x7BC7;&#x6587;&#x7AE0;&#x6DF1;&#x5165;&#x5206;&#x6790; Java Stream &#x7684;&#x5DE5;&#x4F5C;&#x539F;&#x7406;&#xFF0C;&#x5E76;&#x63A2;&#x8BA8; Steam &#x7684;&#x6027;&#x80FD;&#x95EE;&#x9898;&#x3002;</p>
+<hr>
+<p>Java 8 &#x96C6;&#x5408;&#x4E2D;&#x7684; Stream &#x76F8;&#x5F53;&#x4E8E;&#x9AD8;&#x7EA7;&#x7248;&#x7684; Iterator&#xFF0C;&#x5B83;&#x53EF;&#x4EE5;&#x901A;&#x8FC7; Lambda &#x8868;&#x8FBE;&#x5F0F;&#x5BF9;&#x96C6;&#x5408;&#x8FDB;&#x884C;&#x5404;&#x79CD;&#x975E;&#x5E38;&#x4FBF;&#x5229;&#x3001;&#x9AD8;&#x6548;&#x7684;&#x805A;&#x5408;&#x64CD;&#x4F5C;&#xFF08;Aggregate Operation&#xFF09;&#xFF0C;&#x6216;&#x8005;&#x5927;&#x6279;&#x91CF;&#x6570;&#x636E;&#x64CD;&#x4F5C; (Bulk Data Operation)&#x3002;</p>
+<p>Stream &#x7684;&#x805A;&#x5408;&#x64CD;&#x4F5C;&#x4E0E;&#x6570;&#x636E;&#x5E93; SQL &#x7684;&#x805A;&#x5408;&#x64CD;&#x4F5C; sorted&#x3001;filter&#x3001;map &#x7B49;&#x7C7B;&#x4F3C;&#x3002;&#x6211;&#x4EEC;&#x5728;&#x5E94;&#x7528;&#x5C42;&#x5C31;&#x53EF;&#x4EE5;&#x9AD8;&#x6548;&#x5730;&#x5B9E;&#x73B0;&#x7C7B;&#x4F3C;&#x6570;&#x636E;&#x5E93; SQL &#x7684;&#x805A;&#x5408;&#x64CD;&#x4F5C;&#x4E86;&#xFF0C;&#x800C;&#x5728;&#x6570;&#x636E;&#x64CD;&#x4F5C;&#x65B9;&#x9762;&#xFF0C;Stream &#x4E0D;&#x4EC5;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x4E32;&#x884C;&#x7684;&#x65B9;&#x5F0F;&#x5B9E;&#x73B0;&#x6570;&#x636E;&#x64CD;&#x4F5C;&#xFF0C;&#x8FD8;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x5E76;&#x884C;&#x7684;&#x65B9;&#x5F0F;&#x5904;&#x7406;&#x5927;&#x6279;&#x91CF;&#x6570;&#x636E;&#xFF0C;&#x63D0;&#x9AD8;&#x6570;&#x636E;&#x7684;&#x5904;&#x7406;&#x6548;&#x7387;&#x3002;</p>
+<h1 id="&#x64CD;&#x4F5C;&#x5206;&#x7C7B;">&#x64CD;&#x4F5C;&#x5206;&#x7C7B;</h1>
+<p>&#x5B98;&#x65B9;&#x5C06; Stream &#x4E2D;&#x7684;&#x64CD;&#x4F5C;&#x5206;&#x4E3A;&#x4E24;&#x5927;&#x7C7B;&#xFF1A;</p>
+<ul>
+<li><code>&#x4E2D;&#x95F4;&#x64CD;&#x4F5C;&#xFF08;Intermediate operations&#xFF09;</code>&#xFF0C;&#x53EA;&#x5BF9;&#x64CD;&#x4F5C;&#x8FDB;&#x884C;&#x4E86;&#x8BB0;&#x5F55;&#xFF0C;&#x5373;&#x53EA;&#x4F1A;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x6D41;&#xFF0C;&#x4E0D;&#x4F1A;&#x8FDB;&#x884C;&#x8BA1;&#x7B97;&#x64CD;&#x4F5C;&#x3002;</li>
+<li><code>&#x7EC8;&#x7ED3;&#x64CD;&#x4F5C;&#xFF08;Terminal operations&#xFF09;</code>&#xFF0C;&#x5B9E;&#x73B0;&#x4E86;&#x8BA1;&#x7B97;&#x64CD;&#x4F5C;&#x3002;</li>
+</ul>
+<p>&#x4E2D;&#x95F4;&#x64CD;&#x4F5C;&#x53C8;&#x53EF;&#x4EE5;&#x5206;&#x4E3A;&#xFF1A;</p>
+<ul>
+<li><code>&#x65E0;&#x72B6;&#x6001;&#xFF08;Stateless&#xFF09;&#x64CD;&#x4F5C;</code>&#xFF0C;&#x5143;&#x7D20;&#x7684;&#x5904;&#x7406;&#x4E0D;&#x53D7;&#x4E4B;&#x524D;&#x5143;&#x7D20;&#x7684;&#x5F71;&#x54CD;&#x3002;</li>
+<li><code>&#x6709;&#x72B6;&#x6001;&#xFF08;Stateful&#xFF09;&#x64CD;&#x4F5C;</code>&#xFF0C;&#x6307;&#x8BE5;&#x64CD;&#x4F5C;&#x53EA;&#x6709;&#x62FF;&#x5230;&#x6240;&#x6709;&#x5143;&#x7D20;&#x4E4B;&#x540E;&#x624D;&#x80FD;&#x7EE7;&#x7EED;&#x4E0B;&#x53BB;&#x3002;</li>
+</ul>
+<p>&#x7EC8;&#x7ED3;&#x64CD;&#x4F5C;&#x53C8;&#x53EF;&#x4EE5;&#x5206;&#x4E3A;&#xFF1A;</p>
+<ul>
+<li><code>&#x77ED;&#x8DEF;&#xFF08;Short-circuiting&#xFF09;</code>&#x64CD;&#x4F5C;&#xFF0C;&#x6307;&#x9047;&#x5230;&#x67D0;&#x4E9B;&#x7B26;&#x5408;&#x6761;&#x4EF6;&#x7684;&#x5143;&#x7D20;&#x5C31;&#x53EF;&#x4EE5;&#x5F97;&#x5230;&#x6700;&#x7EC8;&#x7ED3;&#x679C;</li>
+<li><code>&#x975E;&#x77ED;&#x8DEF;&#xFF08;Unshort-circuiting&#xFF09;</code>&#x64CD;&#x4F5C;&#xFF0C;&#x6307;&#x5FC5;&#x987B;&#x5904;&#x7406;&#x5B8C;&#x6240;&#x6709;&#x5143;&#x7D20;&#x624D;&#x80FD;&#x5F97;&#x5230;&#x6700;&#x7EC8;&#x7ED3;&#x679C;&#x3002;</li>
+</ul>
+<p>&#x64CD;&#x4F5C;&#x5206;&#x7C7B;&#x8BE6;&#x60C5;&#x5982;&#x4E0B;&#x56FE;&#x6240;&#x793A;&#xFF1A;</p>
+<p><img src="http://yano.oss-cn-beijing.aliyuncs.com/2020-12-03-030958.jpg" alt=""></p>
+<h1 id="&#x6E90;&#x7801;&#x7ED3;&#x6784;">&#x6E90;&#x7801;&#x7ED3;&#x6784;</h1>
+<p>Stream &#x76F8;&#x5173;&#x7C7B;&#x548C;&#x63A5;&#x53E3;&#x7684;&#x7EE7;&#x627F;&#x5173;&#x7CFB;&#x5982;&#x4E0B;&#x56FE;&#x6240;&#x793A;&#xFF1A;</p>
+<p><img src="http://yano.oss-cn-beijing.aliyuncs.com/2020-12-03-031525.jpg" alt=""></p>
+<h2 id="basestream">BaseStream</h2>
+<p>&#x6700;&#x9876;&#x7AEF;&#x7684;&#x63A5;&#x53E3;&#x7C7B;&#xFF0C;&#x5B9A;&#x4E49;&#x4E86;&#x6D41;&#x7684;&#x57FA;&#x672C;&#x63A5;&#x53E3;&#x65B9;&#x6CD5;&#xFF0C;&#x6700;&#x4E3B;&#x8981;&#x7684;&#x65B9;&#x6CD5;&#x4E3A; spliterator&#x3001;isParallel&#x3002;</p>
+<p><img src="http://yano.oss-cn-beijing.aliyuncs.com/2020-12-03-032745.png" alt=""></p>
+<h2 id="stream">Stream</h2>
+<p>&#x6700;&#x9876;&#x7AEF;&#x7684;&#x63A5;&#x53E3;&#x7C7B;&#x3002;&#x5B9A;&#x4E49;&#x4E86;&#x6D41;&#x7684;&#x5E38;&#x7528;&#x65B9;&#x6CD5;&#xFF0C;&#x4F8B;&#x5982; map&#x3001;filter&#x3001;sorted&#x3001;limit&#x3001;skip&#x3001;collect &#x7B49;&#x3002;</p>
+<p><img src="http://yano.oss-cn-beijing.aliyuncs.com/2020-12-03-032941.png" alt=""></p>
+<h2 id="referencepipeline">ReferencePipeline</h2>
+<p>ReferencePipeline &#x662F;&#x4E00;&#x4E2A;&#x7ED3;&#x6784;&#x7C7B;&#xFF0C;&#x5B9A;&#x4E49;&#x5185;&#x90E8;&#x7C7B;&#x7EC4;&#x88C5;&#x4E86;&#x5404;&#x79CD;&#x64CD;&#x4F5C;&#x6D41;&#xFF0C;&#x5B9A;&#x4E49;&#x4E86;<code>Head</code>&#x3001;<code>StatelessOp</code>&#x3001;<code>StatefulOp</code>&#x4E09;&#x4E2A;&#x5185;&#x90E8;&#x7C7B;&#xFF0C;&#x5B9E;&#x73B0;&#x4E86; BaseStream &#x4E0E; Stream &#x7684;&#x63A5;&#x53E3;&#x65B9;&#x6CD5;&#x3002;</p>
+<p><img src="http://yano.oss-cn-beijing.aliyuncs.com/2020-12-03-033157.png" alt=""></p>
+<h2 id="sink">Sink</h2>
+<p>Sink &#x63A5;&#x53E3;&#x5B9A;&#x4E49;&#x4E86; Stream &#x4E4B;&#x95F4;&#x7684;&#x64CD;&#x4F5C;&#x884C;&#x4E3A;&#xFF0C;&#x5305;&#x542B; <code>begin()</code>&#x3001;<code>end()</code>&#x3001;<code>cancellationRequested()</code>&#x3001;<code>accpt()</code>&#x56DB;&#x4E2A;&#x65B9;&#x6CD5;&#x3002;ReferencePipeline &#x6700;&#x7EC8;&#x4F1A;&#x5C06;&#x6574;&#x4E2A; Stream &#x6D41;&#x64CD;&#x4F5C;&#x7EC4;&#x88C5;&#x6210;&#x4E00;&#x4E2A;&#x8C03;&#x7528;&#x94FE;&#xFF0C;&#x800C;&#x8FD9;&#x6761;&#x8C03;&#x7528;&#x94FE;&#x4E0A;&#x7684;&#x5404;&#x4E2A; Stream &#x64CD;&#x4F5C;&#x7684;&#x4E0A;&#x4E0B;&#x5173;&#x7CFB;&#x5C31;&#x662F;&#x901A;&#x8FC7; Sink &#x63A5;&#x53E3;&#x534F;&#x8BAE;&#x6765;&#x5B9A;&#x4E49;&#x5B9E;&#x73B0;&#x7684;&#x3002;</p>
+<p><img src="http://yano.oss-cn-beijing.aliyuncs.com/2020-12-03-033401.png" alt=""></p>
+<h1 id="&#x64CD;&#x4F5C;&#x53E0;&#x52A0;">&#x64CD;&#x4F5C;&#x53E0;&#x52A0;</h1>
+<p>Stream &#x7684;&#x57FA;&#x7840;&#x7528;&#x6CD5;&#x5C31;&#x4E0D;&#x518D;&#x53D9;&#x8FF0;&#x4E86;&#xFF0C;&#x8FD9;&#x91CC;&#x4ECE;&#x4E00;&#x6BB5;&#x4EE3;&#x7801;&#x5F00;&#x59CB;&#xFF0C;&#x5206;&#x6790; Stream &#x7684;&#x5DE5;&#x4F5C;&#x539F;&#x7406;&#x3002;</p>
+<pre><code class="lang-java"><span class="hljs-meta">@Test</span>
+<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">testStream</span><span class="hljs-params">()</span> </span>{
+    List&lt;String&gt; names = Arrays.asList(<span class="hljs-string">&quot;kotlin&quot;</span>, <span class="hljs-string">&quot;java&quot;</span>, <span class="hljs-string">&quot;go&quot;</span>);
+    <span class="hljs-keyword">int</span> maxLength = names.stream().filter(name -&gt; name.length() &lt;= <span class="hljs-number">4</span>).map(String::length)
+            .max(Comparator.naturalOrder()).orElse(-<span class="hljs-number">1</span>);
+    System.out.println(maxLength);
+}
+</code></pre>
+<p>&#x5F53;&#x4F7F;&#x7528; Stream &#x65F6;&#xFF0C;&#x4E3B;&#x8981;&#x6709; 3 &#x90E8;&#x5206;&#x7EC4;&#x6210;&#xFF0C;&#x4E0B;&#x9762;&#x4E00;&#x4E00;&#x8BB2;&#x89E3;&#x3002;</p>
+<h2 id="&#x52A0;&#x8F7D;&#x6570;&#x636E;&#x6E90;">&#x52A0;&#x8F7D;&#x6570;&#x636E;&#x6E90;</h2>
+<p>&#x8C03;&#x7528; <code>names.stream()</code> &#x65B9;&#x6CD5;&#xFF0C;&#x4F1A;&#x521D;&#x6B21;&#x52A0;&#x8F7D; ReferencePipeline &#x7684; Head &#x5BF9;&#x8C61;&#xFF0C;&#x6B64;&#x65F6;&#x4E3A;&#x52A0;&#x8F7D;&#x6570;&#x636E;&#x6E90;&#x64CD;&#x4F5C;&#x3002;</p>
+<p>java.util.Collection#stream</p>
+<pre><code class="lang-java"><span class="hljs-function"><span class="hljs-keyword">default</span> Stream&lt;E&gt; <span class="hljs-title">stream</span><span class="hljs-params">()</span> </span>{
+    <span class="hljs-keyword">return</span> StreamSupport.stream(spliterator(), <span class="hljs-keyword">false</span>);
+}
+</code></pre>
+<p>StreamSupport &#x7C7B;&#x4E2D;&#x7684; stream &#x65B9;&#x6CD5;&#xFF0C;&#x521D;&#x59CB;&#x5316;&#x4E86;&#x4E00;&#x4E2A; ReferencePipeline &#x7684; Head &#x5185;&#x90E8;&#x7C7B;&#x5BF9;&#x8C61;&#x3002;</p>
+<p>java.util.stream.StreamSupport#stream(java.util.Spliterator<t>, boolean)</t></p>
+<pre><code class="lang-java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> &lt;T&gt; <span class="hljs-function">Stream&lt;T&gt; <span class="hljs-title">stream</span><span class="hljs-params">(Spliterator&lt;T&gt; spliterator, <span class="hljs-keyword">boolean</span> parallel)</span> </span>{
+    Objects.requireNonNull(spliterator);
+    <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> ReferencePipeline.Head&lt;&gt;(spliterator,
+                                        StreamOpFlag.fromCharacteristics(spliterator),
+                                        parallel);
+}
+</code></pre>
+<h2 id="&#x4E2D;&#x95F4;&#x64CD;&#x4F5C;">&#x4E2D;&#x95F4;&#x64CD;&#x4F5C;</h2>
+<p>&#x63A5;&#x7740;&#x4E3A; <code>filter(name -&gt; name.length() &lt;= 4).mapToInt(String::length)</code>&#xFF0C;&#x662F;&#x4E2D;&#x95F4;&#x64CD;&#x4F5C;&#xFF0C;&#x5206;&#x4E3A;&#x65E0;&#x72B6;&#x6001;&#x4E2D;&#x95F4;&#x64CD;&#x4F5C; StatelessOp &#x5BF9;&#x8C61;&#x548C;&#x6709;&#x72B6;&#x6001;&#x64CD;&#x4F5C; StatefulOp &#x5BF9;&#x8C61;&#xFF0C;&#x6B64;&#x65F6;&#x7684; Stage &#x5E76;&#x6CA1;&#x6709;&#x6267;&#x884C;&#xFF0C;&#x800C;&#x662F;&#x901A;&#x8FC7; AbstractPipeline &#x751F;&#x6210;&#x4E86;&#x4E00;&#x4E2A;&#x4E2D;&#x95F4;&#x64CD;&#x4F5C; Stage &#x94FE;&#x8868;&#x3002;</p>
+<p>java.util.stream.ReferencePipeline#filter</p>
+<pre><code class="lang-java"><span class="hljs-meta">@Override</span>
+<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">final</span> Stream&lt;P_OUT&gt; <span class="hljs-title">filter</span><span class="hljs-params">(Predicate&lt;? <span class="hljs-keyword">super</span> P_OUT&gt; predicate)</span> </span>{
+    Objects.requireNonNull(predicate);
+    <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> StatelessOp&lt;P_OUT, P_OUT&gt;(<span class="hljs-keyword">this</span>, StreamShape.REFERENCE,
+                                    StreamOpFlag.NOT_SIZED) {
+        <span class="hljs-meta">@Override</span>
+        <span class="hljs-function">Sink&lt;P_OUT&gt; <span class="hljs-title">opWrapSink</span><span class="hljs-params">(<span class="hljs-keyword">int</span> flags, Sink&lt;P_OUT&gt; sink)</span> </span>{
+            <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> Sink.ChainedReference&lt;P_OUT, P_OUT&gt;(sink) {
+                <span class="hljs-meta">@Override</span>
+                <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">begin</span><span class="hljs-params">(<span class="hljs-keyword">long</span> size)</span> </span>{
+                    downstream.begin(-<span class="hljs-number">1</span>);
+                }
+
+                <span class="hljs-meta">@Override</span>
+                <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">accept</span><span class="hljs-params">(P_OUT u)</span> </span>{
+                    <span class="hljs-keyword">if</span> (predicate.test(u))
+                        downstream.accept(u);
+                }
+            };
+        }
+    };
+}
+</code></pre>
+<p>java.util.stream.ReferencePipeline#map</p>
+<pre><code class="lang-java"><span class="hljs-meta">@Override</span>
+<span class="hljs-meta">@SuppressWarnings</span>(<span class="hljs-string">&quot;unchecked&quot;</span>)
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">final</span> &lt;R&gt; <span class="hljs-function">Stream&lt;R&gt; <span class="hljs-title">map</span><span class="hljs-params">(Function&lt;? <span class="hljs-keyword">super</span> P_OUT, ? extends R&gt; mapper)</span> </span>{
+    Objects.requireNonNull(mapper);
+    <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> StatelessOp&lt;P_OUT, R&gt;(<span class="hljs-keyword">this</span>, StreamShape.REFERENCE,
+                                    StreamOpFlag.NOT_SORTED | StreamOpFlag.NOT_DISTINCT) {
+        <span class="hljs-meta">@Override</span>
+        <span class="hljs-function">Sink&lt;P_OUT&gt; <span class="hljs-title">opWrapSink</span><span class="hljs-params">(<span class="hljs-keyword">int</span> flags, Sink&lt;R&gt; sink)</span> </span>{
+            <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> Sink.ChainedReference&lt;P_OUT, R&gt;(sink) {
+                <span class="hljs-meta">@Override</span>
+                <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">accept</span><span class="hljs-params">(P_OUT u)</span> </span>{
+                    downstream.accept(mapper.apply(u));
+                }
+            };
+        }
+    };
+}
+</code></pre>
+<p>&#x53EF;&#x4EE5;&#x770B;&#x5230; filter &#x548C; map &#x65B9;&#x6CD5;&#x90FD;&#x8FD4;&#x56DE;&#x4E86;&#x4E00;&#x4E2A;&#x65B0;&#x7684; <code>StatelessOp</code> &#x5BF9;&#x8C61;&#x3002;new StatelessOp &#x5C06;&#x4F1A;&#x8C03;&#x7528;&#x7236;&#x7C7B; AbstractPipeline &#x7684;&#x6784;&#x9020;&#x51FD;&#x6570;&#xFF0C;&#x8FD9;&#x4E2A;&#x6784;&#x9020;&#x51FD;&#x6570;&#x5C06;&#x524D;&#x540E;&#x7684; Stage &#x8054;&#x7CFB;&#x8D77;&#x6765;&#xFF0C;&#x751F;&#x6210;&#x4E00;&#x4E2A; Stage &#x94FE;&#x8868;&#xFF1A;</p>
+<pre><code class="lang-java">AbstractPipeline(AbstractPipeline&lt;?, E_IN, ?&gt; previousStage, <span class="hljs-keyword">int</span> opFlags) {
+    <span class="hljs-keyword">if</span> (previousStage.linkedOrConsumed)
+        <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> IllegalStateException(MSG_STREAM_LINKED);
+    previousStage.linkedOrConsumed = <span class="hljs-keyword">true</span>;
+    previousStage.nextStage = <span class="hljs-keyword">this</span>;
+
+    <span class="hljs-keyword">this</span>.previousStage = previousStage;
+    <span class="hljs-keyword">this</span>.sourceOrOpFlags = opFlags &amp; StreamOpFlag.OP_MASK;
+    <span class="hljs-keyword">this</span>.combinedFlags = StreamOpFlag.combineOpFlags(opFlags, previousStage.combinedFlags);
+    <span class="hljs-keyword">this</span>.sourceStage = previousStage.sourceStage;
+    <span class="hljs-keyword">if</span> (opIsStateful())
+        sourceStage.sourceAnyStateful = <span class="hljs-keyword">true</span>;
+    <span class="hljs-keyword">this</span>.depth = previousStage.depth + <span class="hljs-number">1</span>;
+}
+</code></pre>
+<h2 id="&#x7EC8;&#x7ED3;&#x64CD;&#x4F5C;">&#x7EC8;&#x7ED3;&#x64CD;&#x4F5C;</h2>
+<p>&#x6700;&#x540E;&#x4E3A; <code>max(Comparator.naturalOrder())</code>&#xFF0C;&#x662F;&#x7EC8;&#x7ED3;&#x64CD;&#x4F5C;&#xFF0C;&#x4F1A;&#x751F;&#x6210;&#x4E00;&#x4E2A;&#x6700;&#x7EC8;&#x7684; Stage&#xFF0C;&#x901A;&#x8FC7;&#x8FD9;&#x4E2A; Stage &#x89E6;&#x53D1;&#x4E4B;&#x524D;&#x7684;&#x4E2D;&#x95F4;&#x64CD;&#x4F5C;&#xFF0C;&#x4ECE;&#x6700;&#x540E;&#x4E00;&#x4E2A; Stage &#x5F00;&#x59CB;&#xFF0C;&#x9012;&#x5F52;&#x4EA7;&#x751F;&#x4E00;&#x4E2A; Sink &#x94FE;&#x3002;</p>
+<p>java.util.stream.ReferencePipeline#max</p>
+<pre><code class="lang-java"><span class="hljs-meta">@Override</span>
+<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">final</span> Optional&lt;P_OUT&gt; <span class="hljs-title">max</span><span class="hljs-params">(Comparator&lt;? <span class="hljs-keyword">super</span> P_OUT&gt; comparator)</span> </span>{
+    <span class="hljs-keyword">return</span> reduce(BinaryOperator.maxBy(comparator));
+}
+</code></pre>
+<p>&#x6700;&#x7EC8;&#x8C03;&#x7528;&#x5230; java.util.stream.AbstractPipeline#wrapSink&#xFF0C;&#x8FD9;&#x4E2A;&#x65B9;&#x6CD5;&#x4F1A;&#x8C03;&#x7528; opWrapSink &#x751F;&#x6210;&#x4E00;&#x4E2A; Sink &#x94FE;&#x8868;&#xFF0C;&#x5BF9;&#x5E94;&#x5230;&#x672C;&#x6587;&#x7684;&#x4F8B;&#x5B50;&#xFF0C;&#x5C31;&#x662F; filter &#x548C; map &#x64CD;&#x4F5C;&#x3002;</p>
+<pre><code class="lang-java"><span class="hljs-meta">@Override</span>
+<span class="hljs-meta">@SuppressWarnings</span>(<span class="hljs-string">&quot;unchecked&quot;</span>)
+<span class="hljs-keyword">final</span> &lt;P_IN&gt; <span class="hljs-function">Sink&lt;P_IN&gt; <span class="hljs-title">wrapSink</span><span class="hljs-params">(Sink&lt;E_OUT&gt; sink)</span> </span>{
+    Objects.requireNonNull(sink);
+
+    <span class="hljs-keyword">for</span> ( <span class="hljs-meta">@SuppressWarnings</span>(<span class="hljs-string">&quot;rawtypes&quot;</span>) AbstractPipeline p=AbstractPipeline.<span class="hljs-keyword">this</span>; p.depth &gt; <span class="hljs-number">0</span>; p=p.previousStage) {
+        sink = p.opWrapSink(p.previousStage.combinedFlags, sink);
+    }
+    <span class="hljs-keyword">return</span> (Sink&lt;P_IN&gt;) sink;
+}
+</code></pre>
+<p>&#x5728;&#x4E0A;&#x9762; opWrapSink &#x4E0A;&#x65AD;&#x70B9;&#x8C03;&#x8BD5;&#xFF0C;&#x53D1;&#x73B0;&#x6700;&#x7EC8;&#x4F1A;&#x8C03;&#x7528;&#x5230;&#x672C;&#x4F8B;&#x4E2D;&#x7684; filter &#x548C; map &#x64CD;&#x4F5C;&#x3002;</p>
+<p><img src="http://yano.oss-cn-beijing.aliyuncs.com/2020-12-03-065103.png" alt=""></p>
+<p>wrapAndCopyInto &#x751F;&#x6210; Sink &#x94FE;&#x8868;&#x540E;&#xFF0C;&#x4F1A;&#x901A;&#x8FC7; copyInfo &#x65B9;&#x6CD5;&#x6267;&#x884C; Sink &#x94FE;&#x8868;&#x7684;&#x5177;&#x4F53;&#x64CD;&#x4F5C;&#x3002;</p>
+<pre><code class="lang-java"><span class="hljs-meta">@Override</span>
+<span class="hljs-keyword">final</span> &lt;P_IN&gt; <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">copyInto</span><span class="hljs-params">(Sink&lt;P_IN&gt; wrappedSink, Spliterator&lt;P_IN&gt; spliterator)</span> </span>{
+    Objects.requireNonNull(wrappedSink);
+
+    <span class="hljs-keyword">if</span> (!StreamOpFlag.SHORT_CIRCUIT.isKnown(getStreamAndOpFlags())) {
+        wrappedSink.begin(spliterator.getExactSizeIfKnown());
+        spliterator.forEachRemaining(wrappedSink);
+        wrappedSink.end();
+    }
+    <span class="hljs-keyword">else</span> {
+        copyIntoWithCancel(wrappedSink, spliterator);
+    }
+}
+</code></pre>
+<p>&#x4E0A;&#x9762;&#x7684;&#x6838;&#x5FC3;&#x4EE3;&#x7801;&#x662F;&#xFF1A;</p>
+<pre><code>spliterator.forEachRemaining(wrappedSink);
+</code></pre><p>java.util.Spliterators.ArraySpliterator#forEachRemaining</p>
+<pre><code class="lang-java"><span class="hljs-meta">@Override</span>
+<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">forEachRemaining</span><span class="hljs-params">(Consumer&lt;? <span class="hljs-keyword">super</span> T&gt; action)</span> </span>{
+    Object[] a; <span class="hljs-keyword">int</span> i, hi; <span class="hljs-comment">// hoist accesses and checks from loop</span>
+    <span class="hljs-keyword">if</span> (action == <span class="hljs-keyword">null</span>)
+        <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> NullPointerException();
+    <span class="hljs-keyword">if</span> ((a = array).length &gt;= (hi = fence) &amp;&amp;
+        (i = index) &gt;= <span class="hljs-number">0</span> &amp;&amp; i &lt; (index = hi)) {
+        do { action.accept((T)a[i]); } <span class="hljs-keyword">while</span> (++i &lt; hi);
+    }
+}
+</code></pre>
+<p>&#x65AD;&#x70B9;&#x8C03;&#x8BD5;&#xFF0C;&#x53EF;&#x4EE5;&#x53D1;&#x73B0;&#x9996;&#x5148;&#x8FDB;&#x5165;&#x4E86; filter &#x7684; Sink&#xFF0C;&#x5176;&#x4E2D; accept &#x65B9;&#x6CD5;&#x7684;&#x5165;&#x53C2;&#x662F; list &#x4E2D;&#x7684;&#x7B2C;&#x4E00;&#x4E2A;&#x5143;&#x7D20;&#x201C;kotlin&#x201D;&#xFF08;&#x4EE3;&#x7801;&#x4E2D;&#x7684; 3 &#x4E2A;&#x5143;&#x7D20;&#x662F;&#xFF1A;&quot;kotlin&quot;, &quot;java&quot;, &quot;go&quot;&#xFF09;&#x3002;filter &#x7684;&#x4F20;&#x5165;&#x662F;&#x4E00;&#x4E2A; Lambda &#x8868;&#x8FBE;&#x5F0F;&#xFF1A;</p>
+<pre><code class="lang-java">filter(name -&gt; name.length() &lt;= <span class="hljs-number">4</span>)
+</code></pre>
+<p>&#x663E;&#x7136;&#x8FD9;&#x4E2A;&#x7B2C;&#x4E00;&#x4E2A;&#x5143;&#x7D20;&#x201C;kotlin&#x201D;&#x7684; predicate &#x662F;&#x4E0D;&#x4F1A;&#x8FDB;&#x5165;&#x7684;&#x3002;</p>
+<p><img src="http://yano.oss-cn-beijing.aliyuncs.com/2020-12-03-070838.png" alt=""></p>
+<p>&#x5BF9;&#x4E8E;&#x7B2C;&#x4E8C;&#x4E2A;&#x5143;&#x7D20;&#x201C;java&#x201D;&#xFF0C;predicate.test &#x4F1A;&#x8FD4;&#x56DE; true&#xFF08;&#x5B57;&#x7B26;&#x4E32;&#x201C;java&#x201D;&#x7684;&#x957F;&#x5EA6;&lt;=4&#xFF09;&#xFF0C;&#x5219;&#x4F1A;&#x8FDB;&#x5165; map &#x7684; accept &#x65B9;&#x6CD5;&#x3002;</p>
+<p><img src="http://yano.oss-cn-beijing.aliyuncs.com/2020-12-03-071448.png" alt=""></p>
+<p>&#x672C;&#x6B21;&#x8C03;&#x7528; accept &#x65B9;&#x6CD5;&#x65F6;&#xFF0C;empty &#x4E3A; false&#xFF0C;&#x4F1A;&#x5C06; map &#x540E;&#x7684;&#x7ED3;&#x679C;&#xFF08;int &#x7C7B;&#x578B;&#x7684; 4&#xFF09;&#x8D4B;&#x503C;&#x7ED9; t&#x3002;</p>
+<pre><code class="lang-java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> &lt;T&gt; TerminalOp&lt;T, Optional&lt;T&gt;&gt;
+makeRef(BinaryOperator&lt;T&gt; operator) {
+    Objects.requireNonNull(operator);
+    <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ReducingSink</span>
+            <span class="hljs-keyword">implements</span> <span class="hljs-title">AccumulatingSink</span>&lt;<span class="hljs-title">T</span>, <span class="hljs-title">Optional</span>&lt;<span class="hljs-title">T</span>&gt;, <span class="hljs-title">ReducingSink</span>&gt; </span>{
+        <span class="hljs-keyword">private</span> <span class="hljs-keyword">boolean</span> empty;
+        <span class="hljs-keyword">private</span> T state;
+
+        <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">begin</span><span class="hljs-params">(<span class="hljs-keyword">long</span> size)</span> </span>{
+            empty = <span class="hljs-keyword">true</span>;
+            state = <span class="hljs-keyword">null</span>;
+        }
+
+        <span class="hljs-meta">@Override</span>
+        <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">accept</span><span class="hljs-params">(T t)</span> </span>{
+            <span class="hljs-keyword">if</span> (empty) {
+                empty = <span class="hljs-keyword">false</span>;
+                state = t;
+            } <span class="hljs-keyword">else</span> {
+                state = operator.apply(state, t);
+            }
+        }
+
+        &#x2026;&#x2026;
+        }
+}
+</code></pre>
+<p>&#x5BF9;&#x4E8E;&#x7B2C;&#x4E09;&#x4E2A;&#x5143;&#x7D20;&#x201C;go&#x201D;&#xFF0C;&#x4E5F;&#x4F1A;&#x8FDB;&#x5165; accept &#x65B9;&#x6CD5;&#xFF0C;&#x6B64;&#x65F6; empty &#x4E3A; true, map &#x540E;&#x7684;&#x7ED3;&#x679C;&#xFF08;int &#x7C7B;&#x578B;&#x7684; 2&#xFF09;&#x4F1A;&#x4E0E;&#x4E0A;&#x6B21;&#x7684;&#x7ED3;&#x679C; 4 &#x901A;&#x8FC7;&#x81EA;&#x5B9A;&#x4E49;&#x7684;&#x6BD4;&#x8F83;&#x5668;&#x76F8;&#x6BD4;&#x8F83;&#xFF0C;&#x5B58;&#x5165;&#x7B26;&#x5408;&#x7ED3;&#x679C;&#x7684;&#x503C;&#x3002;</p>
+<pre><code class="lang-java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> &lt;T&gt; <span class="hljs-function">BinaryOperator&lt;T&gt; <span class="hljs-title">maxBy</span><span class="hljs-params">(Comparator&lt;? <span class="hljs-keyword">super</span> T&gt; comparator)</span> </span>{
+    Objects.requireNonNull(comparator);
+    <span class="hljs-keyword">return</span> (a, b) -&gt; comparator.compare(a, b) &gt;= <span class="hljs-number">0</span> ? a : b;
+}
+</code></pre>
+<p>&#x672C;&#x6587;&#x4EE3;&#x7801;&#x4E2D;&#x7684; max &#x4F20;&#x5165;&#x7684;&#x6BD4;&#x8F83;&#x5668;&#x4E3A;&#xFF1A;</p>
+<pre><code class="lang-java">max(Comparator.naturalOrder())
+</code></pre>
+<p>&#x81F3;&#x6B64;&#x4F1A;&#x8FD4;&#x56DE; int &#x7C7B;&#x578B;&#x7684; 4&#x3002;</p>
+<h1 id="&#x5E76;&#x884C;&#x5904;&#x7406;">&#x5E76;&#x884C;&#x5904;&#x7406;</h1>
+<p>&#x4E0A;&#x9762;&#x7684;&#x4F8B;&#x5B50;&#x662F;&#x4E32;&#x884C;&#x5904;&#x7406;&#x7684;&#xFF0C;&#x5982;&#x679C;&#x8981;&#x6539;&#x6210;&#x5E76;&#x884C;&#x4E5F;&#x5F88;&#x7B80;&#x5355;&#xFF0C;&#x53EA;&#x9700;&#x8981;&#x5728; stream() &#x65B9;&#x6CD5;&#x540E;&#x52A0;&#x4E0A; <code>parallel()</code> &#x5C31;&#x53EF;&#x4EE5;&#x4E86;&#xFF0C;&#x5E76;&#x884C;&#x4EE3;&#x7801;&#x53EF;&#x4EE5;&#x5199;&#x6210;&#xFF1A;</p>
+<pre><code class="lang-java"><span class="hljs-meta">@Test</span>
+<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">testStream</span><span class="hljs-params">()</span> </span>{
+    List&lt;String&gt; names = Arrays.asList(<span class="hljs-string">&quot;kotlin&quot;</span>, <span class="hljs-string">&quot;java&quot;</span>, <span class="hljs-string">&quot;go&quot;</span>);
+    <span class="hljs-keyword">int</span> maxLength = names.stream().parallel().filter(name -&gt; name.length() &lt;= <span class="hljs-number">4</span>)
+            .map(String::length).max(Comparator.naturalOrder()).orElse(-<span class="hljs-number">1</span>);
+    System.out.println(maxLength);
+}
+</code></pre>
+<p>Stream &#x7684;&#x5E76;&#x884C;&#x5904;&#x7406;&#x5728;&#x6267;&#x884C;&#x7EC8;&#x7ED3;&#x64CD;&#x4F5C;&#x4E4B;&#x524D;&#xFF0C;&#x8DDF;&#x4E32;&#x884C;&#x5904;&#x7406;&#x7684;&#x5B9E;&#x73B0;&#x662F;&#x4E00;&#x6837;&#x7684;&#x3002;&#x800C;&#x5728;&#x8C03;&#x7528;&#x7EC8;&#x7ED3;&#x65B9;&#x6CD5;&#x4E4B;&#x540E;&#xFF0C;&#x5B9E;&#x73B0;&#x7684;&#x65B9;&#x5F0F;&#x5C31;&#x6709;&#x70B9;&#x4E0D;&#x592A;&#x4E00;&#x6837;&#xFF0C;&#x4F1A;&#x8C03;&#x7528; TerminalOp &#x7684; evaluateParallel &#x65B9;&#x6CD5;&#x8FDB;&#x884C;&#x5E76;&#x884C;&#x5904;&#x7406;&#x3002;</p>
+<pre><code class="lang-java"><span class="hljs-keyword">final</span> &lt;R&gt; <span class="hljs-function">R <span class="hljs-title">evaluate</span><span class="hljs-params">(TerminalOp&lt;E_OUT, R&gt; terminalOp)</span> </span>{
+    <span class="hljs-function"><span class="hljs-keyword">assert</span> <span class="hljs-title">getOutputShape</span><span class="hljs-params">()</span> </span>== terminalOp.inputShape();
+    <span class="hljs-keyword">if</span> (linkedOrConsumed)
+        <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> IllegalStateException(MSG_STREAM_LINKED);
+    linkedOrConsumed = <span class="hljs-keyword">true</span>;
+
+    <span class="hljs-keyword">return</span> isParallel()
+            ? terminalOp.evaluateParallel(<span class="hljs-keyword">this</span>, sourceSpliterator(terminalOp.getOpFlags()))
+            : terminalOp.evaluateSequential(<span class="hljs-keyword">this</span>, sourceSpliterator(terminalOp.getOpFlags()));
+}
+</code></pre>
+<p>&#x6838;&#x5FC3;&#x662F;&#x4F7F;&#x7528;&#x4E86; ForkJoin &#x6846;&#x67B6;&#xFF0C;&#x5BF9; Stream &#x5904;&#x7406;&#x8FDB;&#x884C;&#x5206;&#x7247;&#xFF0C;&#x6700;&#x7EC8;&#x4F1A;&#x8C03;&#x7528;&#x4E0B;&#x9762;&#x7684;&#x4EE3;&#x7801;&#xFF0C;&#x8FD9;&#x91CC;&#x5C31;&#x4E0D;&#x5C55;&#x5F00;&#x5206;&#x6790;&#x4E86;&#x3002;</p>
+<p>java.util.stream.AbstractTask#compute</p>
+<pre><code class="lang-java"><span class="hljs-meta">@Override</span>
+<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">compute</span><span class="hljs-params">()</span> </span>{
+    Spliterator&lt;P_IN&gt; rs = spliterator, ls; <span class="hljs-comment">// right, left spliterators</span>
+    <span class="hljs-keyword">long</span> sizeEstimate = rs.estimateSize();
+    <span class="hljs-keyword">long</span> sizeThreshold = getTargetSize(sizeEstimate);
+    <span class="hljs-keyword">boolean</span> forkRight = <span class="hljs-keyword">false</span>;
+    <span class="hljs-meta">@SuppressWarnings</span>(<span class="hljs-string">&quot;unchecked&quot;</span>) K task = (K) <span class="hljs-keyword">this</span>;
+    <span class="hljs-keyword">while</span> (sizeEstimate &gt; sizeThreshold &amp;&amp; (ls = rs.trySplit()) != <span class="hljs-keyword">null</span>) {
+        K leftChild, rightChild, taskToFork;
+        task.leftChild  = leftChild = task.makeChild(ls);
+        task.rightChild = rightChild = task.makeChild(rs);
+        task.setPendingCount(<span class="hljs-number">1</span>);
+        <span class="hljs-keyword">if</span> (forkRight) {
+            forkRight = <span class="hljs-keyword">false</span>;
+            rs = ls;
+            task = leftChild;
+            taskToFork = rightChild;
+        }
+        <span class="hljs-keyword">else</span> {
+            forkRight = <span class="hljs-keyword">true</span>;
+            task = rightChild;
+            taskToFork = leftChild;
+        }
+        taskToFork.fork();
+        sizeEstimate = rs.estimateSize();
+    }
+    task.setLocalResult(task.doLeaf());
+    task.tryComplete();
+}
+</code></pre>
+<h2 id="&#x5E76;&#x884C;&#x9519;&#x8BEF;&#x7684;&#x4F7F;&#x7528;&#x65B9;&#x6CD5;">&#x5E76;&#x884C;&#x9519;&#x8BEF;&#x7684;&#x4F7F;&#x7528;&#x65B9;&#x6CD5;</h2>
+<pre><code class="lang-java"><span class="hljs-meta">@Test</span>
+<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">testParallelWrong</span><span class="hljs-params">()</span> </span>{
+    List&lt;Integer&gt; parallelList = <span class="hljs-keyword">new</span> ArrayList&lt;&gt;();
+    IntStream.range(<span class="hljs-number">0</span>, <span class="hljs-number">1000</span>).boxed().parallel().filter(i -&gt; i % <span class="hljs-number">2</span> == <span class="hljs-number">1</span>)
+            .forEach(parallelList::add);
+    System.out.println(parallelList.size());
+}
+</code></pre>
+<p>&#x4E0A;&#x9762;&#x7684;&#x8F93;&#x51FA;&#x7ED3;&#x679C;&#x4F1A;&#x7ECF;&#x5E38;&#x5C0F;&#x4E8E; 500&#xFF0C;&#x8FD9;&#x662F;&#x56E0;&#x4E3A; parallelList &#x7684;&#x7C7B;&#x578B;&#x662F; ArrayList&#xFF0C;&#x5E76;&#x4E0D;&#x662F;&#x7EBF;&#x7A0B;&#x5B89;&#x5168;&#x7684;&#xFF0C;&#x5728;&#x6267;&#x884C; add &#x64CD;&#x4F5C;&#x65F6;&#xFF0C;&#x53EF;&#x80FD;&#x6B63;&#x597D;&#x8D76;&#x4E0A;&#x6269;&#x5BB9;&#x6216;&#x8005;&#x7EBF;&#x7A0B;&#x88AB;&#x5360;&#x7528;&#xFF0C;&#x4F1A;&#x8986;&#x76D6;&#x5176;&#x4ED6;&#x7EBF;&#x7A0B;&#x7684;&#x8D4B;&#x597D;&#x7684;&#x503C;&#x3002;</p>
+<h2 id="&#x5E76;&#x884C;&#x6B63;&#x786E;&#x7684;&#x4F7F;&#x7528;&#x65B9;&#x6CD5;">&#x5E76;&#x884C;&#x6B63;&#x786E;&#x7684;&#x4F7F;&#x7528;&#x65B9;&#x6CD5;</h2>
+<pre><code class="lang-java"><span class="hljs-meta">@Test</span>
+<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">testParallelRight</span><span class="hljs-params">()</span> </span>{
+    List&lt;Integer&gt; parallelList = IntStream.range(<span class="hljs-number">0</span>, <span class="hljs-number">1000</span>).boxed().parallel()
+            .filter(i -&gt; i % <span class="hljs-number">2</span> == <span class="hljs-number">1</span>).collect(Collectors.toList());
+    System.out.println(parallelList.size());
+}
+</code></pre>
+<p>&#x4E0A;&#x9762;&#x7684;&#x8F93;&#x51FA;&#x7ED3;&#x679C;&#x662F; 500&#x3002;</p>
+<h1 id="&#x6027;&#x80FD;">&#x6027;&#x80FD;</h1>
+<p>&#x4E0B;&#x9762;&#x7684;&#x6587;&#x7AE0;&#x53C2;&#x8003;&#x81EA;&#xFF1A;<a href="https://github.com/CarpenterLee/JavaLambdaInternals/blob/master/8-Stream%20Performance.md" target="_blank">JavaLambdaInternals/8-Stream Performance.md</a>&#xFF0C;&#x4FB5;&#x5220;&#x3002;</p>
+<p>&#x4E3A;&#x4FDD;&#x8BC1;&#x6D4B;&#x8BD5;&#x7ED3;&#x679C;&#x771F;&#x5B9E;&#x53EF;&#x4FE1;&#xFF0C;&#x6211;&#x4EEC;&#x5C06; JVM &#x8FD0;&#x884C;&#x5728;<code>-server</code>&#x6A21;&#x5F0F;&#x4E0B;&#xFF0C;&#x6D4B;&#x8BD5;&#x6570;&#x636E;&#x5728; GB &#x91CF;&#x7EA7;&#xFF0C;&#x6D4B;&#x8BD5;&#x673A;&#x5668;&#x91C7;&#x7528;&#x5E38;&#x89C1;&#x7684;&#x5546;&#x7528;&#x670D;&#x52A1;&#x5668;&#xFF0C;&#x914D;&#x7F6E;&#x5982;&#x4E0B;&#xFF1A;</p>
+<table width="300px"><tr><td>OS</td><td>CentOS 6.7 x86_64</td></tr><tr><td>CPU</td><td>Intel Xeon X5675, 12M Cache 3.06 GHz, 6 Cores 12 Threads</td></tr><tr><td>&#x5185;&#x5B58;</td><td>96GB</td></tr><tr><td>JDK</td><td>java version 1.8.0_91, Java HotSpot(TM) 64-Bit Server VM</td></tr></table>
+
+<p>&#x6D4B;&#x8BD5; <a href="perf/StreamBenchmark/src/lee">&#x6240;&#x7528;&#x4EE3;&#x7801;&#x5728;&#x8FD9;&#x91CC;</a>&#xFF0C;&#x6D4B;&#x8BD5; <a href="perf/Stream_performance.xlsx">&#x7ED3;&#x679C;&#x6C47;&#x603B;</a>.</p>
+<h2 id="&#x6D4B;&#x8BD5;&#x65B9;&#x6CD5;&#x548C;&#x6D4B;&#x8BD5;&#x6570;&#x636E;">&#x6D4B;&#x8BD5;&#x65B9;&#x6CD5;&#x548C;&#x6D4B;&#x8BD5;&#x6570;&#x636E;</h2>
+<p>&#x6027;&#x80FD;&#x6D4B;&#x8BD5;&#x5E76;&#x4E0D;&#x662F;&#x5BB9;&#x6613;&#x7684;&#x4E8B;&#xFF0C;Java &#x6027;&#x80FD;&#x6D4B;&#x8BD5;&#x66F4;&#x8D39;&#x52B2;&#xFF0C;&#x56E0;&#x4E3A;&#x865A;&#x62DF;&#x673A;&#x5BF9;&#x6027;&#x80FD;&#x7684;&#x5F71;&#x54CD;&#x5F88;&#x5927;&#xFF0C;JVM &#x5BF9;&#x6027;&#x80FD;&#x7684;&#x5F71;&#x54CD;&#x6709;&#x4E24;&#x65B9;&#x9762;&#xFF1A;</p>
+<ol>
+<li>GC &#x7684;&#x5F71;&#x54CD;&#x3002;GC &#x7684;&#x884C;&#x4E3A;&#x662F; Java &#x4E2D;&#x5F88;&#x4E0D;&#x597D;&#x63A7;&#x5236;&#x7684;&#x4E00;&#x5757;&#xFF0C;&#x4E3A;&#x589E;&#x52A0;&#x786E;&#x5B9A;&#x6027;&#xFF0C;&#x6211;&#x4EEC;&#x624B;&#x52A8;&#x6307;&#x5B9A;&#x4F7F;&#x7528; CMS &#x6536;&#x96C6;&#x5668;&#xFF0C;&#x5E76;&#x4F7F;&#x7528; 10GB &#x56FA;&#x5B9A;&#x5927;&#x5C0F;&#x7684;&#x5806;&#x5185;&#x5B58;&#x3002;&#x5177;&#x4F53;&#x5230; JVM &#x53C2;&#x6570;&#x5C31;&#x662F;<code>-XX:+UseConcMarkSweepGC -Xms10G -Xmx10G</code></li>
+<li>JIT(Just-In-Time) &#x5373;&#x65F6;&#x7F16;&#x8BD1;&#x6280;&#x672F;&#x3002;&#x5373;&#x65F6;&#x7F16;&#x8BD1;&#x6280;&#x672F;&#x4F1A;&#x5C06;&#x70ED;&#x70B9;&#x4EE3;&#x7801;&#x5728; JVM &#x8FD0;&#x884C;&#x7684;&#x8FC7;&#x7A0B;&#x4E2D;&#x7F16;&#x8BD1;&#x6210;&#x672C;&#x5730;&#x4EE3;&#x7801;&#xFF0C;&#x6D4B;&#x8BD5;&#x65F6;&#x6211;&#x4EEC;&#x4F1A;&#x5148;&#x5BF9;&#x7A0B;&#x5E8F;&#x9884;&#x70ED;&#xFF0C;&#x89E6;&#x53D1;&#x5BF9;&#x6D4B;&#x8BD5;&#x51FD;&#x6570;&#x7684;&#x5373;&#x65F6;&#x7F16;&#x8BD1;&#x3002;&#x76F8;&#x5173;&#x7684; JVM &#x53C2;&#x6570;&#x662F;<code>-XX:CompileThreshold=10000</code>&#x3002;</li>
+</ol>
+<p>Stream &#x5E76;&#x884C;&#x6267;&#x884C;&#x65F6;&#x7528;&#x5230;<code>ForkJoinPool.commonPool()</code>&#x5F97;&#x5230;&#x7684;&#x7EBF;&#x7A0B;&#x6C60;&#xFF0C;&#x4E3A;&#x63A7;&#x5236;&#x5E76;&#x884C;&#x5EA6;&#x6211;&#x4EEC;&#x4F7F;&#x7528; Linux &#x7684;<code>taskset</code>&#x547D;&#x4EE4;&#x6307;&#x5B9A; JVM &#x53EF;&#x7528;&#x7684;&#x6838;&#x6570;&#x3002;</p>
+<p>&#x6D4B;&#x8BD5;&#x6570;&#x636E;&#x7531;&#x7A0B;&#x5E8F;&#x968F;&#x673A;&#x751F;&#x6210;&#x3002;&#x4E3A;&#x9632;&#x6B62;&#x4E00;&#x6B21;&#x6D4B;&#x8BD5;&#x5E26;&#x6765;&#x7684;&#x6296;&#x52A8;&#xFF0C;&#x6D4B;&#x8BD5; 4 &#x6B21;&#x6C42;&#x51FA;&#x5E73;&#x5747;&#x65F6;&#x95F4;&#x4F5C;&#x4E3A;&#x8FD0;&#x884C;&#x65F6;&#x95F4;&#x3002;</p>
+<h2 id="&#x5B9E;&#x9A8C;&#x4E00;-&#x57FA;&#x672C;&#x7C7B;&#x578B;&#x8FED;&#x4EE3;">&#x5B9E;&#x9A8C;&#x4E00; &#x57FA;&#x672C;&#x7C7B;&#x578B;&#x8FED;&#x4EE3;</h2>
+<p>&#x6D4B;&#x8BD5;&#x5185;&#x5BB9;&#xFF1A;&#x627E;&#x51FA;&#x6574;&#x578B;&#x6570;&#x7EC4;&#x4E2D;&#x7684;&#x6700;&#x5C0F;&#x503C;&#x3002;&#x5BF9;&#x6BD4; for &#x5FAA;&#x73AF;&#x5916;&#x90E8;&#x8FED;&#x4EE3;&#x548C; Stream API &#x5185;&#x90E8;&#x8FED;&#x4EE3;&#x6027;&#x80FD;&#x3002;</p>
+<p>&#x6D4B;&#x8BD5;&#x7A0B;&#x5E8F; <a href="perf/StreamBenchmark/src/lee/IntTest.java">IntTest</a>&#xFF0C;&#x6D4B;&#x8BD5;&#x7ED3;&#x679C;&#x5982;&#x4E0B;&#x56FE;&#xFF1A;</p>
+<p><img src="http://yano.oss-cn-beijing.aliyuncs.com/2020-12-03-074737.jpg" alt=""></p>
+<p>&#x56FE;&#x4E2D;&#x5C55;&#x793A;&#x7684;&#x662F; for &#x5FAA;&#x73AF;&#x5916;&#x90E8;&#x8FED;&#x4EE3;&#x8017;&#x65F6;&#x4E3A;&#x57FA;&#x51C6;&#x7684;&#x65F6;&#x95F4;&#x6BD4;&#x503C;&#x3002;&#x5206;&#x6790;&#x5982;&#x4E0B;&#xFF1A;</p>
+<ol>
+<li>&#x5BF9;&#x4E8E;&#x57FA;&#x672C;&#x7C7B;&#x578B; Stream &#x4E32;&#x884C;&#x8FED;&#x4EE3;&#x7684;&#x6027;&#x80FD;&#x5F00;&#x9500;&#x660E;&#x663E;&#x9AD8;&#x4E8E;&#x5916;&#x90E8;&#x8FED;&#x4EE3;&#x5F00;&#x9500;&#xFF08;&#x4E24;&#x500D;&#xFF09;&#xFF1B;</li>
+<li>Stream &#x5E76;&#x884C;&#x8FED;&#x4EE3;&#x7684;&#x6027;&#x80FD;&#x6BD4;&#x4E32;&#x884C;&#x8FED;&#x4EE3;&#x548C;&#x5916;&#x90E8;&#x8FED;&#x4EE3;&#x90FD;&#x597D;&#x3002;</li>
+</ol>
+<p>&#x5E76;&#x884C;&#x8FED;&#x4EE3;&#x6027;&#x80FD;&#x8DDF;&#x53EF;&#x5229;&#x7528;&#x7684;&#x6838;&#x6570;&#x6709;&#x5173;&#xFF0C;&#x4E0A;&#x56FE;&#x4E2D;&#x7684;&#x5E76;&#x884C;&#x8FED;&#x4EE3;&#x4F7F;&#x7528;&#x4E86;&#x5168;&#x90E8; 12 &#x4E2A;&#x6838;&#xFF0C;&#x4E3A;&#x8003;&#x5BDF;&#x4F7F;&#x7528;&#x6838;&#x6570;&#x5BF9;&#x6027;&#x80FD;&#x7684;&#x5F71;&#x54CD;&#xFF0C;&#x6211;&#x4EEC;&#x4E13;&#x95E8;&#x6D4B;&#x8BD5;&#x4E86;&#x4E0D;&#x540C;&#x6838;&#x6570;&#x4E0B;&#x7684; Stream &#x5E76;&#x884C;&#x8FED;&#x4EE3;&#x6548;&#x679C;&#xFF1A;</p>
+<p><img src="http://yano.oss-cn-beijing.aliyuncs.com/2020-12-03-074833.jpg" alt=""></p>
+<p>&#x5206;&#x6790;&#xFF0C;&#x5BF9;&#x4E8E;&#x57FA;&#x672C;&#x7C7B;&#x578B;&#xFF1A;</p>
+<ol>
+<li>&#x4F7F;&#x7528; Stream &#x5E76;&#x884C; API &#x5728;&#x5355;&#x6838;&#x60C5;&#x51B5;&#x4E0B;&#x6027;&#x80FD;&#x5F88;&#x5DEE;&#xFF0C;&#x6BD4; Stream &#x4E32;&#x884C; API &#x7684;&#x6027;&#x80FD;&#x8FD8;&#x5DEE;&#xFF1B;</li>
+<li>&#x968F;&#x7740;&#x4F7F;&#x7528;&#x6838;&#x6570;&#x7684;&#x589E;&#x52A0;&#xFF0C;Stream &#x5E76;&#x884C;&#x6548;&#x679C;&#x9010;&#x6E10;&#x53D8;&#x597D;&#xFF0C;&#x6BD4;&#x4F7F;&#x7528; for &#x5FAA;&#x73AF;&#x5916;&#x90E8;&#x8FED;&#x4EE3;&#x7684;&#x6027;&#x80FD;&#x8FD8;&#x597D;&#x3002;</li>
+</ol>
+<p>&#x4EE5;&#x4E0A;&#x4E24;&#x4E2A;&#x6D4B;&#x8BD5;&#x8BF4;&#x660E;&#xFF0C;&#x5BF9;&#x4E8E;&#x57FA;&#x672C;&#x7C7B;&#x578B;&#x7684;&#x7B80;&#x5355;&#x8FED;&#x4EE3;&#xFF0C;Stream &#x4E32;&#x884C;&#x8FED;&#x4EE3;&#x6027;&#x80FD;&#x66F4;&#x5DEE;&#xFF0C;&#x4F46;&#x591A;&#x6838;&#x60C5;&#x51B5;&#x4E0B; Stream &#x8FED;&#x4EE3;&#x65F6;&#x6027;&#x80FD;&#x8F83;&#x597D;&#x3002;</p>
+<h2 id="&#x5B9E;&#x9A8C;&#x4E8C;-&#x5BF9;&#x8C61;&#x8FED;&#x4EE3;">&#x5B9E;&#x9A8C;&#x4E8C; &#x5BF9;&#x8C61;&#x8FED;&#x4EE3;</h2>
+<p>&#x518D;&#x6765;&#x770B;&#x5BF9;&#x8C61;&#x7684;&#x8FED;&#x4EE3;&#x6548;&#x679C;&#x3002;</p>
+<p>&#x6D4B;&#x8BD5;&#x5185;&#x5BB9;&#xFF1A;&#x627E;&#x51FA;&#x5B57;&#x7B26;&#x4E32;&#x5217;&#x8868;&#x4E2D;&#x6700;&#x5C0F;&#x7684;&#x5143;&#x7D20;&#xFF08;&#x81EA;&#x7136;&#x987A;&#x5E8F;&#xFF09;&#xFF0C;&#x5BF9;&#x6BD4; for &#x5FAA;&#x73AF;&#x5916;&#x90E8;&#x8FED;&#x4EE3;&#x548C; Stream API &#x5185;&#x90E8;&#x8FED;&#x4EE3;&#x6027;&#x80FD;&#x3002;</p>
+<p>&#x6D4B;&#x8BD5;&#x7A0B;&#x5E8F; <a href="perf/StreamBenchmark/src/lee/StringTest.java">StringTest</a>&#xFF0C;&#x6D4B;&#x8BD5;&#x7ED3;&#x679C;&#x5982;&#x4E0B;&#x56FE;&#xFF1A;</p>
+<p><img src="http://yano.oss-cn-beijing.aliyuncs.com/2020-12-03-074848.jpg" alt=""></p>
+<p>&#x7ED3;&#x679C;&#x5206;&#x6790;&#x5982;&#x4E0B;&#xFF1A;</p>
+<ol>
+<li>&#x5BF9;&#x4E8E;&#x5BF9;&#x8C61;&#x7C7B;&#x578B; Stream &#x4E32;&#x884C;&#x8FED;&#x4EE3;&#x7684;&#x6027;&#x80FD;&#x5F00;&#x9500;&#x4ECD;&#x7136;&#x9AD8;&#x4E8E;&#x5916;&#x90E8;&#x8FED;&#x4EE3;&#x5F00;&#x9500;&#xFF08;1.5 &#x500D;&#xFF09;&#xFF0C;&#x4F46;&#x5DEE;&#x8DDD;&#x6CA1;&#x6709;&#x57FA;&#x672C;&#x7C7B;&#x578B;&#x90A3;&#x4E48;&#x5927;&#x3002;</li>
+<li>Stream &#x5E76;&#x884C;&#x8FED;&#x4EE3;&#x7684;&#x6027;&#x80FD;&#x6BD4;&#x4E32;&#x884C;&#x8FED;&#x4EE3;&#x548C;&#x5916;&#x90E8;&#x8FED;&#x4EE3;&#x90FD;&#x597D;&#x3002;</li>
+</ol>
+<p>&#x518D;&#x6765;&#x5355;&#x72EC;&#x8003;&#x5BDF; Stream &#x5E76;&#x884C;&#x8FED;&#x4EE3;&#x6548;&#x679C;&#xFF1A;</p>
+<p><img src="http://yano.oss-cn-beijing.aliyuncs.com/2020-12-03-074906.jpg" alt=""></p>
+<p>&#x5206;&#x6790;&#xFF0C;&#x5BF9;&#x4E8E;&#x5BF9;&#x8C61;&#x7C7B;&#x578B;&#xFF1A;</p>
+<ol>
+<li>&#x4F7F;&#x7528; Stream &#x5E76;&#x884C; API &#x5728;&#x5355;&#x6838;&#x60C5;&#x51B5;&#x4E0B;&#x6027;&#x80FD;&#x6BD4; for &#x5FAA;&#x73AF;&#x5916;&#x90E8;&#x8FED;&#x4EE3;&#x5DEE;&#xFF1B;</li>
+<li>&#x968F;&#x7740;&#x4F7F;&#x7528;&#x6838;&#x6570;&#x7684;&#x589E;&#x52A0;&#xFF0C;Stream &#x5E76;&#x884C;&#x6548;&#x679C;&#x9010;&#x6E10;&#x53D8;&#x597D;&#xFF0C;&#x591A;&#x6838;&#x5E26;&#x6765;&#x7684;&#x6548;&#x679C;&#x660E;&#x663E;&#x3002;</li>
+</ol>
+<p>&#x4EE5;&#x4E0A;&#x4E24;&#x4E2A;&#x6D4B;&#x8BD5;&#x8BF4;&#x660E;&#xFF0C;&#x5BF9;&#x4E8E;&#x5BF9;&#x8C61;&#x7C7B;&#x578B;&#x7684;&#x7B80;&#x5355;&#x8FED;&#x4EE3;&#xFF0C;Stream &#x4E32;&#x884C;&#x8FED;&#x4EE3;&#x6027;&#x80FD;&#x66F4;&#x5DEE;&#xFF0C;&#x4F46;&#x591A;&#x6838;&#x60C5;&#x51B5;&#x4E0B; Stream &#x8FED;&#x4EE3;&#x65F6;&#x6027;&#x80FD;&#x8F83;&#x597D;&#x3002;</p>
+<h2 id="&#x5B9E;&#x9A8C;&#x4E09;-&#x590D;&#x6742;&#x5BF9;&#x8C61;&#x5F52;&#x7EA6;">&#x5B9E;&#x9A8C;&#x4E09; &#x590D;&#x6742;&#x5BF9;&#x8C61;&#x5F52;&#x7EA6;</h2>
+<p>&#x4ECE;&#x5B9E;&#x9A8C;&#x4E00;&#x3001;&#x4E8C;&#x7684;&#x7ED3;&#x679C;&#x6765;&#x770B;&#xFF0C;Stream &#x4E32;&#x884C;&#x6267;&#x884C;&#x7684;&#x6548;&#x679C;&#x90FD;&#x6BD4;&#x5916;&#x90E8;&#x8FED;&#x4EE3;&#x5DEE;&#xFF08;&#x5F88;&#x591A;&#xFF09;&#xFF0C;&#x662F;&#x4E0D;&#x662F;&#x8BF4;&#x660E; Stream &#x771F;&#x7684;&#x4E0D;&#x884C;&#x4E86;&#xFF1F;&#x5148;&#x522B;&#x4E0B;&#x7ED3;&#x8BBA;&#xFF0C;&#x6211;&#x4EEC;&#x518D;&#x6765;&#x8003;&#x5BDF;&#x4E00;&#x4E0B;&#x66F4;&#x590D;&#x6742;&#x7684;&#x64CD;&#x4F5C;&#x3002;</p>
+<p>&#x6D4B;&#x8BD5;&#x5185;&#x5BB9;&#xFF1A;&#x7ED9;&#x5B9A;&#x8BA2;&#x5355;&#x5217;&#x8868;&#xFF0C;&#x7EDF;&#x8BA1;&#x6BCF;&#x4E2A;&#x7528;&#x6237;&#x7684;&#x603B;&#x4EA4;&#x6613;&#x989D;&#x3002;&#x5BF9;&#x6BD4;&#x4F7F;&#x7528;&#x5916;&#x90E8;&#x8FED;&#x4EE3;&#x624B;&#x52A8;&#x5B9E;&#x73B0;&#x548C; Stream API &#x4E4B;&#x95F4;&#x7684;&#x6027;&#x80FD;&#x3002;</p>
+<p>&#x6211;&#x4EEC;&#x5C06;&#x8BA2;&#x5355;&#x7B80;&#x5316;&#x4E3A;<code>&lt;userName, price, timeStamp&gt;</code>&#x6784;&#x6210;&#x7684;&#x5143;&#x7EC4;&#xFF0C;&#x5E76;&#x7528;<code>Order</code>&#x5BF9;&#x8C61;&#x6765;&#x8868;&#x793A;&#x3002;&#x6D4B;&#x8BD5;&#x7A0B;&#x5E8F; <a href="perf/StreamBenchmark/src/lee/ReductionTest.java">ReductionTest</a>&#xFF0C;&#x6D4B;&#x8BD5;&#x7ED3;&#x679C;&#x5982;&#x4E0B;&#x56FE;&#xFF1A;</p>
+<p><img src="http://yano.oss-cn-beijing.aliyuncs.com/2020-12-03-074920.jpg" alt=""></p>
+<p>&#x5206;&#x6790;&#xFF0C;&#x5BF9;&#x4E8E;&#x590D;&#x6742;&#x7684;&#x5F52;&#x7EA6;&#x64CD;&#x4F5C;&#xFF1A;</p>
+<ol>
+<li>Stream API &#x7684;&#x6027;&#x80FD;&#x666E;&#x904D;&#x597D;&#x4E8E;&#x5916;&#x90E8;&#x624B;&#x52A8;&#x8FED;&#x4EE3;&#xFF0C;&#x5E76;&#x884C; Stream &#x6548;&#x679C;&#x66F4;&#x4F73;&#xFF1B;</li>
+</ol>
+<p>&#x518D;&#x6765;&#x8003;&#x5BDF;&#x5E76;&#x884C;&#x5EA6;&#x5BF9;&#x5E76;&#x884C;&#x6548;&#x679C;&#x7684;&#x5F71;&#x54CD;&#xFF0C;&#x6D4B;&#x8BD5;&#x7ED3;&#x679C;&#x5982;&#x4E0B;&#xFF1A;</p>
+<p><img src="http://yano.oss-cn-beijing.aliyuncs.com/2020-12-03-074933.jpg" alt=""></p>
+<p>&#x5206;&#x6790;&#xFF0C;&#x5BF9;&#x4E8E;&#x590D;&#x6742;&#x7684;&#x5F52;&#x7EA6;&#x64CD;&#x4F5C;&#xFF1A;</p>
+<ol>
+<li>&#x4F7F;&#x7528; Stream &#x5E76;&#x884C;&#x5F52;&#x7EA6;&#x5728;&#x5355;&#x6838;&#x60C5;&#x51B5;&#x4E0B;&#x6027;&#x80FD;&#x6BD4;&#x4E32;&#x884C;&#x5F52;&#x7EA6;&#x4EE5;&#x53CA;&#x624B;&#x52A8;&#x5F52;&#x7EA6;&#x90FD;&#x8981;&#x5DEE;&#xFF0C;&#x7B80;&#x5355;&#x8BF4;&#x5C31;&#x662F;&#x6700;&#x5DEE;&#x7684;&#xFF1B;</li>
+<li>&#x968F;&#x7740;&#x4F7F;&#x7528;&#x6838;&#x6570;&#x7684;&#x589E;&#x52A0;&#xFF0C;Stream &#x5E76;&#x884C;&#x6548;&#x679C;&#x9010;&#x6E10;&#x53D8;&#x597D;&#xFF0C;&#x591A;&#x6838;&#x5E26;&#x6765;&#x7684;&#x6548;&#x679C;&#x660E;&#x663E;&#x3002;</li>
+</ol>
+<p>&#x4EE5;&#x4E0A;&#x4E24;&#x4E2A;&#x5B9E;&#x9A8C;&#x8BF4;&#x660E;&#xFF0C;&#x5BF9;&#x4E8E;&#x590D;&#x6742;&#x7684;&#x5F52;&#x7EA6;&#x64CD;&#x4F5C;&#xFF0C;Stream &#x4E32;&#x884C;&#x5F52;&#x7EA6;&#x6548;&#x679C;&#x597D;&#x4E8E;&#x624B;&#x52A8;&#x5F52;&#x7EA6;&#xFF0C;&#x5728;&#x591A;&#x6838;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x5E76;&#x884C;&#x5F52;&#x7EA6;&#x6548;&#x679C;&#x66F4;&#x4F73;&#x3002;&#x6211;&#x4EEC;&#x6709;&#x7406;&#x7531;&#x76F8;&#x4FE1;&#xFF0C;&#x5BF9;&#x4E8E;&#x5176;&#x4ED6;&#x590D;&#x6742;&#x7684;&#x64CD;&#x4F5C;&#xFF0C;Stream API &#x4E5F;&#x80FD;&#x8868;&#x73B0;&#x51FA;&#x76F8;&#x4F3C;&#x7684;&#x6027;&#x80FD;&#x8868;&#x73B0;&#x3002;</p>
+<h2 id="&#x7ED3;&#x8BBA;">&#x7ED3;&#x8BBA;</h2>
+<p>&#x4E0A;&#x8FF0;&#x4E09;&#x4E2A;&#x5B9E;&#x9A8C;&#x7684;&#x7ED3;&#x679C;&#x53EF;&#x4EE5;&#x603B;&#x7ED3;&#x5982;&#x4E0B;&#xFF1A;</p>
+<ol>
+<li>&#x5BF9;&#x4E8E;<code>&#x7B80;&#x5355;&#x64CD;&#x4F5C;</code>&#xFF0C;&#x6BD4;&#x5982;&#x6700;&#x7B80;&#x5355;&#x7684;&#x904D;&#x5386;&#xFF0C;<code>Stream &#x4E32;&#x884C; API &#x6027;&#x80FD;&#x660E;&#x663E;&#x5DEE;&#x4E8E;&#x663E;&#x5F0F;&#x8FED;&#x4EE3;</code>&#xFF0C;&#x4F46;&#x5E76;&#x884C;&#x7684; Stream API &#x80FD;&#x591F;&#x53D1;&#x6325;&#x591A;&#x6838;&#x7279;&#x6027;&#x3002;</li>
+<li>&#x5BF9;&#x4E8E;<code>&#x590D;&#x6742;&#x64CD;&#x4F5C;</code>&#xFF0C;Stream &#x4E32;&#x884C; API &#x6027;&#x80FD;&#x53EF;&#x4EE5;&#x548C;&#x624B;&#x52A8;&#x5B9E;&#x73B0;&#x7684;&#x6548;&#x679C;&#x5339;&#x654C;&#xFF0C;&#x5728;<code>&#x5E76;&#x884C;&#x6267;&#x884C;&#x65F6; Stream API &#x6548;&#x679C;&#x8FDC;&#x8D85;&#x624B;&#x52A8;&#x5B9E;&#x73B0;</code>&#x3002;</li>
+</ol>
+<p>&#x6240;&#x4EE5;&#xFF0C;&#x5982;&#x679C;&#x51FA;&#x4E8E;&#x6027;&#x80FD;&#x8003;&#x8651;&#xFF1A;</p>
+<ol>
+<li>&#x5BF9;&#x4E8E;&#x7B80;&#x5355;&#x64CD;&#x4F5C;&#x63A8;&#x8350;&#x4F7F;&#x7528;&#x5916;&#x90E8;&#x8FED;&#x4EE3;&#x624B;&#x52A8;&#x5B9E;&#x73B0;</li>
+<li>&#x5BF9;&#x4E8E;&#x590D;&#x6742;&#x64CD;&#x4F5C;&#xFF0C;&#x63A8;&#x8350;&#x4F7F;&#x7528; Stream API</li>
+<li>&#x5728;&#x591A;&#x6838;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x63A8;&#x8350;&#x4F7F;&#x7528;&#x5E76;&#x884C; Stream API &#x6765;&#x53D1;&#x6325;&#x591A;&#x6838;&#x4F18;&#x52BF;</li>
+<li>&#x5355;&#x6838;&#x60C5;&#x51B5;&#x4E0B;&#x4E0D;&#x5EFA;&#x8BAE;&#x4F7F;&#x7528;&#x5E76;&#x884C; Stream API</li>
+</ol>
+<h2 id="&#x4E3A;&#x4EC0;&#x4E48;&#x7B80;&#x5355;&#x64CD;&#x4F5C;&#xFF0C;stream-api-&#x4E0D;&#x5982;&#x8FED;&#x4EE3;&#xFF0C;&#x800C;&#x590D;&#x6742;&#x64CD;&#x4F5C;&#x6027;&#x80FD;&#x5DEE;&#x4E0D;&#x591A;&#xFF1F;">&#x4E3A;&#x4EC0;&#x4E48;&#x7B80;&#x5355;&#x64CD;&#x4F5C;&#xFF0C;Stream API &#x4E0D;&#x5982;&#x8FED;&#x4EE3;&#xFF0C;&#x800C;&#x590D;&#x6742;&#x64CD;&#x4F5C;&#x6027;&#x80FD;&#x5DEE;&#x4E0D;&#x591A;&#xFF1F;</h2>
+<p>&#x5176;&#x5B9E;&#x6839;&#x636E;&#x4E0A;&#x9762; Stream &#x6E90;&#x7801;&#x7684;&#x5206;&#x6790;&#xFF0C;&#x7ED3;&#x5408; Stream &#x7684;&#x4F7F;&#x7528;&#xFF0C;&#x53EF;&#x4EE5;&#x770B;&#x51FA;&#x5982;&#x679C;&#x662F;&#x7B80;&#x5355;&#x64CD;&#x4F5C;&#x7684;&#x8BDD;&#xFF0C;Stream &#x4E5F;&#x4F1A;&#x5305;&#x62EC;&#x52A0;&#x8F7D;&#x6570;&#x636E;&#x6E90;&#x3001;&#x4E2D;&#x95F4;&#x64CD;&#x4F5C;&#x3001;&#x7EC8;&#x7ED3;&#x64CD;&#x4F5C;&#x7B49;&#xFF0C;&#x6240;&#x4EE5;&#x7B80;&#x5355;&#x64CD;&#x4F5C;&#x4F1A;&#x6162;&#x4E8E;&#x663E;&#x5F0F;&#x8FED;&#x4EE3;&#x3002;</p>
+<p>&#x4F46;&#x662F;&#x5982;&#x679C;&#x662F;&#x590D;&#x6742;&#x64CD;&#x4F5C;&#xFF0C;Stream &#x52A0;&#x8F7D;&#x6570;&#x636E;&#x6E90;&#x3001;&#x4E2D;&#x95F4;&#x64CD;&#x4F5C;&#x3001;&#x7EC8;&#x7ED3;&#x64CD;&#x4F5C;&#x76F8;&#x5BF9;&#x6765;&#x8BF4;&#x5C31;&#x6CA1;&#x6709;&#x90A3;&#x4E48;&#x91CD;&#x8981;&#x4E86;&#xFF0C;&#x751A;&#x81F3;&#x8FD8;&#x53EF;&#x4EE5;&#x5305;&#x62EC;&#x77ED;&#x8DEF;&#x7B49;&#x4F18;&#x5316;&#xFF0C;&#x6240;&#x4EE5;&#x8DDF;&#x663E;&#x5F0F;&#x8FED;&#x4EE3;&#x7684;&#x6027;&#x80FD;&#x5E76;&#x6CA1;&#x6709;&#x4EC0;&#x4E48;&#x5DEE;&#x522B;&#x3002;&#x540C;&#x65F6; Stream &#x8FD8;&#x80FD;&#x589E;&#x52A0;&#x53EF;&#x8BFB;&#x6027;&#xFF0C;&#x5F88;&#x65B9;&#x4FBF;&#x5229;&#x7528;&#x591A;&#x6838;&#x6027;&#x80FD;&#xFF0C;&#x8FD9;&#x662F;&#x663E;&#x793A;&#x8FED;&#x4EE3;&#x4E0D;&#x80FD;&#x5B9E;&#x73B0;&#x7684;&#x3002;</p>
+<p>&#xFF08;&#x4E2A;&#x4EBA;&#x601D;&#x8003;&#x7684;&#x7ED3;&#x679C;&#xFF0C;&#x6709;&#x95EE;&#x9898;&#x6B22;&#x8FCE;&#x7559;&#x8A00;&#x4EA4;&#x6D41; ^_^&#xFF09;</p>
+<h1 id="github-&#x9879;&#x76EE;">GitHub &#x9879;&#x76EE;</h1>
+<p><a href="https://github.com/LjyYano/Thinking_in_Java_MindMapping" target="_blank">Java &#x7F16;&#x7A0B;&#x601D;&#x60F3;-&#x6700;&#x5168;&#x601D;&#x7EF4;&#x5BFC;&#x56FE;-GitHub &#x4E0B;&#x8F7D;&#x94FE;&#x63A5;</a>&#xFF0C;&#x9700;&#x8981;&#x7684;&#x5C0F;&#x4F19;&#x4F34;&#x53EF;&#x4EE5;&#x81EA;&#x53D6;~</p>
+<p>&#x539F;&#x521B;&#x4E0D;&#x6613;&#xFF0C;&#x5E0C;&#x671B;&#x5927;&#x5BB6;&#x8F6C;&#x8F7D;&#x65F6;&#x8BF7;&#x5148;&#x8054;&#x7CFB;&#x6211;&#xFF0C;&#x5E76;&#x6807;&#x6CE8;&#x539F;&#x6587;&#x94FE;&#x63A5;&#x3002;</p>
+<h1 id="&#x53C2;&#x8003;&#x6587;&#x7AE0;">&#x53C2;&#x8003;&#x6587;&#x7AE0;</h1>
+<ol>
+<li><a href="https://github.com/CarpenterLee/JavaLambdaInternals/blob/master/6-Stream%20Pipelines.md" target="_blank">JavaLambdaInternals/6-Stream Pipelines.md</a></li>
+<li><a href="https://github.com/CarpenterLee/JavaLambdaInternals/blob/master/8-Stream%20Performance.md" target="_blank">JavaLambdaInternals/8-Stream Performance.md</a></li>
+<li>&#x6781;&#x5BA2;&#x65F6;&#x95F4;-Java &#x6027;&#x80FD;&#x8C03;&#x4F18;&#x5B9E;&#x6218;/06.Stream &#x5982;&#x4F55;&#x63D0;&#x9AD8;&#x904D;&#x5386;&#x96C6;&#x5408;&#x6548;&#x7387;&#xFF1F;</li>
+</ol>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="JavaNIO、Channel、Selector详解.html" class="navigation navigation-prev " aria-label="Previous page: JavaNIO、Channel、Selector详解">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="JavaString演进全解析.html" class="navigation navigation-next " aria-label="Next page: JavaString演进全解析">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"JavaStream源码分析","level":"1.3.1.10","depth":3,"next":{"title":"JavaString演进全解析","level":"1.3.1.11","depth":3,"path":"编程/Java/JavaString演进全解析.md","ref":"编程/Java/JavaString演进全解析.md","articles":[]},"previous":{"title":"JavaNIO、Channel、Selector详解","level":"1.3.1.9","depth":3,"path":"编程/Java/JavaNIO、Channel、Selector详解.md","ref":"编程/Java/JavaNIO、Channel、Selector详解.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"编程/Java/JavaStream源码分析.md","mtime":"2023-03-19T09:22:16.921Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-03-19T09:22:58.594Z"},"basePath":"../..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../../gitbook/gitbook.js"></script>
+    <script src="../../gitbook/theme.js"></script>
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
