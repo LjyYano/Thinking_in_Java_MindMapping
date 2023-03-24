@@ -1,3 +1,7 @@
+---
+date: 2020-04-14
+---
+
 # GitHub 链接
 
 https://github.com/LjyYano/Thinking_in_Java_MindMapping

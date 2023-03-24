@@ -1,3 +1,7 @@
+---
+date: 2020-11-08
+---
+
 最近把任天堂的 RPG 游戏《异度之刃 2》当成一部番剧来看了，下面附上一些截图~
 
 ![](http://yano.oss-cn-beijing.aliyuncs.com/blog/2023-01-11-10-51-11.png?x-oss-process=image/resize,w_600)
