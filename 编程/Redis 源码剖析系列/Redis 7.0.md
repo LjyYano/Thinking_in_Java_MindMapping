@@ -100,6 +100,8 @@ Sharded-pubsub 便是用来解决这个问题，意如其名，sharded-pubsub �
 
 # 我的公众号
 
-coding 笔记、读书笔记、点滴记录，以后的文章也会同步到公众号（Coding Insight）中，希望大家关注^_^
+coding 笔记、读书笔记、点滴记录，以后的文章也会同步到公众号（Coding Insight）中，大家关注^_^
+
+我的博客地址：[博客主页](https://yano-nankai.notion.site/yano-nankai/Yano-Space-ff42bde7acd1467eb3ae63dc0d4a9f8c)。
 
 ![](http://yano.oss-cn-beijing.aliyuncs.com/2019-07-29-qrcode_for_gh_a26ce4572791_258.jpg)

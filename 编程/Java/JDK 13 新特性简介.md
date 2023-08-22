@@ -4,7 +4,9 @@ date: 2019-07-31
 
 # 公众号
 
-最近写的文章也会同步到公众号中，希望大家关注^_^
+最近写的文章也会同步到公众号中，大家关注^_^
+
+我的博客地址：[博客主页](https://yano-nankai.notion.site/yano-nankai/Yano-Space-ff42bde7acd1467eb3ae63dc0d4a9f8c)。
 
 ![](http://yano.oss-cn-beijing.aliyuncs.com/2019-07-29-qrcode_for_gh_a26ce4572791_258.jpg)
 
