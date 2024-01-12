@@ -2,7 +2,6 @@
 date: 2020-12-05
 ---
 
-
 - [Java 15 废弃偏向锁](#java-15-废弃偏向锁)
   - [当时为什么要引入偏向锁？](#当时为什么要引入偏向锁)
   - [现在为什么又要废弃偏向锁？](#现在为什么又要废弃偏向锁)
@@ -14,7 +13,7 @@ date: 2020-12-05
 - [JVM 同步指令分析](#jvm-同步指令分析)
   - [monitorenter](#monitorenter)
   - [monitorexit](#monitorexit)
-  - [ACC_SYNCHRONIZED](#acc_synchronized)
+  - [ACC\_SYNCHRONIZED](#acc_synchronized)
 - [操作系统的管程（Monitor）](#操作系统的管程monitor)
   - [管程模型](#管程模型)
   - [ObjectMonitor](#objectmonitor)

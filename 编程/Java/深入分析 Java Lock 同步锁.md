@@ -6,7 +6,7 @@ date: 2020-12-07
 
 # 前言
 
-Java 的锁实现，有 Synchronized 和 Lock。上一篇文章深入分析了 Synchronized 的实现原理：[由Java 15废弃偏向锁，谈谈Java Synchronized 的锁机制](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2020-12-05%20%E7%94%B1Java%2015%E5%BA%9F%E5%BC%83%E5%81%8F%E5%90%91%E9%94%81%EF%BC%8C%E8%B0%88%E8%B0%88Java%20Synchronized%20%E7%9A%84%E9%94%81%E6%9C%BA%E5%88%B6.md)。
+Java 的锁实现，有 Synchronized 和 Lock。上一篇文章深入分析了 Synchronized 的实现原理：[由 Java 15 废弃偏向锁，谈谈 Java Synchronized 的锁机制](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2020-12-05%20%E7%94%B1Java%2015%E5%BA%9F%E5%BC%83%E5%81%8F%E5%90%91%E9%94%81%EF%BC%8C%E8%B0%88%E8%B0%88Java%20Synchronized%20%E7%9A%84%E9%94%81%E6%9C%BA%E5%88%B6.md)。
 
 本篇文章深入分析 Lock 的实现，以及对比其与 Synchronized 的不同。
 
@@ -15,7 +15,7 @@ Java 的锁实现，有 Synchronized 和 Lock。上一篇文章深入分析了 S
 - 实现方式：Synchronized 由 JVM 实现；Lock 由 Java 底层代码实现
 - 锁获取：Synchronized 是 JVM 隐式获取，不用 Java 代码；Lock 由 Java 代码实现，有多种获取方式
 - 锁的释放：Synchronized 是 JVM 隐式释放，不用 Java 代码；Lock 可通过 `Lock.unlock()`，在 finally 中释放
-- 锁的类型：`Synchronized 是非公平、可重入的`，`Lock 是非公平性、公平性、可重入的`
+- 锁的类型：`Synchronized 是非公平、可重入的 `，`Lock 是非公平性、公平性、可重入的 `
 - 锁的中断：Synchronized 不支持中断，Lock 支持中断
 
 # 实现原理
@@ -36,7 +36,7 @@ Lock 是一个接口类，其接口方法定义：
 - ReentrantLock（重入锁）
 - ReentrantReadWriteLock（可重入的读写锁）
 
-其都是依赖 `AQS` 实现的。AQS 类结构中包含一个`基于链表实现的等待队列`（CLH 队列），用于存储所有阻塞的线程，AQS 中还有一个 state 变量，表示加锁状态。
+其都是依赖 `AQS` 实现的。AQS 类结构中包含一个 ` 基于链表实现的等待队列 `（CLH 队列），用于存储所有阻塞的线程，AQS 中还有一个 state 变量，表示加锁状态。
 
 # ReentrantLock
 
@@ -70,7 +70,7 @@ public void testReadWriteLock() {
 
 上述 ReentrantReadWriteLock 会有一个问题：在读很多，写很少的情况下，线程会因一直无法获取到锁而处于等待状态。
 
-在 JDK 1.8 中，Java 提供了 `StampedLock`，有三种模式: 
+在 JDK 1.8 中，Java 提供了 `StampedLock`，有三种模式:
 - 写
 - 悲观读
 - 乐观读
