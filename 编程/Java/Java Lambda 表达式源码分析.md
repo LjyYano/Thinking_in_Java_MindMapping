@@ -2,7 +2,6 @@
 date: 2021-08-18
 ---
 
-
 - [基本概念](#基本概念)
   - [Lambda 表达式](#lambda-表达式)
   - [函数式接口](#函数式接口)
@@ -15,7 +14,7 @@ date: 2021-08-18
 - [参考链接](#参考链接)
 - [GitHub 项目](#github-项目)
 
-Lambda 表达式是什么？JVM 内部究竟是如何实现 Lambda 表达式的？为什么要这样实现？
+>🤔 Lambda 表达式是什么？JVM 内部究竟是如何实现 Lambda 表达式的？为什么要这样实现？
 
 # 基本概念
 
@@ -144,20 +143,20 @@ public class test.jdk.LambdaMain {
 - 输出的 `boolean lambda$main$1(java.lang.Integer)` 对应的是 `i -> i < 3`
 - 输出的 `java.lang.String lambda$main$2(java.lang.Integer)` 对应的是 `i -> i + ""`
 
-我们可以看出 Lambda 表达式在 Java 8 中首先会生成一个`私有的静态函数`。
+我们可以看出 Lambda 表达式在 Java 8 中首先会生成一个 ` 私有的静态函数 `。
 
 ## 为什么不使用匿名内部类？
 
 如果要在 Java 语言中实现 lambda 表达式，生成匿名内部类就可以轻松实现。但是 JDK 为什么没有这么实现呢？这是因为匿名内部类有一些缺点。
 
-1. 每个匿名内部类都会在`编译时`创建一个对应的`class 文件`，在`运行时`不可避免的会有加载、验证、准备、解析、初始化等`类加载`过程。
-2. 每次调用都会创建一个这个`匿名内部类 class 的实例对象`，无论是有状态的（使用到了外部的变量）还是无状态（没有使用外部变量）的内部类。
+1. 每个匿名内部类都会在 ` 编译时 ` 创建一个对应的 `class 文件 `，在 ` 运行时 ` 不可避免的会有加载、验证、准备、解析、初始化等 ` 类加载 ` 过程。
+2. 每次调用都会创建一个这个 ` 匿名内部类 class 的实例对象 `，无论是有状态的（使用到了外部的变量）还是无状态（没有使用外部变量）的内部类。
 
 ## invokedynamic
 
 本来要写文字的，但是俺发现俺总结的思维导图还挺清晰的，直接提出来吧，囧。
 
-![](http://yano.oss-cn-beijing.aliyuncs.com/blog/20210820085524.png?x-oss-process=style/yano)
+![](http://yano.oss-cn-beijing.aliyuncs.com/blog/20210820085524.png?x-oss-process=image/resize,h_200)
 
 ![](http://yano.oss-cn-beijing.aliyuncs.com/blog/20210820085748.png?x-oss-process=style/yano)
 
@@ -188,7 +187,7 @@ public static CallSite metafactory(MethodHandles.Lookup caller,
 - CallSite: 保存 MethodHandle 的容器，里面有一个 target MethodHandle。
 MethodHandle: 真正要执行的方法的指针。
 
-![](http://yano.oss-cn-beijing.aliyuncs.com/blog/20210820090707.png?x-oss-process=style/yano)
+![](http://yano.oss-cn-beijing.aliyuncs.com/blog/20210820090707.png?x-oss-process=image/resize,w_400)
 
 测试一下 Lambda 函数生成的字节码，为了方便起见，java 代码改成如下：
 
@@ -234,15 +233,15 @@ public class test.jdk.LambdaMain {
 
 # 总结
 
-- Lambda 表达式在 Java 中最终编译成`私有的静态函数`，JDK 最终使用 invokedynamic 字节码指令调用。
+- Lambda 表达式在 Java 中最终编译成 ` 私有的静态函数 `，JDK 最终使用 invokedynamic 字节码指令调用。
 
 # 参考链接
 
-- [Java--浅析函数式接口&Lambda 表达式&方法引用&Stream API
+- [Java-- 浅析函数式接口 & Lambda 表达式 & 方法引用 & Stream API
 ](https://juejin.cn/post/6931614095124725773)
 
 # GitHub 项目
 
-[Java 编程思想-最全思维导图-GitHub 下载链接](https://github.com/LjyYano/Thinking_in_Java_MindMapping)，需要的小伙伴可以自取~
+[Java 编程思想 - 最全思维导图 - GitHub 下载链接](https://github.com/LjyYano/Thinking_in_Java_MindMapping)，需要的小伙伴可以自取~
 
 原创不易，希望大家转载时请先联系我，并标注原文链接。

@@ -40,16 +40,16 @@ Stream 的聚合操作与数据库 SQL 的聚合操作 sorted、filter、map 等
 # 操作分类
 
 官方将 Stream 中的操作分为两大类：
-- `中间操作（Intermediate operations）`，只对操作进行了记录，即只会返回一个流，不会进行计算操作。
-- `终结操作（Terminal operations）`，实现了计算操作。
+- ` 中间操作（Intermediate operations）`，只对操作进行了记录，即只会返回一个流，不会进行计算操作。
+- ` 终结操作（Terminal operations）`，实现了计算操作。
 
 中间操作又可以分为：
-- `无状态（Stateless）操作`，元素的处理不受之前元素的影响。
-- `有状态（Stateful）操作`，指该操作只有拿到所有元素之后才能继续下去。
+- ` 无状态（Stateless）操作 `，元素的处理不受之前元素的影响。
+- ` 有状态（Stateful）操作 `，指该操作只有拿到所有元素之后才能继续下去。
 
 终结操作又可以分为：
-- `短路（Short-circuiting）`操作，指遇到某些符合条件的元素就可以得到最终结果
-- `非短路（Unshort-circuiting）`操作，指必须处理完所有元素才能得到最终结果。
+- ` 短路（Short-circuiting）` 操作，指遇到某些符合条件的元素就可以得到最终结果
+- ` 非短路（Unshort-circuiting）` 操作，指必须处理完所有元素才能得到最终结果。
 
 操作分类详情如下图所示：
 
@@ -75,13 +75,13 @@ Stream 相关类和接口的继承关系如下图所示：
 
 ## ReferencePipeline
 
-ReferencePipeline 是一个结构类，定义内部类组装了各种操作流，定义了`Head`、`StatelessOp`、`StatefulOp`三个内部类，实现了 BaseStream 与 Stream 的接口方法。
+ReferencePipeline 是一个结构类，定义内部类组装了各种操作流，定义了 `Head`、`StatelessOp`、`StatefulOp` 三个内部类，实现了 BaseStream 与 Stream 的接口方法。
 
 ![](http://yano.oss-cn-beijing.aliyuncs.com/2020-12-03-033157.png)
 
 ## Sink
 
-Sink 接口定义了 Stream 之间的操作行为，包含 `begin()`、`end()`、`cancellationRequested()`、`accpt()`四个方法。ReferencePipeline 最终会将整个 Stream 流操作组装成一个调用链，而这条调用链上的各个 Stream 操作的上下关系就是通过 Sink 接口协议来定义实现的。
+Sink 接口定义了 Stream 之间的操作行为，包含 `begin()`、`end()`、`cancellationRequested()`、`accpt()` 四个方法。ReferencePipeline 最终会将整个 Stream 流操作组装成一个调用链，而这条调用链上的各个 Stream 操作的上下关系就是通过 Sink 接口协议来定义实现的。
 
 ![](http://yano.oss-cn-beijing.aliyuncs.com/2020-12-03-033401.png)
 
@@ -219,7 +219,7 @@ public final Optional<P_OUT> max(Comparator<? super P_OUT> comparator) {
 final <P_IN> Sink<P_IN> wrapSink(Sink<E_OUT> sink) {
     Objects.requireNonNull(sink);
 
-    for ( @SuppressWarnings("rawtypes") AbstractPipeline p=AbstractPipeline.this; p.depth > 0; p=p.previousStage) {
+    for (@SuppressWarnings("rawtypes") AbstractPipeline p=AbstractPipeline.this; p.depth > 0; p=p.previousStage) {
         sink = p.opWrapSink(p.previousStage.combinedFlags, sink);
     }
     return (Sink<P_IN>) sink;
@@ -264,22 +264,22 @@ public void forEachRemaining(Consumer<? super T> action) {
         throw new NullPointerException();
     if ((a = array).length >= (hi = fence) &&
         (i = index) >= 0 && i < (index = hi)) {
-        do { action.accept((T)a[i]); } while (++i < hi);
+        do {action.accept((T)a[i]); } while (++i < hi);
     }
 }
 ```
 
-断点调试，可以发现首先进入了 filter 的 Sink，其中 accept 方法的入参是 list 中的第一个元素“kotlin”（代码中的 3 个元素是："kotlin", "java", "go"）。filter 的传入是一个 Lambda 表达式：
+断点调试，可以发现首先进入了 filter 的 Sink，其中 accept 方法的入参是 list 中的第一个元素 “kotlin”（代码中的 3 个元素是："kotlin", "java", "go"）。filter 的传入是一个 Lambda 表达式：
 
 ```java
 filter(name -> name.length() <= 4)
 ```
 
-显然这个第一个元素“kotlin”的 predicate 是不会进入的。
+显然这个第一个元素 “kotlin” 的 predicate 是不会进入的。
 
 ![](http://yano.oss-cn-beijing.aliyuncs.com/2020-12-03-070838.png)
 
-对于第二个元素“java”，predicate.test 会返回 true（字符串“java”的长度<=4），则会进入 map 的 accept 方法。
+对于第二个元素 “java”，predicate.test 会返回 true（字符串“java” 的长度<=4），则会进入 map 的 accept 方法。
 
 ![](http://yano.oss-cn-beijing.aliyuncs.com/2020-12-03-071448.png)
 
@@ -314,7 +314,7 @@ makeRef(BinaryOperator<T> operator) {
 }
 ```
 
-对于第三个元素“go”，也会进入 accept 方法，此时 empty 为 true, map 后的结果（int 类型的 2）会与上次的结果 4 通过自定义的比较器相比较，存入符合结果的值。
+对于第三个元素 “go”，也会进入 accept 方法，此时 empty 为 true, map 后的结果（int 类型的 2）会与上次的结果 4 通过自定义的比较器相比较，存入符合结果的值。
 
 ```java
 public static <T> BinaryOperator<T> maxBy(Comparator<? super T> comparator) {
@@ -372,7 +372,7 @@ public void compute() {
     long sizeThreshold = getTargetSize(sizeEstimate);
     boolean forkRight = false;
     @SuppressWarnings("unchecked") K task = (K) this;
-    while (sizeEstimate > sizeThreshold && (ls = rs.trySplit()) != null) {
+    while (sizeEstimate> sizeThreshold && (ls = rs.trySplit()) != null) {
         K leftChild, rightChild, taskToFork;
         task.leftChild  = leftChild = task.makeChild(ls);
         task.rightChild = rightChild = task.makeChild(rs);
@@ -427,9 +427,9 @@ public void testParallelRight() {
 
 下面的文章参考自：[JavaLambdaInternals/8-Stream Performance.md](https://github.com/CarpenterLee/JavaLambdaInternals/blob/master/8-Stream%20Performance.md)，侵删。
 
-为保证测试结果真实可信，我们将 JVM 运行在`-server`模式下，测试数据在 GB 量级，测试机器采用常见的商用服务器，配置如下：
+为保证测试结果真实可信，我们将 JVM 运行在 `-server` 模式下，测试数据在 GB 量级，测试机器采用常见的商用服务器，配置如下：
 
-<table width="300px"><tr><td>OS</td><td>CentOS 6.7 x86_64</td></tr><tr><td>CPU</td><td>Intel Xeon X5675, 12M Cache 3.06 GHz, 6 Cores 12 Threads</td></tr><tr><td>内存</td><td>96GB</td></tr><tr><td>JDK</td><td>java version 1.8.0_91, Java HotSpot(TM) 64-Bit Server VM</td></tr></table>
+<table width="300px"><tr><td>OS</td><td>CentOS 6.7 x86_64</td></tr><tr><td>CPU</td><td>Intel Xeon X5675, 12M Cache 3.06 GHz, 6 Cores 12 Threads</td></tr><tr><td > 内存 </td><td>96GB</td></tr><tr><td>JDK</td><td>java version 1.8.0_91, Java HotSpot(TM) 64-Bit Server VM</td></tr></table>
 
 测试 [所用代码在这里](./perf/StreamBenchmark/src/lee)，测试 [结果汇总](./perf/Stream_performance.xlsx).
 
@@ -437,10 +437,10 @@ public void testParallelRight() {
 
 性能测试并不是容易的事，Java 性能测试更费劲，因为虚拟机对性能的影响很大，JVM 对性能的影响有两方面：
 
-1. GC 的影响。GC 的行为是 Java 中很不好控制的一块，为增加确定性，我们手动指定使用 CMS 收集器，并使用 10GB 固定大小的堆内存。具体到 JVM 参数就是`-XX:+UseConcMarkSweepGC -Xms10G -Xmx10G`
-2. JIT(Just-In-Time) 即时编译技术。即时编译技术会将热点代码在 JVM 运行的过程中编译成本地代码，测试时我们会先对程序预热，触发对测试函数的即时编译。相关的 JVM 参数是`-XX:CompileThreshold=10000`。
+1. GC 的影响。GC 的行为是 Java 中很不好控制的一块，为增加确定性，我们手动指定使用 CMS 收集器，并使用 10GB 固定大小的堆内存。具体到 JVM 参数就是 `-XX:+UseConcMarkSweepGC -Xms10G -Xmx10G`
+2. JIT(Just-In-Time) 即时编译技术。即时编译技术会将热点代码在 JVM 运行的过程中编译成本地代码，测试时我们会先对程序预热，触发对测试函数的即时编译。相关的 JVM 参数是 `-XX:CompileThreshold=10000`。
 
-Stream 并行执行时用到`ForkJoinPool.commonPool()`得到的线程池，为控制并行度我们使用 Linux 的`taskset`命令指定 JVM 可用的核数。
+Stream 并行执行时用到 `ForkJoinPool.commonPool()` 得到的线程池，为控制并行度我们使用 Linux 的 `taskset` 命令指定 JVM 可用的核数。
 
 测试数据由程序随机生成。为防止一次测试带来的抖动，测试 4 次求出平均时间作为运行时间。
 
@@ -500,7 +500,7 @@ Stream 并行执行时用到`ForkJoinPool.commonPool()`得到的线程池，为�
 
 测试内容：给定订单列表，统计每个用户的总交易额。对比使用外部迭代手动实现和 Stream API 之间的性能。
 
-我们将订单简化为`<userName, price, timeStamp>`构成的元组，并用`Order`对象来表示。测试程序 [ReductionTest](./perf/StreamBenchmark/src/lee/ReductionTest.java)，测试结果如下图：
+我们将订单简化为 `<userName, price, timeStamp>` 构成的元组，并用 `Order` 对象来表示。测试程序 [ReductionTest](./perf/StreamBenchmark/src/lee/ReductionTest.java)，测试结果如下图：
 
 ![](http://yano.oss-cn-beijing.aliyuncs.com/2020-12-03-074920.jpg)
 
@@ -523,8 +523,8 @@ Stream 并行执行时用到`ForkJoinPool.commonPool()`得到的线程池，为�
 
 上述三个实验的结果可以总结如下：
 
-1. 对于`简单操作`，比如最简单的遍历，`Stream 串行 API 性能明显差于显式迭代`，但并行的 Stream API 能够发挥多核特性。
-2. 对于`复杂操作`，Stream 串行 API 性能可以和手动实现的效果匹敌，在`并行执行时 Stream API 效果远超手动实现`。
+1. 对于 ` 简单操作 `，比如最简单的遍历，`Stream 串行 API 性能明显差于显式迭代 `，但并行的 Stream API 能够发挥多核特性。
+2. 对于 ` 复杂操作 `，Stream 串行 API 性能可以和手动实现的效果匹敌，在 ` 并行执行时 Stream API 效果远超手动实现 `。
 
 所以，如果出于性能考虑：
 1. 对于简单操作推荐使用外部迭代手动实现
@@ -542,7 +542,7 @@ Stream 并行执行时用到`ForkJoinPool.commonPool()`得到的线程池，为�
 
 # GitHub 项目
 
-[Java 编程思想-最全思维导图-GitHub 下载链接](https://github.com/LjyYano/Thinking_in_Java_MindMapping)，需要的小伙伴可以自取~
+[Java 编程思想 - 最全思维导图 - GitHub 下载链接](https://github.com/LjyYano/Thinking_in_Java_MindMapping)，需要的小伙伴可以自取~
 
 原创不易，希望大家转载时请先联系我，并标注原文链接。
 
@@ -550,4 +550,4 @@ Stream 并行执行时用到`ForkJoinPool.commonPool()`得到的线程池，为�
 
 1. [JavaLambdaInternals/6-Stream Pipelines.md](https://github.com/CarpenterLee/JavaLambdaInternals/blob/master/6-Stream%20Pipelines.md)
 2. [JavaLambdaInternals/8-Stream Performance.md](https://github.com/CarpenterLee/JavaLambdaInternals/blob/master/8-Stream%20Performance.md)
-3. 极客时间-Java 性能调优实战/06.Stream 如何提高遍历集合效率？
+3. 极客时间 - Java 性能调优实战 / 06.Stream 如何提高遍历集合效率？

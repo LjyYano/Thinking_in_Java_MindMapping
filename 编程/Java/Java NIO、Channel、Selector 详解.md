@@ -4,7 +4,7 @@ date: 2019-10-14
 
 # 公众号
 
-coding 笔记、点滴记录，以后的文章也会同步到公众号（Coding Insight）中，大家关注^_^
+coding 笔记、点滴记录，以后的文章也会同步到公众号（Coding Insight）中，大家关注 `^_^`
 
 我的博客地址：[博客主页](https://yano-nankai.notion.site/yano-nankai/Yano-Space-ff42bde7acd1467eb3ae63dc0d4a9f8c)。
 
@@ -18,7 +18,7 @@ Java NIO 有三大组件：
 
 # Buffer
 
-Buffer 是一个特定**原始类型的容器**。Buffer 是一个原始类型的线性的、有限序列，除了 Buffer 存储的内容外，关键属性还包括：capacity, limit 和 position。
+Buffer 是一个特定原始类型的容器。Buffer 是一个原始类型的线性的、有限序列，除了 Buffer 存储的内容外，关键属性还包括：capacity, limit 和 position。
 
 * **capacity**：Buffer 包含的元素的数量，capacity 永远不会为负，也不会改变。
 * **limit**：Buffer 中第一个不能读取或写入的元素索引。limit 永远不会为负，且永远小于等于 capacity
@@ -134,7 +134,7 @@ int read = channel.read(buffer);
 
 对于前面的写操作，每写一个值，position 都会自增 1，所以 position 会指向最后写入位置的后面一位。
 
-如果要读取 Buffer 的值，需要调用 **flip()** 方法，从**写模式切换到读模式**。
+如果要读取 Buffer 的值，需要调用 **flip()** 方法，从写模式切换到读模式。
 
 ```java
 public final Buffer flip() {
@@ -230,7 +230,7 @@ public abstract ByteBuffer compact();
 
 ## 恒等式
 
-mark, position, limit和 capacity 永远遵循以下关系：
+mark, position, limit 和 capacity 永远遵循以下关系：
 
     0 <= mark <= position <= limit <= capacity
 
@@ -368,7 +368,7 @@ ServerSocketChannel 不和 Buffer 打交道了，因为它并不实际处理数�
 
 # Selector
 
-Selector 是非阻塞的，**多路复用**就是基于 Selector 的，Java 能通过 Selector 实现一个线程管理多个 Channel。
+Selector 是非阻塞的，多路复用就是基于 Selector 的，Java 能通过 Selector 实现一个线程管理多个 Channel。
 
 ## 基本操作
 
@@ -378,7 +378,7 @@ Selector 是非阻塞的，**多路复用**就是基于 Selector 的，Java 能�
 Selector selector = Selector.open();
 ```
 
-2. 将 Channel 注册到 Selector 上。前面我们说了，Selector 建立在非阻塞模式之上，所以注册到 Selector 的 Channel 必须要支持非阻塞模式，**FileChannel 不支持非阻塞**，我们这里讨论最常见的 SocketChannel 和 ServerSocketChannel。
+2. 将 Channel 注册到 Selector 上。前面我们说了，Selector 建立在非阻塞模式之上，所以注册到 Selector 的 Channel 必须要支持非阻塞模式，**FileChannel 不支持非阻塞 **，我们这里讨论最常见的 SocketChannel 和 ServerSocketChannel。
 
 ```java
 // 将通道设置为非阻塞模式，因为默认都是阻塞模式的

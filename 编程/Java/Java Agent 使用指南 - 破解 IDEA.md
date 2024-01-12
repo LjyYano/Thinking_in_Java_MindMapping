@@ -5,8 +5,8 @@ date: 2021-07-31
 - [Java Agent 是什么？](#java-agent-是什么)
   - [修改字节码的工具](#修改字节码的工具)
 - [Instrumentation 原理](#instrumentation-原理)
-    - [**启动时加载 instrument agent 过程**](#启动时加载-instrument-agent-过程)
-    - [**运行时加载 instrument agent 过程**](#运行时加载-instrument-agent-过程)
+    - [\*\* 启动时加载 instrument agent 过程 \*\*](#-启动时加载-instrument-agent-过程-)
+    - [\*\* 运行时加载 instrument agent 过程 \*\*](#-运行时加载-instrument-agent-过程-)
   - [VirtualMachine#attach](#virtualmachineattach)
 - [JVM 启动前静态 Instrument](#jvm-启动前静态-instrument)
   - [Premain 类](#premain-类)
@@ -46,16 +46,16 @@ Java Agent 是一个特殊的 jar 文件，利用 JVM 的 Instrumentation API �
 
 instrument 的底层实现依赖于 JVMTI(JVM Tool Interface)，它是 JVM 暴露出来的一些供用户扩展的接口集合，JVMTI 是基于事件驱动的，JVM 每执行到一定的逻辑就会调用一些事件的回调接口（如果有的话），这些接口可以供开发者去扩展自己的逻辑。JVMTIAgent 是一个利用 JVMTI 暴露出来的接口提供了代理启动时加载 (agent on load)、代理通过 attach 形式加载 (agent on attach) 和代理卸载 (agent on unload) 功能的动态库。而 instrument agent 可以理解为一类 JVMTIAgent 动态库，别名是 JPLISAgent(Java Programming Language Instrumentation Services Agent)，也就是专门为 java 语言编写的插桩服务提供支持的代理。
 
-### **启动时加载 instrument agent 过程**
+### ** 启动时加载 instrument agent 过程 **
 
 1. 创建并初始化 JPLISAgent；
 2. 监听 `VMInit` 事件，在 JVM 初始化完成之后做下面的事情：
     1. 创建 InstrumentationImpl 对象 ；
     2. 监听 ClassFileLoadHook 事件 ；
-    3. 调用 InstrumentationImpl 的`loadClassAndCallPremain`方法，在这个方法里会去调用 javaagent 中 MANIFEST.MF 里指定的 Premain-Class 类的 premain 方法 ；
+    3. 调用 InstrumentationImpl 的 `loadClassAndCallPremain` 方法，在这个方法里会去调用 javaagent 中 MANIFEST.MF 里指定的 Premain-Class 类的 premain 方法 ；
 3. 解析 javaagent 中 MANIFEST.MF 文件的参数，并根据这些参数来设置 JPLISAgent 里的一些内容。
 
-### **运行时加载 instrument agent 过程**
+### ** 运行时加载 instrument agent 过程 **
 
 通过 JVM 的 attach 机制来请求目标 JVM 加载对应的 agent，过程大致如下：
 
@@ -63,19 +63,19 @@ instrument 的底层实现依赖于 JVMTI(JVM Tool Interface)，它是 JVM 暴�
 2. 解析 javaagent 里 MANIFEST.MF 里的参数；
 3. 创建 InstrumentationImpl 对象；
 4. 监听 ClassFileLoadHook 事件；
-5. 调用 InstrumentationImpl 的`loadClassAndCallAgentmain`方法，在这个方法里会去调用 javaagent 里 MANIFEST.MF 里指定的`Agent-Class`类的`agentmain`方法。
+5. 调用 InstrumentationImpl 的 `loadClassAndCallAgentmain` 方法，在这个方法里会去调用 javaagent 里 MANIFEST.MF 里指定的 `Agent-Class` 类的 `agentmain` 方法。
 
 ## VirtualMachine#attach
 
 1. `VirtualMachine` 字面意义表示一个 Java 虚拟机，也就是程序需要监控的目标虚拟机，提供了获取系统信息（比如获取内存 dump、线程 dump，类信息统计（比如已加载的类以及实例个数等）， loadAgent，Attach 和 Detach （Attach 动作的相反行为，从 JVM 上面解除一个代理）等方法，可以实现的功能可以说非常之强大 。该类允许我们通过给 attach 方法传入一个 jvm 的 pid（进程 id)，远程连接到 jvm 上 。
 
-    代理类注入操作只是它众多功能中的一个，通过`loadAgent`方法向 jvm 注册一个代理程序 agent，在该 agent 的代理程序中会得到一个 Instrumentation 实例，该实例可以 在 class 加载前改变 class 的字节码，也可以在 class 加载后重新加载。在调用 Instrumentation 实例的方法时，这些方法会使用 ClassFileTransformer 接口中提供的方法进行处理。
+    代理类注入操作只是它众多功能中的一个，通过 `loadAgent` 方法向 jvm 注册一个代理程序 agent，在该 agent 的代理程序中会得到一个 Instrumentation 实例，该实例可以 在 class 加载前改变 class 的字节码，也可以在 class 加载后重新加载。在调用 Instrumentation 实例的方法时，这些方法会使用 ClassFileTransformer 接口中提供的方法进行处理。
 
 2. `VirtualMachineDescriptor` 则是一个描述虚拟机的容器类，配合 VirtualMachine 类完成各种功能。
 
 attach 实现动态注入的原理如下：
 
-通过 VirtualMachine 类的`attach(pid)`方法，便可以 attach 到一个运行中的 java 进程上，之后便可以通过`loadAgent(agentJarPath)`来将 agent 的 jar 包注入到对应的进程，然后对应的进程会调用 agentmain 方法。
+通过 VirtualMachine 类的 `attach(pid)` 方法，便可以 attach 到一个运行中的 java 进程上，之后便可以通过 `loadAgent(agentJarPath)` 来将 agent 的 jar 包注入到对应的进程，然后对应的进程会调用 agentmain 方法。
 
 ![](https://i.loli.net/2021/07/31/iXGcfU4uDSCr3AL.png?x-oss-process=style/yano)
 
@@ -176,7 +176,7 @@ VirtualMachineImpl(AttachProvider provider, String vmid)
 直接在命令行中输入 java，可以看到命令行提示中关于 javaagent 的使用说明：
 
 ```java
--javaagent:<jar 路径>[=<选项>]
+-javaagent:<jar 路径>[=< 选项 >]
                   加载 Java 编程语言代理，请参阅 java.lang.instrument
 ```
 
@@ -260,7 +260,7 @@ CtMethod 类中有各种对于方法的操作，比较常用的是 insertBefore 
                 <version>${maven-jar-plugin.version}</version>
                 <configuration>
                     <archive>
-                        <!--自动添加 META-INF/MANIFEST.MF -->
+                        <!-- 自动添加 META-INF/MANIFEST.MF -->
                         <manifest>
                             <addClasspath>true</addClasspath>
                         </manifest>
@@ -334,7 +334,7 @@ pom 文件跟上面的设置唯一的区别在于：manifestEntries 里 Premain-
             <version>${maven-jar-plugin.version}</version>
             <configuration>
                 <archive>
-                    <!--自动添加 META-INF/MANIFEST.MF -->
+                    <!-- 自动添加 META-INF/MANIFEST.MF -->
                     <manifest>
                         <addClasspath>true</addClasspath>
                     </manifest>
@@ -515,6 +515,6 @@ simple agent after
 
 项目 [GitHub LeetCode 全解](https://github.com/LjyYano/LeetCode)，欢迎大家 star、fork、merge，共同打造最全 LeetCode 题解！
 
-[Java 编程思想-最全思维导图-GitHub 下载链接](https://github.com/LjyYano/Thinking_in_Java_MindMapping)，需要的小伙伴可以自取~！！！
+[Java 编程思想 - 最全思维导图 - GitHub 下载链接](https://github.com/LjyYano/Thinking_in_Java_MindMapping)，需要的小伙伴可以自取~！！！
 
 原创不易，希望大家转载时请先联系我，并标注原文链接。

@@ -27,19 +27,19 @@ date: 2021-09-13
 
 系统程序在启动时，不会一次性加载所有程序要使用的 Class 文件到内存中，而是根据程序需要，通过 Java 的类加载机制动态将需要使用的 Class 文件加载到内存中；只有当某个 Class 文件被加载到内存后，该文件才能被其他 Class 文件调用。
 
-这个 “类加载机制“ 就是 ClassLoader , 他的作用是动态加载 Java Class 文件到 JVM 的内存空间中，让 JVM 能够调用并执行 Class 文件中的字节码。
+这个 “类加载机制 “ 就是 ClassLoader , 他的作用是动态加载 Java Class 文件到 JVM 的内存空间中，让 JVM 能够调用并执行 Class 文件中的字节码。
 
 ![](http://yano.oss-cn-beijing.aliyuncs.com/blog/20210913104947.png?x-oss-process=style/yano)
 
 上面的流程图即为 ClassLoaderTest.java 是如何被动态加载到 JVM 内存空间的，类加载的过程主要由 5 步组成。
 
-- `加载阶段` ：该阶段是类加载过程的第一个阶段，会通过一个类的完全限定名称来查找类的字节码文件，并利用字节码文件来创建一个 Class 对象。
-- `验证阶段` ：该阶段是类加载过程的第二个阶段，其目的在于确保 Class 文件中包含的字节流信息符合当前 Java 虚拟机的要求。
-- `准备阶段` ： 该阶段会为类变量在方法区中分配内存空间并设定初始值 ( 这里 “类变量” 为 static 修饰符修饰的字段变量 )
+- ` 加载阶段 ` ：该阶段是类加载过程的第一个阶段，会通过一个类的完全限定名称来查找类的字节码文件，并利用字节码文件来创建一个 Class 对象。
+- ` 验证阶段 ` ：该阶段是类加载过程的第二个阶段，其目的在于确保 Class 文件中包含的字节流信息符合当前 Java 虚拟机的要求。
+- ` 准备阶段 ` ： 该阶段会为类变量在方法区中分配内存空间并设定初始值 (这里 “类变量” 为 static 修饰符修饰的字段变量 )
   - 不会分配并初始化用 final 修饰符修饰的 static 变量，因为该类变量在编译时就会被分配内存空间。
   - 不会分配并初始化实例变量，因为实例变量会随对象一起分配到 Java 堆中，而不是 Java 方法区。
-- `解析阶段` ：该阶段会将常量池中的符号引用替换为直接引用。
-- `初始化阶段` ：该阶段是类加载的最后阶段，如果当前类具有父类，则对其进行初始化，同时为类变量赋予正确的值。
+- ` 解析阶段 ` ：该阶段会将常量池中的符号引用替换为直接引用。
+- ` 初始化阶段 ` ：该阶段是类加载的最后阶段，如果当前类具有父类，则对其进行初始化，同时为类变量赋予正确的值。
 
 ## ClassLoader 官方文档
 
@@ -110,8 +110,8 @@ protected Class<?> loadClass(String name, boolean resolve)
 
 ## 优势
 
-- `避免类被重复加载`，父加载器加载某个类之后，子加载器不会重复加载
-- `保证 Java 核心库的安全`。比如 java.lang 包下的核心 API，不会被类加载器重复加载，肯定是被`启动类加载器`加载。（当然自定义的类加载器能够重写 loadClass 方法，不过还是不能加载核心 API，具体在本文后面部分分析）
+- ` 避免类被重复加载 `，父加载器加载某个类之后，子加载器不会重复加载
+- ` 保证 Java 核心库的安全 `。比如 java.lang 包下的核心 API，不会被类加载器重复加载，肯定是被 ` 启动类加载器 ` 加载。（当然自定义的类加载器能够重写 loadClass 方法，不过还是不能加载核心 API，具体在本文后面部分分析）
 
 # 自定义 ClassLoader 类加载器
 
@@ -190,7 +190,7 @@ public void load() throws Exception {
 
     Method[] methods = c.getDeclaredMethods();
     for (Method method : methods) {
-        System.out.println("methods: " + method.getName());
+        System.out.println("methods:" + method.getName());
     }
 
     Object o = c.newInstance();
@@ -210,7 +210,7 @@ Hello Yano!
 
 自定义类加载器的一个好处，是我们可以自由操作要加载的字节码。比如第三方 jar 包或者比较机密核心的 API，我们都可以提供加密后的字节码，然后自定义类加载器解密字节码。
 
-我们使用文中上一小节中的 DiskClass.class，对齐进行加密，然后输出到/Users/yano/tmp 目录下，并把加密后的字节码保存到 EncryptDiskClass.class 文件中。
+我们使用文中上一小节中的 DiskClass.class，对齐进行加密，然后输出到 / Users/yano/tmp 目录下，并把加密后的字节码保存到 EncryptDiskClass.class 文件中。
 
 ```java
 public class EncryptClass {
@@ -230,7 +230,7 @@ public class EncryptClass {
 }
 ```
 
-核心加密代码就是` bytes[i] = (byte) (bytes[i] ^ 0XFF)`，对字节码的每一位进行异或。我们使用 javap 命令，查看生成的字节码文件，发现已经无法正常解析。
+核心加密代码就是 ` bytes[i] = (byte) (bytes[i] ^ 0XFF)`，对字节码的每一位进行异或。我们使用 javap 命令，查看生成的字节码文件，发现已经无法正常解析。
 
 ```java
 javap -p EncryptDiskClass
@@ -276,7 +276,7 @@ public void decrypt() throws Exception {
 
     Method[] methods = c.getDeclaredMethods();
     for (Method method : methods) {
-        System.out.println("methods: " + method.getName());
+        System.out.println("methods:" + method.getName());
     }
 
     Object o = c.newInstance();
@@ -328,7 +328,7 @@ package java.lang;
 发现根本就没法把自定义的 String 类编译成 class 文件。随便执行一个测试用例，发现在 build 阶段就会报错：
 
 ```
-java: 通过 javax.lang.model.util.Elements.getTypeElement 在模块 'java.base, 未命名模块' 中找到了多个名为 'java.lang.String' 的元素。
+java: 通过 javax.lang.model.util.Elements.getTypeElement 在模块'java.base, 未命名模块' 中找到了多个名为'java.lang.String' 的元素。
 ```
 
 参考网络上的文章 [java 类加载机制：到底能不能自己自定义 java.lang.String 类
@@ -344,10 +344,10 @@ java: 通过 javax.lang.model.util.Elements.getTypeElement 在模块 'java.base,
 
 # 参考链接
 
-- [基础补完计划 – Java 类加载器 ( ClassLoader )](https://www.guildhab.top/2021/03/java%E5%9F%BA%E7%A1%80%E7%AC%94%E8%AE%B0-%E7%B1%BB%E5%8A%A0%E8%BD%BD%E5%99%A8-classloader/)
+- [基础补完计划 – Java 类加载器 ( ClassLoader)](https://www.guildhab.top/2021/03/java%E5%9F%BA%E7%A1%80%E7%AC%94%E8%AE%B0-%E7%B1%BB%E5%8A%A0%E8%BD%BD%E5%99%A8-classloader/)
 
 # GitHub 项目
 
-[Java 编程思想-最全思维导图-GitHub 下载链接](https://github.com/LjyYano/Thinking_in_Java_MindMapping)，需要的小伙伴可以自取~
+[Java 编程思想 - 最全思维导图 - GitHub 下载链接](https://github.com/LjyYano/Thinking_in_Java_MindMapping)，需要的小伙伴可以自取~
 
 原创不易，希望大家转载时请先联系我，并标注原文链接。

