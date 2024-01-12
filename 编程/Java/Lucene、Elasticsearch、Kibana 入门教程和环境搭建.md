@@ -4,7 +4,7 @@ date: 2020-07-03
 
 # 公众号
 
-coding 笔记、点滴记录，以后的文章也会同步到公众号（Coding Insight）中，大家关注^_^
+coding 笔记、点滴记录，以后的文章也会同步到公众号（Coding Insight）中，大家关注 ^_^
 
 我的博客地址：[博客主页](https://yano-nankai.notion.site/yano-nankai/Yano-Space-ff42bde7acd1467eb3ae63dc0d4a9f8c)。
 
@@ -12,7 +12,7 @@ coding 笔记、点滴记录，以后的文章也会同步到公众号（Coding 
 
 # 信息检索模型
 
-信息检索模型最重要的概念就是`倒排索引`，倒排索引是搜索引擎中常见的索引方法，用来存储在全文搜索下某个单词在一个文档中存储位置的映射。通过倒排索引，我们输入一个关键词，可以非常快地获取包含这个关键词的文档列表。
+信息检索模型最重要的概念就是 ` 倒排索引 `，倒排索引是搜索引擎中常见的索引方法，用来存储在全文搜索下某个单词在一个文档中存储位置的映射。通过倒排索引，我们输入一个关键词，可以非常快地获取包含这个关键词的文档列表。
 
 ![](http://yano.oss-cn-beijing.aliyuncs.com/2020-07-02-140114.png)
 
@@ -62,7 +62,7 @@ Elasticsearch 就是基于 Lucene 的。
 ```java
 @Test
 public void testAnalyzer() throws IOException {
-    String chinese = "中华人民共和国简称中国，是一个有13亿人口的国家";
+    String chinese = "中华人民共和国简称中国，是一个有 13 亿人口的国家";
     Analyzer analyzer = new SmartChineseAnalyzer();
     TokenStream tokenStream = analyzer.tokenStream(chinese, new StringReader(chinese));
     tokenStream.reset();
@@ -79,27 +79,27 @@ public void testAnalyzer() throws IOException {
 
 ```
 分词结果：
-中华人民共和国|简称|中国|是|一个|有|13|亿|人口|的|国家|
+中华人民共和国 | 简称 | 中国 | 是 | 一个 | 有 | 13 | 亿 | 人口 | 的 | 国家 |
 ```
 
 ## 测试索引
 
-下面程序创建了3个包含 id, title, content 的文档，其中每个类型都是 FieldType，使用 SmartChineseAnalyzer。索引目录是 web 根目录下的 indexDir 文件夹。
+下面程序创建了 3 个包含 id, title, content 的文档，其中每个类型都是 FieldType，使用 SmartChineseAnalyzer。索引目录是 web 根目录下的 indexDir 文件夹。
 
 ```java
 @Test
 public void testIndex() throws IOException {
-    List<String> titleList = Lists.newArrayList("中国房企洛杉矶丑闻：百万美元行贿案遭曝光", "2025年之前美国不会退出WTO了",
+    List<String> titleList = Lists.newArrayList("中国房企洛杉矶丑闻：百万美元行贿案遭曝光", "2025 年之前美国不会退出 WTO 了",
             "特朗普退出总统竞选？");
     List<String> contentList = Lists.newArrayList(
-            "据调查，惠泽尔从中国房企手里收取了超过150万美元的现金贿赂，合人民币超过1000万元。",
-            "美国特朗普政府上台以来，每隔几月，便总要传出有关“美国要退出世贸组织（WTO）”的消息。那么究竟美国能不能退出WTO？",
-            "“共和党的操盘手首次提出了这样的可能性”，即川普总统可能会退出2020年总统竞选");
+            "据调查，惠泽尔从中国房企手里收取了超过 150 万美元的现金贿赂，合人民币超过 1000 万元。",
+            "美国特朗普政府上台以来，每隔几月，便总要传出有关 “美国要退出世贸组织（WTO）” 的消息。那么究竟美国能不能退出 WTO？",
+            "“共和党的操盘手首次提出了这样的可能性”，即川普总统可能会退出 2020 年总统竞选");
 
     Path indexPath = Paths.get("indexDir");
     Directory dir = FSDirectory.open(indexPath);
 
-    // 设置新闻ID索引并存储
+    // 设置新闻 ID 索引并存储
     FieldType idType = new FieldType();
     idType.setIndexOptions(IndexOptions.DOCS);
     idType.setStored(true);
@@ -154,15 +154,15 @@ public void testSearch() throws Exception {
     QueryParser parser = new QueryParser("title", analyzer);
     parser.setDefaultOperator(QueryParser.Operator.AND);
     Query query = parser.parse("房企");
-    System.out.println("query : " + query.toString());
+    System.out.println("query :" + query.toString());
 
     TopDocs topDocs = searcher.search(query, 10);
     for (ScoreDoc sd : topDocs.scoreDocs) {
         Document doc = searcher.doc(sd.doc);
-        System.out.println("docId: " + sd.doc);
-        System.out.println("id: " + doc.get("id"));
-        System.out.println("title: " + doc.get("title"));
-        System.out.println("content: " + doc.get("content"));
+        System.out.println("docId:" + sd.doc);
+        System.out.println("id:" + doc.get("id"));
+        System.out.println("title:" + doc.get("title"));
+        System.out.println("content:" + doc.get("content"));
         System.out.println("文档评分：" + sd.score);
     }
 }
@@ -178,7 +178,7 @@ public void testSearch() throws Exception {
 
 Elastic 的底层是开源库 Lucene。但是，你没法直接用 Lucene，必须自己写代码去调用它的接口。Elastic 是 Lucene 的封装，提供了 REST API 的操作接口，开箱即用。
 
-入门教程推荐阮一峰的[《全文搜索引擎 Elasticsearch 入门教程》](http://www.ruanyifeng.com/blog/2017/08/elasticsearch.html)
+入门教程推荐阮一峰的 [《全文搜索引擎 Elasticsearch 入门教程》](http://www.ruanyifeng.com/blog/2017/08/elasticsearch.html)
 
 官网是：https://www.elastic.co/cn/，上面内容很全面，感觉直接看官网最好。
 
@@ -186,9 +186,9 @@ Elastic 的底层是开源库 Lucene。但是，你没法直接用 Lucene，必�
 
 ![](http://yano.oss-cn-beijing.aliyuncs.com/2020-07-02-142838.png)
 
-原来是通过 Logstash 进行日志收集与解析，Elasticsearch 作为搜索引擎，Kibana 作为可视化分析平台。但是 Logstash 有CPU和内存性能问题，官方开发了 Beats 数据采集工具。本文通过一个例子使用 Java 直接向 Elasticsearch 发送消息，并搭建 Kibana 数据可视化查询。
+原来是通过 Logstash 进行日志收集与解析，Elasticsearch 作为搜索引擎，Kibana 作为可视化分析平台。但是 Logstash 有 CPU 和内存性能问题，官方开发了 Beats 数据采集工具。本文通过一个例子使用 Java 直接向 Elasticsearch 发送消息，并搭建 Kibana 数据可视化查询。
 
-![](http://yano.oss-cn-beijing.aliyuncs.com/2020-07-02-142649.png)
+![](http://yano.oss-cn-beijing.aliyuncs.com/2020-07-02-142649.png?x-oss-process=image/resize,h_300)
 
 ## Docker 搭建 Elasticsearch
 
@@ -204,7 +204,7 @@ docker pull elasticsearch:6.8.4
 docker run -d -p 9200:9200 -p 9300:9300 -e "discovery.type=single-node" elasticsearch:6.8.4
 ```
 
-这里使用简单模式，9200是 HTTP rest 协议，9300 是 tcp 协议。启动完成后，可以在浏览器中输入网址 0.0.0.0:9200，返回一下内容说明启动成功：
+这里使用简单模式，9200 是 HTTP rest 协议，9300 是 tcp 协议。启动完成后，可以在浏览器中输入网址 0.0.0.0:9200，返回一下内容说明启动成功：
 
 ```
 {
@@ -267,7 +267,7 @@ docker pull kebana:6.8.4
 ```
 server.name: kibana
 server.host: "0"
-elasticsearch.hosts: [ "http://0.0.0.0:9200" ]
+elasticsearch.hosts: ["http://0.0.0.0:9200"]
 # xpack.monitoring.ui.container.elasticsearch.enabled: true
 ```
 
@@ -333,7 +333,7 @@ public interface EsNewsRepository extends ElasticsearchRepository<EsNewsEntity, 
 }
 ```
 
-插入数据的代码如下，其中插入了2条 title 为 “韩国男星” 的文章，1条 title 为 “特大暴雨”的文章：
+插入数据的代码如下，其中插入了 2 条 title 为 “韩国男星” 的文章，1 条 title 为 “特大暴雨” 的文章：
 
 ```java
 @Test
@@ -343,11 +343,11 @@ public void testEs() {
     esNewsRepository.save(newsEntity);
 
     newsEntity = EsNewsEntity.builder().id("2").title("特大暴雨")
-            .content("特大暴雨夜袭四川冕宁:山洪摧毁村庄 一家5口遇难").time(DateTime.now().toDate()).build();
+            .content("特大暴雨夜袭四川冕宁: 山洪摧毁村庄 一家 5 口遇难").time(DateTime.now().toDate()).build();
     esNewsRepository.save(newsEntity);
 
     newsEntity = EsNewsEntity.builder().id("3").title("韩国男星")
-            .content("韩国男星身材管理多严格？金秀贤 Rain有八块腹肌").time(DateTime.now().toDate()).build();
+            .content("韩国男星身材管理多严格？金秀贤 Rain 有八块腹肌").time(DateTime.now().toDate()).build();
     esNewsRepository.save(newsEntity);
 
     System.out.println("es save ...");
@@ -371,13 +371,13 @@ public void testEs() {
 3. spring-boot-starter-data-elasticsearch 的 es 版本并不高，最新版本已经是 7.8，但是 spring-boot-starter-data-elasticsearch 集成的仍然是 6.8，需要注意。如果必须使用最新版，需要额外配置。
 4. Kibana 在分析日志、数据分析时很强大。
 5. 本示例是 demo 演示，不要在生产环境中使用。
-6. 可以直接在腾讯云、阿里云上购买 es 服务，不过真心贵……小站点或个人开发者还是自行搭建比较划算。
+6. 可以直接在腾讯云、阿里云上购买 es 服务，不过真心贵…… 小站点或个人开发者还是自行搭建比较划算。
 7. 《Lucene Elasticsearch 全文检索实战》这本书不建议买，书的内容浅显，排版和内容问题很多。比如有的代码分隔符是中文标点，书的前几章代码是深色背景，后几章代码没有背景……
 
 
 # 公众号
 
-coding 笔记、点滴记录，以后的文章也会同步到公众号（Coding Insight）中，大家关注^_^
+coding 笔记、点滴记录，以后的文章也会同步到公众号（Coding Insight）中，大家关注 ^_^
 
 我的博客地址：[博客主页](https://yano-nankai.notion.site/yano-nankai/Yano-Space-ff42bde7acd1467eb3ae63dc0d4a9f8c)。
 

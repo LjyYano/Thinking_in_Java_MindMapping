@@ -2,15 +2,15 @@
 date: 2019-10-26
 ---
 
+[toc]
+
 # 公众号
 
-coding 笔记、点滴记录，以后的文章也会同步到公众号（Coding Insight）中，大家关注^_^
+coding 笔记、点滴记录，以后的文章也会同步到公众号（Coding Insight）中，大家关注 `^_^`
 
 我的博客地址：[博客主页](https://yano-nankai.notion.site/yano-nankai/Yano-Space-ff42bde7acd1467eb3ae63dc0d4a9f8c)。
 
 ![](http://yano.oss-cn-beijing.aliyuncs.com/2019-07-29-qrcode_for_gh_a26ce4572791_258.jpg)
-
-[toc]
 
 # Netty Demo 示例
 
@@ -77,7 +77,7 @@ public class EchoServerHandler extends ChannelHandlerAdapter {
     @Override
     public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
         ByteBuf in = (ByteBuf) msg;
-        System.out.println("Server received : " + in.toString(CharsetUtil.UTF_8));
+        System.out.println("Server received :" + in.toString(CharsetUtil.UTF_8));
         ctx.write(in);
     }
 
@@ -155,7 +155,7 @@ public class EchoClientHandler extends SimpleChannelInboundHandler<ByteBuf> {
     @Override
     public void messageReceived(ChannelHandlerContext ctx, ByteBuf msg) throws Exception {
         System.out.println(
-                "Client received: " + msg.toString(CharsetUtil.UTF_8));
+                "Client received:" + msg.toString(CharsetUtil.UTF_8));
     }
 }
 ```
@@ -175,7 +175,7 @@ Channel 提供应用程序网络套接字或其他组件连接，提供读、写
 - I/O 操作（读、写、连接、绑定）
 - ChannelPipeline，处理所有与 Channel 绑定的 I/O 事件和请求
 
-## 所有 I/O 操作都是`异步`的
+## 所有 I/O 操作都是 ` 异步 ` 的
 
 Netty 中所有 I/O 操作都是异步的。这意味着所有的 I/O 调用都会立即返回，不能保证在调用结束时请求的 I/O 操作是否完成。调用者会得到一个 ChannelFuture 实例，该实例会在请求的 I/O 操作成功、失败、取消时通知调用者。
 
@@ -189,7 +189,7 @@ Channel 可以有 parent，这取决于 Channel 的创建方式。例如被 Serv
 
 # ChannelFuture
 
-ChannelFuture 是一个`异步 Channel I/O 操作的结果`。如上面所说，Netty 中所有 I/O 操作都是异步的。这意味着所有的 I/O 调用都会立即返回，不能保证在调用结束时请求的 I/O 操作是否完成。调用者会得到一个 ChannelFuture 实例。
+ChannelFuture 是一个 ` 异步 Channel I/O 操作的结果 `。如上面所说，Netty 中所有 I/O 操作都是异步的。这意味着所有的 I/O 调用都会立即返回，不能保证在调用结束时请求的 I/O 操作是否完成。调用者会得到一个 ChannelFuture 实例。
 
 ChannelFuture 只有 2 种状态：未完成、已完成。I/O 操作开始时，将会创建一个新的 ChannelFuture 对象，初始时是未完成状态 —— 不是成功、失败或取消的任何一种状态，因为 I/O 操作还没有完成。如果 I/O 操作结束（无论成功、失败、取消），ChannelFuture 都会处于完成状态。注意即使是失败也属于完成状态。
 
@@ -209,13 +209,13 @@ ChannelFuture 只有 2 种状态：未完成、已完成。I/O 操作开始时�
                                      +---->      isDone() = true      |
                                           | isCancelled() = true      |
                                           +---------------------------+
-                                          
+
 
 我们还可以添加 ChannelFutureListener，以便在 I/O 操作完成时收到通知。
 
 ## 使用 addListener(GenericFutureListener) 而不是 await()
 
-addListener(GenericFutureListener) 是非阻塞的，只需要将特定的 ChannelFutureListener 添加到ChannelFuture 即可，I/O 线程会在 ChannelFuture 绑定的 I/O 操作完成时通知监听器。`ChannelFutureListener` 完全非阻塞，因此效率极高。
+addListener(GenericFutureListener) 是非阻塞的，只需要将特定的 ChannelFutureListener 添加到 ChannelFuture 即可，I/O 线程会在 ChannelFuture 绑定的 I/O 操作完成时通知监听器。`ChannelFutureListener` 完全非阻塞，因此效率极高。
 
 而 await() 是阻塞操作，一旦调用，调用者线程就会阻塞直到操作完成。使用 await() 操作更容易，但是成本更高。此外，在特定的情况下还可能出现死锁。
 
@@ -514,7 +514,7 @@ ChannelHandler 列表处理和拦截 Channel 的传入事件和传出操作。Ch
                     |                                  \|/
     +---------------+-----------------------------------+---------------+
     |               |                                   |               |
-    |       [ Socket.read() ]                    [ Socket.write() ]     |
+    |       [Socket.read() ]                    [ Socket.write() ]     |
     |                                                                   |
     |  Netty Internal I/O Threads (Transport Implementation)            |
     +-------------------------------------------------------------------+
@@ -530,7 +530,7 @@ ChannelHandler 列表处理和拦截 Channel 的传入事件和传出操作。Ch
  p.addLast("5", new InboundOutboundHandlerX());
 ```
 
-上面的示例配置中，事件进入时处理顺序是1，2，3，4，5；事件出站顺序为5，4，3，2，1。
+上面的示例配置中，事件进入时处理顺序是 1，2，3，4，5；事件出站顺序为 5，4，3，2，1。
 
 - 3 和 4 没有实现 ChannelInboundHandler，因此入站事件实际顺序是 1，2，5
 - 1 和 2 没有实现 ChannelOutboundHandler，因此出站事件实际顺序是 5，4，3
@@ -612,7 +612,7 @@ pipeline.addLast(group, "handler", new MyBusinessLogicHandler());
 
 ## 线程安全性
 
-ChannelHandler 可以在任何时候添加到 ChannelPipeline中，也可以随时从 ChannelPipeline 中移出，它是**线程安全**的。
+ChannelHandler 可以在任何时候添加到 ChannelPipeline 中，也可以随时从 ChannelPipeline 中移出，它是 ** 线程安全 ** 的。
 
 # EventExecutorGroup
 
@@ -623,7 +623,7 @@ public interface EventExecutorGroup
 extends java.util.concurrent.ScheduledExecutorService, java.lang.Iterable<EventExecutor>
 ```
 
-`EventExecutorGroup` 顾名思义，就是 `EventExecutor 的 group`，负责通过其 next() 方法`提供要使用的 EventExecutor`。除此之外，它还负责处理 EventExecutor 的生命周期，并允许以全局方式关闭它们。
+`EventExecutorGroup` 顾名思义，就是 `EventExecutor 的 group`，负责通过其 next() 方法 ` 提供要使用的 EventExecutor`。除此之外，它还负责处理 EventExecutor 的生命周期，并允许以全局方式关闭它们。
 
 # EventExecutor
 
@@ -633,7 +633,7 @@ EventExecutor 是一个特殊的 EventExecutorGroup，它提供一些方便的�
 
 # EventLoop
 
-在一个 Channel 注册后，将处理这个 Channel 的所有 I/O 操作。`一个 EventLoop 实例通常将处理多个 Channel`。
+在一个 Channel 注册后，将处理这个 Channel 的所有 I/O 操作。` 一个 EventLoop 实例通常将处理多个 Channel`。
 
 # Promise
 

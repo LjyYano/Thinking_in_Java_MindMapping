@@ -2,20 +2,11 @@
 date: 2021-03-02
 ---
 
-
-
-- [背景](#背景)
-- [延迟任务方案都有哪些？优缺点？](#延迟任务方案都有哪些优缺点)
-- [源码分析](#源码分析)
-  - [使用示例](#使用示例)
-  - [DOC 文档](#doc-文档)
-  - [源码详细分析（略长）](#源码详细分析略长)
-- [HashedWheelTimer 的特点](#hashedwheeltimer-的特点)
-- [参考链接](#参考链接)
+[toc]
 
 # 背景
 
-HashedWheelTimer 本质是一种类似延迟任务队列的实现，适用于对时效性不高的，可快速执行的，大量这样的“小”任务，能够做到高性能，低消耗。
+HashedWheelTimer 本质是一种类似延迟任务队列的实现，适用于对时效性不高的，可快速执行的，大量这样的 “小” 任务，能够做到高性能，低消耗。
 
 时间轮是一种非常惊艳的数据结构。其在 Linux 内核中使用广泛，是 Linux 内核定时器的实现方法和基础之一。Netty 内部基于时间轮实现了一个 HashedWheelTimer 来优化 I/O 超时的检测。
 
@@ -25,7 +16,7 @@ HashedWheelTimer 本质是一种类似延迟任务队列的实现，适用于对
 
 # 延迟任务方案都有哪些？优缺点？
 
-- `数据库轮询`：数据先保存在数据库中，然后启动一个定时任务，根据时间和状态将待完成的任务数据捞出来，处理完成后再更新数据库。这种方法比较简洁，但是依赖数据库，同时如果任务数据量很大（千万）且的话，会存在数据库读写性能问题，且数据库读写可能占用大量时间，甚至超过任务处理的时间。有点是数据可以持久化，服务重启不丢失，并且可以查询管理未完成的任务。
+- ` 数据库轮询 `：数据先保存在数据库中，然后启动一个定时任务，根据时间和状态将待完成的任务数据捞出来，处理完成后再更新数据库。这种方法比较简洁，但是依赖数据库，同时如果任务数据量很大（千万）且的话，会存在数据库读写性能问题，且数据库读写可能占用大量时间，甚至超过任务处理的时间。有点是数据可以持久化，服务重启不丢失，并且可以查询管理未完成的任务。
 - `DelayQueue` 本质是一个 PriorityQueue，每次插入和删除都调整堆，时间复杂度是 O(longN)，而 HashedWheelTimer 的时间复杂度是 O(1)。
 - `ScheduledExecutorService`，JDK 的 ScheduledExecutorService 本质上仍然是一个 DelayQueue，但是任务是通过多线程的方式进行。
 
@@ -33,7 +24,7 @@ HashedWheelTimer 本质是一种类似延迟任务队列的实现，适用于对
 
 ## 使用示例
 
-源码分析首先通过一个`使用示例`开始，HashedWheelTimer 一个典型的使用方法如下：
+源码分析首先通过一个 ` 使用示例 ` 开始，HashedWheelTimer 一个典型的使用方法如下：
 
 ```java
 @Test
@@ -210,7 +201,7 @@ private final Thread workerThread;
 public static final int WORKER_STATE_INIT = 0;
 public static final int WORKER_STATE_STARTED = 1;
 public static final int WORKER_STATE_SHUTDOWN = 2;
-@SuppressWarnings({ "unused", "FieldMayBeFinal" })
+@SuppressWarnings({"unused", "FieldMayBeFinal"})
 private volatile int workerState; // 0 - init, 1 - started, 2 - shut down
 
 private final long tickDuration;
@@ -270,10 +261,10 @@ public Timeout newTimeout(TimerTask task, long delay, TimeUnit unit) {
 
     long pendingTimeoutsCount = pendingTimeouts.incrementAndGet();
 
-    if (maxPendingTimeouts > 0 && pendingTimeoutsCount > maxPendingTimeouts) {
+    if (maxPendingTimeouts> 0 && pendingTimeoutsCount > maxPendingTimeouts) {
         pendingTimeouts.decrementAndGet();
         throw new RejectedExecutionException("Number of pending timeouts ("
-            + pendingTimeoutsCount + ") is greater than or equal to maximum allowed pending "
+            + pendingTimeoutsCount + ") is greater than or equal to maximum allowed pending"
             + "timeouts (" + maxPendingTimeouts + ")");
     }
 
@@ -284,7 +275,7 @@ public Timeout newTimeout(TimerTask task, long delay, TimeUnit unit) {
     long deadline = System.nanoTime() + unit.toNanos(delay) - startTime;
 
     // Guard against overflow.
-    if (delay > 0 && deadline < 0) {
+    if (delay> 0 && deadline < 0) {
         deadline = Long.MAX_VALUE;
     }
     HashedWheelTimeout timeout = new HashedWheelTimeout(this, task, deadline);
@@ -293,7 +284,7 @@ public Timeout newTimeout(TimerTask task, long delay, TimeUnit unit) {
 }
 ```
 
-前面是 task 和 unit 参数判空，分析时可以忽略。接下来是 pendingTimeouts 记录新插入的任务数量，每插入一个任务会原子加一，每个任务完成会原子减一。在插入的时候如果大于 maxPendingTimeouts，会拒绝插入（maxPendingTimeouts 默认是-1，不会进行任务数量的校验）。
+前面是 task 和 unit 参数判空，分析时可以忽略。接下来是 pendingTimeouts 记录新插入的任务数量，每插入一个任务会原子加一，每个任务完成会原子减一。在插入的时候如果大于 maxPendingTimeouts，会拒绝插入（maxPendingTimeouts 默认是 - 1，不会进行任务数量的校验）。
 
 接下来，就是 start() 方法，核心在于可能同时并发多个任务加入到 HashedWheelTimer 中，而此时 HashedWheelTimer 的任务还未启动，要确保只启动一次，当然加锁也可以，不过 HashedWheelTimer 的实现效率更高一些。
 
@@ -324,7 +315,7 @@ public void start() {
 }
 ```
 
-接下来是计算任务的截止时间 deadline，其实很好理解，截止时间 deadline=当前时间+任务要延迟的时间-HashedWheelTimer 的启动时间。deadline 是相对于 startTime 的：
+接下来是计算任务的截止时间 deadline，其实很好理解，截止时间 deadline = 当前时间 + 任务要延迟的时间 - HashedWheelTimer 的启动时间。deadline 是相对于 startTime 的：
 
 ```java
 long deadline = System.nanoTime() + unit.toNanos(delay) - startTime;
@@ -354,7 +345,7 @@ public void run() {
 
     do {
         final long deadline = waitForNextTick();
-        if (deadline > 0) {
+        if (deadline> 0) {
             int idx = (int) (tick & mask);
             processCancelledTasks();
             HashedWheelBucket bucket =
@@ -387,7 +378,7 @@ public void run() {
 ```java
 do {
     final long deadline = waitForNextTick();
-    if (deadline > 0) {
+    if (deadline> 0) {
         int idx = (int) (tick & mask);
         processCancelledTasks();
         HashedWheelBucket bucket =
@@ -439,7 +430,7 @@ public void expire() {
         task.run(this);
     } catch (Throwable t) {
         if (logger.isWarnEnabled()) {
-            logger.warn("An exception was thrown by " + TimerTask.class.getSimpleName() + '.', t);
+            logger.warn("An exception was thrown by" + TimerTask.class.getSimpleName() + '.', t);
         }
     }
 }
@@ -492,7 +483,7 @@ private void transferTimeoutsToBuckets() {
 
 - 从源码分析可以看出，其实 HashedWheelTimer 的时间精度并不高，误差能够在 100ms 左右，同时如果任务队列中的等待任务数量过多，可能会产生更大的误差。
 - 但是 HashedWheelTimer 能够处理非常大量的定时任务，且每次定位到要处理任务的候选集合链表只需要 O(1) 的时间，而 Timer 等则需要调整堆，是 O(logN) 的时间复杂度。
-- HashedWheelTimer 本质上是`模拟了时间的轮盘`，将大量的任务拆分成了一个个的小任务列表，能够有效`节省 CPU 和线程资源`。
+- HashedWheelTimer 本质上是 ` 模拟了时间的轮盘 `，将大量的任务拆分成了一个个的小任务列表，能够有效 ` 节省 CPU 和线程资源 `。
 
 # 参考链接
 

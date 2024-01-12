@@ -22,9 +22,10 @@ date: 2022-11-01
 - [GitHub 项目](#github-项目)
 - [我的公众号](#我的公众号)
 
+
 # 前言
 
-JDK 19 支持了`virtual thread`（虚拟线程）：[JEP 425: Virtual Threads (Preview)](https://openjdk.org/jeps/425)，虚拟线程是 [Loom](https://cr.openjdk.java.net/~rpressler/loom/Loom-Proposal.html) 项目中的一个重要特性。
+JDK 19 支持了 `virtual thread`（虚拟线程）：[JEP 425: Virtual Threads (Preview)](https://openjdk.org/jeps/425)，虚拟线程是 [Loom](https://cr.openjdk.java.net/~rpressler/loom/Loom-Proposal.html) 项目中的一个重要特性。
 
 # Project Loom
 
@@ -42,7 +43,7 @@ Java 生态引入了异步 API，包括 JDK 的异步 NIO、异步 servlet 和�
 
 Java 线程使用内核线程实现固然有一些优点，比如所有的 native code 都是由内核线程支持的，所以线程中的 Java 代码能够调用 native API。但是上面提到的缺点太大了，导致难以编写高性能的代码。Erlang 和 Go 等语言都提供了轻量级线程，轻量级线程越来越流行。
 
-Loom 项目的主要目标是添加一个通过 Java 运行时管理的叫 fiber 的轻量级线程结构，fiber 可以跟现有的中建立、操作系统的线程实现一起使用。fiber 的内存占用非常小，比内核线程轻得多，fiber 之间的任务切换开销趋近于 0。在单个 JVM 实例上就可以生成数百万个 fiber，开发者可以直接写同步阻塞的调用。同时开发者并不需要为了性能/简单性的权衡同时提供同步和异步 API。
+Loom 项目的主要目标是添加一个通过 Java 运行时管理的叫 fiber 的轻量级线程结构，fiber 可以跟现有的中建立、操作系统的线程实现一起使用。fiber 的内存占用非常小，比内核线程轻得多，fiber 之间的任务切换开销趋近于 0。在单个 JVM 实例上就可以生成数百万个 fiber，开发者可以直接写同步阻塞的调用。同时开发者并不需要为了性能 / 简单性的权衡同时提供同步和异步 API。
 
 线程并不是一个原子结构，包括 `scheduler` 和 `continuation` 2 个模块。Java fiber 构建在这 2 个模块之上。
 
@@ -72,7 +73,7 @@ Virtual thread 适合使用在高吞吐量的并发应用程序中，尤其是�
 
 ## 使用 virtual thread
 
-`Thread` 和 `Thread.Builder` API 都提供了创建 platform thread 和 virtual thread 的方法。`java.util.concurrent.Executors`也提供了创建使用 virtual thread 的任务的 `ExecutorService`。
+`Thread` 和 `Thread.Builder` API 都提供了创建 platform thread 和 virtual thread 的方法。`java.util.concurrent.Executors` 也提供了创建使用 virtual thread 的任务的 `ExecutorService`。
 
 下面的代码需要使用 JDK 19，可以直接在 IDEA 中下载：
 
@@ -95,20 +96,20 @@ try {
         Thread.ofVirtual().name("worker-", 0);
 
     Runnable task = () -> {
-        System.out.println("Thread ID: " +
+        System.out.println("Thread ID:" +
             Thread.currentThread().threadId());
-    };            
+    };
 
     // name "worker-0"
-    Thread t1 = builder.start(task);   
+    Thread t1 = builder.start(task);
     t1.join();
-    System.out.println(t1.getName() + " terminated");
+    System.out.println(t1.getName() + "terminated");
 
     // name "worker-1"
-    Thread t2 = builder.start(task);   
-    t2.join();  
-    System.out.println(t2.getName() + " terminated");
-    
+    Thread t2 = builder.start(task);
+    t2.join();
+    System.out.println(t2.getName() + "terminated");
+
 } catch (InterruptedException e) {
     e.printStackTrace();
 }
@@ -134,7 +135,7 @@ try (ExecutorService myExecutor =
     System.out.println("Task completed");
 } catch (InterruptedException | ExecutionException e) {
     e.printStackTrace();
-}   
+}
 ```
 
 ### 调度 virtual thread
@@ -208,13 +209,13 @@ static JNINativeMethod methods[] = {
 
 # GitHub 项目
 
-[Java 编程思想-最全思维导图-GitHub 下载链接](https://github.com/LjyYano/Thinking_in_Java_MindMapping)，需要的小伙伴可以自取~
+[Java 编程思想 - 最全思维导图 - GitHub 下载链接](https://github.com/LjyYano/Thinking_in_Java_MindMapping)，需要的小伙伴可以自取~
 
 原创不易，希望大家转载时请先联系我，并标注原文链接。
 
 # 我的公众号
 
-coding 笔记、读书笔记、点滴记录，以后的文章也会同步到公众号（Coding Insight）中，大家关注^_^
+coding 笔记、读书笔记、点滴记录，以后的文章也会同步到公众号（Coding Insight）中，大家关注 `^_^`
 
 我的博客地址：[博客主页](https://yano-nankai.notion.site/yano-nankai/Yano-Space-ff42bde7acd1467eb3ae63dc0d4a9f8c)。
 

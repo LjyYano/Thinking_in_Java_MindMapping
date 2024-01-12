@@ -2,37 +2,7 @@
 date: 2021-10-04
 ---
 
-
-- [前言](#前言)
-- [新特性概览](#新特性概览)
-- [JEP 406：switch 的模式匹配（预览）(JDK-8213076)](#jep-406switch-的模式匹配预览jdk-8213076)
-- [JEP 409：密封类 (JDK-8260514)](#jep-409密封类-jdk-8260514)
-  - [为什么需要此特性](#为什么需要此特性)
-  - [特性描述](#特性描述)
-- [JEP 382：新的 macOS 渲染管道 (JDK-8238361)](#jep-382新的-macos-渲染管道-jdk-8238361)
-- [JEP 356：增强型伪随机数生成器 (JDK-8193209)](#jep-356增强型伪随机数生成器-jdk-8193209)
-- [Ideal Graph Visualizer 的现代化 (JDK-8254145)](#ideal-graph-visualizer-的现代化-jdk-8254145)
-- [“New API”的新页面和改进的“Deprecated”页 (JDK-8263468)](#new-api的新页面和改进的deprecated页-jdk-8263468)
-- [错误消息中的源详细信息 (JDK-8267126)](#错误消息中的源详细信息-jdk-8267126)
-- [JEP 412：外部函数和内存 API（孵化）(JDK-8265033)](#jep-412外部函数和内存-api孵化jdk-8265033)
-- [控制台字符集 API(JDK-8264208)](#控制台字符集-apijdk-8264208)
-- [用于反序列化的 JDK Flight Recorder 事件 (JDK-8261160)](#用于反序列化的-jdk-flight-recorder-事件-jdk-8261160)
-- [JEP 415：实现特定于上下文的反序列化过滤器 (JDK-8264859)](#jep-415实现特定于上下文的反序列化过滤器-jdk-8264859)
-- [本机字符编码名称的系统属性 (JDK-8265989)](#本机字符编码名称的系统属性-jdk-8265989)
-- [添加 java.time.InstantSource (JDK-8266846)](#添加-javatimeinstantsource-jdk-8266846)
-- [十六进制格式和解析实用程序 (JDK-8251989)](#十六进制格式和解析实用程序-jdk-8251989)
-- [实验 Compiler Blackholes 支持 (JDK-8259316)](#实验-compiler-blackholes-支持-jdk-8259316)
-- [HotSpot JVM 中的新类层次结构分析实现 (JDK-8266074)](#hotspot-jvm-中的新类层次结构分析实现-jdk-8266074)
-- [JEP 391: macOS/AArch64 端口 (JDK-8251280)](#jep-391-macosaarch64-端口-jdk-8251280)
-- [统一日志支持异步日志刷新 (JDK-8229517)](#统一日志支持异步日志刷新-jdk-8229517)
-- [ARM 上的 macOS 早期访问可用 (JDK-8266858)](#arm-上的-macos-早期访问可用-jdk-8266858)
-- [支持在 Keytool -genkeypair 命令中指定签名者 (JDK-8260693)](#支持在-keytool--genkeypair-命令中指定签名者-jdk-8260693)
-- [SunJCE 提供程序通过 AES 密码支持 KW 和 KWP 模式 (JDK-8248268)](#sunjce-提供程序通过-aes-密码支持-kw-和-kwp-模式-jdk-8248268)
-- [新 SunPKCS11 配置属性 (JDK-8240256)](#新-sunpkcs11-配置属性-jdk-8240256)
-- [具有系统属性的可配置扩展 (JDK-8217633)](#具有系统属性的可配置扩展-jdk-8217633)
-- [包摘要页面上的“Related Packages”(JDK-8260388)](#包摘要页面上的related-packagesjdk-8260388)
-- [参考链接](#参考链接)
-- [GitHub 项目](#github-项目)
+[toc]
 
 # 前言
 
@@ -215,9 +185,9 @@ Ideal Graph Visualizer（IGV）是一个可视化和交互式地探索 HotSpot V
 
 现代化的 IGV 部分兼容从早期 JDK 版本生成的图形。它支持基本功能，如图形加载和可视化，但辅助功能，如节点聚类和着色可能会受到影响。
 
-# “New API”的新页面和改进的“Deprecated”页 (JDK-8263468)
+# “New API”的新页面和改进的 “Deprecated” 页 (JDK-8263468)
 
-JavaDoc 现在可以生成一个页面，总结 API 中最近的更改。要包括的最近版本的列表是使用 --since 命令行选项指定的。这些值用于查找具有匹配@since 的声明，因为要包含在新页面上的标记。--since-label 命令行选项提供了要在“New API”页面标题中使用的文本。
+JavaDoc 现在可以生成一个页面，总结 API 中最近的更改。要包括的最近版本的列表是使用 --since 命令行选项指定的。这些值用于查找具有匹配 @since 的声明，因为要包含在新页面上的标记。--since-label 命令行选项提供了要在 “New API” 页面标题中使用的文本。
 
 在总结已弃用项目的页面上，您可以查看按已弃用项目的版本分组的项目。
 
@@ -225,7 +195,7 @@ JavaDoc 现在可以生成一个页面，总结 API 中最近的更改。要包�
 
 当 JavaDoc 报告输入源文件中的问题时，它将以类似编译器（javac）诊断消息的方式显示问题的源行，以及包含指向该行位置的插入符号（^）的行。
 
-此外，日志记录和其他“信息”消息现在写入标准错误流，留下标准输出流用于命令行选项特别请求的输出，如命令行帮助。
+此外，日志记录和其他 “信息” 消息现在写入标准错误流，留下标准输出流用于命令行选项特别请求的输出，如命令行帮助。
 
 # JEP 412：外部函数和内存 API（孵化）(JDK-8265033)
 
@@ -261,9 +231,9 @@ java.util.HexFormat 为基元类型和字节数组提供十六进制和十六进
 
 # 实验 Compiler Blackholes 支持 (JDK-8259316)
 
-增加了对 Compiler Blackholes 的实验支持。这些对于低级基准测试非常有用，以避免关键路径上的死代码消除，而不影响基准性能。当前的支持以 CompileCommand 的形式实现，可访问为-XX:CompileCommand=blackhole,，并计划最终将其毕业到公共 API。
+增加了对 Compiler Blackholes 的实验支持。这些对于低级基准测试非常有用，以避免关键路径上的死代码消除，而不影响基准性能。当前的支持以 CompileCommand 的形式实现，可访问为 - XX:CompileCommand=blackhole,，并计划最终将其毕业到公共 API。
 
-JMH 已经能够在指示/可用时自动检测和使用此设施。有关后续步骤，请查阅 JMH 文档。
+JMH 已经能够在指示 / 可用时自动检测和使用此设施。有关后续步骤，请查阅 JMH 文档。
 
 # HotSpot JVM 中的新类层次结构分析实现 (JDK-8266074)
 
@@ -281,7 +251,7 @@ macOS 11.0 现在支持 AArch64 体系结构。此 JEP 在 JDK 中实现了对 m
 
 # 统一日志支持异步日志刷新 (JDK-8229517)
 
-为了避免使用统一日志记录的线程中出现不希望的延迟，用户现在可以请求统一日志记录系统在异步模式下运行。这可以通过传递命令行选项-Xlog:async 来完成。在异步日志记录模式下，日志站点将所有日志记录消息入队到缓冲区。独立线程负责将它们刷新到相应的输出。中间缓冲区是有界的。缓冲区耗尽时，入队消息将被丢弃。用户可以使用命令行选项-XX:AsyncLogBufferSize=. 来控制中间缓冲区的大小。
+为了避免使用统一日志记录的线程中出现不希望的延迟，用户现在可以请求统一日志记录系统在异步模式下运行。这可以通过传递命令行选项 - Xlog:async 来完成。在异步日志记录模式下，日志站点将所有日志记录消息入队到缓冲区。独立线程负责将它们刷新到相应的输出。中间缓冲区是有界的。缓冲区耗尽时，入队消息将被丢弃。用户可以使用命令行选项 - XX:AsyncLogBufferSize=. 来控制中间缓冲区的大小。
 
 # ARM 上的 macOS 早期访问可用 (JDK-8266858)
 
@@ -289,11 +259,11 @@ macOS 11.0 现在支持 AArch64 体系结构。此 JEP 在 JDK 中实现了对 m
 
 # 支持在 Keytool -genkeypair 命令中指定签名者 (JDK-8260693)
 
--signer 和-signerkeypass 选项已添加到 keytool 实用程序的-genkey 对命令中。-signer 选项指定签名者的私钥条目的密钥库别名，-signerkeypass 选项指定用于保护签名者私钥的密码。这些选项允许 keytool -genkey 对使用签名者的私钥对证书进行签名。这对于生成具有密钥协商算法作为公钥算法的证书特别有用。
+-signer 和 - signerkeypass 选项已添加到 keytool 实用程序的 - genkey 对命令中。-signer 选项指定签名者的私钥条目的密钥库别名，-signerkeypass 选项指定用于保护签名者私钥的密码。这些选项允许 keytool -genkey 对使用签名者的私钥对证书进行签名。这对于生成具有密钥协商算法作为公钥算法的证书特别有用。
 
 # SunJCE 提供程序通过 AES 密码支持 KW 和 KWP 模式 (JDK-8248268)
 
-SunJCE 提供程序已得到增强，以支持 AES 密钥换行算法（RFC 3394）和带填充算法的 AES 密钥换行算法（RFC 5649）。在早期版本中，SunJCE 提供程序在“AESWrap”密码算法下支持 RFC 3394，该算法只能用于包装和解包装密钥。通过此增强，增加了两种分组密码模式，KW 和 KWP，支持使用 AES 进行数据加密/解密和密钥包装/解包装。有关更多详细信息，请查看“JDK 提供程序文档”指南的“SunJCE 提供程序”部分。
+SunJCE 提供程序已得到增强，以支持 AES 密钥换行算法（RFC 3394）和带填充算法的 AES 密钥换行算法（RFC 5649）。在早期版本中，SunJCE 提供程序在 “AESWrap” 密码算法下支持 RFC 3394，该算法只能用于包装和解包装密钥。通过此增强，增加了两种分组密码模式，KW 和 KWP，支持使用 AES 进行数据加密 / 解密和密钥包装 / 解包装。有关更多详细信息，请查看 “JDK 提供程序文档” 指南的 “SunJCE 提供程序” 部分。
 
 # 新 SunPKCS11 配置属性 (JDK-8240256)
 
@@ -303,9 +273,9 @@ SunPKCS11 提供程序配置文件的 3 个新属性是：
 
 destroyTokenAfterLogout （布尔值，默认值为 false）如果设置为 true，则在 SunPKCS11 提供程序实例上调用 java.security.AuthProvider.logout() 时，基础令牌对象将被销毁，资源将被释放。这基本上会在 logout() 调用后使 SunPKCS11 提供程序实例不可用。请注意，不应将此属性设置为 true 的 PKCS11 提供程序添加到系统提供程序列表中，因为提供程序对象在 logout() 方法调用后不可用。
 
-cleaner.shortInterval（整数，默认值为 2000，以毫秒为单位）这定义了在繁忙期间清除本机引用的频率，即 cleaner 线程应多久处理队列中不再需要的本机引用以释放本机内存。请注意，cleaner 线程将在 200 次失败尝试后切换到“longInterval”频率，即在队列中找不到引用时。
+cleaner.shortInterval（整数，默认值为 2000，以毫秒为单位）这定义了在繁忙期间清除本机引用的频率，即 cleaner 线程应多久处理队列中不再需要的本机引用以释放本机内存。请注意，cleaner 线程将在 200 次失败尝试后切换到 “longInterval” 频率，即在队列中找不到引用时。
 
-cleaner.longInterval（整数，默认值为 60000，以毫秒为单位）这定义了在非繁忙期间检查本机引用的频率，即 cleaner 线程应检查队列中的本机引用的频率。请注意，如果检测到用于清理的本机 PKCS11 引用，cleaner 线程将切换回“短间隔”值。
+cleaner.longInterval（整数，默认值为 60000，以毫秒为单位）这定义了在非繁忙期间检查本机引用的频率，即 cleaner 线程应检查队列中的本机引用的频率。请注意，如果检测到用于清理的本机 PKCS11 引用，cleaner 线程将切换回 “短间隔” 值。
 
 # 具有系统属性的可配置扩展 (JDK-8217633)
 
@@ -315,11 +285,11 @@ cleaner.longInterval（整数，默认值为 60000，以毫秒为单位）这定
 
 请注意，阻止 TLS 扩展的影响是复杂的。例如，如果禁用了强制扩展，则可能无法建立 TLS 连接。请不要禁用强制扩展，除非您清楚地了解其影响，否则不要使用此功能。
 
-# 包摘要页面上的“Related Packages”(JDK-8260388)
+# 包摘要页面上的 “Related Packages”(JDK-8260388)
 
-软件包的摘要页面现在包括一个列出任何“Related Packages”的部分。Related Packages（相关软件包）是根据常见命名约定启发式确定的，可能包括以下内容：
+软件包的摘要页面现在包括一个列出任何 “Related Packages” 的部分。Related Packages（相关软件包）是根据常见命名约定启发式确定的，可能包括以下内容：
 
-- “parent”包（即，包是子包的包）
+- “parent” 包（即，包是子包的包）
 - 同级包（即具有相同父包的其他包）
 - 任何子包
 
@@ -332,6 +302,6 @@ cleaner.longInterval（整数，默认值为 60000，以毫秒为单位）这定
 
 # GitHub 项目
 
-[Java 编程思想-最全思维导图-GitHub 下载链接](https://github.com/LjyYano/Thinking_in_Java_MindMapping)，需要的小伙伴可以自取~
+[Java 编程思想 - 最全思维导图 - GitHub 下载链接](https://github.com/LjyYano/Thinking_in_Java_MindMapping)，需要的小伙伴可以自取~
 
 原创不易，希望大家转载时请先联系我，并标注原文链接。
