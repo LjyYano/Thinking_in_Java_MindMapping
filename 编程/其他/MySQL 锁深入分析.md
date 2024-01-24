@@ -35,8 +35,8 @@ One thing that emerges here is a distinction between “whole table” and “pa
 3. 主键等值查询，数据存在时，会对该主键索引的值加行锁 `X,REC_NOT_GAP`；
 4. 主键等值查询，数据不存在时，会对查询条件主键值所在的间隙添加间隙锁 `X,GAP`；
 5. 主键等值查询，范围查询时情况则比较复杂：
-6. 8.0.17 版本是前开后闭，而 8.0.18 版本及以后，修改为了 ` 前开后开 ` 区间；
-7. 临界 `<=` 查询时，8.0.17 会锁住下一个 next-key 的前开后闭区间，而 8.0.18 及以后版本，修复了这个 bug。
+   1. 8.0.17 版本是前开后闭，而 8.0.18 版本及以后，修改为了 ` 前开后开 ` 区间；
+   2. 临界 `<=` 查询时，8.0.17 会锁住下一个 next-key 的前开后闭区间，而 8.0.18 及以后版本，修复了这个 bug。
 
 ### 非主键唯一索引
 
@@ -163,7 +163,7 @@ where OBJECT_NAME = 'people';
 
 ## case 1：查询非索引字段
 
-表中字段 b 是`非索引字段`。会话 1 执行以下语句：
+表中字段 b 是 ` 非索引字段 `。会话 1 执行以下语句：
 
 ```SQL
 begin;
@@ -204,7 +204,7 @@ where OBJECT_NAME = 'people';
 | 1984 | PRIMARY | RECORD | X | GRANTED | 10 |
 | 1984 | PRIMARY | RECORD | X | GRANTED | 6 |
 
-可以看到，会话 1 对整个表加了 `IX 表锁`，对 id = 0、id = 5、id = 10、id = 6 的记录加了 X 行锁。
+可以看到，会话 1 对整个表加了 `IX 表锁 `，对 id = 0、id = 5、id = 10、id = 6 的记录加了 X 行锁。
 
 此时在会话 2 中执行以下语句：
 
@@ -214,7 +214,7 @@ from people
 where b = 5 for update ;
 ```
 
-会话 2 会`阻塞`。即使查询下面的语句也是会阻塞的：
+会话 2 会 ` 阻塞 `。即使查询下面的语句也是会阻塞的：
 
 ```SQL
 select *
@@ -313,7 +313,7 @@ where id = 3 for update;
 | 1988 | null | TABLE | IX | GRANTED | null |
 | 1988 | PRIMARY | RECORD | X,GAP | GRANTED | 5 |
 
-可以看到，会话 1 对整个表加了 IX 表锁，对 id = 3 的记录加了 X `间隙锁`（不包含 id = 5 这行数据）。
+可以看到，会话 1 对整个表加了 IX 表锁，对 id = 3 的记录加了 X ` 间隙锁 `（不包含 id = 5 这行数据）。
 
 此时在会话 2 中执行以下语句：
 
@@ -352,3 +352,101 @@ values (4, 4, 4);
 insert into people
 values (6, 6, 6);
 ```
+
+# 可重复读下的幻读
+
+一个灵魂问题，` 可重复读隔离级别完全解决了幻读吗 `？
+
+## 幻读定义
+
+参考官方文档：[15.7.4 Phantom Rows
+](https://dev.mysql.com/doc/refman/8.0/en/innodb-next-key-locking.html)
+
+The so-called phantom problem occurs within a transaction when the same query produces different sets of rows at different times. For example, if a [`SELECT`](https://dev.mysql.com/doc/refman/8.0/en/select.html "13.2.13 SELECT Statement") is executed twice, but returns a row the second time that was not returned the first time, the row is a “phantom” row.
+
+同一个查询在不同的时间，产生不同的结果集，就是所谓的幻读问题。例如，一个 `SELECT` 语句在第一次执行时，结果集为空；但是第二次执行时，返回了一行数据，这行数据在第一次执行时并不存在，这就是幻读。
+
+## ` 快照读 ` 不会出现幻读
+
+从本篇文章上面可以看出，可重复读隔离级别下，快照读几乎不会出现幻读。是通过 MVCC 实现的。
+
+> 待详细补充
+
+## ` 当前读 ` 不会出现幻读
+
+本篇文章上面的例子，可以看出在正常的情况下，` 行锁 ` 和 ` 间隙锁 ` 已经解决幻读。
+
+## 出现幻读的 case
+
+还是 `people` 表，初始数据：
+
+| id | a | b |
+| :--- | :--- | :--- |
+| 0 | 0 | 0 |
+| 5 | 5 | 5 |
+| 10 | 10 | 10 |
+
+在会话 1 查询 id = 100 的数据：
+
+```SQL
+begin;
+
+select *
+from people
+where id = 100;
+```
+
+可以看到查询结果集为空，而且并没有加锁（下面查询语句为空）。
+
+```SQL
+select ENGINE_TRANSACTION_ID, INDEX_NAME, LOCK_TYPE, LOCK_MODE, LOCK_STATUS, LOCK_DATA
+from performance_schema.data_locks
+where OBJECT_NAME = 'people';
+```
+
+此时在会话 2 中插入 id = 100 的数据：
+
+```SQL
+insert into people
+values (100, 100, 100);
+```
+
+此时在会话 1 再次查询 id = 100 的数据：
+
+```SQL
+select *
+from people
+where id = 100;
+```
+
+发现结果还是空的。但是此时在会话 1 中更新 id = 100 的数据：
+
+```SQL
+update people
+set a = 99 where id = 100;
+```
+
+之后再次查询 id = 100 的数据：
+
+```SQL
+select *
+from people
+where id = 100;
+```
+
+能查到以下结果：
+
+| id | a | b |
+| :--- | :--- | :--- |
+| 100 | 99 | 100 |
+
+此时查看 data_locks 的数据：
+
+| ENGINE\_TRANSACTION\_ID | INDEX\_NAME | LOCK\_TYPE | LOCK\_MODE | LOCK\_STATUS | LOCK\_DATA |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| 2025 | null | TABLE | IX | GRANTED | null |
+| 2025 | PRIMARY | RECORD | X,REC\_NOT\_GAP | GRANTED | 100 |
+
+发现会话 1 对 id = 100 的记录加了 X 行锁，但是这一行在会话 1 开始时并没有查询出来，出现了幻读。
+
+出现幻读的原因，在于会话 1 在查询 id = 100 的时候，没有对 id = 100 的记录加锁，所以会话 2 可以插入 id = 100 的记录。但是会话 1 在更新 id = 100 的时候，对 id = 100 的记录加了 X 行锁，在会话 1 中就能够查询到 id = 100 的记录了。
