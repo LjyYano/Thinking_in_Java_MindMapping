@@ -42,6 +42,8 @@ MemTable 达到一定大小后，会转换为 Immutable MemTable。Immutable Mem
 
 # 参考链接
 
+- 维基百科：[Log-structured merge-tree
+](https://en.wikipedia.org/wiki/Log-structured_merge-tree)
 - [LSM Tree
 ](https://hujianxin.github.io/blog/posts/lsm/)
 - [LSM 树详解
