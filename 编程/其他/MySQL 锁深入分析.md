@@ -56,7 +56,7 @@ One thing that emerges here is a distinction between “whole table” and “pa
 
 普通字段查询，会查询全表，这里锁的话就会锁住主键的所有区间。
 
-# 实践
+# 手动验证
 
 ## 准备工作
 
@@ -376,7 +376,7 @@ The so-called phantom problem occurs within a transaction when the same query pr
 
 本篇文章上面的例子，可以看出在正常的情况下，` 行锁 ` 和 ` 间隙锁 ` 已经解决幻读。
 
-## 出现幻读的 case
+## 出现幻读的情况
 
 还是 `people` 表，初始数据：
 
