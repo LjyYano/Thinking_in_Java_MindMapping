@@ -1,18 +1,4 @@
 
-- [前言](# 前言)
-- [基本概念](# 基本概念)
-	- [实现原理](# 实现原理)
-	- [测试代码](# 测试代码)
-	- [使用步骤](# 使用步骤)
-- [源码深入分析](# 源码深入分析)
-	- [@EnableAspectJAutoProxy 开启 AOP](#enableaspectjautoproxy - 开启 - aop)
-	- [IOC 容器管理 AOP 实例](#ioc - 容器管理 - aop - 实例)
-	- [ProxyFactory](#proxyfactory)
-		- [CglibAopProxy](#cglibaopproxy)
-		- [JdkDynamicAopProxy](#jdkdynamicaopproxy)
-- [总结](# 总结)
-- [公众号](# 公众号)
-
 # 前言
 
 Spring 最核心的功能就是 `IOC 容器 ` 和 `AOP`。本文定位是以最简的方式，分析 `Spring AOP` 源码。
@@ -29,9 +15,9 @@ Spring AOP ` 只能作用于 Spring bean`，使用了 <font color = red>aspectj<
 
 Spring AOP 的实现原理是 ` 动态代理 `，具体是什么样的呢？
 
-在 Spring 容器中，我们使用的每个 bean 都是 BeanDefinition 的实例，容器会在合适的时机根据 BeanDefinition 的基本信息实例化 bean 对象。
+在 Spring 容器中，我们使用的每个 bean 都是 `BeanDefinition` 的实例，容器会在合适的时机根据 BeanDefinition 的基本信息实例化 bean 对象。
 
-所以比较简单的做法是，Spring 会自动生成代理对象的代理类。我们在获取 bean 时，Spring 容器返回代理类对象，而不是实际的 bean。
+所以比较简单的做法是，Spring 会自动生成代理对象的代理类。我们在获取 bean 时，Spring 容器返回 ` 代理类对象 `，而不是实际的 bean。
 
 ## 测试代码
 
@@ -170,11 +156,13 @@ public void pointCut() {
 - `@within` - 限制匹配在具有给定注释的类型内的连接点（使用 Spring AOP 时执行具有给定注释的类型内声明的方法）。
 - `@annotation`：限制匹配在连接点主题（使用 Spring AOP 时执行的方法）具有给定注释的连接
 
-Tips：上面匹配中，通常 "." 代表一个包名，".." 代表包及其子包，方法参数任意匹配使用两个点 ".."。
+>💡 Tips：上面匹配中，通常 "." 代表一个包名，".." 代表包及其子包，方法参数任意匹配使用两个点 ".."。
 
-# 源码深入分析
+# 源码分析
 
 ## @EnableAspectJAutoProxy 开启 AOP
+
+在 AppApplication 启动类上要加入 `@EnableAspectJAutoProxy` 注解开启 AOP，查看该注解源码，其 proxyTargetClass() 是在 AspectJAutoProxyRegistrar 类中调用，而 AspectJAutoProxyRegistrar 是接口 ImportBeanDefinitionRegistrar 的实现类。再往上追根溯源，可以看到是在接口 ConfigurableApplicationContext 中 void refresh() 调用。
 
 @EnableAspectJAutoProxy 注解定义：
 
@@ -225,8 +213,6 @@ class AspectJAutoProxyRegistrar implements ImportBeanDefinitionRegistrar {
 
 }
 ```
-
-在 AppApplication 启动类上要加入 `@EnableAspectJAutoProxy` 注解开启 AOP，查看该注解源码，其 proxyTargetClass() 是在 AspectJAutoProxyRegistrar 类中调用，而 AspectJAutoProxyRegistrar 是接口 ImportBeanDefinitionRegistrar 的实现类。再往上追根溯源，可以看到是在接口 ConfigurableApplicationContext 中 void refresh() 调用。
 
 ## IOC 容器管理 AOP 实例
 
@@ -297,7 +283,7 @@ protected Object initializeBean(final String beanName, final Object bean, @Nulla
 }
 ```
 
-Spring IOC 容器创建 bean 实例时，最后都会对 bean 进行处理，来实现增强。对于 Spring AOP 来说，就是创建代理类。
+Spring IOC 容器创建 bean 实例时，最后都会对 bean 进行处理，来实现`增强`。对于 Spring AOP 来说，就是创建代理类。
 
 上面代码中函数 applyBeanPostProcessorsAfterInitialization(...) 最终调用了 org.springframework.aop.framework.autoproxy.AbstractAutoProxyCreator#postProcessAfterInitialization 方法。
 

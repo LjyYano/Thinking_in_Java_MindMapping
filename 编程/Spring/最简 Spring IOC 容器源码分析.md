@@ -1,16 +1,3 @@
-<!-- TOC -->
-
-- [前言](#前言)
-- [BeanDefinition](#beandefinition)
-- [BeanFactory 简介](#beanfactory-简介)
-- [Web 容器启动过程](#web-容器启动过程)
-- [bean 的加载](#bean-的加载)
-- [FactoryBean](#factorybean)
-- [循环依赖](#循环依赖)
-- [bean 生命周期](#bean-生命周期)
-- [公众号](#公众号)
-
-<!-- /TOC -->
 
 # 前言
 
