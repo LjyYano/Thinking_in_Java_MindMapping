@@ -1,7 +1,7 @@
 
 # 前言
 
-许多文章都是分析的 xml 配置，但是现在 Spring Boot 开发多基于注解。本文从`注解`的角度分析 Spring IOC 容器源码。
+许多文章都是分析的 xml 配置，但是现在 Spring Boot 开发多基于注解。本文从 ` 注解 ` 的角度分析 Spring IOC 容器源码。
 
 版本：
 
@@ -14,7 +14,7 @@
 # BeanDefinition
 
 BeanDefinition 接口定义了一个包含属性、构造器参数、其他具体信息的 bean 实例。
- 
+
 ```java
 public interface BeanDefinition extends AttributeAccessor, BeanMetadataElement {
 
@@ -22,7 +22,7 @@ public interface BeanDefinition extends AttributeAccessor, BeanMetadataElement {
 	// request, session 等是基于 Web 的扩展
 	String SCOPE_SINGLETON = ConfigurableBeanFactory.SCOPE_SINGLETON;
 	String SCOPE_PROTOTYPE = ConfigurableBeanFactory.SCOPE_PROTOTYPE;
-	
+
 	// 不重要
 	int ROLE_APPLICATION = 0;
 	int ROLE_SUPPORT = 1;
@@ -31,7 +31,7 @@ public interface BeanDefinition extends AttributeAccessor, BeanMetadataElement {
 
 	// 设置父 Bean 的信息（继承父 Bean 的配置信息）
 	void setParentName(@Nullable String parentName);
-	
+
 	@Nullable
 	String getParentName();
 
@@ -59,7 +59,7 @@ public interface BeanDefinition extends AttributeAccessor, BeanMetadataElement {
 	String[] getDependsOn();
 
 	// 设置该 Bean 是否可以注入到其他 Bean 中，只对根据类型注入有效，
-   // 如果根据名称注入，即使这边设置了 false，也是可以的
+   	// 如果根据名称注入，即使这边设置了 false，也是可以的
 	void setAutowireCandidate(boolean autowireCandidate);
 
 	boolean isAutowireCandidate();
@@ -105,7 +105,7 @@ public interface BeanDefinition extends AttributeAccessor, BeanMetadataElement {
 	@Nullable
 	String getDestroyMethodName();
 
-	
+
 	void setRole(int role);
 	int getRole();
 	void setDescription(@Nullable String description);
@@ -185,7 +185,7 @@ private void registerBeanDefinitionForImportedConfigurationClass(ConfigurationCl
 	configClass.setBeanName(configBeanName);
 
 	if (logger.isTraceEnabled()) {
-		logger.trace("Registered bean definition for imported class '" + configBeanName + "'");
+		logger.trace("Registered bean definition for imported class'" + configBeanName + "'");
 	}
 }
 ```
@@ -239,7 +239,7 @@ public void refresh() throws BeansException, IllegalStateException {
 }
 ```
 
-# BeanFactory 简介
+# BeanFactory
 
 BeanFactory 是生产 bean 的工厂，它负责生产和管理各个 bean 实例。从下图可以看到，ApplicationContext 也是一个 BeanFactory。如果说 BeanFactory 是 Spring 的心脏，那么 ApplicationContext 就是完整的身躯。
 
@@ -247,9 +247,30 @@ BeanFactory 是生产 bean 的工厂，它负责生产和管理各个 bean 实�
 
 ApplicationContext 是应用程序运行时提供配置信息的通用接口。ApplicationContext 在程序运行时是不可更改的，但是实现类可以重新再入配置信息。
 
-ApplicationContext 的实现类有很多，比如 AnnotationConfigApplicationContext, AnnotationConfigWebApplicationContext, ClassPathXmlApplicationContext, FileSystemXmlApplicationContext, XmlWebApplicationContext 等。我们上面分析的就是 AnnotationConfigApplicationContext，其采用注解的方式提供配置信息，这样我们就不用写 XML 配置文件了，非常简洁。
+ApplicationContext 的实现类有很多，比如 AnnotationConfigApplicationContext, AnnotationConfigWebApplicationContext, ClassPathXmlApplicationContext, FileSystemXmlApplicationContext, XmlWebApplicationContext 等。我们上面分析的就是 `AnnotationConfigApplicationContext`，其采用注解的方式提供配置信息，这样我们就不用写 XML 配置文件了，非常简洁。
 
 ![](http://yano.oss-cn-beijing.aliyuncs.com/2019-09-24-234601.jpg)
+
+# FactoryBean
+
+前面提到了 BeanFactory，这里又来了个 FactoryBean …… 据说 Spring 提供了 70 多个 FactoryBean 的实现，可见其在 Spring 框架中的地位。它们隐藏了实例化复杂 bean 的细节，给上层应用带来便捷。
+
+```java
+public interface FactoryBean<T> {
+
+	// 返回 FactoryBean 创建的 bean 实例，如果 isSingleton() 返回 true，则该实例会放到 Spring 容器的单例缓存池中
+	@Nullable
+	T getObject() throws Exception;
+
+	// 返回 FactoryBean 创建的 bean 类型
+	@Nullable
+	Class<?> getObjectType();
+
+	default boolean isSingleton() {
+		return true;
+	}
+}
+```
 
 # Web 容器启动过程
 
@@ -274,7 +295,7 @@ public class AppApplication {
 SpringApplication.run(AppApplication.class, args);
 ```
 
-SpringApplication 的代码就不分析了，明确本次看源码的目的是分析`容器源码`，Spring Boot 的启动过程和其他信息都忽略了，因为 Spring 代码实在是庞杂。分析上面的 run 方法，最终会追踪到 SpringApplication#run(...) 方法。
+SpringApplication 的代码就不分析了，明确本次看源码的目的是分析 ` 容器源码 `，Spring Boot 的启动过程和其他信息都忽略了，因为 Spring 代码实在是庞杂。分析上面的 run 方法，最终会追踪到 SpringApplication#run(...) 方法。
 
 ```java
 public ConfigurableApplicationContext run(String... args) {
@@ -292,7 +313,7 @@ public ConfigurableApplicationContext run(String... args) {
 		Banner printedBanner = printBanner(environment);
 		context = createApplicationContext();
 		exceptionReporters = getSpringFactoriesInstances(SpringBootExceptionReporter.class,
-				new Class[] { ConfigurableApplicationContext.class }, context);
+				new Class[] { ConfigurableApplicationContext.class}, context);
 		prepareContext(context, environment, listeners, applicationArguments, printedBanner);
 		refreshContext(context);
 		afterRefresh(context, applicationArguments);
@@ -358,12 +379,12 @@ public void refresh() throws BeansException, IllegalStateException {
    // 来个锁，不然 refresh() 还没结束，你又来个启动或销毁容器的操作，那不就乱套了嘛
    synchronized (this.startupShutdownMonitor) {
 
-      // 准备工作，记录下容器的启动时间、标记“已启动”状态、处理配置文件中的占位符
+      // 准备工作，记录下容器的启动时间、标记 “已启动” 状态、处理配置文件中的占位符
       prepareRefresh();
 
       // 这步比较关键，这步完成后，配置文件就会解析成一个个 Bean 定义，注册到 BeanFactory 中，
       // 当然，这里说的 Bean 还没有初始化，只是配置信息都提取出来了，
-      // 注册也只是将这些信息都保存到了注册中心(说到底核心是一个 beanName-> beanDefinition 的 map)
+      // 注册也只是将这些信息都保存到了注册中心 (说到底核心是一个 beanName-> beanDefinition 的 map)
       ConfigurableListableBeanFactory beanFactory = obtainFreshBeanFactory();
 
       // 设置 BeanFactory 的类加载器，添加几个 BeanPostProcessor，手动注册几个特殊的 bean
@@ -390,7 +411,7 @@ public void refresh() throws BeansException, IllegalStateException {
          // 初始化当前 ApplicationContext 的事件广播器，这里也不展开了
          initApplicationEventMulticaster();
 
-         // 从方法名就可以知道，典型的模板方法(钩子方法)，
+         // 从方法名就可以知道，典型的模板方法 (钩子方法)，
          // 具体的子类可以在这里初始化一些特殊的 Bean（在初始化 singleton beans 之前）
          onRefresh();
 
@@ -408,8 +429,8 @@ public void refresh() throws BeansException, IllegalStateException {
 
       catch (BeansException ex) {
          if (logger.isWarnEnabled()) {
-            logger.warn("Exception encountered during context initialization - " +
-                  "cancelling refresh attempt: " + ex);
+            logger.warn("Exception encountered during context initialization -" +
+                  "cancelling refresh attempt:" + ex);
          }
 
          // Destroy already created singletons to avoid dangling resources.
@@ -433,7 +454,7 @@ public void refresh() throws BeansException, IllegalStateException {
 
 核心流程就是 try 代码块里的内容，我们应该了解整体原理，本篇文章并不能逐行逐句分析。如果那样做，完全就变成一部字典了……
 
-# bean 的加载
+# Bean 的加载
 
 bean 加载的调用函数：org.springframework.beans.factory.support.AbstractBeanFactory#doGetBean
 
@@ -451,11 +472,11 @@ protected <T> T doGetBean(final String name, @Nullable final Class<T> requiredTy
 	if (sharedInstance != null && args == null) {
 		if (logger.isTraceEnabled()) {
 			if (isSingletonCurrentlyInCreation(beanName)) {
-				logger.trace("Returning eagerly cached instance of singleton bean '" + beanName +
-						"' that is not fully initialized yet - a consequence of a circular reference");
+				logger.trace("Returning eagerly cached instance of singleton bean'" + beanName +
+						"'that is not fully initialized yet - a consequence of a circular reference");
 			}
 			else {
-				logger.trace("Returning cached instance of singleton bean '" + beanName + "'");
+				logger.trace("Returning cached instance of singleton bean'" + beanName + "'");
 			}
 		}
 		bean = getObjectForBeanInstance(sharedInstance, name, beanName, null);
@@ -506,7 +527,7 @@ protected <T> T doGetBean(final String name, @Nullable final Class<T> requiredTy
 				for (String dep : dependsOn) {
 					if (isDependent(beanName, dep)) {
 						throw new BeanCreationException(mbd.getResourceDescription(), beanName,
-								"Circular depends-on relationship between '" + beanName + "' and '" + dep + "'");
+								"Circular depends-on relationship between'" + beanName + "'and'" + dep + "'");
 					}
 					registerDependentBean(dep, beanName);
 					try {
@@ -514,13 +535,13 @@ protected <T> T doGetBean(final String name, @Nullable final Class<T> requiredTy
 					}
 					catch (NoSuchBeanDefinitionException ex) {
 						throw new BeanCreationException(mbd.getResourceDescription(), beanName,
-								"'" + beanName + "' depends on missing bean '" + dep + "'", ex);
+								"'"+ beanName +"' depends on missing bean '"+ dep +"'", ex);
 					}
 				}
 			}
 
 			// 创建 bean 实例
-			
+
 			// Singleton 模式的创建
 			if (mbd.isSingleton()) {
 				sharedInstance = getSingleton(beanName, () -> {
@@ -555,7 +576,7 @@ protected <T> T doGetBean(final String name, @Nullable final Class<T> requiredTy
 				String scopeName = mbd.getScope();
 				final Scope scope = this.scopes.get(scopeName);
 				if (scope == null) {
-					throw new IllegalStateException("No Scope registered for scope name '" + scopeName + "'");
+					throw new IllegalStateException("No Scope registered for scope name'" + scopeName + "'");
 				}
 				try {
 					Object scopedInstance = scope.get(beanName, () -> {
@@ -571,7 +592,7 @@ protected <T> T doGetBean(final String name, @Nullable final Class<T> requiredTy
 				}
 				catch (IllegalStateException ex) {
 					throw new BeanCreationException(beanName,
-							"Scope '" + scopeName + "' is not active for the current thread; consider " +
+							"Scope'" + scopeName + "'is not active for the current thread; consider" +
 							"defining a scoped proxy for this bean if you intend to refer to it from a singleton",
 							ex);
 				}
@@ -594,7 +615,7 @@ protected <T> T doGetBean(final String name, @Nullable final Class<T> requiredTy
 		}
 		catch (TypeMismatchException ex) {
 			if (logger.isTraceEnabled()) {
-				logger.trace("Failed to convert bean '" + name + "' to required type '" +
+				logger.trace("Failed to convert bean'" + name + "'to required type'" +
 						ClassUtils.getQualifiedName(requiredType) + "'", ex);
 			}
 			throw new BeanNotOfRequiredTypeException(name, requiredType, bean.getClass());
@@ -616,81 +637,16 @@ protected <T> T doGetBean(final String name, @Nullable final Class<T> requiredTy
 8. 针对不同的 scope 进行 bean 的创建
 9. 类型转换
 
-# FactoryBean
+# Bean 生命周期
 
-前面提到了 BeanFactory，这里又来了个 FactoryBean …… 据说 Spring 提供了 70 多个 FactoryBean 的实现，可见其在 Spring 框架中的地位。它们隐藏了实例化复杂 bean 的细节，给上层应用带来便捷。
-
-```java
-public interface FactoryBean<T> {
-
-	// 返回 FactoryBean 创建的 bean 实例，如果 isSingleton() 返回 true，则该实例会放到 Spring 容器的单例缓存池中
-	@Nullable
-	T getObject() throws Exception;
-
-	// 返回 FactoryBean 创建的 bean 类型
-	@Nullable
-	Class<?> getObjectType();
-
-	default boolean isSingleton() {
-		return true;
-	}
-}
-```
-
-# 循环依赖
-
-循环依赖就是`循环引用`，两个或多个 bean 相互之间持有对方。那么 Spring 是如何解决循环依赖的？
-
-在 Spring 中循环依赖一共有 3 种情况：
-
-1. 构造器循环依赖
-2. setter 循环依赖
-3. prototype 范围的依赖处理
-
-其中构造器循环依赖是无法解决的，因为一个 bean 创建时首先要经过构造器，但是构造器相互依赖，就相当于 Java 中多线程死锁。
-
-setter 注入造成的依赖是通过 Spring 容器提前暴露刚完成构造器注入但未完成其他步骤（如 setter 注入）的 bean 来完成的，而且只能解决`单例作用域的 bean 循环依赖`。通过提前暴露一个单例工厂方法，从而使其他 bean 能引用到该 bean，代码如下：
-
-```java
-@Nullable
-protected Object getSingleton(String beanName, boolean allowEarlyReference) {
-	Object singletonObject = this.singletonObjects.get(beanName);
-	if (singletonObject == null && isSingletonCurrentlyInCreation(beanName)) {
-		synchronized (this.singletonObjects) {
-			singletonObject = this.earlySingletonObjects.get(beanName);
-			if (singletonObject == null && allowEarlyReference) {
-				ObjectFactory<?> singletonFactory = this.singletonFactories.get(beanName);
-				if (singletonFactory != null) {
-					singletonObject = singletonFactory.getObject();
-					this.earlySingletonObjects.put(beanName, singletonObject);
-					this.singletonFactories.remove(beanName);
-				}
-			}
-		}
-	}
-	return singletonObject;
-}
-```
-
-其中 earlySingletonObjects 的定义为：
-
-```java
-/** Cache of early singleton objects: bean name to bean instance. */
-private final Map<String, Object> earlySingletonObjects = new HashMap<>(16);
-```
-
-对于 prototype 作用域的 bean，Spring 容器无法完成依赖注入，因为 Spring 容器不缓存 prototype 作用域的 bean。
-
-# bean 生命周期
-
-面试的话，Spring 的核心就在这里了，不过只要记住大体流程就行。
+Spring  中一个 bean 的核心流程：
 
 ![](http://yano.oss-cn-beijing.aliyuncs.com/2019-09-25-142459.jpg)
 
 
 # 公众号
 
-coding 笔记、点滴记录，以后的文章也会同步到公众号（Coding Insight）中，大家关注^_^
+coding 笔记、点滴记录，以后的文章也会同步到公众号（Coding Insight）中，大家关注 ^_^
 
 我的博客地址：[博客主页](https://yano-nankai.notion.site/yano-nankai/Yano-Space-ff42bde7acd1467eb3ae63dc0d4a9f8c)。
 
