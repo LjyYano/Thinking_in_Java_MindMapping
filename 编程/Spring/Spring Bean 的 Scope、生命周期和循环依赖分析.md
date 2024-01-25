@@ -9,8 +9,14 @@ date: 2021-05-13
 - [生命周期](#生命周期)
   - [BeanFactory](#beanfactory)
 - [循环依赖](#循环依赖)
-  - [测试](#测试)
-  - [源码分析](#源码分析-1)
+  - [循环依赖的 3 种类型](#循环依赖的-3-种类型)
+    - [构造器循环依赖](#构造器循环依赖)
+    - [setter/field 循环依赖](#setterfield-循环依赖)
+    - [prototype 范围的依赖处理](#prototype-范围的依赖处理)
+  - [Spring 如何解决循环依赖？](#spring-如何解决循环依赖)
+    - [三级缓存](#三级缓存)
+    - [源码分析](#源码分析-1)
+  - [Spring Boot 2.6.0 开启循环依赖](#spring-boot-260-开启循环依赖)
 - [GitHub LeetCode 项目](#github-leetcode-项目)
 
 
@@ -98,7 +104,9 @@ public class BeanTest {
     @Test
     public void testScope() {
         context.getBean(SingletonBean.class);
+        context.getBean(SingletonBean.class);
 
+        context.getBean(ProtoTypeBean.class);
         context.getBean(ProtoTypeBean.class);
     }
 }
@@ -106,8 +114,9 @@ public class BeanTest {
 
 最终输出了 1 次 SingletonBean，2 次 ProtoTypeBean。
 
-```java
+```
 SingletonBean init ...
+ProtoTypeBean init ...
 ProtoTypeBean init ...
 ```
 
@@ -251,56 +260,186 @@ BeanFactory 接口文件上的注释如下。里面包含了 bean 的生命周�
 
 # 循环依赖
 
-循环依赖就是循环引用，两个或多个 bean 相互之间持有对方。那么 Spring 是如何解决循环依赖的？
+> 💡 Spring Boot 在 2.6.0 版本开始默认不允许出现循环引用，出现循环引用肯定是程序的问题。
+>
+> 如果需要允许循环引用，需要在配置文件中添加 `spring.main.allow-circular-references=true`。
+
+` 循环依赖 ` 就是循环引用，两个或多个 bean 相互之间持有对方。那么 Spring 是如何解决循环依赖的？
+
+## 循环依赖的 3 种类型
 
 在 Spring 中循环依赖一共有 3 种情况：
 
-- 构造器循环依赖
-- setter 循环依赖
-- prototype 范围的依赖处理
+- 构造器循环依赖：无法解决
+- setter/field 循环依赖：` 只能解决单例作用域的 bean 循环依赖 `
+- prototype 范围的依赖处理：无法解决
 
-其中构造器循环依赖是无法解决的，因为一个 bean 创建时首先要经过构造器，但是构造器相互依赖，就相当于 Java 中多线程死锁。
+### 构造器循环依赖
 
-## 测试
-
-构建两个 bean，CircleBean1 里面通过 field 注入 CircleBean2，同时 CircleBean2 里面通过 field 注入 CircleBean1。
+构造器循环依赖是无法解决的，因为一个 bean 创建时首先要经过构造器，但是构造器相互依赖，就相当于 Java 中多线程死锁。
 
 ```java
-@Data
-@Component
+@Service
 public class CircleBean1 {
-    private int i;
+
+    private CircleBean2 circleBean2;
+
+    public CircleBean1(CircleBean2 circleBean2) {
+        this.circleBean2 = circleBean2;
+    }
+}
+```
+
+```java
+@Service
+public class CircleBean2 {
+
+    private CircleBean1 circleBean1;
+
+    public CircleBean2(CircleBean1 circleBean1) {
+        this.circleBean1 = circleBean1;
+    }
+}
+```
+
+启动后会报下面的错误：
+
+```java
+The dependencies of some of the beans in the application context form a cycle:
+
+┌─────┐
+|  circleBean1
+↑     ↓
+|  circleBean2
+└─────┘
+```
+
+### setter/field 循环依赖
+
+setter 注入循环依赖：
+
+```java
+@Service
+public class CircleBean1 {
+
+    private CircleBean2 circleBean2;
+
+    public CircleBean2 getCircleBean2() {
+        return circleBean2;
+    }
+
+    @Autowired
+    public void setCircleBean2(CircleBean2 circleBean2) {
+        this.circleBean2 = circleBean2;
+    }
+}
+```
+
+```java
+@Service
+public class CircleBean2 {
+
+    private CircleBean1 circleBean1;
+
+    public CircleBean1 getCircleBean1() {
+        return circleBean1;
+    }
+
+    @Autowired
+    public void setCircleBean1(CircleBean1 circleBean1) {
+        this.circleBean1 = circleBean1;
+    }
+}
+```
+
+field 注入循环依赖：
+
+```java
+@Service
+public class CircleBean1 {
 
     @Autowired
     private CircleBean2 circleBean2;
+
 }
 ```
 
 ```java
-@Data
-@Component
+@Service
 public class CircleBean2 {
-    private int i;
-    
+
     @Autowired
     private CircleBean1 circleBean1;
+
 }
 ```
 
-我们可以发现下面的测试用例是可以正常运行通过的。
+能够正常启动。
+
+### prototype 范围的依赖处理
+
+通过 `@Scope(scopeName = SCOPE_PROTOTYPE)` 注解，可以将 bean 的作用域设置为 prototype，每次注入都会新建一个对象，Spring IoC 容器并不会缓存 prototype 的 bean。
 
 ```java
-@Test
-public void testCircle() {
-    CircleBean1 bean1 = context.getBean(CircleBean1.class);
-    CircleBean2 bean2 = context.getBean(CircleBean2.class);
-    log.info("bean1 {}, bean2 {}", bean1.getI(), bean2.getI());
+@Service
+@Scope(scopeName = SCOPE_PROTOTYPE)
+public class CircleBean1 {
+
+    @Autowired
+    private CircleBean2 circleBean2;
+
 }
 ```
 
-## 源码分析
+```java
+@Service
+@Scope(scopeName = SCOPE_PROTOTYPE)
+public class CircleBean2 {
 
-setter 注入造成的依赖是通过 Spring 容器提前暴露刚完成构造器注入但未完成其他步骤（如 setter 注入）的 bean 来完成的，而且只能解决单例作用域的 bean 循环依赖。通过提前暴露一个单例工厂方法，从而使其他 bean 能引用到该 bean，代码如下：
+    @Autowired
+    private CircleBean1 circleBean1;
+
+}
+```
+
+启动后会报下面的错误：
+
+```java
+The dependencies of some of the beans in the application context form a cycle:
+
+┌─────┐
+|  circleBean1
+↑     ↓
+|  circleBean2
+└─────┘
+```
+
+## Spring 如何解决循环依赖？
+
+### 三级缓存
+
+参考链接：[浅谈 Spring 如何解决 Bean 的循环依赖问题](https://juejin.cn/post/7218080360403615804#heading-6)
+
+```java
+// 一级缓存：缓存的是已经实例化、属性注入、初始化后的 Bean 对象。
+/** Cache of singleton objects: bean name to bean instance. */
+private final Map<String, Object> singletonObjects = new ConcurrentHashMap<>(256);
+
+// 二级缓存：缓存的是实例化后，但未属性注入、初始化的 Bean 对象（用于提前暴露 Bean）。
+/** Cache of early singleton objects: bean name to bean instance. */
+private final Map<String, Object> earlySingletonObjects = new ConcurrentHashMap<>(16);
+
+// 三级缓存：缓存的是一个 ObjectFactory，主要作用是生成原始对象进行 AOP 操作后的代理对象
+/** Cache of singleton factories: bean name to ObjectFactory. */
+private final Map<String, ObjectFactory<?>> singletonFactories = new HashMap<>(16);
+
+```
+
+### 源码分析
+
+> 并没有深入分析，待后面补充
+
+setter 注入造成的依赖是通过 Spring 容器提前暴露刚完成构造器注入但未完成其他步骤（如 setter 注入）的 bean 来完成的，而且只能解决单例作用域的 bean 循环依赖。通过提前暴露一个单例工厂方法，从而使其他 bean 能引用到该 bean，org.springframework.beans.factory.support.DefaultSingletonBeanRegistry#getSingleton(java.lang.String, boolean) 代码如下：
 
 ```java
 /**
@@ -339,17 +478,18 @@ protected Object getSingleton(String beanName, boolean allowEarlyReference) {
 }
 ```
 
-其中 earlySingletonObjects 的定义为：
+## Spring Boot 2.6.0 开启循环依赖
+
+> 💡 并不建议这样做，程序最好就没有循环依赖。
+
+项目启动的时候添加参数 `spring.main.allow-circular-references=true`，或者在代码中添加：
 
 ```java
-/** Cache of early singleton objects: bean name to bean instance. */
-private final Map<String, Object> earlySingletonObjects = new ConcurrentHashMap<>(16);
+new SpringApplicationBuilder(Application.class).allowCircularReferences(true).run(args);
 ```
 
 # GitHub LeetCode 项目
 
 项目 [GitHub LeetCode 全解](https://github.com/LjyYano/LeetCode)，欢迎大家 star、fork、merge，共同打造最全 LeetCode 题解！
 
-[Java 编程思想-最全思维导图-GitHub 下载链接](https://github.com/LjyYano/Thinking_in_Java_MindMapping)，需要的小伙伴可以自取~！！！
-
-[YANO SPACE 2021 计划](https://www.notion.so/YANO-SPACE-2021-ff42bde7acd1467eb3ae63dc0d4a9f8c)
+[Java 编程思想 - 最全思维导图 - GitHub 下载链接](https://github.com/LjyYano/Thinking_in_Java_MindMapping)，需要的小伙伴可以自取~！！！
