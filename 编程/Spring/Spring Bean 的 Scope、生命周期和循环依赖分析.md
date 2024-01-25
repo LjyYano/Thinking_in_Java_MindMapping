@@ -2,7 +2,6 @@
 date: 2021-05-13
 ---
 
-
 - [Scope](#scope)
   - [Scope 测试](#scope-测试)
   - [源码分析](#源码分析)
@@ -257,6 +256,7 @@ BeanFactory 接口文件上的注释如下。里面包含了 bean 的生命周�
 [Spring 官方文档：Customizing the Nature of a Bean](https://docs.spring.io/spring-framework/docs/current/reference/html/core.html#beans-factory-nature)
 
 ![](http://yano.oss-cn-beijing.aliyuncs.com/blog/20210513183117.png?x-oss-process=style/yano)
+
 
 # 循环依赖
 

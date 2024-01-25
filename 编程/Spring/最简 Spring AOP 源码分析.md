@@ -1,33 +1,33 @@
 
-- [前言](#前言)
-- [基本概念](#基本概念)
-	- [实现原理](#实现原理)
-	- [测试代码](#测试代码)
-	- [使用步骤](#使用步骤)
-- [源码深入分析](#源码深入分析)
-	- [@EnableAspectJAutoProxy 开启 AOP](#enableaspectjautoproxy-开启-aop)
-	- [IOC 容器管理 AOP 实例](#ioc-容器管理-aop-实例)
+- [前言](# 前言)
+- [基本概念](# 基本概念)
+	- [实现原理](# 实现原理)
+	- [测试代码](# 测试代码)
+	- [使用步骤](# 使用步骤)
+- [源码深入分析](# 源码深入分析)
+	- [@EnableAspectJAutoProxy 开启 AOP](#enableaspectjautoproxy - 开启 - aop)
+	- [IOC 容器管理 AOP 实例](#ioc - 容器管理 - aop - 实例)
 	- [ProxyFactory](#proxyfactory)
 		- [CglibAopProxy](#cglibaopproxy)
 		- [JdkDynamicAopProxy](#jdkdynamicaopproxy)
-- [总结](#总结)
-- [公众号](#公众号)
+- [总结](# 总结)
+- [公众号](# 公众号)
 
 # 前言
 
-Spring 最核心的功能就是 `IOC 容器`和 `AOP`。本文定位是以最简的方式，分析 `Spring AOP` 源码。
+Spring 最核心的功能就是 `IOC 容器 ` 和 `AOP`。本文定位是以最简的方式，分析 `Spring AOP` 源码。
 
 # 基本概念
 
 Spring AOP 代理实现分为 2 种情况：
-1. 要代理的类是接口：基于 `JDK 动态代理`实现；
-2. 要代理的类不是接口：基于 `CGLIB 动态代理`实现。
+1. 要代理的类是接口：基于 `JDK 动态代理 ` 实现；
+2. 要代理的类不是接口：基于 `CGLIB 动态代理 ` 实现。
 
-Spring AOP `只能作用于 Spring bean`，使用了 aspectj 的注解，但是完全是基于 Spring 代码实现。
+Spring AOP ` 只能作用于 Spring bean`，使用了 <font color = red>aspectj</font> 的注解，但是完全是基于 Spring 代码实现。
 
 ## 实现原理
 
-Spring AOP 的实现原理是`动态代理`，具体是什么样的呢？
+Spring AOP 的实现原理是 ` 动态代理 `，具体是什么样的呢？
 
 在 Spring 容器中，我们使用的每个 bean 都是 BeanDefinition 的实例，容器会在合适的时机根据 BeanDefinition 的基本信息实例化 bean 对象。
 
@@ -319,7 +319,7 @@ public Object postProcessAfterInitialization(@Nullable Object bean, String beanN
 }
 ```
 
-`wrapIfNecessary(...)`方法在需要时返回了代理类。
+`wrapIfNecessary(...)` 方法在需要时返回了代理类。
 
 ```java
 protected Object wrapIfNecessary(Object bean, String beanName, Object cacheKey) {
@@ -415,7 +415,7 @@ public AopProxy createAopProxy(AdvisedSupport config) throws AopConfigException 
 	if (config.isOptimize() || config.isProxyTargetClass() || hasNoUserSuppliedProxyInterfaces(config)) {
 		Class<?> targetClass = config.getTargetClass();
 		if (targetClass == null) {
-			throw new AopConfigException("TargetSource cannot determine target class: " +
+			throw new AopConfigException("TargetSource cannot determine target class:" +
 					"Either an interface or a target is required for proxy creation.");
 		}
 		if (targetClass.isInterface() || Proxy.isProxyClass(targetClass) || ClassUtils.isLambdaClass(targetClass)) {
@@ -451,7 +451,7 @@ public Object getProxy(@Nullable ClassLoader classLoader) {
 ```java
 private Object buildProxy(@Nullable ClassLoader classLoader, boolean classOnly) {
 	if (logger.isTraceEnabled()) {
-		logger.trace("Creating CGLIB proxy: " + this.advised.getTargetSource());
+		logger.trace("Creating CGLIB proxy:" + this.advised.getTargetSource());
 	}
 
 	try {
@@ -499,7 +499,7 @@ private Object buildProxy(@Nullable ClassLoader classLoader, boolean classOnly) 
 		return (classOnly ? createProxyClass(enhancer) : createProxyClassAndInstance(enhancer, callbacks));
 	}
 	catch (CodeGenerationException | IllegalArgumentException ex) {
-		throw new AopConfigException("Could not generate CGLIB subclass of " + this.advised.getTargetClass() +
+		throw new AopConfigException("Could not generate CGLIB subclass of" + this.advised.getTargetClass() +
 				": Common causes of this problem include using a final class or a non-visible class",
 				ex);
 	}
@@ -522,7 +522,7 @@ org.springframework.aop.framework.JdkDynamicAopProxy#getProxy(java.lang.ClassLoa
 @Override
 public Object getProxy(@Nullable ClassLoader classLoader) {
 	if (logger.isTraceEnabled()) {
-		logger.trace("Creating JDK dynamic proxy: " + this.advised.getTargetSource());
+		logger.trace("Creating JDK dynamic proxy:" + this.advised.getTargetSource());
 	}
 	return Proxy.newProxyInstance(classLoader, this.proxiedInterfaces, this);
 }
@@ -532,7 +532,7 @@ public Object getProxy(@Nullable ClassLoader classLoader) {
 
 Spring AOP 使用了动态代理，作用于 IOC 容器管理的 bean。在获取 bean 时会根据需要创建并返回代理类。在 Spring Boot 中使用 Spring AOP 时应该先用 @EnableAspectJAutoProxy 注解开启代理，定义代理类和代理规则，不需要额外的 XML 或其他配置。
 
-Spring 的源码太庞杂，调用链太深，`在研究源码的时候应该明确目标，掌握核心原理`。就像学汉语字典，并不需要掌握其中的每一个汉字。
+Spring 的源码太庞杂，调用链太深，` 在研究源码的时候应该明确目标，掌握核心原理 `。就像学汉语字典，并不需要掌握其中的每一个汉字。
 
 # 公众号
 
