@@ -1,38 +1,12 @@
 ---
 date: 2021-07-31
 ---
-
-- [Java Agent 是什么？](#java-agent-是什么)
-  - [修改字节码的工具](#修改字节码的工具)
-- [Instrumentation 原理](#instrumentation-原理)
-    - [\*\* 启动时加载 instrument agent 过程 \*\*](#-启动时加载-instrument-agent-过程-)
-    - [\*\* 运行时加载 instrument agent 过程 \*\*](#-运行时加载-instrument-agent-过程-)
-  - [VirtualMachine#attach](#virtualmachineattach)
-- [JVM 启动前静态 Instrument](#jvm-启动前静态-instrument)
-  - [Premain 类](#premain-类)
-  - [META-INF/MANIFEST.MF 设置](#meta-infmanifestmf-设置)
-  - [测试类](#测试类)
-  - [输出结果](#输出结果)
-- [JVM 启动后动态 Instrument](#jvm-启动后动态-instrument)
-  - [META-INF/MANIFEST.MF 设置](#meta-infmanifestmf-设置-1)
-  - [AgentMain 类](#agentmain-类)
-  - [测试类](#测试类-1)
-  - [输出结果](#输出结果-1)
-- [Java Agent 的应用](#java-agent-的应用)
-  - [应用性能监控组件](#应用性能监控组件)
-  - [Java 代码热更新工具](#java-代码热更新工具)
-  - [IDEA 破解](#idea-破解)
-  - [Arthas](#arthas)
-  - [各种代码增强](#各种代码增强)
-- [参考资料](#参考资料)
-- [GitHub LeetCode 项目](#github-leetcode-项目)
-
 # Java Agent 是什么？
 
-Java Agent 是一个特殊的 jar 文件，利用 JVM 的 Instrumentation API 来更改加载到 JVM 中的字节码。一共有 2 种方式：
+Java Agent 是一个特殊的 jar 文件，利用 JVM 的 `Instrumentation API` 来更改加载到 JVM 中的字节码。一共有 2 种方式：
 
-- premain：使用 -javaagent 参数在 JVM 启动时静态加载代理
-- agentmain：使用 Java Attach API 将代理动态加载到 JVM 中
+- `premain`：使用 -javaagent 参数在 JVM 启动时静态加载代理
+- `agentmain`：使用 Java Attach API 将代理动态加载到 JVM 中
 
 需要说明的是，Oracle、OpenJDK 等 JVM 都提供了动态开启代理的机制，但是这个机制并不是强制的。本文首先介绍 Instrument 的原理，再从零到一介绍如何使用 premain 和 agentmain 更改字节码，最后再讲解通过 Java Agent 能够做什么（破解）。
 
@@ -44,18 +18,18 @@ Java Agent 是一个特殊的 jar 文件，利用 JVM 的 Instrumentation API �
 
 具体可参考：[Package java.lang.instrument](https://docs.oracle.com/en/java/javase/11/docs/api/java.instrument/java/lang/instrument/package-summary.html)。
 
-instrument 的底层实现依赖于 JVMTI(JVM Tool Interface)，它是 JVM 暴露出来的一些供用户扩展的接口集合，JVMTI 是基于事件驱动的，JVM 每执行到一定的逻辑就会调用一些事件的回调接口（如果有的话），这些接口可以供开发者去扩展自己的逻辑。JVMTIAgent 是一个利用 JVMTI 暴露出来的接口提供了代理启动时加载 (agent on load)、代理通过 attach 形式加载 (agent on attach) 和代理卸载 (agent on unload) 功能的动态库。而 instrument agent 可以理解为一类 JVMTIAgent 动态库，别名是 JPLISAgent(Java Programming Language Instrumentation Services Agent)，也就是专门为 java 语言编写的插桩服务提供支持的代理。
+instrument 的底层实现依赖于 `JVMTI(JVM Tool Interface)`，它是 JVM 暴露出来的一些供用户扩展的接口集合，JVMTI 是基于事件驱动的，JVM 每执行到一定的逻辑就会调用一些 ` 事件的回调接口 `（如果有的话），这些接口可以供开发者去扩展自己的逻辑。JVMTIAgent 是一个利用 JVMTI 暴露出来的接口提供了代理启动时加载 (agent on load)、代理通过 attach 形式加载 (agent on attach) 和代理卸载 (agent on unload) 功能的动态库。而 instrument agent 可以理解为一类 JVMTIAgent 动态库，别名是 JPLISAgent(Java Programming Language Instrumentation Services Agent)，也就是专门为 java 语言编写的插桩服务提供支持的代理。
 
-### ** 启动时加载 instrument agent 过程 **
+### 启动时加载 instrument agent
 
 1. 创建并初始化 JPLISAgent；
 2. 监听 `VMInit` 事件，在 JVM 初始化完成之后做下面的事情：
-    1. 创建 InstrumentationImpl 对象 ；
-    2. 监听 ClassFileLoadHook 事件 ；
-    3. 调用 InstrumentationImpl 的 `loadClassAndCallPremain` 方法，在这个方法里会去调用 javaagent 中 MANIFEST.MF 里指定的 Premain-Class 类的 premain 方法 ；
-3. 解析 javaagent 中 MANIFEST.MF 文件的参数，并根据这些参数来设置 JPLISAgent 里的一些内容。
+   1. 创建 InstrumentationImpl 对象 ；
+   2. 监听 ClassFileLoadHook 事件 ；
+   3. 调用 InstrumentationImpl 的 `loadClassAndCallPremain` 方法，在这个方法里会去调用 javaagent 中 MANIFEST.MF 里指定的 Premain-Class 类的 premain 方法 ；
+3. 解析 javaagent 中 `MANIFEST.MF` 文件的参数，并根据这些参数来设置 JPLISAgent 里的一些内容。
 
-### ** 运行时加载 instrument agent 过程 **
+### 运行时加载 instrument agent
 
 通过 JVM 的 attach 机制来请求目标 JVM 加载对应的 agent，过程大致如下：
 
@@ -69,8 +43,7 @@ instrument 的底层实现依赖于 JVMTI(JVM Tool Interface)，它是 JVM 暴�
 
 1. `VirtualMachine` 字面意义表示一个 Java 虚拟机，也就是程序需要监控的目标虚拟机，提供了获取系统信息（比如获取内存 dump、线程 dump，类信息统计（比如已加载的类以及实例个数等）， loadAgent，Attach 和 Detach （Attach 动作的相反行为，从 JVM 上面解除一个代理）等方法，可以实现的功能可以说非常之强大 。该类允许我们通过给 attach 方法传入一个 jvm 的 pid（进程 id)，远程连接到 jvm 上 。
 
-    代理类注入操作只是它众多功能中的一个，通过 `loadAgent` 方法向 jvm 注册一个代理程序 agent，在该 agent 的代理程序中会得到一个 Instrumentation 实例，该实例可以 在 class 加载前改变 class 的字节码，也可以在 class 加载后重新加载。在调用 Instrumentation 实例的方法时，这些方法会使用 ClassFileTransformer 接口中提供的方法进行处理。
-
+    > 代理类注入操作只是它众多功能中的一个，通过 `loadAgent` 方法向 jvm 注册一个代理程序 agent，在该 agent 的代理程序中会得到一个 Instrumentation 实例，该实例可以 在 class 加载前改变 class 的字节码，也可以在 class 加载后重新加载。在调用 Instrumentation 实例的方法时，这些方法会使用 ClassFileTransformer 接口中提供的方法进行处理。
 2. `VirtualMachineDescriptor` 则是一个描述虚拟机的容器类，配合 VirtualMachine 类完成各种功能。
 
 attach 实现动态注入的原理如下：
@@ -175,10 +148,11 @@ VirtualMachineImpl(AttachProvider provider, String vmid)
 
 直接在命令行中输入 java，可以看到命令行提示中关于 javaagent 的使用说明：
 
-```java
--javaagent:<jar 路径>[=< 选项 >]
-                  加载 Java 编程语言代理，请参阅 java.lang.instrument
 ```
+-javaagent:<jar 路径>[=< 选项 >]
+```
+
+加载 Java 编程语言代理，请参阅 java.lang.instrument。
 
 ## Premain 类
 
@@ -280,7 +254,7 @@ CtMethod 类中有各种对于方法的操作，比较常用的是 insertBefore 
 
 打包后 jar 包路径为：/Users/yano/code/simple-agent/target/simple-agent-1.0-SNAPSHOT.jar
 
-## 测试类
+## 测试代码
 
 启动一个 AttachTest 类，全路径为：test.jvm.AttachTest。上面编写的 SimpleTransformer 能够在 attachTest 方法前后增加两条打印语句。
 
@@ -300,7 +274,7 @@ public class AttachTest {
 }
 ```
 
-在 VM options 中加入 javaagent 参数
+我们在运行上面的单测钱，需要先在 VM options 中加入 javaagent 参数：
 
 ```java
 -javaagent:/Users/yano/code/simple-agent/target/simple-agent-1.0-SNAPSHOT.jar
@@ -308,11 +282,9 @@ public class AttachTest {
 
 ![](https://i.loli.net/2021/07/31/YtJlPBKTZOumqIM.png?x-oss-process=style/yano)
 
-## 输出结果
+运行单元测试后的输出结果如下，可以看到在方法前后增加了 `simple agent before` 和 `simple agent after` 两条日志，验证代理成功。
 
-运行单元测试后的输出结果如下，可以看到在方法前后增加了 simple agent before 和 simple agent after 两条日志。
-
-```java
+```
 simple agent before
 attachTest start
 attachTest end
@@ -339,7 +311,7 @@ pom 文件跟上面的设置唯一的区别在于：manifestEntries 里 Premain-
                         <addClasspath>true</addClasspath>
                     </manifest>
                     <manifestEntries>
-		                    <!-- 改动在这里！ -->
+                        <!-- 改动在这里！ -->
                         <Agent-Class>com.yano.AgentMain</Agent-Class>
                         <Can-Redefine-Classes>true</Can-Redefine-Classes>
                         <Can-Retransform-Classes>true</Can-Retransform-Classes>
@@ -397,7 +369,7 @@ public class AgentMain {
 }
 ```
 
-## 测试类
+## 测试代码
 
 启动一个程序，每间隔 5 秒打印一个数字，5 次后结束。
 
@@ -440,8 +412,6 @@ public void agentMain() {
     });
 }
 ```
-
-## 输出结果
 
 最终输出的结果（是在 attachDynamic 打印 0 之后，才启动的 agentMain），我们可以看到其动态更改了 simplePrint 函数。
 
@@ -501,7 +471,7 @@ simple agent after
 
 ## 各种代码增强
 
-水平有限，略。
+> 待补充
 
 # 参考资料
 
