@@ -20,7 +20,7 @@ Java Agent 是一个特殊的 jar 文件，利用 JVM 的 `Instrumentation API` 
 
 instrument 的底层实现依赖于 `JVMTI(JVM Tool Interface)`，它是 JVM 暴露出来的一些供用户扩展的接口集合，JVMTI 是基于事件驱动的，JVM 每执行到一定的逻辑就会调用一些 ` 事件的回调接口 `（如果有的话），这些接口可以供开发者去扩展自己的逻辑。JVMTIAgent 是一个利用 JVMTI 暴露出来的接口提供了代理启动时加载 (agent on load)、代理通过 attach 形式加载 (agent on attach) 和代理卸载 (agent on unload) 功能的动态库。而 instrument agent 可以理解为一类 JVMTIAgent 动态库，别名是 JPLISAgent(Java Programming Language Instrumentation Services Agent)，也就是专门为 java 语言编写的插桩服务提供支持的代理。
 
-### 启动时加载 instrument agent
+## 启动时加载 instrument agent
 
 1. 创建并初始化 JPLISAgent；
 2. 监听 `VMInit` 事件，在 JVM 初始化完成之后做下面的事情：
@@ -29,7 +29,7 @@ instrument 的底层实现依赖于 `JVMTI(JVM Tool Interface)`，它是 JVM 暴
    3. 调用 InstrumentationImpl 的 `loadClassAndCallPremain` 方法，在这个方法里会去调用 javaagent 中 MANIFEST.MF 里指定的 Premain-Class 类的 premain 方法 ；
 3. 解析 javaagent 中 `MANIFEST.MF` 文件的参数，并根据这些参数来设置 JPLISAgent 里的一些内容。
 
-### 运行时加载 instrument agent
+## 运行时加载 instrument agent
 
 通过 JVM 的 attach 机制来请求目标 JVM 加载对应的 agent，过程大致如下：
 
