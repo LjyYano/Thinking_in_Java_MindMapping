@@ -1,26 +1,4 @@
 
-- [版本说明](# 版本说明)
-- [生命周期](# 生命周期)
-  - [初始化 Bean 详细流程](# 初始化 - bean - 详细流程)
-    - [invokeAwareMethods](#invokeawaremethods)
-    - [applyBeanPostProcessorsBeforeInitialization](#applybeanpostprocessorsbeforeinitialization)
-    - [invokeInitMethods](#invokeinitmethods)
-    - [applyBeanPostProcessorsAfterInitialization](#applybeanpostprocessorsafterinitialization)
-  - [BeanFactory](#beanfactory)
-- [Scope](#scope)
-  - [Scope 使用示例](#scope - 使用示例)
-  - [源码分析](# 源码分析)
-- [循环依赖](# 循环依赖)
-  - [循环依赖的 3 种类型](# 循环依赖的 - 3 - 种类型)
-    - [构造器循环依赖](# 构造器循环依赖)
-    - [setter/field 循环依赖](#setterfield - 循环依赖)
-    - [prototype 范围的依赖处理](#prototype - 范围的依赖处理)
-  - [Spring 如何解决循环依赖？](#spring - 如何解决循环依赖)
-    - [三级缓存](# 三级缓存)
-    - [源码分析](# 源码分析 - 1)
-  - [Spring Boot 2.6.0 开启循环依赖](#spring-boot-260 - 开启循环依赖)
-- [GitHub LeetCode 项目](#github-leetcode - 项目)
-
 # 版本说明
 
 > 💡 本文使用的版本为：
@@ -40,10 +18,10 @@ graph TD
 ```
 
 几点说明：
-1. 实例化 Bean：此时 Bean 只实例化，并没有进行 @Autowired 属性填充。
-2. 填充 Bean 属性：如果 Bean 的属性有 @Autowired 注解，会进行属性填充。
-3. 初始化 Bean
-4. 销毁 Bean：如果 Bean 实现了 DisposableBean 接口，会调用 destroy 方法。
+1. ` 实例化 Bean`：此时 Bean 只实例化，并没有进行 @Autowired 属性填充。
+2. ` 填充 Bean 属性 `：如果 Bean 的属性有 @Autowired 注解，会进行属性填充。
+3. ` 初始化 Bean`
+4. ` 销毁 Bean`：如果 Bean 实现了 DisposableBean 接口，会调用 destroy 方法。
 
 分析一下 org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory#doCreateBean 方法，主体代码如下：
 
@@ -58,6 +36,15 @@ protected Object doCreateBean(final String beanName, final RootBeanDefinition mb
     if (instanceWrapper == null) {
         instanceWrapper = createBeanInstance(beanName, mbd, args);
     }
+
+    // Eagerly cache singletons to be able to resolve circular references
+    // even when triggered by lifecycle interfaces like BeanFactoryAware.
+    boolean earlySingletonExposure = (mbd.isSingleton() && this.allowCircularReferences &&
+            isSingletonCurrentlyInCreation(beanName));
+    if (earlySingletonExposure) {
+        addSingletonFactory(beanName, () -> getEarlyBeanReference(beanName, mbd, bean));
+    }
+
     // Initialize the bean instance.
     Object exposedObject = bean;
     try {
@@ -580,7 +567,7 @@ The dependencies of some of the beans in the application context form a cycle:
 
 ### 三级缓存
 
-参考链接：[浅谈 Spring 如何解决 Bean 的循环依赖问题](https://juejin.cn/post/7218080360403615804#heading-6)
+参考链接：[一文详解Spring Bean循环依赖](https://mp.weixin.qq.com/s/dSRQBSG42MYNa992PvtnJA?from=singlemessage&isappinstalled=0&scene=1&clicktime=1706844585&enterid=1706844585)
 
 ```java
 // 一级缓存：缓存的是已经实例化、属性注入、初始化后的 Bean 对象。
@@ -598,8 +585,22 @@ private final Map<String, ObjectFactory<?>> singletonFactories = new HashMap<>(1
 ```
 
 - ` 一级缓存 singletonObjects`: 主要存放的是已经完成实例化、属性填充和初始化所有步骤的单例 Bean 实例，这样的 Bean 能够直接提供给用户使用，我们称之为终态 Bean 或叫成熟 Bean。
-- ` 二级缓存 earlySingletonObjects`: 主要存放的`已经完成初始化但属性还没自动赋值`的 Bean，这些 Bean 还不能提供用户使用，只是用于提前暴露的 Bean 实例，我们把这样的 Bean 称之为临时 Bean 或早期的 Bean（半成品 Bean）
+- ` 二级缓存 earlySingletonObjects`: 主要存放的 ` 已经完成初始化但属性还没自动赋值 ` 的 Bean，这些 Bean 还不能提供用户使用，只是用于提前暴露的 Bean 实例，我们把这样的 Bean 称之为临时 Bean 或早期的 Bean（半成品 Bean）
 - ` 三级缓存 singletonFactories`: 存放的是 ObjectFactory 的匿名内部类实例，调用 ObjectFactory.getObject() 最终会调用 getEarlyBeanReference 方法，该方法可以获取提前暴露的单例 bean 引用。
+
+>💡假设现在有这样的场景 AService 依赖 BService，BService 依赖 AService。
+>
+>1. 一开始加载 AService Bean 首先依次从一二三级缓存中查找是否存在 beanName=AService 的对象。
+>2. AService 还没创建缓存，所以走到创建 AService 的逻辑，调用方法 getSingleton(String beanName，ObjectFactory objectFactory) 方法，第二个参数传入一个 ObjectFactory 接口的匿名内部类实例。
+>3. AService 实例化后调用 addSingletonFactory(String beanName, ObjectFactory singletonFactory) 方法将以 Key 为 AService，value 是 ObjectFactory 类型一个匿名内部类对象放入三级缓存中，在后续使用 AService 时会依次在一二三级缓存中查找，最终三级缓存中查到这个匿名内部类对象，从而触发匿名内部类中 getEarlyBeanReference() 方法回调。
+>> 为什么不直接将 AService 实例直接放入三级缓存呢？因为 AOP 增强逻辑在创建 Bean 第三步：调用初始化方法之后进行的，AOP 增强后生成的新代理类 AServiceProxy 实例对象。假如此时直接把 AService 实例直接放入三级缓存，那么在对 BService Bean 依赖的 aService 属性赋值的就是 AService 实例，而不是增强后的 AServiceProxy 实例对象。
+>
+>4. 在以 Key 为 AService，value 为 ObjectFactory 类型一个匿名内部类对象放入三级缓存后，继续对 AService 进行属性填充（依赖注入），这时发现 AService 依赖 BService。
+>5. 又依次从一二三级缓存中查询BService Bean，没找到，于是又按照上述的流程实例化BService，将以Key为BService，value是ObjectFactory类型一个匿名内部类对象放入三级缓存中，继续对BService进行属性填充（依赖注入），这时发现BService又依赖AService。于是依次在一二三级缓存中查找AService。
+>6. 最终三级缓存中查到之前放入的以Key为AService，value为ObjectFactory类型一个匿名内部类对象，从而触发匿名内部类getEarlyBeanReference()方法回调。getEarlyBeanReference()方法决定返回AService实例到底是AService实例本身还是被AOP增强后的AServiceProxy实例对象。如果没AOP切面对AService进行拦截，这时返回的将是AService实例本身。接着将半成品AService Bean放入二级缓存并将Key为AService从三级缓存中删除，这样实现了提前将AService Bean曝光给BService完成属性依赖注入。继续走BService后续初始化逻辑，最后生产了成熟的BService Bean实例。
+>7. AService 也成功获取到 BService 实例，完成后续的初始化工作，解决了循环依赖问题。
+
+![](http://yano.oss-cn-beijing.aliyuncs.com/blog/2024-02-04-11-34-25.png)
 
 ### 源码分析
 
