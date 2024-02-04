@@ -125,7 +125,7 @@ LifeBean destroy ...
 
 ## 初始化 Bean 详细流程
 
-![](http://yano.oss-cn-beijing.aliyuncs.com/blog/2024-02-02-16-46-24.png)
+![](http://yano.oss-cn-beijing.aliyuncs.com/blog/2024-02-04-11-41-02.png)
 
 ### invokeAwareMethods
 
