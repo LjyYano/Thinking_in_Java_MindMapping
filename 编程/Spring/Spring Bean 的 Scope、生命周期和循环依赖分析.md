@@ -1,33 +1,267 @@
----
-date: 2021-05-13
----
 
-- [Scope](#scope)
-  - [Scope 测试](#scope-测试)
-  - [源码分析](#源码分析)
-- [生命周期](#生命周期)
+- [版本说明](# 版本说明)
+- [生命周期](# 生命周期)
+  - [初始化 Bean 详细流程](# 初始化 - bean - 详细流程)
+    - [invokeAwareMethods](#invokeawaremethods)
+    - [applyBeanPostProcessorsBeforeInitialization](#applybeanpostprocessorsbeforeinitialization)
+    - [invokeInitMethods](#invokeinitmethods)
+    - [applyBeanPostProcessorsAfterInitialization](#applybeanpostprocessorsafterinitialization)
   - [BeanFactory](#beanfactory)
-- [循环依赖](#循环依赖)
-  - [循环依赖的 3 种类型](#循环依赖的-3-种类型)
-    - [构造器循环依赖](#构造器循环依赖)
-    - [setter/field 循环依赖](#setterfield-循环依赖)
-    - [prototype 范围的依赖处理](#prototype-范围的依赖处理)
-  - [Spring 如何解决循环依赖？](#spring-如何解决循环依赖)
-    - [三级缓存](#三级缓存)
-    - [源码分析](#源码分析-1)
-  - [Spring Boot 2.6.0 开启循环依赖](#spring-boot-260-开启循环依赖)
-- [GitHub LeetCode 项目](#github-leetcode-项目)
+- [Scope](#scope)
+  - [Scope 使用示例](#scope - 使用示例)
+  - [源码分析](# 源码分析)
+- [循环依赖](# 循环依赖)
+  - [循环依赖的 3 种类型](# 循环依赖的 - 3 - 种类型)
+    - [构造器循环依赖](# 构造器循环依赖)
+    - [setter/field 循环依赖](#setterfield - 循环依赖)
+    - [prototype 范围的依赖处理](#prototype - 范围的依赖处理)
+  - [Spring 如何解决循环依赖？](#spring - 如何解决循环依赖)
+    - [三级缓存](# 三级缓存)
+    - [源码分析](# 源码分析 - 1)
+  - [Spring Boot 2.6.0 开启循环依赖](#spring-boot-260 - 开启循环依赖)
+- [GitHub LeetCode 项目](#github-leetcode - 项目)
 
+# 版本说明
+
+> 💡 本文使用的版本为：
+> - JDK: 17
+>- Spring Boot: 3.1.7
+
+# 生命周期
+
+整体流程：
+
+```mermaid
+graph TD
+    BEGIN[Spring 加载 Bean] --> A[1. 实例化 Bean]
+    A -->B[2. 填充 Bean 属性]
+    B -->C[3. 初始化 Bean]
+    C -->D[4. 销毁 Bean]
+```
+
+几点说明：
+1. 实例化 Bean：此时 Bean 只实例化，并没有进行 @Autowired 属性填充。
+2. 填充 Bean 属性：如果 Bean 的属性有 @Autowired 注解，会进行属性填充。
+3. 初始化 Bean
+4. 销毁 Bean：如果 Bean 实现了 DisposableBean 接口，会调用 destroy 方法。
+
+分析一下 org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory#doCreateBean 方法，主体代码如下：
+
+```java
+protected Object doCreateBean(final String beanName, final RootBeanDefinition mbd, final @Nullable Object[] args)
+        throws BeanCreationException {
+    if (mbd.isSingleton()) {
+        instanceWrapper = this.factoryBeanInstanceCache.remove(beanName);
+    }
+    // 1：默认调用无参构造实例化 Bean
+    // 如果是只有带参数的构造方法，构造方法里的参数依赖注入，就是发生在这一步
+    if (instanceWrapper == null) {
+        instanceWrapper = createBeanInstance(beanName, mbd, args);
+    }
+    // Initialize the bean instance.
+    Object exposedObject = bean;
+    try {
+        // 2：填充属性（DI 依赖注入发生在此步骤）
+        populateBean(beanName, mbd, instanceWrapper);
+        // 3：调用初始化方法，完成 bean 的初始化操作（AOP 的第三个入口）
+        exposedObject = initializeBean(beanName, exposedObject, mbd);
+    }
+    catch (Throwable ex) {
+        // ...
+    }
+    // ...
+```
+
+首先通过一个测试用例，了解 Spring Bean 的生命周期。下面定义了一个 LifeBean：
+
+```java
+@Component
+@Data
+@Slf4j
+public class LifeBean implements BeanNameAware, BeanClassLoaderAware, InitializingBean, DisposableBean {
+    private int i;
+
+    @PostConstruct
+    public void init() {
+        log.info("LifeBean init ...");
+    }
+
+    @Override
+    public void setBeanName(String s) {
+        log.info("LifeBean setBeanName {}", s);
+    }
+
+    @Override
+    public void setBeanClassLoader(ClassLoader classLoader) {
+        log.info("LifeBean setBeanClassLoader {}", classLoader);
+    }
+
+    @Override
+    public void afterPropertiesSet() {
+        log.info("LifeBean afterPropertiesSet i = {}", i);
+    }
+
+    @Override
+    public void destroy() {
+        log.info("LifeBean destroy ...");
+    }
+}
+```
+
+单元测试代码：
+
+```java
+@Test
+public void testLife() {
+    LifeBean bean = context.getBean(LifeBean.class);
+    bean.setI(1);
+}
+```
+
+IDE 增加 debug 断点，并加上 Condition：
+
+```java
+"lifeBean".equalsIgnoreCase(beanName)
+```
+
+![](http://yano.oss-cn-beijing.aliyuncs.com/blog/2024-02-02-16-07-54.png)
+
+log 输出：
+
+```
+LifeBean setBeanName lifeBean
+LifeBean setBeanClassLoader jdk.internal.loader.ClassLoaders$AppClassLoader@55f96302
+LifeBean init ...
+LifeBean afterPropertiesSet i = 0
+LifeBean destroy ...
+```
+
+## 初始化 Bean 详细流程
+
+![](http://yano.oss-cn-beijing.aliyuncs.com/blog/2024-02-02-16-46-24.png)
+
+### invokeAwareMethods
+
+```java
+private void invokeAwareMethods(String beanName, Object bean) {
+    if (bean instanceof Aware) {
+
+        // 1. setBeanName
+        if (bean instanceof BeanNameAware beanNameAware) {
+            beanNameAware.setBeanName(beanName);
+        }
+
+        // 2. setBeanClassLoader
+        if (bean instanceof BeanClassLoaderAware beanClassLoaderAware) {
+            ClassLoader bcl = getBeanClassLoader();
+            if (bcl != null) {
+                beanClassLoaderAware.setBeanClassLoader(bcl);
+            }
+        }
+
+        // 3. setBeanFactory
+        if (bean instanceof BeanFactoryAware beanFactoryAware) {
+            beanFactoryAware.setBeanFactory(AbstractAutowireCapableBeanFactory.this);
+        }
+    }
+}
+```
+
+### applyBeanPostProcessorsBeforeInitialization
+
+```java
+@Override
+public Object applyBeanPostProcessorsBeforeInitialization(Object existingBean, String beanName)
+        throws BeansException {
+
+    Object result = existingBean;
+    for (BeanPostProcessor processor : getBeanPostProcessors()) {
+        Object current = processor.postProcessBeforeInitialization(result, beanName);
+        if (current == null) {
+            return result;
+        }
+        result = current;
+    }
+    return result;
+}
+```
+
+### invokeInitMethods
+
+```java
+protected void invokeInitMethods(String beanName, Object bean, @Nullable RootBeanDefinition mbd)
+        throws Throwable {
+
+    boolean isInitializingBean = (bean instanceof InitializingBean);
+
+    // 1. afterPropertiesSet
+    if (isInitializingBean && (mbd == null || !mbd.hasAnyExternallyManagedInitMethod("afterPropertiesSet"))) {
+        if (logger.isTraceEnabled()) {
+            logger.trace("Invoking afterPropertiesSet() on bean with name'" + beanName + "'");
+        }
+        ((InitializingBean) bean).afterPropertiesSet();
+    }
+
+    // 2. 指定 init-method 方法
+    if (mbd != null && bean.getClass() != NullBean.class) {
+        String[] initMethodNames = mbd.getInitMethodNames();
+        if (initMethodNames != null) {
+            for (String initMethodName : initMethodNames) {
+                if (StringUtils.hasLength(initMethodName) &&
+                        !(isInitializingBean && "afterPropertiesSet".equals(initMethodName)) &&
+                        !mbd.hasAnyExternallyManagedInitMethod(initMethodName)) {
+                    invokeCustomInitMethod(beanName, bean, mbd, initMethodName);
+                }
+            }
+        }
+    }
+}
+```
+
+### applyBeanPostProcessorsAfterInitialization
+
+```java
+@Override
+public Object applyBeanPostProcessorsAfterInitialization(Object existingBean, String beanName)
+        throws BeansException {
+
+    Object result = existingBean;
+    for (BeanPostProcessor processor : getBeanPostProcessors()) {
+        Object current = processor.postProcessAfterInitialization(result, beanName);
+        if (current == null) {
+            return result;
+        }
+        result = current;
+    }
+    return result;
+}
+```
+
+## BeanFactory
+
+BeanFactory 接口文件上的注释如下。里面包含了 bean 的生命周期以及对应的顺序。
+
+![](http://yano.oss-cn-beijing.aliyuncs.com/blog/20210513182455.png?x-oss-process=style/yano)
+
+[Spring 官方文档：Customizing the Nature of a Bean](https://docs.spring.io/spring-framework/docs/current/reference/html/core.html#beans-factory-nature)
+
+![](http://yano.oss-cn-beijing.aliyuncs.com/blog/20210513183117.png?x-oss-process=style/yano)
 
 # Scope
 
 [Spring 官方文档 #Bean Scopes](https://docs.spring.io/spring-framework/docs/current/reference/html/core.html#beans-factory-scopes)
 
+
 ![](http://yano.oss-cn-beijing.aliyuncs.com/blog/20210513153755.png?x-oss-process=style/yano)
 
-官网文档是最权威的，Spring Framework 支持 6 种 Scope，其中 4 种仅在 web-aware ApplicationContext 中才可以使用，剩下的两种是：
-1. `singleton`：每个 Spring IoC 容器中仅有一个实例（单例）。
+通过官方文档可以看到，一共有 6 种类型的 Scope：
+
+1. `singleton`：（` 默认 `）每个 Spring IoC 容器中仅有一个实例（单例）。
 2. `prototype`：每次注入都会新建一个对象，Spring IoC 容器并不会缓存 prototype 的 bean。
+3. `request`：仅在 web-aware 时生效，每次 `HTTP` 请求都会新建一个对象。
+4. `session`：仅在 web-aware 时生效，每次 `HTTP Session` 都会新建一个对象。
+5. `application`：仅在 web-aware 时生效，每次 `ServletContext` 都会新建一个对象。
+6. `websocket`：仅在 web-aware 时生效，每次 `WebSocket` 都会新建一个对象。
 
 ```java
 public interface BeanDefinition extends AttributeAccessor, BeanMetadataElement {
@@ -49,7 +283,7 @@ public interface BeanDefinition extends AttributeAccessor, BeanMetadataElement {
 	String SCOPE_PROTOTYPE = ConfigurableBeanFactory.SCOPE_PROTOTYPE;
 ```
 
-## Scope 测试
+## Scope 使用示例
 
 SingletonBean 是一个 Singleton Scope 的 bean，里面的 Scope 注解不设置也可以，默认是 Singleton 的。
 
@@ -68,8 +302,6 @@ public class SingletonBean {
 }
 ```
 
-![](http://yano.oss-cn-beijing.aliyuncs.com/blog/20210513155241.png?x-oss-process=style/yano)
-
 ProtoTypeBean 是一个 Prototype Scope 的 bean。
 
 ```java
@@ -86,8 +318,6 @@ public class ProtoTypeBean {
     }
 }
 ```
-
-![](http://yano.oss-cn-beijing.aliyuncs.com/blog/20210513155254.png?x-oss-process=style/yano)
 
 测试代码中对于每个 bean，分别从容器中获取 2 次，看 log 输出。
 
@@ -111,7 +341,7 @@ public class BeanTest {
 }
 ```
 
-最终输出了 1 次 SingletonBean，2 次 ProtoTypeBean。
+最终输出了 1 次 SingletonBean，2 次 ProtoTypeBean，说明 SingletonBean 是单例的，ProtoTypeBean 是每次注入都会新建一个对象。
 
 ```
 SingletonBean init ...
@@ -188,74 +418,6 @@ protected Set<BeanDefinitionHolder> doScan(String... basePackages) {
 ```
 
 关于 Spring IoC 容器的详细分析，见 [最简 Spring IOC 容器源码分析](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/2019-09-24%20%E6%9C%80%E7%AE%80%20Spring%20IOC%20%E5%AE%B9%E5%99%A8%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90.md)
-
-# 生命周期
-
-首先通过一个测试用例，了解 Spring Bean 的生命周期。下面定义了一个 LifeBean：
-
-```java
-@Component
-@Data
-@Slf4j
-public class LifeBean implements BeanNameAware, BeanClassLoaderAware, InitializingBean, DisposableBean {
-    private int i;
-
-    @PostConstruct
-    public void init() {
-        log.info("LifeBean init ...");
-    }
-
-    @Override
-    public void setBeanName(String s) {
-        log.info("LifeBean setBeanName {}", s);
-    }
-
-    @Override
-    public void setBeanClassLoader(ClassLoader classLoader) {
-        log.info("LifeBean setBeanClassLoader {}", classLoader);
-    }
-
-    @Override
-    public void afterPropertiesSet() {
-        log.info("LifeBean afterPropertiesSet i = {}", i);
-    }
-
-    @Override
-    public void destroy() {
-        log.info("LifeBean destroy ...");
-    }
-}
-```
-
-单元测试代码：
-
-```java
-@Test
-public void testLife() {
-    LifeBean bean = context.getBean(LifeBean.class);
-    bean.setI(1);
-}
-```
-
-log 输出：
-
-```
-LifeBean setBeanName lifeBean
-LifeBean setBeanClassLoader jdk.internal.loader.ClassLoaders$AppClassLoader@55f96302
-LifeBean init ...
-LifeBean afterPropertiesSet i = 0
-LifeBean destroy ...
-```
-
-## BeanFactory
-
-BeanFactory 接口文件上的注释如下。里面包含了 bean 的生命周期以及对应的顺序。
-
-![](http://yano.oss-cn-beijing.aliyuncs.com/blog/20210513182455.png?x-oss-process=style/yano)
-
-[Spring 官方文档：Customizing the Nature of a Bean](https://docs.spring.io/spring-framework/docs/current/reference/html/core.html#beans-factory-nature)
-
-![](http://yano.oss-cn-beijing.aliyuncs.com/blog/20210513183117.png?x-oss-process=style/yano)
 
 
 # 循环依赖
@@ -434,6 +596,10 @@ private final Map<String, Object> earlySingletonObjects = new ConcurrentHashMap<
 private final Map<String, ObjectFactory<?>> singletonFactories = new HashMap<>(16);
 
 ```
+
+- ` 一级缓存 singletonObjects`: 主要存放的是已经完成实例化、属性填充和初始化所有步骤的单例 Bean 实例，这样的 Bean 能够直接提供给用户使用，我们称之为终态 Bean 或叫成熟 Bean。
+- ` 二级缓存 earlySingletonObjects`: 主要存放的`已经完成初始化但属性还没自动赋值`的 Bean，这些 Bean 还不能提供用户使用，只是用于提前暴露的 Bean 实例，我们把这样的 Bean 称之为临时 Bean 或早期的 Bean（半成品 Bean）
+- ` 三级缓存 singletonFactories`: 存放的是 ObjectFactory 的匿名内部类实例，调用 ObjectFactory.getObject() 最终会调用 getEarlyBeanReference 方法，该方法可以获取提前暴露的单例 bean 引用。
 
 ### 源码分析
 
