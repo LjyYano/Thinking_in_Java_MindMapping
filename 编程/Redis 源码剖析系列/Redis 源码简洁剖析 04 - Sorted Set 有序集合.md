@@ -2,18 +2,15 @@
 date: 2022-01-29
 ---
 
-
-- [Sorted Set 是什么](#sorted-set-是什么)
-- [Sorted Set 命令及实现方法](#sorted-set-命令及实现方法)
-- [Sorted Set 数据结构](#sorted-set-数据结构)
+- [Sorted set 是什么](#sorted-set-是什么)
+- [Sorted set 数据结构](#sorted-set-数据结构)
 - [跳表（skiplist）](#跳表skiplist)
-  - [跳表节点的结构定义](#跳表节点的结构定义)
-  - [跳表的定义](#跳表的定义)
+  - [结构定义](#结构定义)
   - [跳表节点查询](#跳表节点查询)
   - [层数设置](#层数设置)
-  - [跳表插入节点 zslInsert](#跳表插入节点-zslinsert)
-  - [跳表删除节点 zslDelete](#跳表删除节点-zsldelete)
-- [Sorted Set 基本操作](#sorted-set-基本操作)
+  - [插入节点 zslInsert](#插入节点-zslinsert)
+  - [删除节点 zslDelete](#删除节点-zsldelete)
+- [Sorted set 基本操作](#sorted-set-基本操作)
   - [zsetAdd](#zsetadd)
     - [ziplist 编码](#ziplist-编码)
     - [skiplist 编码](#skiplist-编码)
@@ -23,25 +20,24 @@ date: 2022-01-29
 - [Redis 源码简洁剖析系列](#redis-源码简洁剖析系列)
 - [我的公众号](#我的公众号)
 
-# Sorted Set 是什么
 
-`有序集合（Sorted Set）`是 Redis 中一种重要的数据类型，它本身是集合类型，同时也可以支持集合中的元素带有权重，并按权重排序。
+# Sorted set 是什么
 
-- ZRANGEBYSCORE：按照元素权重返回一个范围内的元素
-- ZSCORE：返回某个元素的权重值
+` 有序集合（Sorted set）` 是 Redis 中一种重要的数据类型，是一种 ` 概率平衡 ` 的数据结构，它允许快速的搜索、插入和删除操作，同时保持元素有序。
 
-# Sorted Set 命令及实现方法
+👉 [Sorted set 命令集合](https://redis.io/commands/?group=sorted-set)
 
-![](http://yano.oss-cn-beijing.aliyuncs.com/blog/20220129113802.png)
+- `ZRANGEBYSCORE`：按照元素权重返回一个范围内的元素
+- `ZSCORE`：返回某个元素的权重值
 
-# Sorted Set 数据结构
+# Sorted set 数据结构
+
+代码实现：
 
 - 结构定义：`server.h`
 - 实现：`t_zset.c`
 
-结构定义是 zset，里面包含`哈希表 dict` 和`跳表 zsl`。zset 充分利用了：
-- 哈希表的高效单点查询特性（ZSCORE）
-- 跳表的高效范围查询（ZRANGEBYSCORE）
+结构定义：
 
 ```c
 typedef struct zset {
@@ -50,13 +46,30 @@ typedef struct zset {
 } zset;
 ```
 
+结构定义是 `zset`，里面包含：
+- ` 哈希表 dict` ：高效单点查询特性（ZSCORE）
+- ` 跳表 zsl`：高效范围查询（ZRANGEBYSCORE）
+
 # 跳表（skiplist）
 
-多层的有序链表。下面展示的是 3 层的跳表，头节点是一个 level 数组，作为 level0~level2 的头指针。
+` 多层 ` 的 ` 有序链表 `。下面展示的是 3 层的跳表，头节点是一个 level 数组，作为 level0~level2 的头指针。
 
 ![](http://yano.oss-cn-beijing.aliyuncs.com/blog/20220129140348.png)
 
-## 跳表节点的结构定义
+## 结构定义
+
+zskiplist 结构定义：
+
+```c
+typedef struct zskiplist {
+    // 头节点和尾节点
+    struct zskiplistNode *header, *tail;
+    unsigned long length;
+    int level;
+} zskiplist;
+```
+
+zskiplistNode 结构定义：
 
 ```c
 typedef struct zskiplistNode {
@@ -76,16 +89,19 @@ typedef struct zskiplistNode {
 } zskiplistNode;
 ```
 
-## 跳表的定义
+zskiplistNode 是 Redis 中用于实现有序集合（zset）的跳跃表（skiplist）节点的数据结构。
 
-```c
-typedef struct zskiplist {
-    // 头节点和尾节点
-    struct zskiplistNode *header, *tail;
-    unsigned long length;
-    int level;
-} zskiplist;
-```
+让我们逐一解释 zskiplistNode 结构体的组成部分：
+
+- `sds ele;`：这是一个 SDS（Simple Dynamic String）类型的字段，用于存储有序集合中的元素（成员）。SDS 是 Redis 的字符串表示形式，它在传统的 C 字符串 (char*) 基础上提供了更多的功能和安全性，例如动态大小和二进制安全。
+- `double score;`：这是一个 double 类型的字段，用于存储与元素关联的分数值。在 Redis 的有序集合中，每个元素都有一个分数，用于对元素进行排序。这个分数值可以是任意的双精度浮点数。
+- `struct zskiplistNode *backward;`：这是一个指向前一个节点的指针。在跳跃表中，节点通常有多个指向其他节点的指针，这里的 backward 指针用于反向迭代跳跃表。
+- `struct zskiplistLevel {...} level[];`：这是一个嵌套的结构体，它定义了跳跃表节点在每一层的连接信息。由于它是一个柔性数组（flexible array member），它不占用结构体大小计算的空间，并且允许动态地为每个节点分配不同数量的层级。嵌套结构体 zskiplistLevel 包含以下字段：
+  - `struct zskiplistNode *forward;`：这是一个指向下一个节点的指针。在每一层中，forward 指针用于前向迭代跳跃表。
+  - `unsigned long span;`：这是一个无符号长整型字段，用于存储当前节点到 forward 指针指向的下一个节点之间的跨度（间隔）。这个值在跳跃表操作中用于快速计算排名或者位置。
+
+zskiplistNode 结构体的设计使得跳跃表节点可以有多个层级，每个层级都有自己的前向指针和跨度值。这使得跳跃表能够通过对节点层级的随机化处理，平衡搜索路径的长度，从而在平均情况下实现对数级的时间复杂度。跳跃表的这种结构特别适合于实现有序集合，因为它可以在保持元素排序的同时，快速地进行搜索和更新操作。
+
 
 ![](http://yano.oss-cn-beijing.aliyuncs.com/blog/20220129141259.png)
 
@@ -94,17 +110,17 @@ typedef struct zskiplist {
 在查询某个节点时，跳表会从头节点的最高层开始，查找下一个节点：
 - 访问下一个节点
   - 当前节点的元素权重 < 要查找的权重
-  - 当前节点的元素权重 = 要查找的权重，且节点数据<要查找的数据
+  - 当前节点的元素权重 = 要查找的权重，且节点数据 < 要查找的数据
 - 访问当前节点 level 数组的下一层指针
   - 当前节点的元素权重 > 要查找的权重
 
 ```c
-//获取跳表的表头
+// 获取跳表的表头
 x = zsl->header;
-//从最大层数开始逐一遍历
+// 从最大层数开始逐一遍历
 for (i = zsl->level-1; i >= 0; i--) {
    ...
-   while (x->level[i].forward && (x->level[i].forward->score < score || (x->level[i].forward->score == score 
+   while (x->level[i].forward && (x->level[i].forward->score < score || (x->level[i].forward->score == score
     && sdscmp(x->level[i].forward->ele,ele) < 0))) {
       ...
       x = x->level[i].forward;
@@ -118,10 +134,10 @@ for (i = zsl->level-1; i >= 0; i--) {
 几种方法：
 1. 每层的节点数约是下一层节点数的一半。
    - 好处：查找时类似于二分查找，查找复杂度可以减低到 O(logN)
-   - 坏处：每次插入/删除节点，都要调整后续节点层数，带来额外开销
-2. `随机生成每个节点的层数`。Redis 跳表采用了这种方法。
+   - 坏处：每次插入 / 删除节点，都要 ` 调整后续节点层数 `，带来额外开销
+2. ✅ ` 随机生成每个节点的层数 `。Redis 跳表采用了这种方法。
 
-Redis 中，跳表节点层数是由 zslRandomLevel 函数决定。
+Redis 中，跳表节点层数是由 `zslRandomLevel` 函数决定。
 
 ```c
 int zslRandomLevel(void) {
@@ -132,14 +148,14 @@ int zslRandomLevel(void) {
 }
 ```
 
-其中每层增加的概率是 0.25，最大层数是 32。
+其中每层增加的概率是 `0.25`，最大层数是 32。
 
 ```c
 #define ZSKIPLIST_MAXLEVEL 32 /* Should be enough for 2^64 elements */
 #define ZSKIPLIST_P 0.25      /* Skiplist P = 1/4 */
 ```
 
-## 跳表插入节点 zslInsert
+## 插入节点 zslInsert
 
 ```c
 zskiplistNode *zslInsert(zskiplist *zsl, double score, sds ele) {
@@ -153,7 +169,7 @@ zskiplistNode *zslInsert(zskiplist *zsl, double score, sds ele) {
     for (i = zsl->level-1; i >= 0; i--) {
         // 每层待插入的位置
         rank[i] = i == (zsl->level-1) ? 0 : rank[i+1];
-        // forward.score < 待插入 score || (forward.score < 待插入 score && forward.ele < ele)
+        // forward.score <待插入 score || (forward.score < 待插入 score && forward.ele < ele)
         while (x->level[i].forward &&
                (x->level[i].forward->score < score ||
                 (x->level[i].forward->score == score &&
@@ -169,7 +185,7 @@ zskiplistNode *zslInsert(zskiplist *zsl, double score, sds ele) {
     level = zslRandomLevel();
 
     // 如果待插入节点的随机层数 > 跳表当前的层数
-    if (level > zsl->level) {
+    if (level> zsl->level) {
         // 增加对应的层数
         for (i = zsl->level; i < level; i++) {
             rank[i] = 0;
@@ -204,7 +220,29 @@ zskiplistNode *zslInsert(zskiplist *zsl, double score, sds ele) {
 }
 ```
 
-## 跳表删除节点 zslDelete
+流程简述：
+
+1. 初始化：分配 `update` 和 `rank` 数组，用于记录插入路径和跨度。
+2. 参数校验：校验待插入的分数值 `score`。
+3. 查找插入位置：
+   - 从跳跃表的顶层开始向下查找每一层级的插入点。
+   - 更新 `update` 和 `rank` 记录，为之后插入新节点做准备。
+4. 生成层高：通过 `zslRandomLevel` 函数生成新节点的随机层高 `level`。
+5. 调整跳跃表层高：
+   - 如果新节点的层高超过跳跃表的当前层高，更新跳跃表的层高，并调整 `update` 和 `rank`。
+6. 创建新节点：调用 `zslCreateNode` 根据随机层高 `level`、分数 `score` 和元素 `ele` 创建新节点 `x`。
+7. 连接新节点：
+   - 将新节点 `x` 插入到跳跃表的各个层级中。
+   - 更新 `forward` 指针和 `span` 记录。
+8. 更新跨度和后继节点：
+   - 新节点以上层级的 `span` 加一。
+   - 配置新节点的 `backward` 指针和尾节点。
+9. 更新跳跃表信息：递增跳跃表的 `length` 记录长度增加。
+10. 返回新节点：返回新创建的节点 `x`。
+
+## 删除节点 zslDelete
+
+`zslDeleteNode` 函数用于从 Redis 的跳跃表（skiplist）中删除一个节点，同时更新相关的节点指针和跨度（span）信息。
 
 ```c
 int zslDelete(zskiplist *zsl, double score, sds ele, zskiplistNode **node) {
@@ -238,8 +276,18 @@ int zslDelete(zskiplist *zsl, double score, sds ele, zskiplistNode **node) {
     return 0; /* not found */
 }
 ```
+流程简述：
 
-# Sorted Set 基本操作
+1. 初始化：遍历跳跃表的所有层级。
+2. 遍历更新：对于每个层级，检查当前层级的前向指针是否指向待删除节点 `x`：
+   - 是，更新前向指针和跨度（span）。
+   - 否，减少对应层级的跨度（span）。
+3. 更新后向指针：如果待删除的节点 `x` 有后继节点，将后继节点的后向指针指向 `x` 的前驱节点。
+4. 更新跳跃表尾部：如果待删除的节点 `x` 是跳跃表的尾节点，将跳跃表尾部指针更新为 `x` 的前驱节点。
+5. 修剪跳跃表层级：如果跳跃表的最高层级无节点，则减少跳跃表的层级。
+6. 更新跳跃表长度：减少跳跃表的节点计数。
+
+# Sorted set 基本操作
 
 首先看下如何创建跳表，代码在 object.c 中，可以看到会调用 dictCreate 函数创建哈希表，之后调用 zslCreate 函数创建跳表。
 
@@ -413,7 +461,7 @@ int zsetAdd(robj *zobj, double score, sds ele, int in_flags, int *out_flags, dou
             }
 
             /* GT/LT? Only update if score is greater/less than current. */
-            if ((lt && score >= curscore) || (gt && score <= curscore)) {
+            if ((lt && score>= curscore) || (gt && score <= curscore)) {
                 *out_flags |= ZADD_OUT_NOP;
                 return 1;
             }
@@ -485,7 +533,7 @@ int zsetAdd(robj *zobj, double score, sds ele, int in_flags, int *out_flags, dou
             }
 
             /* GT/LT? Only update if score is greater/less than current. */
-            if ((lt && score >= curscore) || (gt && score <= curscore)) {
+            if ((lt && score>= curscore) || (gt && score <= curscore)) {
                 *out_flags |= ZADD_OUT_NOP;
                 return 1;
             }
@@ -588,32 +636,32 @@ static int zsetRemoveFromSkiplist(zset *zs, sds ele) {
 # Redis 源码简洁剖析系列
 
 - [Redis 7.0.md](https://github.com/LjyYano/Thinking_in_Java_MindMapping/tree/master/%E7%BC%96%E7%A8%8B/Redis%20%E6%BA%90%E7%A0%81%E5%89%96%E6%9E%90%E7%B3%BB%E5%88%97/Redis%207.0.md)
-- [Redis 源码简洁剖析 01 - 环境配置.md](https://github.com/LjyYano/Thinking_in_Java_MindMapping/tree/master/%E7%BC%96%E7%A8%8B/Redis%20%E6%BA%90%E7%A0%81%E5%89%96%E6%9E%90%E7%B3%BB%E5%88%97/Redis%20%E6%BA%90%E7%A0%81%E7%AE%80%E6%B4%81%E5%89%96%E6%9E%90%2001%20-%20%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE.md)
-- [Redis 源码简洁剖析 02 - SDS 字符串.md](https://github.com/LjyYano/Thinking_in_Java_MindMapping/tree/master/%E7%BC%96%E7%A8%8B/Redis%20%E6%BA%90%E7%A0%81%E5%89%96%E6%9E%90%E7%B3%BB%E5%88%97/Redis%20%E6%BA%90%E7%A0%81%E7%AE%80%E6%B4%81%E5%89%96%E6%9E%90%2002%20-%20SDS%20%E5%AD%97%E7%AC%A6%E4%B8%B2.md)
-- [Redis 源码简洁剖析 03 - Dict Hash 基础.md](https://github.com/LjyYano/Thinking_in_Java_MindMapping/tree/master/%E7%BC%96%E7%A8%8B/Redis%20%E6%BA%90%E7%A0%81%E5%89%96%E6%9E%90%E7%B3%BB%E5%88%97/Redis%20%E6%BA%90%E7%A0%81%E7%AE%80%E6%B4%81%E5%89%96%E6%9E%90%2003%20-%20Dict%20Hash%20%E5%9F%BA%E7%A1%80.md)
-- [Redis 源码简洁剖析 04 - Sorted Set 有序集合.md](https://github.com/LjyYano/Thinking_in_Java_MindMapping/tree/master/%E7%BC%96%E7%A8%8B/Redis%20%E6%BA%90%E7%A0%81%E5%89%96%E6%9E%90%E7%B3%BB%E5%88%97/Redis%20%E6%BA%90%E7%A0%81%E7%AE%80%E6%B4%81%E5%89%96%E6%9E%90%2004%20-%20Sorted%20Set%20%E6%9C%89%E5%BA%8F%E9%9B%86%E5%90%88.md)
-- [Redis 源码简洁剖析 05 - ziplist 压缩列表.md](https://github.com/LjyYano/Thinking_in_Java_MindMapping/tree/master/%E7%BC%96%E7%A8%8B/Redis%20%E6%BA%90%E7%A0%81%E5%89%96%E6%9E%90%E7%B3%BB%E5%88%97/Redis%20%E6%BA%90%E7%A0%81%E7%AE%80%E6%B4%81%E5%89%96%E6%9E%90%2005%20-%20ziplist%20%E5%8E%8B%E7%BC%A9%E5%88%97%E8%A1%A8.md)
+- [Redis 源码简洁剖析 01 - 环境配置. md](https://github.com/LjyYano/Thinking_in_Java_MindMapping/tree/master/%E7%BC%96%E7%A8%8B/Redis%20%E6%BA%90%E7%A0%81%E5%89%96%E6%9E%90%E7%B3%BB%E5%88%97/Redis%20%E6%BA%90%E7%A0%81%E7%AE%80%E6%B4%81%E5%89%96%E6%9E%90%2001%20-%20%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE.md)
+- [Redis 源码简洁剖析 02 - SDS 字符串. md](https://github.com/LjyYano/Thinking_in_Java_MindMapping/tree/master/%E7%BC%96%E7%A8%8B/Redis%20%E6%BA%90%E7%A0%81%E5%89%96%E6%9E%90%E7%B3%BB%E5%88%97/Redis%20%E6%BA%90%E7%A0%81%E7%AE%80%E6%B4%81%E5%89%96%E6%9E%90%2002%20-%20SDS%20%E5%AD%97%E7%AC%A6%E4%B8%B2.md)
+- [Redis 源码简洁剖析 03 - Dict Hash 基础. md](https://github.com/LjyYano/Thinking_in_Java_MindMapping/tree/master/%E7%BC%96%E7%A8%8B/Redis%20%E6%BA%90%E7%A0%81%E5%89%96%E6%9E%90%E7%B3%BB%E5%88%97/Redis%20%E6%BA%90%E7%A0%81%E7%AE%80%E6%B4%81%E5%89%96%E6%9E%90%2003%20-%20Dict%20Hash%20%E5%9F%BA%E7%A1%80.md)
+- [Redis 源码简洁剖析 04 - Sorted set 有序集合. md](https://github.com/LjyYano/Thinking_in_Java_MindMapping/tree/master/%E7%BC%96%E7%A8%8B/Redis%20%E6%BA%90%E7%A0%81%E5%89%96%E6%9E%90%E7%B3%BB%E5%88%97/Redis%20%E6%BA%90%E7%A0%81%E7%AE%80%E6%B4%81%E5%89%96%E6%9E%90%2004%20-%20Sorted%20Set%20%E6%9C%89%E5%BA%8F%E9%9B%86%E5%90%88.md)
+- [Redis 源码简洁剖析 05 - ziplist 压缩列表. md](https://github.com/LjyYano/Thinking_in_Java_MindMapping/tree/master/%E7%BC%96%E7%A8%8B/Redis%20%E6%BA%90%E7%A0%81%E5%89%96%E6%9E%90%E7%B3%BB%E5%88%97/Redis%20%E6%BA%90%E7%A0%81%E7%AE%80%E6%B4%81%E5%89%96%E6%9E%90%2005%20-%20ziplist%20%E5%8E%8B%E7%BC%A9%E5%88%97%E8%A1%A8.md)
 - [Redis 源码简洁剖析 06 - quicklist 和 listpack.md](https://github.com/LjyYano/Thinking_in_Java_MindMapping/tree/master/%E7%BC%96%E7%A8%8B/Redis%20%E6%BA%90%E7%A0%81%E5%89%96%E6%9E%90%E7%B3%BB%E5%88%97/Redis%20%E6%BA%90%E7%A0%81%E7%AE%80%E6%B4%81%E5%89%96%E6%9E%90%2006%20-%20quicklist%20%E5%92%8C%20listpack.md)
-- [Redis 源码简洁剖析 07 - main 函数启动.md](https://github.com/LjyYano/Thinking_in_Java_MindMapping/tree/master/%E7%BC%96%E7%A8%8B/Redis%20%E6%BA%90%E7%A0%81%E5%89%96%E6%9E%90%E7%B3%BB%E5%88%97/Redis%20%E6%BA%90%E7%A0%81%E7%AE%80%E6%B4%81%E5%89%96%E6%9E%90%2007%20-%20main%20%E5%87%BD%E6%95%B0%E5%90%AF%E5%8A%A8.md)
+- [Redis 源码简洁剖析 07 - main 函数启动. md](https://github.com/LjyYano/Thinking_in_Java_MindMapping/tree/master/%E7%BC%96%E7%A8%8B/Redis%20%E6%BA%90%E7%A0%81%E5%89%96%E6%9E%90%E7%B3%BB%E5%88%97/Redis%20%E6%BA%90%E7%A0%81%E7%AE%80%E6%B4%81%E5%89%96%E6%9E%90%2007%20-%20main%20%E5%87%BD%E6%95%B0%E5%90%AF%E5%8A%A8.md)
 - [Redis 源码简洁剖析 08 - epoll.md](https://github.com/LjyYano/Thinking_in_Java_MindMapping/tree/master/%E7%BC%96%E7%A8%8B/Redis%20%E6%BA%90%E7%A0%81%E5%89%96%E6%9E%90%E7%B3%BB%E5%88%97/Redis%20%E6%BA%90%E7%A0%81%E7%AE%80%E6%B4%81%E5%89%96%E6%9E%90%2008%20-%20epoll.md)
-- [Redis 源码简洁剖析 09 - Reactor 模型.md](https://github.com/LjyYano/Thinking_in_Java_MindMapping/tree/master/%E7%BC%96%E7%A8%8B/Redis%20%E6%BA%90%E7%A0%81%E5%89%96%E6%9E%90%E7%B3%BB%E5%88%97/Redis%20%E6%BA%90%E7%A0%81%E7%AE%80%E6%B4%81%E5%89%96%E6%9E%90%2009%20-%20Reactor%20%E6%A8%A1%E5%9E%8B.md)
-- [Redis 源码简洁剖析 10 - aeEventLoop 及事件.md](https://github.com/LjyYano/Thinking_in_Java_MindMapping/tree/master/%E7%BC%96%E7%A8%8B/Redis%20%E6%BA%90%E7%A0%81%E5%89%96%E6%9E%90%E7%B3%BB%E5%88%97/Redis%20%E6%BA%90%E7%A0%81%E7%AE%80%E6%B4%81%E5%89%96%E6%9E%90%2010%20-%20aeEventLoop%20%E5%8F%8A%E4%BA%8B%E4%BB%B6.md)
-- [Redis 源码简洁剖析 11 - 主 IO 线程及 Redis 6.0 多 IO 线程.md](https://github.com/LjyYano/Thinking_in_Java_MindMapping/tree/master/%E7%BC%96%E7%A8%8B/Redis%20%E6%BA%90%E7%A0%81%E5%89%96%E6%9E%90%E7%B3%BB%E5%88%97/Redis%20%E6%BA%90%E7%A0%81%E7%AE%80%E6%B4%81%E5%89%96%E6%9E%90%2011%20-%20%E4%B8%BB%20IO%20%E7%BA%BF%E7%A8%8B%E5%8F%8A%20Redis%206.0%20%E5%A4%9A%20IO%20%E7%BA%BF%E7%A8%8B.md)
-- [Redis 源码简洁剖析 12 - 一条命令的处理过程.md](https://github.com/LjyYano/Thinking_in_Java_MindMapping/tree/master/%E7%BC%96%E7%A8%8B/Redis%20%E6%BA%90%E7%A0%81%E5%89%96%E6%9E%90%E7%B3%BB%E5%88%97/Redis%20%E6%BA%90%E7%A0%81%E7%AE%80%E6%B4%81%E5%89%96%E6%9E%90%2012%20-%20%E4%B8%80%E6%9D%A1%E5%91%BD%E4%BB%A4%E7%9A%84%E5%A4%84%E7%90%86%E8%BF%87%E7%A8%8B.md)
-- [Redis 源码简洁剖析 13 - RDB 文件.md](https://github.com/LjyYano/Thinking_in_Java_MindMapping/tree/master/%E7%BC%96%E7%A8%8B/Redis%20%E6%BA%90%E7%A0%81%E5%89%96%E6%9E%90%E7%B3%BB%E5%88%97/Redis%20%E6%BA%90%E7%A0%81%E7%AE%80%E6%B4%81%E5%89%96%E6%9E%90%2013%20-%20RDB%20%E6%96%87%E4%BB%B6.md)
-- [Redis 源码简洁剖析 14 - Redis 持久化.md](https://github.com/LjyYano/Thinking_in_Java_MindMapping/tree/master/%E7%BC%96%E7%A8%8B/Redis%20%E6%BA%90%E7%A0%81%E5%89%96%E6%9E%90%E7%B3%BB%E5%88%97/Redis%20%E6%BA%90%E7%A0%81%E7%AE%80%E6%B4%81%E5%89%96%E6%9E%90%2014%20-%20Redis%20%E6%8C%81%E4%B9%85%E5%8C%96.md)
+- [Redis 源码简洁剖析 09 - Reactor 模型. md](https://github.com/LjyYano/Thinking_in_Java_MindMapping/tree/master/%E7%BC%96%E7%A8%8B/Redis%20%E6%BA%90%E7%A0%81%E5%89%96%E6%9E%90%E7%B3%BB%E5%88%97/Redis%20%E6%BA%90%E7%A0%81%E7%AE%80%E6%B4%81%E5%89%96%E6%9E%90%2009%20-%20Reactor%20%E6%A8%A1%E5%9E%8B.md)
+- [Redis 源码简洁剖析 10 - aeEventLoop 及事件. md](https://github.com/LjyYano/Thinking_in_Java_MindMapping/tree/master/%E7%BC%96%E7%A8%8B/Redis%20%E6%BA%90%E7%A0%81%E5%89%96%E6%9E%90%E7%B3%BB%E5%88%97/Redis%20%E6%BA%90%E7%A0%81%E7%AE%80%E6%B4%81%E5%89%96%E6%9E%90%2010%20-%20aeEventLoop%20%E5%8F%8A%E4%BA%8B%E4%BB%B6.md)
+- [Redis 源码简洁剖析 11 - 主 IO 线程及 Redis 6.0 多 IO 线程. md](https://github.com/LjyYano/Thinking_in_Java_MindMapping/tree/master/%E7%BC%96%E7%A8%8B/Redis%20%E6%BA%90%E7%A0%81%E5%89%96%E6%9E%90%E7%B3%BB%E5%88%97/Redis%20%E6%BA%90%E7%A0%81%E7%AE%80%E6%B4%81%E5%89%96%E6%9E%90%2011%20-%20%E4%B8%BB%20IO%20%E7%BA%BF%E7%A8%8B%E5%8F%8A%20Redis%206.0%20%E5%A4%9A%20IO%20%E7%BA%BF%E7%A8%8B.md)
+- [Redis 源码简洁剖析 12 - 一条命令的处理过程. md](https://github.com/LjyYano/Thinking_in_Java_MindMapping/tree/master/%E7%BC%96%E7%A8%8B/Redis%20%E6%BA%90%E7%A0%81%E5%89%96%E6%9E%90%E7%B3%BB%E5%88%97/Redis%20%E6%BA%90%E7%A0%81%E7%AE%80%E6%B4%81%E5%89%96%E6%9E%90%2012%20-%20%E4%B8%80%E6%9D%A1%E5%91%BD%E4%BB%A4%E7%9A%84%E5%A4%84%E7%90%86%E8%BF%87%E7%A8%8B.md)
+- [Redis 源码简洁剖析 13 - RDB 文件. md](https://github.com/LjyYano/Thinking_in_Java_MindMapping/tree/master/%E7%BC%96%E7%A8%8B/Redis%20%E6%BA%90%E7%A0%81%E5%89%96%E6%9E%90%E7%B3%BB%E5%88%97/Redis%20%E6%BA%90%E7%A0%81%E7%AE%80%E6%B4%81%E5%89%96%E6%9E%90%2013%20-%20RDB%20%E6%96%87%E4%BB%B6.md)
+- [Redis 源码简洁剖析 14 - Redis 持久化. md](https://github.com/LjyYano/Thinking_in_Java_MindMapping/tree/master/%E7%BC%96%E7%A8%8B/Redis%20%E6%BA%90%E7%A0%81%E5%89%96%E6%9E%90%E7%B3%BB%E5%88%97/Redis%20%E6%BA%90%E7%A0%81%E7%AE%80%E6%B4%81%E5%89%96%E6%9E%90%2014%20-%20Redis%20%E6%8C%81%E4%B9%85%E5%8C%96.md)
 - [Redis 源码简洁剖析 15 - AOF.md](https://github.com/LjyYano/Thinking_in_Java_MindMapping/tree/master/%E7%BC%96%E7%A8%8B/Redis%20%E6%BA%90%E7%A0%81%E5%89%96%E6%9E%90%E7%B3%BB%E5%88%97/Redis%20%E6%BA%90%E7%A0%81%E7%AE%80%E6%B4%81%E5%89%96%E6%9E%90%2015%20-%20AOF.md)
-- [Redis 源码简洁剖析 16 - 客户端.md](https://github.com/LjyYano/Thinking_in_Java_MindMapping/tree/master/%E7%BC%96%E7%A8%8B/Redis%20%E6%BA%90%E7%A0%81%E5%89%96%E6%9E%90%E7%B3%BB%E5%88%97/Redis%20%E6%BA%90%E7%A0%81%E7%AE%80%E6%B4%81%E5%89%96%E6%9E%90%2016%20-%20%E5%AE%A2%E6%88%B7%E7%AB%AF.md)
-- [Redis 源码简洁剖析 17 - 服务器.md](https://github.com/LjyYano/Thinking_in_Java_MindMapping/tree/master/%E7%BC%96%E7%A8%8B/Redis%20%E6%BA%90%E7%A0%81%E5%89%96%E6%9E%90%E7%B3%BB%E5%88%97/Redis%20%E6%BA%90%E7%A0%81%E7%AE%80%E6%B4%81%E5%89%96%E6%9E%90%2017%20-%20%E6%9C%8D%E5%8A%A1%E5%99%A8.md)
+- [Redis 源码简洁剖析 16 - 客户端. md](https://github.com/LjyYano/Thinking_in_Java_MindMapping/tree/master/%E7%BC%96%E7%A8%8B/Redis%20%E6%BA%90%E7%A0%81%E5%89%96%E6%9E%90%E7%B3%BB%E5%88%97/Redis%20%E6%BA%90%E7%A0%81%E7%AE%80%E6%B4%81%E5%89%96%E6%9E%90%2016%20-%20%E5%AE%A2%E6%88%B7%E7%AB%AF.md)
+- [Redis 源码简洁剖析 17 - 服务器. md](https://github.com/LjyYano/Thinking_in_Java_MindMapping/tree/master/%E7%BC%96%E7%A8%8B/Redis%20%E6%BA%90%E7%A0%81%E5%89%96%E6%9E%90%E7%B3%BB%E5%88%97/Redis%20%E6%BA%90%E7%A0%81%E7%AE%80%E6%B4%81%E5%89%96%E6%9E%90%2017%20-%20%E6%9C%8D%E5%8A%A1%E5%99%A8.md)
 - [Redis 源码简洁剖析 18 - 复制、哨兵 Sentinel.md](https://github.com/LjyYano/Thinking_in_Java_MindMapping/tree/master/%E7%BC%96%E7%A8%8B/Redis%20%E6%BA%90%E7%A0%81%E5%89%96%E6%9E%90%E7%B3%BB%E5%88%97/Redis%20%E6%BA%90%E7%A0%81%E7%AE%80%E6%B4%81%E5%89%96%E6%9E%90%2018%20-%20%E5%A4%8D%E5%88%B6%E3%80%81%E5%93%A8%E5%85%B5%20Sentinel.md)
 
-[Java 编程思想-最全思维导图-GitHub 下载链接](https://github.com/LjyYano/Thinking_in_Java_MindMapping)，需要的小伙伴可以自取~
+[Java 编程思想 - 最全思维导图 - GitHub 下载链接](https://github.com/LjyYano/Thinking_in_Java_MindMapping)，需要的小伙伴可以自取~
 
 原创不易，希望大家转载时请先联系我，并标注原文链接。
 
 # 我的公众号
 
-coding 笔记、读书笔记、点滴记录，以后的文章也会同步到公众号（Coding Insight）中，大家关注^_^
+coding 笔记、读书笔记、点滴记录，以后的文章也会同步到公众号（Coding Insight）中，大家关注 `^_^`
 
 我的博客地址：[博客主页](https://yano-nankai.notion.site/yano-nankai/Yano-Space-ff42bde7acd1467eb3ae63dc0d4a9f8c)。
 
