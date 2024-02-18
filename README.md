@@ -32,52 +32,55 @@
 ## 随笔
 
 - [2016 年终总结——学生时代的结束、北漂生活的开始.md](https://github.com/LjyYano/Thinking_in_Java_MindMapping/tree/master/%E9%9A%8F%E7%AC%94/2016%20%E5%B9%B4%E7%BB%88%E6%80%BB%E7%BB%93%E2%80%94%E2%80%94%E5%AD%A6%E7%94%9F%E6%97%B6%E4%BB%A3%E7%9A%84%E7%BB%93%E6%9D%9F%E3%80%81%E5%8C%97%E6%BC%82%E7%94%9F%E6%B4%BB%E7%9A%84%E5%BC%80%E5%A7%8B.md)
+- [2016 我的电子学习之路.md](https://github.com/LjyYano/Thinking_in_Java_MindMapping/tree/master/%E9%9A%8F%E7%AC%94/2016%20%E6%88%91%E7%9A%84%E7%94%B5%E5%AD%90%E5%AD%A6%E4%B9%A0%E4%B9%8B%E8%B7%AF.md)
+- [2016 自我管理——从好习惯开始.md](https://github.com/LjyYano/Thinking_in_Java_MindMapping/tree/master/%E9%9A%8F%E7%AC%94/2016%20%E8%87%AA%E6%88%91%E7%AE%A1%E7%90%86%E2%80%94%E2%80%94%E4%BB%8E%E5%A5%BD%E4%B9%A0%E6%83%AF%E5%BC%80%E5%A7%8B.md)
+- [2019 乐高积木感悟.md](https://github.com/LjyYano/Thinking_in_Java_MindMapping/tree/master/%E9%9A%8F%E7%AC%94/2019%20%E4%B9%90%E9%AB%98%E7%A7%AF%E6%9C%A8%E6%84%9F%E6%82%9F.md)
+- [2019 乐高马里奥.md](https://github.com/LjyYano/Thinking_in_Java_MindMapping/tree/master/%E9%9A%8F%E7%AC%94/2019%20%E4%B9%90%E9%AB%98%E9%A9%AC%E9%87%8C%E5%A5%A5.md)
+- [2020 生活、工作总结.md](https://github.com/LjyYano/Thinking_in_Java_MindMapping/tree/master/%E9%9A%8F%E7%AC%94/2020%20%E7%94%9F%E6%B4%BB%E3%80%81%E5%B7%A5%E4%BD%9C%E6%80%BB%E7%BB%93.md)
+- [2020 随笔.md](https://github.com/LjyYano/Thinking_in_Java_MindMapping/tree/master/%E9%9A%8F%E7%AC%94/2020%20%E9%9A%8F%E7%AC%94.md)
 - [2021 随笔.md](https://github.com/LjyYano/Thinking_in_Java_MindMapping/tree/master/%E9%9A%8F%E7%AC%94/2021%20%E9%9A%8F%E7%AC%94.md)
 - [5G 是什么？一篇文章搞定！.md](https://github.com/LjyYano/Thinking_in_Java_MindMapping/tree/master/%E9%9A%8F%E7%AC%94/5G%20%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0%E6%90%9E%E5%AE%9A%EF%BC%81.md)
 - [中文技术文档写作规范.md](https://github.com/LjyYano/Thinking_in_Java_MindMapping/tree/master/%E9%9A%8F%E7%AC%94/%E4%B8%AD%E6%96%87%E6%8A%80%E6%9C%AF%E6%96%87%E6%A1%A3%E5%86%99%E4%BD%9C%E8%A7%84%E8%8C%83.md)
-- [乐高积木感悟.md](https://github.com/LjyYano/Thinking_in_Java_MindMapping/tree/master/%E9%9A%8F%E7%AC%94/%E4%B9%90%E9%AB%98%E7%A7%AF%E6%9C%A8%E6%84%9F%E6%82%9F.md)
-- [乐高马里奥.md](https://github.com/LjyYano/Thinking_in_Java_MindMapping/tree/master/%E9%9A%8F%E7%AC%94/%E4%B9%90%E9%AB%98%E9%A9%AC%E9%87%8C%E5%A5%A5.md)
 - [印象笔记吐槽.md](https://github.com/LjyYano/Thinking_in_Java_MindMapping/tree/master/%E9%9A%8F%E7%AC%94/%E5%8D%B0%E8%B1%A1%E7%AC%94%E8%AE%B0%E5%90%90%E6%A7%BD.md)
 - [吐槽下《MongoDB 实战》（第二版）的翻译.md](https://github.com/LjyYano/Thinking_in_Java_MindMapping/tree/master/%E9%9A%8F%E7%AC%94/%E5%90%90%E6%A7%BD%E4%B8%8B%E3%80%8AMongoDB%20%E5%AE%9E%E6%88%98%E3%80%8B%EF%BC%88%E7%AC%AC%E4%BA%8C%E7%89%88%EF%BC%89%E7%9A%84%E7%BF%BB%E8%AF%91.md)
-- [生活、工作总结.md](https://github.com/LjyYano/Thinking_in_Java_MindMapping/tree/master/%E9%9A%8F%E7%AC%94/%E7%94%9F%E6%B4%BB%E3%80%81%E5%B7%A5%E4%BD%9C%E6%80%BB%E7%BB%93.md)
 - [股票知识记录.md](https://github.com/LjyYano/Thinking_in_Java_MindMapping/tree/master/%E9%9A%8F%E7%AC%94/%E8%82%A1%E7%A5%A8%E7%9F%A5%E8%AF%86%E8%AE%B0%E5%BD%95.md)
-- [随笔.md](https://github.com/LjyYano/Thinking_in_Java_MindMapping/tree/master/%E9%9A%8F%E7%AC%94/%E9%9A%8F%E7%AC%94.md)
-
 
 ## 读书
 
+- [《Effective Java》中学到的思想.md](https://github.com/LjyYano/Thinking_in_Java_MindMapping/tree/master/%E8%AF%BB%E4%B9%A6/%E3%80%8AEffective%20Java%E3%80%8B%E4%B8%AD%E5%AD%A6%E5%88%B0%E7%9A%84%E6%80%9D%E6%83%B3.md)
 - [《UNIX 传奇》.md](https://github.com/LjyYano/Thinking_in_Java_MindMapping/tree/master/%E8%AF%BB%E4%B9%A6/%E3%80%8AUNIX%20%E4%BC%A0%E5%A5%87%E3%80%8B.md)
 - [《你有你的计划，世界另有计划》.md](https://github.com/LjyYano/Thinking_in_Java_MindMapping/tree/master/%E8%AF%BB%E4%B9%A6/%E3%80%8A%E4%BD%A0%E6%9C%89%E4%BD%A0%E7%9A%84%E8%AE%A1%E5%88%92%EF%BC%8C%E4%B8%96%E7%95%8C%E5%8F%A6%E6%9C%89%E8%AE%A1%E5%88%92%E3%80%8B.md)
+- [《十三邀 1：我还是更喜欢失败者》读书笔记.md](https://github.com/LjyYano/Thinking_in_Java_MindMapping/tree/master/%E8%AF%BB%E4%B9%A6/%E3%80%8A%E5%8D%81%E4%B8%89%E9%82%80%201%EF%BC%9A%E6%88%91%E8%BF%98%E6%98%AF%E6%9B%B4%E5%96%9C%E6%AC%A2%E5%A4%B1%E8%B4%A5%E8%80%85%E3%80%8B%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0.md)
 - [《十三邀 2：偶像是生意，是符号，是忍辱负重》.md](https://github.com/LjyYano/Thinking_in_Java_MindMapping/tree/master/%E8%AF%BB%E4%B9%A6/%E3%80%8A%E5%8D%81%E4%B8%89%E9%82%80%202%EF%BC%9A%E5%81%B6%E5%83%8F%E6%98%AF%E7%94%9F%E6%84%8F%EF%BC%8C%E6%98%AF%E7%AC%A6%E5%8F%B7%EF%BC%8C%E6%98%AF%E5%BF%8D%E8%BE%B1%E8%B4%9F%E9%87%8D%E3%80%8B.md)
-- [《十三邀1-我还是更喜欢失败者》读书笔记.md](https://github.com/LjyYano/Thinking_in_Java_MindMapping/tree/master/%E8%AF%BB%E4%B9%A6/%E3%80%8A%E5%8D%81%E4%B8%89%E9%82%801-%E6%88%91%E8%BF%98%E6%98%AF%E6%9B%B4%E5%96%9C%E6%AC%A2%E5%A4%B1%E8%B4%A5%E8%80%85%E3%80%8B%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0.md)
 - [《如何阅读一本书》摘抄.md](https://github.com/LjyYano/Thinking_in_Java_MindMapping/tree/master/%E8%AF%BB%E4%B9%A6/%E3%80%8A%E5%A6%82%E4%BD%95%E9%98%85%E8%AF%BB%E4%B8%80%E6%9C%AC%E4%B9%A6%E3%80%8B%E6%91%98%E6%8A%84.md)
 - [《学会提问：批判性思维入门》.md](https://github.com/LjyYano/Thinking_in_Java_MindMapping/tree/master/%E8%AF%BB%E4%B9%A6/%E3%80%8A%E5%AD%A6%E4%BC%9A%E6%8F%90%E9%97%AE%EF%BC%9A%E6%89%B9%E5%88%A4%E6%80%A7%E6%80%9D%E7%BB%B4%E5%85%A5%E9%97%A8%E3%80%8B.md)
 - [《强风吹拂》摘抄.md](https://github.com/LjyYano/Thinking_in_Java_MindMapping/tree/master/%E8%AF%BB%E4%B9%A6/%E3%80%8A%E5%BC%BA%E9%A3%8E%E5%90%B9%E6%8B%82%E3%80%8B%E6%91%98%E6%8A%84.md)
 - [《指数基金投资指南》.md](https://github.com/LjyYano/Thinking_in_Java_MindMapping/tree/master/%E8%AF%BB%E4%B9%A6/%E3%80%8A%E6%8C%87%E6%95%B0%E5%9F%BA%E9%87%91%E6%8A%95%E8%B5%84%E6%8C%87%E5%8D%97%E3%80%8B.md)
 - [《毛泽东传》摘抄.md](https://github.com/LjyYano/Thinking_in_Java_MindMapping/tree/master/%E8%AF%BB%E4%B9%A6/%E3%80%8A%E6%AF%9B%E6%B3%BD%E4%B8%9C%E4%BC%A0%E3%80%8B%E6%91%98%E6%8A%84.md)
 - [《浮生六记》.md](https://github.com/LjyYano/Thinking_in_Java_MindMapping/tree/master/%E8%AF%BB%E4%B9%A6/%E3%80%8A%E6%B5%AE%E7%94%9F%E5%85%AD%E8%AE%B0%E3%80%8B.md)
+- [《编程大师访谈录》.md](https://github.com/LjyYano/Thinking_in_Java_MindMapping/tree/master/%E8%AF%BB%E4%B9%A6/%E3%80%8A%E7%BC%96%E7%A8%8B%E5%A4%A7%E5%B8%88%E8%AE%BF%E8%B0%88%E5%BD%95%E3%80%8B.md)
 - [《量化健身-原理解析》.md](https://github.com/LjyYano/Thinking_in_Java_MindMapping/tree/master/%E8%AF%BB%E4%B9%A6/%E3%80%8A%E9%87%8F%E5%8C%96%E5%81%A5%E8%BA%AB-%E5%8E%9F%E7%90%86%E8%A7%A3%E6%9E%90%E3%80%8B.md)
 
-
 ## 编程
-
 
 ### 其他
 
 - [30 分钟玩转「正则表达式」.md](https://github.com/LjyYano/Thinking_in_Java_MindMapping/tree/master/%E7%BC%96%E7%A8%8B/%E5%85%B6%E4%BB%96/30%20%E5%88%86%E9%92%9F%E7%8E%A9%E8%BD%AC%E3%80%8C%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E3%80%8D.md)
 - [Java 知乎爬虫.md](https://github.com/LjyYano/Thinking_in_Java_MindMapping/tree/master/%E7%BC%96%E7%A8%8B/%E5%85%B6%E4%BB%96/Java%20%E7%9F%A5%E4%B9%8E%E7%88%AC%E8%99%AB.md)
+- [LSM.md](https://github.com/LjyYano/Thinking_in_Java_MindMapping/tree/master/%E7%BC%96%E7%A8%8B/%E5%85%B6%E4%BB%96/LSM.md)
 - [LeetCode 二叉树系统题解.md](https://github.com/LjyYano/Thinking_in_Java_MindMapping/tree/master/%E7%BC%96%E7%A8%8B/%E5%85%B6%E4%BB%96/LeetCode%20%E4%BA%8C%E5%8F%89%E6%A0%91%E7%B3%BB%E7%BB%9F%E9%A2%98%E8%A7%A3.md)
 - [Linux mmap 技术.md](https://github.com/LjyYano/Thinking_in_Java_MindMapping/tree/master/%E7%BC%96%E7%A8%8B/%E5%85%B6%E4%BB%96/Linux%20mmap%20%E6%8A%80%E6%9C%AF.md)
 - [Linux 虚拟内存.md](https://github.com/LjyYano/Thinking_in_Java_MindMapping/tree/master/%E7%BC%96%E7%A8%8B/%E5%85%B6%E4%BB%96/Linux%20%E8%99%9A%E6%8B%9F%E5%86%85%E5%AD%98.md)
 - [Maven 依赖树的解析规则.md](https://github.com/LjyYano/Thinking_in_Java_MindMapping/tree/master/%E7%BC%96%E7%A8%8B/%E5%85%B6%E4%BB%96/Maven%20%E4%BE%9D%E8%B5%96%E6%A0%91%E7%9A%84%E8%A7%A3%E6%9E%90%E8%A7%84%E5%88%99.md)
+- [MySQL 锁深入分析.md](https://github.com/LjyYano/Thinking_in_Java_MindMapping/tree/master/%E7%BC%96%E7%A8%8B/%E5%85%B6%E4%BB%96/MySQL%20%E9%94%81%E6%B7%B1%E5%85%A5%E5%88%86%E6%9E%90.md)
 - [MySQL 面试：为什么B+树比B树更适合磁盘存储？.md](https://github.com/LjyYano/Thinking_in_Java_MindMapping/tree/master/%E7%BC%96%E7%A8%8B/%E5%85%B6%E4%BB%96/MySQL%20%E9%9D%A2%E8%AF%95%EF%BC%9A%E4%B8%BA%E4%BB%80%E4%B9%88B%2B%E6%A0%91%E6%AF%94B%E6%A0%91%E6%9B%B4%E9%80%82%E5%90%88%E7%A3%81%E7%9B%98%E5%AD%98%E5%82%A8%EF%BC%9F.md)
 - [OceanBase 企业级开源分布式数据库.md](https://github.com/LjyYano/Thinking_in_Java_MindMapping/tree/master/%E7%BC%96%E7%A8%8B/%E5%85%B6%E4%BB%96/OceanBase%20%E4%BC%81%E4%B8%9A%E7%BA%A7%E5%BC%80%E6%BA%90%E5%88%86%E5%B8%83%E5%BC%8F%E6%95%B0%E6%8D%AE%E5%BA%93.md)
 - [RPC 实战与原理.md](https://github.com/LjyYano/Thinking_in_Java_MindMapping/tree/master/%E7%BC%96%E7%A8%8B/%E5%85%B6%E4%BB%96/RPC%20%E5%AE%9E%E6%88%98%E4%B8%8E%E5%8E%9F%E7%90%86.md)
 - [Raft 算法分析.md](https://github.com/LjyYano/Thinking_in_Java_MindMapping/tree/master/%E7%BC%96%E7%A8%8B/%E5%85%B6%E4%BB%96/Raft%20%E7%AE%97%E6%B3%95%E5%88%86%E6%9E%90.md)
 - [RocketMQ 源码分析系列 00 - 消息发送和消息接收 Hello world.md](https://github.com/LjyYano/Thinking_in_Java_MindMapping/tree/master/%E7%BC%96%E7%A8%8B/%E5%85%B6%E4%BB%96/RocketMQ%20%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90%E7%B3%BB%E5%88%97%2000%20-%20%E6%B6%88%E6%81%AF%E5%8F%91%E9%80%81%E5%92%8C%E6%B6%88%E6%81%AF%E6%8E%A5%E6%94%B6%20Hello%20world.md)
+- [UML 用例图.md](https://github.com/LjyYano/Thinking_in_Java_MindMapping/tree/master/%E7%BC%96%E7%A8%8B/%E5%85%B6%E4%BB%96/UML%20%E7%94%A8%E4%BE%8B%E5%9B%BE.md)
 - [guava RateLimiter 源码分析.md](https://github.com/LjyYano/Thinking_in_Java_MindMapping/tree/master/%E7%BC%96%E7%A8%8B/%E5%85%B6%E4%BB%96/guava%20RateLimiter%20%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90.md)
 - [字符编码.md](https://github.com/LjyYano/Thinking_in_Java_MindMapping/tree/master/%E7%BC%96%E7%A8%8B/%E5%85%B6%E4%BB%96/%E5%AD%97%E7%AC%A6%E7%BC%96%E7%A0%81.md)
-- [左耳朵耗子：技术人员的发展之路.md](https://github.com/LjyYano/Thinking_in_Java_MindMapping/tree/master/%E7%BC%96%E7%A8%8B/%E5%85%B6%E4%BB%96/%E5%B7%A6%E8%80%B3%E6%9C%B5%E8%80%97%E5%AD%90%EF%BC%9A%E6%8A%80%E6%9C%AF%E4%BA%BA%E5%91%98%E7%9A%84%E5%8F%91%E5%B1%95%E4%B9%8B%E8%B7%AF.md)
 - [并查集.md](https://github.com/LjyYano/Thinking_in_Java_MindMapping/tree/master/%E7%BC%96%E7%A8%8B/%E5%85%B6%E4%BB%96/%E5%B9%B6%E6%9F%A5%E9%9B%86.md)
 - [消息中间件.md](https://github.com/LjyYano/Thinking_in_Java_MindMapping/tree/master/%E7%BC%96%E7%A8%8B/%E5%85%B6%E4%BB%96/%E6%B6%88%E6%81%AF%E4%B8%AD%E9%97%B4%E4%BB%B6.md)
 - [爬取北京摩拜单车信息（附分析过程和详细代码）.md](https://github.com/LjyYano/Thinking_in_Java_MindMapping/tree/master/%E7%BC%96%E7%A8%8B/%E5%85%B6%E4%BB%96/%E7%88%AC%E5%8F%96%E5%8C%97%E4%BA%AC%E6%91%A9%E6%8B%9C%E5%8D%95%E8%BD%A6%E4%BF%A1%E6%81%AF%EF%BC%88%E9%99%84%E5%88%86%E6%9E%90%E8%BF%87%E7%A8%8B%E5%92%8C%E8%AF%A6%E7%BB%86%E4%BB%A3%E7%A0%81%EF%BC%89.md)
@@ -95,7 +98,6 @@
 - [JDK 19 Virtual Threads 虚拟线程.md](https://github.com/LjyYano/Thinking_in_Java_MindMapping/tree/master/%E7%BC%96%E7%A8%8B/Java/JDK%2019%20Virtual%20Threads%20%E8%99%9A%E6%8B%9F%E7%BA%BF%E7%A8%8B.md)
 - [JVM G1 GC 的算法与实现.md](https://github.com/LjyYano/Thinking_in_Java_MindMapping/tree/master/%E7%BC%96%E7%A8%8B/Java/JVM%20G1%20GC%20%E7%9A%84%E7%AE%97%E6%B3%95%E4%B8%8E%E5%AE%9E%E7%8E%B0.md)
 - [JVM 即时编译器.md](https://github.com/LjyYano/Thinking_in_Java_MindMapping/tree/master/%E7%BC%96%E7%A8%8B/Java/JVM%20%E5%8D%B3%E6%97%B6%E7%BC%96%E8%AF%91%E5%99%A8.md)
-- [JVM 源码深入分析 00 - 环境配置.md](https://github.com/LjyYano/Thinking_in_Java_MindMapping/tree/master/%E7%BC%96%E7%A8%8B/Java/JVM%20%E6%BA%90%E7%A0%81%E6%B7%B1%E5%85%A5%E5%88%86%E6%9E%90%2000%20-%20%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE.md)
 - [Java 16 正式发布，新特性一一解析.md](https://github.com/LjyYano/Thinking_in_Java_MindMapping/tree/master/%E7%BC%96%E7%A8%8B/Java/Java%2016%20%E6%AD%A3%E5%BC%8F%E5%8F%91%E5%B8%83%EF%BC%8C%E6%96%B0%E7%89%B9%E6%80%A7%E4%B8%80%E4%B8%80%E8%A7%A3%E6%9E%90.md)
 - [Java Agent 使用指南 - 破解 IDEA.md](https://github.com/LjyYano/Thinking_in_Java_MindMapping/tree/master/%E7%BC%96%E7%A8%8B/Java/Java%20Agent%20%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97%20-%20%E7%A0%B4%E8%A7%A3%20IDEA.md)
 - [Java ClassLoader.md](https://github.com/LjyYano/Thinking_in_Java_MindMapping/tree/master/%E7%BC%96%E7%A8%8B/Java/Java%20ClassLoader.md)
@@ -189,6 +191,7 @@
 
 ### 思维导图系列
 
+- [Netty.xmind](https://github.com/LjyYano/Thinking_in_Java_MindMapping/tree/master/%E7%BC%96%E7%A8%8B/%E6%80%9D%E7%BB%B4%E5%AF%BC%E5%9B%BE%E7%B3%BB%E5%88%97/Netty.xmind)
 - [On Java.xmind](https://github.com/LjyYano/Thinking_in_Java_MindMapping/tree/master/%E7%BC%96%E7%A8%8B/%E6%80%9D%E7%BB%B4%E5%AF%BC%E5%9B%BE%E7%B3%BB%E5%88%97/On%20Java.xmind)
 - [一个思维导图，带你深入理解 Linux 网络.md](https://github.com/LjyYano/Thinking_in_Java_MindMapping/tree/master/%E7%BC%96%E7%A8%8B/%E6%80%9D%E7%BB%B4%E5%AF%BC%E5%9B%BE%E7%B3%BB%E5%88%97/%E4%B8%80%E4%B8%AA%E6%80%9D%E7%BB%B4%E5%AF%BC%E5%9B%BE%EF%BC%8C%E5%B8%A6%E4%BD%A0%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3%20Linux%20%E7%BD%91%E7%BB%9C.md)
 - [思维导图学 HTTP.md](https://github.com/LjyYano/Thinking_in_Java_MindMapping/tree/master/%E7%BC%96%E7%A8%8B/%E6%80%9D%E7%BB%B4%E5%AF%BC%E5%9B%BE%E7%B3%BB%E5%88%97/%E6%80%9D%E7%BB%B4%E5%AF%BC%E5%9B%BE%E5%AD%A6%20HTTP.md)
@@ -237,18 +240,18 @@
 - [Yano 的 2020 观影总结.md](https://github.com/LjyYano/Thinking_in_Java_MindMapping/tree/master/%E8%A7%82%E5%BD%B1/Yano%20%E7%9A%84%202020%20%E8%A7%82%E5%BD%B1%E6%80%BB%E7%BB%93.md)
 - [Yano 的 2021 观影总结.md](https://github.com/LjyYano/Thinking_in_Java_MindMapping/tree/master/%E8%A7%82%E5%BD%B1/Yano%20%E7%9A%84%202021%20%E8%A7%82%E5%BD%B1%E6%80%BB%E7%BB%93.md)
 - [Yano 的 2022 观影总结.md](https://github.com/LjyYano/Thinking_in_Java_MindMapping/tree/master/%E8%A7%82%E5%BD%B1/Yano%20%E7%9A%84%202022%20%E8%A7%82%E5%BD%B1%E6%80%BB%E7%BB%93.md)
-- [Yano 的 2023 观影总结.md](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/%E8%A7%82%E5%BD%B1/Yano%20%E7%9A%84%202023%20%E8%A7%82%E5%BD%B1%E6%80%BB%E7%BB%93.md)
+- [Yano 的 2023 观影总结.md](https://github.com/LjyYano/Thinking_in_Java_MindMapping/tree/master/%E8%A7%82%E5%BD%B1/Yano%20%E7%9A%84%202023%20%E8%A7%82%E5%BD%B1%E6%80%BB%E7%BB%93.md)
 
 ## 游戏
 
 - [Switch SX OX 修改游戏数值（废弃）.md](https://github.com/LjyYano/Thinking_in_Java_MindMapping/tree/master/%E6%B8%B8%E6%88%8F/Switch%20SX%20OX%20%E4%BF%AE%E6%94%B9%E6%B8%B8%E6%88%8F%E6%95%B0%E5%80%BC%EF%BC%88%E5%BA%9F%E5%BC%83%EF%BC%89.md)
-- [《八方旅人2》-JRPG 的魅力.md](https://github.com/LjyYano/Thinking_in_Java_MindMapping/tree/master/%E6%B8%B8%E6%88%8F/%E3%80%8A%E5%85%AB%E6%96%B9%E6%97%85%E4%BA%BA2%E3%80%8B-JRPG%20%E7%9A%84%E9%AD%85%E5%8A%9B.md)
+- [《八方旅人 2》-JRPG 的魅力.md](https://github.com/LjyYano/Thinking_in_Java_MindMapping/tree/master/%E6%B8%B8%E6%88%8F/%E3%80%8A%E5%85%AB%E6%96%B9%E6%97%85%E4%BA%BA%202%E3%80%8B-JRPG%20%E7%9A%84%E9%AD%85%E5%8A%9B.md)
 - [《八方旅人》基础.md](https://github.com/LjyYano/Thinking_in_Java_MindMapping/tree/master/%E6%B8%B8%E6%88%8F/%E3%80%8A%E5%85%AB%E6%96%B9%E6%97%85%E4%BA%BA%E3%80%8B%E5%9F%BA%E7%A1%80.md)
 - [《八方旅人》故事简介.md](https://github.com/LjyYano/Thinking_in_Java_MindMapping/tree/master/%E6%B8%B8%E6%88%8F/%E3%80%8A%E5%85%AB%E6%96%B9%E6%97%85%E4%BA%BA%E3%80%8B%E6%95%85%E4%BA%8B%E7%AE%80%E4%BB%8B.md)
 - [《塞尔达·荒野之息》游戏截图.md](https://github.com/LjyYano/Thinking_in_Java_MindMapping/tree/master/%E6%B8%B8%E6%88%8F/%E3%80%8A%E5%A1%9E%E5%B0%94%E8%BE%BE%C2%B7%E8%8D%92%E9%87%8E%E4%B9%8B%E6%81%AF%E3%80%8B%E6%B8%B8%E6%88%8F%E6%88%AA%E5%9B%BE.md)
 - [《异度神剑 2》CG 截图.md](https://github.com/LjyYano/Thinking_in_Java_MindMapping/tree/master/%E6%B8%B8%E6%88%8F/%E3%80%8A%E5%BC%82%E5%BA%A6%E7%A5%9E%E5%89%91%202%E3%80%8BCG%20%E6%88%AA%E5%9B%BE.md)
 - [《异度神剑 2》剧情解析（转载）.md](https://github.com/LjyYano/Thinking_in_Java_MindMapping/tree/master/%E6%B8%B8%E6%88%8F/%E3%80%8A%E5%BC%82%E5%BA%A6%E7%A5%9E%E5%89%91%202%E3%80%8B%E5%89%A7%E6%83%85%E8%A7%A3%E6%9E%90%EF%BC%88%E8%BD%AC%E8%BD%BD%EF%BC%89.md)
-- [《异度神剑3 》剧情梳理解析.md](https://github.com/LjyYano/Thinking_in_Java_MindMapping/tree/master/%E6%B8%B8%E6%88%8F/%E3%80%8A%E5%BC%82%E5%BA%A6%E7%A5%9E%E5%89%913%20%E3%80%8B%E5%89%A7%E6%83%85%E6%A2%B3%E7%90%86%E8%A7%A3%E6%9E%90.md)
+- [《异度神剑 3》剧情梳理解析.md](https://github.com/LjyYano/Thinking_in_Java_MindMapping/tree/master/%E6%B8%B8%E6%88%8F/%E3%80%8A%E5%BC%82%E5%BA%A6%E7%A5%9E%E5%89%91%203%E3%80%8B%E5%89%A7%E6%83%85%E6%A2%B3%E7%90%86%E8%A7%A3%E6%9E%90.md)
 - [《异度神剑》系列的个人向浅析（转载）.md](https://github.com/LjyYano/Thinking_in_Java_MindMapping/tree/master/%E6%B8%B8%E6%88%8F/%E3%80%8A%E5%BC%82%E5%BA%A6%E7%A5%9E%E5%89%91%E3%80%8B%E7%B3%BB%E5%88%97%E7%9A%84%E4%B8%AA%E4%BA%BA%E5%90%91%E6%B5%85%E6%9E%90%EF%BC%88%E8%BD%AC%E8%BD%BD%EF%BC%89.md)
 - [游戏类型分类大全.md](https://github.com/LjyYano/Thinking_in_Java_MindMapping/tree/master/%E6%B8%B8%E6%88%8F/%E6%B8%B8%E6%88%8F%E7%B1%BB%E5%9E%8B%E5%88%86%E7%B1%BB%E5%A4%A7%E5%85%A8.md)
 
