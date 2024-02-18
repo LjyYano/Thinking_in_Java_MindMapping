@@ -2,6 +2,7 @@
 - [前言](#前言)
 - [我的年度计划](#我的年度计划)
 - [文章导航](#文章导航)
+  - [观影](#观影)
   - [随笔](#随笔)
   - [读书](#读书)
   - [编程](#编程)
@@ -11,7 +12,6 @@
     - [思维导图系列](#思维导图系列)
     - [Redis 源码剖析系列](#redis-源码剖析系列)
     - [Spring](#spring)
-  - [观影](#观影)
   - [游戏](#游戏)
 - [我的博客](#我的博客)
 - [我的公众号](#我的公众号)
@@ -28,6 +28,14 @@
 [我的 2024 计划](https://yano-nankai.notion.site/Yano-Space-ff42bde7acd1467eb3ae63dc0d4a9f8c)
 
 # 文章导航
+
+## 观影
+
+- [Yano 的 2019 观影总结.md](https://github.com/LjyYano/Thinking_in_Java_MindMapping/tree/master/%E8%A7%82%E5%BD%B1/Yano%20%E7%9A%84%202019%20%E8%A7%82%E5%BD%B1%E6%80%BB%E7%BB%93.md)
+- [Yano 的 2020 观影总结.md](https://github.com/LjyYano/Thinking_in_Java_MindMapping/tree/master/%E8%A7%82%E5%BD%B1/Yano%20%E7%9A%84%202020%20%E8%A7%82%E5%BD%B1%E6%80%BB%E7%BB%93.md)
+- [Yano 的 2021 观影总结.md](https://github.com/LjyYano/Thinking_in_Java_MindMapping/tree/master/%E8%A7%82%E5%BD%B1/Yano%20%E7%9A%84%202021%20%E8%A7%82%E5%BD%B1%E6%80%BB%E7%BB%93.md)
+- [Yano 的 2022 观影总结.md](https://github.com/LjyYano/Thinking_in_Java_MindMapping/tree/master/%E8%A7%82%E5%BD%B1/Yano%20%E7%9A%84%202022%20%E8%A7%82%E5%BD%B1%E6%80%BB%E7%BB%93.md)
+- [Yano 的 2023 观影总结.md](https://github.com/LjyYano/Thinking_in_Java_MindMapping/tree/master/%E8%A7%82%E5%BD%B1/Yano%20%E7%9A%84%202023%20%E8%A7%82%E5%BD%B1%E6%80%BB%E7%BB%93.md)
 
 ## 随笔
 
@@ -233,14 +241,6 @@
 - [Spring Native 项目，把 Spring 项目编译成原生程序！.md](https://github.com/LjyYano/Thinking_in_Java_MindMapping/tree/master/%E7%BC%96%E7%A8%8B/Spring/Spring%20Native%20%E9%A1%B9%E7%9B%AE%EF%BC%8C%E6%8A%8A%20Spring%20%E9%A1%B9%E7%9B%AE%E7%BC%96%E8%AF%91%E6%88%90%E5%8E%9F%E7%94%9F%E7%A8%8B%E5%BA%8F%EF%BC%81.md)
 - [最简 Spring AOP 源码分析.md](https://github.com/LjyYano/Thinking_in_Java_MindMapping/tree/master/%E7%BC%96%E7%A8%8B/Spring/%E6%9C%80%E7%AE%80%20Spring%20AOP%20%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90.md)
 - [最简 Spring IOC 容器源码分析.md](https://github.com/LjyYano/Thinking_in_Java_MindMapping/tree/master/%E7%BC%96%E7%A8%8B/Spring/%E6%9C%80%E7%AE%80%20Spring%20IOC%20%E5%AE%B9%E5%99%A8%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90.md)
-
-## 观影
-
-- [Yano 的 2019 观影总结.md](https://github.com/LjyYano/Thinking_in_Java_MindMapping/tree/master/%E8%A7%82%E5%BD%B1/Yano%20%E7%9A%84%202019%20%E8%A7%82%E5%BD%B1%E6%80%BB%E7%BB%93.md)
-- [Yano 的 2020 观影总结.md](https://github.com/LjyYano/Thinking_in_Java_MindMapping/tree/master/%E8%A7%82%E5%BD%B1/Yano%20%E7%9A%84%202020%20%E8%A7%82%E5%BD%B1%E6%80%BB%E7%BB%93.md)
-- [Yano 的 2021 观影总结.md](https://github.com/LjyYano/Thinking_in_Java_MindMapping/tree/master/%E8%A7%82%E5%BD%B1/Yano%20%E7%9A%84%202021%20%E8%A7%82%E5%BD%B1%E6%80%BB%E7%BB%93.md)
-- [Yano 的 2022 观影总结.md](https://github.com/LjyYano/Thinking_in_Java_MindMapping/tree/master/%E8%A7%82%E5%BD%B1/Yano%20%E7%9A%84%202022%20%E8%A7%82%E5%BD%B1%E6%80%BB%E7%BB%93.md)
-- [Yano 的 2023 观影总结.md](https://github.com/LjyYano/Thinking_in_Java_MindMapping/tree/master/%E8%A7%82%E5%BD%B1/Yano%20%E7%9A%84%202023%20%E8%A7%82%E5%BD%B1%E6%80%BB%E7%BB%93.md)
 
 ## 游戏
 
