@@ -96,14 +96,17 @@
 
 ### Java
 
-- [ 对谷歌甲骨文 Java 纠纷案判决结果的感想.md](https://github.com/LjyYano/Thinking_in_Java_MindMapping/tree/master/%E7%BC%96%E7%A8%8B/Java/%20%E5%AF%B9%E8%B0%B7%E6%AD%8C%E7%94%B2%E9%AA%A8%E6%96%87%20Java%20%E7%BA%A0%E7%BA%B7%E6%A1%88%E5%88%A4%E5%86%B3%E7%BB%93%E6%9E%9C%E7%9A%84%E6%84%9F%E6%83%B3.md)
-- [Apache Log4j 远程代码执行漏洞源码级分析.md](https://github.com/LjyYano/Thinking_in_Java_MindMapping/tree/master/%E7%BC%96%E7%A8%8B/Java/Apache%20Log4j%20%E8%BF%9C%E7%A8%8B%E4%BB%A3%E7%A0%81%E6%89%A7%E8%A1%8C%E6%BC%8F%E6%B4%9E%E6%BA%90%E7%A0%81%E7%BA%A7%E5%88%86%E6%9E%90.md)
-- [GC progress from JDK 8 to JDK 17.md](https://github.com/LjyYano/Thinking_in_Java_MindMapping/tree/master/%E7%BC%96%E7%A8%8B/Java/GC%20progress%20from%20JDK%208%20to%20JDK%2017.md)
 - [JDK 13 新特性简介.md](https://github.com/LjyYano/Thinking_in_Java_MindMapping/tree/master/%E7%BC%96%E7%A8%8B/Java/JDK%2013%20%E6%96%B0%E7%89%B9%E6%80%A7%E7%AE%80%E4%BB%8B.md)
 - [JDK 14 即将发布，你所要知道的都在这里！.md](https://github.com/LjyYano/Thinking_in_Java_MindMapping/tree/master/%E7%BC%96%E7%A8%8B/Java/JDK%2014%20%E5%8D%B3%E5%B0%86%E5%8F%91%E5%B8%83%EF%BC%8C%E4%BD%A0%E6%89%80%E8%A6%81%E7%9F%A5%E9%81%93%E7%9A%84%E9%83%BD%E5%9C%A8%E8%BF%99%E9%87%8C%EF%BC%81.md)
 - [JDK 15 已发布，你所要知道的都在这里！.md](https://github.com/LjyYano/Thinking_in_Java_MindMapping/tree/master/%E7%BC%96%E7%A8%8B/Java/JDK%2015%20%E5%B7%B2%E5%8F%91%E5%B8%83%EF%BC%8C%E4%BD%A0%E6%89%80%E8%A6%81%E7%9F%A5%E9%81%93%E7%9A%84%E9%83%BD%E5%9C%A8%E8%BF%99%E9%87%8C%EF%BC%81.md)
 - [JDK 17 新特性解析.md](https://github.com/LjyYano/Thinking_in_Java_MindMapping/tree/master/%E7%BC%96%E7%A8%8B/Java/JDK%2017%20%E6%96%B0%E7%89%B9%E6%80%A7%E8%A7%A3%E6%9E%90.md)
 - [JDK 19 Virtual Threads 虚拟线程.md](https://github.com/LjyYano/Thinking_in_Java_MindMapping/tree/master/%E7%BC%96%E7%A8%8B/Java/JDK%2019%20Virtual%20Threads%20%E8%99%9A%E6%8B%9F%E7%BA%BF%E7%A8%8B.md)
+- [JDK 22 新特性解析.md](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/%E7%BC%96%E7%A8%8B/Java/JDK%2022%20%E6%96%B0%E7%89%B9%E6%80%A7%E8%A7%A3%E6%9E%90.md)
+- [JDK 23 新特性解析.md](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/%E7%BC%96%E7%A8%8B/Java/JDK%2023%20%E6%96%B0%E7%89%B9%E6%80%A7%E8%A7%A3%E6%9E%90.md)
+
+- [ 对谷歌甲骨文 Java 纠纷案判决结果的感想.md](https://github.com/LjyYano/Thinking_in_Java_MindMapping/tree/master/%E7%BC%96%E7%A8%8B/Java/%20%E5%AF%B9%E8%B0%B7%E6%AD%8C%E7%94%B2%E9%AA%A8%E6%96%87%20Java%20%E7%BA%A0%E7%BA%B7%E6%A1%88%E5%88%A4%E5%86%B3%E7%BB%93%E6%9E%9C%E7%9A%84%E6%84%9F%E6%83%B3.md)
+- [Apache Log4j 远程代码执行漏洞源码级分析.md](https://github.com/LjyYano/Thinking_in_Java_MindMapping/tree/master/%E7%BC%96%E7%A8%8B/Java/Apache%20Log4j%20%E8%BF%9C%E7%A8%8B%E4%BB%A3%E7%A0%81%E6%89%A7%E8%A1%8C%E6%BC%8F%E6%B4%9E%E6%BA%90%E7%A0%81%E7%BA%A7%E5%88%86%E6%9E%90.md)
+- [GC progress from JDK 8 to JDK 17.md](https://github.com/LjyYano/Thinking_in_Java_MindMapping/tree/master/%E7%BC%96%E7%A8%8B/Java/GC%20progress%20from%20JDK%208%20to%20JDK%2017.md)
 - [JVM G1 GC 的算法与实现.md](https://github.com/LjyYano/Thinking_in_Java_MindMapping/tree/master/%E7%BC%96%E7%A8%8B/Java/JVM%20G1%20GC%20%E7%9A%84%E7%AE%97%E6%B3%95%E4%B8%8E%E5%AE%9E%E7%8E%B0.md)
 - [JVM 即时编译器.md](https://github.com/LjyYano/Thinking_in_Java_MindMapping/tree/master/%E7%BC%96%E7%A8%8B/Java/JVM%20%E5%8D%B3%E6%97%B6%E7%BC%96%E8%AF%91%E5%99%A8.md)
 - [Java 16 正式发布，新特性一一解析.md](https://github.com/LjyYano/Thinking_in_Java_MindMapping/tree/master/%E7%BC%96%E7%A8%8B/Java/Java%2016%20%E6%AD%A3%E5%BC%8F%E5%8F%91%E5%B8%83%EF%BC%8C%E6%96%B0%E7%89%B9%E6%80%A7%E4%B8%80%E4%B8%80%E8%A7%A3%E6%9E%90.md)
