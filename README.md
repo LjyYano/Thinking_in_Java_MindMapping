@@ -36,6 +36,7 @@
 - [Yano 的 2021 观影总结.md](https://github.com/LjyYano/Thinking_in_Java_MindMapping/tree/master/%E8%A7%82%E5%BD%B1/Yano%20%E7%9A%84%202021%20%E8%A7%82%E5%BD%B1%E6%80%BB%E7%BB%93.md)
 - [Yano 的 2022 观影总结.md](https://github.com/LjyYano/Thinking_in_Java_MindMapping/tree/master/%E8%A7%82%E5%BD%B1/Yano%20%E7%9A%84%202022%20%E8%A7%82%E5%BD%B1%E6%80%BB%E7%BB%93.md)
 - [Yano 的 2023 观影总结.md](https://github.com/LjyYano/Thinking_in_Java_MindMapping/tree/master/%E8%A7%82%E5%BD%B1/Yano%20%E7%9A%84%202023%20%E8%A7%82%E5%BD%B1%E6%80%BB%E7%BB%93.md)
+- [Yano 的 2024 观影总结.md](https://github.com/LjyYano/Thinking_in_Java_MindMapping/tree/master/%E8%A7%82%E5%BD%B1/Yano%20%E7%9A%84%202024%20%E8%A7%82%E5%BD%B1%E6%80%BB%E7%BB%93.md)
 
 ## 随笔
 
