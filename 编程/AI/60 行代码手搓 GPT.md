@@ -78,8 +78,13 @@ pip install -r requirements.txt
 <summary><h4 style="display: inline-block; margin: 0;">PyCharm 配置</h4></summary>
 
 <div align="center">
-    <img src="http://yano.oss-cn-beijing.aliyuncs.com/blog/2025-01-27-08-55-39.png" alt="PyCharm 配置">
-    <p>这是居中的标题</p>
+    <img src="http://yano.oss-cn-beijing.aliyuncs.com/blog/2025-01-27-08-55-39.png?x-oss-process=image/resize,w_800" alt="PyCharm 配置">
+    <p>项目设置 Python 解释器</p>
+</div>
+
+<div align="center" >
+    <img src="http://yano.oss-cn-beijing.aliyuncs.com/blog/2025-01-27-09-00-48.png?x-oss-process=image/resize,w_800" alt="PyCharm 配置">
+    <p>Jupyter Notebook 设置 Python 解释器</p>
 </div>
 
 </details>
