@@ -73,3 +73,13 @@ pip install --upgrade pip
 pip install -r requirements.txt
 ```
 </details>
+
+<details>
+<summary><h4 style="display: inline-block; margin: 0;">PyCharm 配置</h4></summary>
+
+<div align="center">
+    <img src="http://yano.oss-cn-beijing.aliyuncs.com/blog/2025-01-27-08-55-39.png" alt="PyCharm 配置">
+    <p>这是居中的标题</p>
+</div>
+
+</details>
