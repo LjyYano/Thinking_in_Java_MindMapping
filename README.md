@@ -25,7 +25,7 @@
 
 # 我的年度计划
 
-[我的 2024 计划](https://yano-nankai.notion.site/Yano-Space-ff42bde7acd1467eb3ae63dc0d4a9f8c)
+[我的 2025 计划](https://yano-nankai.notion.site/Yano-Space-ff42bde7acd1467eb3ae63dc0d4a9f8c)
 
 # 文章导航
 
