@@ -104,6 +104,8 @@
 - [JDK 19 Virtual Threads 虚拟线程.md](https://github.com/LjyYano/Thinking_in_Java_MindMapping/tree/master/%E7%BC%96%E7%A8%8B/Java/JDK%2019%20Virtual%20Threads%20%E8%99%9A%E6%8B%9F%E7%BA%BF%E7%A8%8B.md)
 - [JDK 22 新特性解析.md](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/%E7%BC%96%E7%A8%8B/Java/JDK%2022%20%E6%96%B0%E7%89%B9%E6%80%A7%E8%A7%A3%E6%9E%90.md)
 - [JDK 23 新特性解析.md](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/%E7%BC%96%E7%A8%8B/Java/JDK%2023%20%E6%96%B0%E7%89%B9%E6%80%A7%E8%A7%A3%E6%9E%90.md)
+- [JDK 24 新特性解析.md](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/%E7%BC%96%E7%A8%8B/Java/JDK%2024%20%E6%96%B0%E7%89%B9%E6%80%A7%E8%A7%A3%E6%9E%90.md)
+- [JDK 25 新特性解析.md](https://github.com/LjyYano/Thinking_in_Java_MindMapping/blob/master/%E7%BC%96%E7%A8%8B/Java/JDK%2025%20%E6%96%B0%E7%89%B9%E6%80%A7%E8%A7%A3%E6%9E%90.md)
 
 - [ 对谷歌甲骨文 Java 纠纷案判决结果的感想.md](https://github.com/LjyYano/Thinking_in_Java_MindMapping/tree/master/%E7%BC%96%E7%A8%8B/Java/%20%E5%AF%B9%E8%B0%B7%E6%AD%8C%E7%94%B2%E9%AA%A8%E6%96%87%20Java%20%E7%BA%A0%E7%BA%B7%E6%A1%88%E5%88%A4%E5%86%B3%E7%BB%93%E6%9E%9C%E7%9A%84%E6%84%9F%E6%83%B3.md)
 - [Apache Log4j 远程代码执行漏洞源码级分析.md](https://github.com/LjyYano/Thinking_in_Java_MindMapping/tree/master/%E7%BC%96%E7%A8%8B/Java/Apache%20Log4j%20%E8%BF%9C%E7%A8%8B%E4%BB%A3%E7%A0%81%E6%89%A7%E8%A1%8C%E6%BC%8F%E6%B4%9E%E6%BA%90%E7%A0%81%E7%BA%A7%E5%88%86%E6%9E%90.md)
