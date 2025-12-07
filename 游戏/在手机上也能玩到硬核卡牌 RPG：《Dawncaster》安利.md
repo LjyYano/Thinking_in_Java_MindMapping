@@ -1,7 +1,12 @@
 
-> 一款真正为移动端设计的地牢式构筑卡牌 RPG。
+
 
 [toc]
+
+---
+![游戏主界面与战斗场景](https://yano.oss-cn-beijing.aliyuncs.com/blog/2025-12-07-11-06-11.png)
+
+> 一款真正为移动端设计的地牢式构筑卡牌 RPG。
 
 # 一、这是一款什么游戏？
 
@@ -20,8 +25,6 @@
 * **付费模式**：一次性买断（约 4.99 美元），后续 DLC（新职业、新地图）单独卖。**没有广告，没有体力限制，没有逼氪**，打开就能玩。
 * **纯粹体验**：在这个充斥着“每日任务”和“十连抽”的手游时代，能遇到这样一款干净、纯粹、好玩的单机游戏，真的太难得了。
 * **语言门槛**：虽然只有英文界面，但卡牌描述很规范，关键词长按就有解释。作为一个卡牌老手，这根本不是障碍！
-
-![游戏主界面与战斗场景](https://yano.oss-cn-beijing.aliyuncs.com/blog/2025-12-07-11-06-11.png)
 
 ![战斗中手牌管理](https://yano.oss-cn-beijing.aliyuncs.com/blog/2025-12-07-11-02-14.png)
 
@@ -61,7 +64,7 @@
 
 虽然结构看起来眼熟，但《Dawncaster》引入了武器附魔、复杂的能量系统和职业混搭机制，让每一次构筑都有很大区别。
 
-<img src="https://yano.oss-cn-beijing.aliyuncs.com/blog/2025-12-07-11-07-23.png" width="48%" /> <img src="https://yano.oss-cn-beijing.aliyuncs.com/blog/2025-12-07-11-07-59.png" width="48%" />
+<img src="https://yano.oss-cn-beijing.aliyuncs.com/blog/2025-12-07-11-07-23.png" width="38%" /> <img src="https://yano.oss-cn-beijing.aliyuncs.com/blog/2025-12-07-11-07-59.png" width="38%" />
 
 ## 2. 独特的能量与资源设计
 
