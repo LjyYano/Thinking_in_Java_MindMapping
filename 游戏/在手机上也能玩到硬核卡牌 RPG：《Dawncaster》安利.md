@@ -24,7 +24,7 @@
 
 《Dawncaster: Deckbuilding RPG》是一款付费买断制的 Roguelike 构筑卡牌 + 地牢 RPG，平台覆盖 iOS / Android，其中 iOS 版支持 iPhone / iPad。
 
-简单来说，它就是**“能装在口袋里的杀戮尖塔”**。
+简单来说，它就是 **“能装在口袋里的杀戮尖塔”**。
 
 它的玩法核心类似「杀戮尖塔 + 桌游式跑团」，每一局都是全新的地牢旅程：
 
@@ -91,7 +91,7 @@
 
 虽然结构看起来眼熟，但《Dawncaster》引入了武器附魔、复杂的能量系统和职业混搭机制，让每一次构筑都有很大区别。
 
-<img src="https://yano.oss-cn-beijing.aliyuncs.com/blog/2025-12-07-11-07-23.png" width="38%" /> <img src="https://yano.oss-cn-beijing.aliyuncs.com/blog/2025-12-07-11-07-59.png" width="38%" />
+<img src="https://yano.oss-cn-beijing.aliyuncs.com/blog/2025-12-07-11-07-23.png" width="32%" /> <img src="https://yano.oss-cn-beijing.aliyuncs.com/blog/2025-12-07-11-07-59.png" width="32%" />
 
 ## 2. 独特的能量与资源设计
 
