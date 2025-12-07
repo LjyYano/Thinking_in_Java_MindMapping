@@ -379,52 +379,52 @@ Round 3:
 
 ### 6.1 工具增强与推理（Tool-augmented Reasoning）
 
-- **ReAct: Synergizing Reasoning and Acting in Language Models**  
+- **[ReAct: Synergizing Reasoning and Acting in Language Models](https://arxiv.org/abs/2210.03629)**  
   *Yao et al., 2022*  
   - 提出了 ReAct 范式：将「自然语言推理（Thought）」与「行动（Action）」交替结合，用于工具调用和环境交互。  
   - 对应 `agent-all-in-one` 中的 `react_agent/` 实现。
 
-- **Toolformer: Language Models Can Teach Themselves to Use Tools**  
+- **[Toolformer: Language Models Can Teach Themselves to Use Tools](https://arxiv.org/abs/2302.04761)**  
   *Schick et al., 2023*  
   - 研究如何让大模型通过自监督方式，在预训练阶段就「学会插入合适的工具调用」，而不是只在推理阶段硬编码；  
   - 更偏向「模型训练策略」，但对实际 Agent 设计有启发：**工具调用可以是训练出来的模式，而不是完全手工 Prompt**。
 
-- **PAL: Program-Aided Language Models**  
+- **[PAL: Program-Aided Language Models](https://arxiv.org/abs/2211.10435)**  
   *Chen et al., 2022*  
   - 提出让模型**生成可执行代码片段（如 Python）**来完成复杂推理任务，再执行代码获得结果；  
   - 在 Agent 语境下，可以看作是「把工具 = 代码执行环境」，通过代码而不是纯文本进行严谨推理。
 
-- **Chain-of-Thought Prompting Elicits Reasoning in Large Language Models**  
+- **[Chain-of-Thought Prompting Elicits Reasoning in Large Language Models](https://arxiv.org/abs/2201.11903)**  
   *Wei et al., 2022*  
   - 不直接讲 Agent，但给出了让模型显式写出中间推理步骤（思维链）的技巧；  
   - ReAct 可以看作是在 CoT 基础上，再接了一层「工具行动」。
 
 ### 6.2 反思与自我改进（Reflection / Self-Refine）
 
-- **Reflexion: Language Agents with Verbal Reinforcement Learning**  
+- **[Reflexion: Language Agents with Verbal Reinforcement Learning](https://arxiv.org/abs/2303.11366)**  
   *Shinn et al., 2023*  
   - 倡导让 Agent 对自己的行为结果做「语言化反思」，并利用反思来改进后续策略；  
   - 与 `agent-all-in-one` 中的 **Reflection 范式**高度契合：Generator + Reflector 的闭环。
 
-- **Self-Refine: Iterative Refinement with Self-Feedback**  
+- **[Self-Refine: Iterative Refinement with Self-Feedback](https://arxiv.org/abs/2303.17651)**  
   *Madaan et al., 2023*  
   - 让模型对自己的回答生成反馈（例如指出模糊、不准确之处），再根据反馈改写答案；  
   - 对写作、代码生成、翻译等任务非常实用，是很多 Reflection 型 Agent 的灵感来源。
 
 ### 6.3 规划、搜索与决策（Planning / Search）
 
-- **Tree of Thoughts: Deliberate Problem Solving with Large Language Models**  
+- **[Tree of Thoughts: Deliberate Problem Solving with Large Language Models](https://arxiv.org/abs/2305.10601)**  
   *Yao et al., 2023*  
   - 把大模型的推理过程看作在「思维树」上进行搜索，而不是一条线性的思维链；  
   - 为更复杂的规划型 Agent 提供了搜索框架：可以保留多条候选思路，做回溯和评估。
 
-- **Plan-and-Solve Prompting**（可查阅相关工作）  
+- **[Plan-and-Solve Prompting](https://arxiv.org/abs/2305.04091)**（可查阅相关工作）  
   - 思想与 Plan-and-Execute 很接近：**先让模型显式写出计划，再按计划解决任务**；  
   - 在 `agent-all-in-one` 中，`plan_execute_agent/` 其实就是这种思想的工程化实现。
 
 ### 6.4 多智能体与长期任务（Multi-Agent / Long-horizon Agents）
 
-- **Voyager: An Open-Ended Embodied Agent with Large Language Models**  
+- **[Voyager: An Open-Ended Embodied Agent with Large Language Models](https://arxiv.org/abs/2305.16291)**  
   *Wang et al., 2023*  
   - 在 Minecraft 环境中构建了一个「会自己探索、记忆、学习技能」的长期 Agent；  
   - 关键点在于：**技能库（技能程序的记忆）、长期目标、与环境的持续交互**。  
