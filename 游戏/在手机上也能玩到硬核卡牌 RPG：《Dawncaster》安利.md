@@ -69,9 +69,7 @@
 
 虽然结构看起来眼熟，但《Dawncaster》引入了武器附魔、复杂的能量系统和职业混搭机制，让每一次构筑都有很大区别。
 
-![地图节点选择](https://yano.oss-cn-beijing.aliyuncs.com/blog/2025-12-07-11-07-23.png)
-
-![激烈的战斗场面](https://yano.oss-cn-beijing.aliyuncs.com/blog/2025-12-07-11-07-59.png)
+<img src="https://yano.oss-cn-beijing.aliyuncs.com/blog/2025-12-07-11-07-23.png" width="48%" /> <img src="https://yano.oss-cn-beijing.aliyuncs.com/blog/2025-12-07-11-07-59.png" width="48%" />
 
 ## 2. 独特的能量与资源设计
 
