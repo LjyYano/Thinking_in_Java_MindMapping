@@ -245,13 +245,8 @@ def generate_toc(readme_text: str, max_level: int = 3) -> str:
 def main() -> None:
     readme = README_PATH.read_text(encoding="utf-8")
 
-    # Ensure markers exist
-    readme = ensure_toc_markers(readme)
+    # Ensure nav markers exist
     readme = ensure_markers(readme)
-
-    # Update TOC (unordered, up to h3)
-    toc_block = generate_toc(readme, max_level=3)
-    readme = replace_block_generic(readme, TOC_START, TOC_END, toc_block, insert_pos=0)
 
     # Update article navigation
     nav_block = generate_nav_block()
