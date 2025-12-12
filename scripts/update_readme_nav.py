@@ -146,7 +146,7 @@ def render_top_dir(top_dir: Path) -> str:
     inner = "\n\n".join(sections)
     return (
         "<details open>\n"
-        f"<summary><b>{top_dir.name}</b></summary>\n\n"
+        f'<summary><h2 style="display:inline">{top_dir.name}</h2></summary>\n\n'
         f"{inner}\n\n"
         "</details>"
     )

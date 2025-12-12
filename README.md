@@ -27,7 +27,7 @@
 
 <!-- AUTO-ARTICLE-NAV:START -->
 <details open>
-<summary><b>AI</b></summary>
+<summary><h2 style="display:inline">AI</h2></summary>
 
 <table style="width:100%; table-layout:fixed;">
 <thead><tr><th style="text-align:left; width:70%">标题</th><th style="text-align:left; width:30%">日期</th></tr></thead>
@@ -40,7 +40,7 @@
 </details>
 
 <details open>
-<summary><b>游戏</b></summary>
+<summary><h2 style="display:inline">游戏</h2></summary>
 
 <table style="width:100%; table-layout:fixed;">
 <thead><tr><th style="text-align:left; width:70%">标题</th><th style="text-align:left; width:30%">日期</th></tr></thead>
@@ -62,7 +62,7 @@
 </details>
 
 <details open>
-<summary><b>编程</b></summary>
+<summary><h2 style="display:inline">编程</h2></summary>
 
 ### Java
 <table style="width:100%; table-layout:fixed;">
@@ -262,7 +262,7 @@
 </details>
 
 <details open>
-<summary><b>观影</b></summary>
+<summary><h2 style="display:inline">观影</h2></summary>
 
 <table style="width:100%; table-layout:fixed;">
 <thead><tr><th style="text-align:left; width:70%">标题</th><th style="text-align:left; width:30%">日期</th></tr></thead>
@@ -278,7 +278,7 @@
 </details>
 
 <details open>
-<summary><b>读书</b></summary>
+<summary><h2 style="display:inline">读书</h2></summary>
 
 <table style="width:100%; table-layout:fixed;">
 <thead><tr><th style="text-align:left; width:70%">标题</th><th style="text-align:left; width:30%">日期</th></tr></thead>
@@ -302,7 +302,7 @@
 </details>
 
 <details open>
-<summary><b>随笔</b></summary>
+<summary><h2 style="display:inline">随笔</h2></summary>
 
 <table style="width:100%; table-layout:fixed;">
 <thead><tr><th style="text-align:left; width:70%">标题</th><th style="text-align:left; width:30%">日期</th></tr></thead>
