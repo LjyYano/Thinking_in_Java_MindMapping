@@ -30,17 +30,11 @@ jobs:
 
       - name: Commit changes
         run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
           if git status --porcelain README.md | grep README.md; then
-            git config user.name "github-actions[bot]"
-            git config user.email "github-actions[bot]@users.noreply.github.com"
             git add README.md
             git commit -m "chore: update README nav"
-          fi
-
-      - name: Push changes
-        if: success()
-        run: |
-          if git rev-parse --verify HEAD >/dev/null 2>&1 && git status --porcelain README.md | grep README.md; then
             git push
           fi
 
