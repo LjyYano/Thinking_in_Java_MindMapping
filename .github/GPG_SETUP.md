@@ -99,7 +99,7 @@ After setup, when the workflow runs:
 
 ## Alternative: Using GitHub App Token
 
-If you prefer not to manage GPG keys manually, you can use a GitHub App token which provides automatic commit signing. However, this requires creating and installing a GitHub App, which is more complex.
+If you prefer not to manage GPG keys manually, you can create a GitHub App with appropriate permissions. Note that GitHub App tokens still require GPG signing to comply with signed commit requirements - they do not automatically sign commits. However, a GitHub App can be configured with its own GPG key for better isolation and security. This approach requires creating and installing a GitHub App, which is more complex than using repository secrets.
 
 ## Workflow Changes Made
 
