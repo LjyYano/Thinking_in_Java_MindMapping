@@ -1,12 +1,35 @@
+# 我的年度计划
+
+[我的 2025 计划](https://yano-nankai.notion.site/Yano-Space-ff42bde7acd1467eb3ae63dc0d4a9f8c)
+
 # 前言
 
 很早之前读《Java 编程思想》，用思维导图做笔记并将思维导图的截图放到了简书上，没想到期间有很多人留言要这份思维导图。最终创建了这个项目，但是又写入了很多文章，也许这个项目叫做 `Thinking_in_Java_MindMapping` 已经不合适了。
 
 编程笔记、博客、读书笔记、生活感悟、Switch 游戏都会写在这里，内容比较繁杂，随心写吧，贵在坚持 0_o
 
-# 我的年度计划
+## 你可以在这里找到什么
 
-[我的 2025 计划](https://yano-nankai.notion.site/Yano-Space-ff42bde7acd1467eb3ae63dc0d4a9f8c)
+- 编程：Java / Redis / Spring / 算法与题解 / 思维导图系列
+- AI：Agent / MCP / 论文资料等
+- 生活：读书 / 观影 / 随笔 / 游戏
+
+## 快速入口
+
+- 编程：[`编程/`](编程/) ｜ [`编程/Java/`](编程/Java/) ｜ [`编程/Redis 源码剖析系列/`](编程/Redis%20源码剖析系列/) ｜ [`编程/Spring/`](编程/Spring/)
+- 思维导图系列：[`编程/思维导图系列/`](编程/思维导图系列/)
+- AI：[`AI/`](AI/)
+- 游戏：[`游戏/`](游戏/)
+- 读书：[`读书/`](读书/)
+- 观影：[`观影/`](观影/)
+- 随笔：[`随笔/`](随笔/)
+
+## 维护说明（自动生成导航）
+
+`# 文章导航` 下方的内容由脚本自动生成，建议不要手工编辑这段。
+
+- 本地更新：`python scripts/update_readme_nav.py`
+- CI 更新：提交任何 `*.md` 后会自动更新导航并提交回仓库
 
 # 文章导航
 
@@ -336,7 +359,7 @@ coding 笔记、读书笔记、点滴记录，以后的文章也会同步到公�
 
 我的博客地址：[博客主页](https://yano-nankai.notion.site/yano-nankai/Yano-Space-ff42bde7acd1467eb3ae63dc0d4a9f8c)。
 
-![](http://yano.oss-cn-beijing.aliyuncs.com/2019-07-29-qrcode_for_gh_a26ce4572791_258.jpg)
+![](https://yano.oss-cn-beijing.aliyuncs.com/2019-07-29-qrcode_for_gh_a26ce4572791_258.jpg)
 
 # 关于转载
 
