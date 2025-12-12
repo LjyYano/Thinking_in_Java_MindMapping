@@ -29,8 +29,9 @@
 <details open>
 <summary><h2 style="display:inline">AI</h2></summary>
 
-<table style="width:100%; table-layout:fixed;">
-<thead><tr><th style="text-align:left; width:70%">标题</th><th style="text-align:left; width:30%">日期</th></tr></thead>
+<table width="100%" style="table-layout:fixed;">
+<colgroup><col style="width:70%"><col style="width:30%"></colgroup>
+<thead><tr><th style="text-align:left;">标题</th><th style="text-align:left;">日期</th></tr></thead>
 <tbody>
 <tr><td><a href="AI/Agent%20%E5%8E%9F%E7%90%86.md">Agent 原理.md</a></td><td>-</td></tr>
 <tr><td><a href="AI/AI%20%E8%AE%BA%E6%96%87%E8%B5%84%E6%96%99.md">AI 论文资料.md</a></td><td>-</td></tr>
@@ -42,8 +43,9 @@
 <details open>
 <summary><h2 style="display:inline">游戏</h2></summary>
 
-<table style="width:100%; table-layout:fixed;">
-<thead><tr><th style="text-align:left; width:70%">标题</th><th style="text-align:left; width:30%">日期</th></tr></thead>
+<table width="100%" style="table-layout:fixed;">
+<colgroup><col style="width:70%"><col style="width:30%"></colgroup>
+<thead><tr><th style="text-align:left;">标题</th><th style="text-align:left;">日期</th></tr></thead>
 <tbody>
 <tr><td><a href="%E6%B8%B8%E6%88%8F/Switch%20SX%20OX%20%E4%BF%AE%E6%94%B9%E6%B8%B8%E6%88%8F%E6%95%B0%E5%80%BC%EF%BC%88%E5%BA%9F%E5%BC%83%EF%BC%89.md">Switch SX OX 修改游戏数值（废弃）.md</a></td><td>2021-08-09</td></tr>
 <tr><td><a href="%E6%B8%B8%E6%88%8F/%E3%80%8A%E5%85%AB%E6%96%B9%E6%97%85%E4%BA%BA%202%E3%80%8B-JRPG%20%E7%9A%84%E9%AD%85%E5%8A%9B.md">《八方旅人 2》-JRPG 的魅力.md</a></td><td>2023-03-05</td></tr>
@@ -65,8 +67,9 @@
 <summary><h2 style="display:inline">编程</h2></summary>
 
 ### Java
-<table style="width:100%; table-layout:fixed;">
-<thead><tr><th style="text-align:left; width:70%">标题</th><th style="text-align:left; width:30%">日期</th></tr></thead>
+<table width="100%" style="table-layout:fixed;">
+<colgroup><col style="width:70%"><col style="width:30%"></colgroup>
+<thead><tr><th style="text-align:left;">标题</th><th style="text-align:left;">日期</th></tr></thead>
 <tbody>
 <tr><td><a href="%E7%BC%96%E7%A8%8B/Java/%20%E5%AF%B9%E8%B0%B7%E6%AD%8C%E7%94%B2%E9%AA%A8%E6%96%87%20Java%20%E7%BA%A0%E7%BA%B7%E6%A1%88%E5%88%A4%E5%86%B3%E7%BB%93%E6%9E%9C%E7%9A%84%E6%84%9F%E6%83%B3.md"> 对谷歌甲骨文 Java 纠纷案判决结果的感想.md</a></td><td>2021-04-12</td></tr>
 <tr><td><a href="%E7%BC%96%E7%A8%8B/Java/Apache%20Log4j%20%E8%BF%9C%E7%A8%8B%E4%BB%A3%E7%A0%81%E6%89%A7%E8%A1%8C%E6%BC%8F%E6%B4%9E%E6%BA%90%E7%A0%81%E7%BA%A7%E5%88%86%E6%9E%90.md">Apache Log4j 远程代码执行漏洞源码级分析.md</a></td><td>2021-12-12</td></tr>
@@ -108,8 +111,9 @@
 </tbody></table>
 
 ### LeetCode 题解
-<table style="width:100%; table-layout:fixed;">
-<thead><tr><th style="text-align:left; width:70%">标题</th><th style="text-align:left; width:30%">日期</th></tr></thead>
+<table width="100%" style="table-layout:fixed;">
+<colgroup><col style="width:70%"><col style="width:30%"></colgroup>
+<thead><tr><th style="text-align:left;">标题</th><th style="text-align:left;">日期</th></tr></thead>
 <tbody>
 <tr><td><a href="%E7%BC%96%E7%A8%8B/LeetCode%20%E9%A2%98%E8%A7%A3/LeetCode%200000.%E7%88%AC%E5%8F%96%E5%AE%98%E7%BD%91%E6%89%80%E6%9C%89%E9%A2%98%E7%9B%AE%E5%92%8C%E8%87%AA%E5%B7%B1%E7%9A%84%E6%9C%80%E8%BF%91%E9%A2%98%E8%A7%A3.md">LeetCode 0000.爬取官网所有题目和自己的最近题解.md</a></td><td>-</td></tr>
 <tr><td><a href="%E7%BC%96%E7%A8%8B/LeetCode%20%E9%A2%98%E8%A7%A3/LeetCode%200005.%E6%9C%80%E9%95%BF%E5%9B%9E%E6%96%87%E5%AD%90%E4%B8%B2%5B%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%E8%AF%A6%E8%A7%A3%5D.md">LeetCode 0005.最长回文子串[动态规划详解].md</a></td><td>-</td></tr>
@@ -179,8 +183,9 @@
 </tbody></table>
 
 ### Redis 源码剖析系列
-<table style="width:100%; table-layout:fixed;">
-<thead><tr><th style="text-align:left; width:70%">标题</th><th style="text-align:left; width:30%">日期</th></tr></thead>
+<table width="100%" style="table-layout:fixed;">
+<colgroup><col style="width:70%"><col style="width:30%"></colgroup>
+<thead><tr><th style="text-align:left;">标题</th><th style="text-align:left;">日期</th></tr></thead>
 <tbody>
 <tr><td><a href="%E7%BC%96%E7%A8%8B/Redis%20%E6%BA%90%E7%A0%81%E5%89%96%E6%9E%90%E7%B3%BB%E5%88%97/Redis%207.0.md">Redis 7.0.md</a></td><td>2022-06-04</td></tr>
 <tr><td><a href="%E7%BC%96%E7%A8%8B/Redis%20%E6%BA%90%E7%A0%81%E5%89%96%E6%9E%90%E7%B3%BB%E5%88%97/Redis%20String%E3%80%81Hash%20%E5%86%85%E5%AD%98%E4%BC%98%E5%8C%96.md">Redis String、Hash 内存优化.md</a></td><td>2024-03-01</td></tr>
@@ -205,8 +210,9 @@
 </tbody></table>
 
 ### Spring
-<table style="width:100%; table-layout:fixed;">
-<thead><tr><th style="text-align:left; width:70%">标题</th><th style="text-align:left; width:30%">日期</th></tr></thead>
+<table width="100%" style="table-layout:fixed;">
+<colgroup><col style="width:70%"><col style="width:30%"></colgroup>
+<thead><tr><th style="text-align:left;">标题</th><th style="text-align:left;">日期</th></tr></thead>
 <tbody>
 <tr><td><a href="%E7%BC%96%E7%A8%8B/Spring/Spring%20Bean%20%E7%9A%84%20Scope%E3%80%81%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E5%92%8C%E5%BE%AA%E7%8E%AF%E4%BE%9D%E8%B5%96%E5%88%86%E6%9E%90.md">Spring Bean 的 Scope、生命周期和循环依赖分析.md</a></td><td>-</td></tr>
 <tr><td><a href="%E7%BC%96%E7%A8%8B/Spring/Spring%20Boot%20Native.md">Spring Boot Native.md</a></td><td>2021-12-19</td></tr>
@@ -216,8 +222,9 @@
 </tbody></table>
 
 ### 其他
-<table style="width:100%; table-layout:fixed;">
-<thead><tr><th style="text-align:left; width:70%">标题</th><th style="text-align:left; width:30%">日期</th></tr></thead>
+<table width="100%" style="table-layout:fixed;">
+<colgroup><col style="width:70%"><col style="width:30%"></colgroup>
+<thead><tr><th style="text-align:left;">标题</th><th style="text-align:left;">日期</th></tr></thead>
 <tbody>
 <tr><td><a href="%E7%BC%96%E7%A8%8B/%E5%85%B6%E4%BB%96/30%20%E5%88%86%E9%92%9F%E7%8E%A9%E8%BD%AC%E3%80%8C%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E3%80%8D.md">30 分钟玩转「正则表达式」.md</a></td><td>2020-12-01</td></tr>
 <tr><td><a href="%E7%BC%96%E7%A8%8B/%E5%85%B6%E4%BB%96/guava%20RateLimiter%20%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90.md">guava RateLimiter 源码分析.md</a></td><td>2022-09-09</td></tr>
@@ -244,8 +251,9 @@
 </tbody></table>
 
 ### 思维导图系列
-<table style="width:100%; table-layout:fixed;">
-<thead><tr><th style="text-align:left; width:70%">标题</th><th style="text-align:left; width:30%">日期</th></tr></thead>
+<table width="100%" style="table-layout:fixed;">
+<colgroup><col style="width:70%"><col style="width:30%"></colgroup>
+<thead><tr><th style="text-align:left;">标题</th><th style="text-align:left;">日期</th></tr></thead>
 <tbody>
 <tr><td><a href="%E7%BC%96%E7%A8%8B/%E6%80%9D%E7%BB%B4%E5%AF%BC%E5%9B%BE%E7%B3%BB%E5%88%97/%E4%B8%80%E4%B8%AA%E6%80%9D%E7%BB%B4%E5%AF%BC%E5%9B%BE%EF%BC%8C%E5%B8%A6%E4%BD%A0%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3%20Linux%20%E7%BD%91%E7%BB%9C.md">一个思维导图，带你深入理解 Linux 网络.md</a></td><td>2022-07-09</td></tr>
 <tr><td><a href="%E7%BC%96%E7%A8%8B/%E6%80%9D%E7%BB%B4%E5%AF%BC%E5%9B%BE%E7%B3%BB%E5%88%97/%E6%80%9D%E7%BB%B4%E5%AF%BC%E5%9B%BE%E5%AD%A6%20HTTP.md">思维导图学 HTTP.md</a></td><td>2021-04-22</td></tr>
@@ -264,8 +272,9 @@
 <details open>
 <summary><h2 style="display:inline">观影</h2></summary>
 
-<table style="width:100%; table-layout:fixed;">
-<thead><tr><th style="text-align:left; width:70%">标题</th><th style="text-align:left; width:30%">日期</th></tr></thead>
+<table width="100%" style="table-layout:fixed;">
+<colgroup><col style="width:70%"><col style="width:30%"></colgroup>
+<thead><tr><th style="text-align:left;">标题</th><th style="text-align:left;">日期</th></tr></thead>
 <tbody>
 <tr><td><a href="%E8%A7%82%E5%BD%B1/Yano%20%E7%9A%84%202019%20%E8%A7%82%E5%BD%B1%E6%80%BB%E7%BB%93.md">Yano 的 2019 观影总结.md</a></td><td>2019-12-31</td></tr>
 <tr><td><a href="%E8%A7%82%E5%BD%B1/Yano%20%E7%9A%84%202020%20%E8%A7%82%E5%BD%B1%E6%80%BB%E7%BB%93.md">Yano 的 2020 观影总结.md</a></td><td>2020-12-28</td></tr>
@@ -280,8 +289,9 @@
 <details open>
 <summary><h2 style="display:inline">读书</h2></summary>
 
-<table style="width:100%; table-layout:fixed;">
-<thead><tr><th style="text-align:left; width:70%">标题</th><th style="text-align:left; width:30%">日期</th></tr></thead>
+<table width="100%" style="table-layout:fixed;">
+<colgroup><col style="width:70%"><col style="width:30%"></colgroup>
+<thead><tr><th style="text-align:left;">标题</th><th style="text-align:left;">日期</th></tr></thead>
 <tbody>
 <tr><td><a href="%E8%AF%BB%E4%B9%A6/%E3%80%8AEffective%20Java%E3%80%8B%E4%B8%AD%E5%AD%A6%E5%88%B0%E7%9A%84%E6%80%9D%E6%83%B3.md">《Effective Java》中学到的思想.md</a></td><td>-</td></tr>
 <tr><td><a href="%E8%AF%BB%E4%B9%A6/%E3%80%8AUNIX%20%E4%BC%A0%E5%A5%87%E3%80%8B.md">《UNIX 传奇》.md</a></td><td>2022-08-29</td></tr>
@@ -304,8 +314,9 @@
 <details open>
 <summary><h2 style="display:inline">随笔</h2></summary>
 
-<table style="width:100%; table-layout:fixed;">
-<thead><tr><th style="text-align:left; width:70%">标题</th><th style="text-align:left; width:30%">日期</th></tr></thead>
+<table width="100%" style="table-layout:fixed;">
+<colgroup><col style="width:70%"><col style="width:30%"></colgroup>
+<thead><tr><th style="text-align:left;">标题</th><th style="text-align:left;">日期</th></tr></thead>
 <tbody>
 <tr><td><a href="%E9%9A%8F%E7%AC%94/2016%20%E5%B9%B4%E7%BB%88%E6%80%BB%E7%BB%93%E2%80%94%E2%80%94%E5%AD%A6%E7%94%9F%E6%97%B6%E4%BB%A3%E7%9A%84%E7%BB%93%E6%9D%9F%E3%80%81%E5%8C%97%E6%BC%82%E7%94%9F%E6%B4%BB%E7%9A%84%E5%BC%80%E5%A7%8B.md">2016 年终总结——学生时代的结束、北漂生活的开始.md</a></td><td>2017-01-01</td></tr>
 <tr><td><a href="%E9%9A%8F%E7%AC%94/2016%20%E6%88%91%E7%9A%84%E7%94%B5%E5%AD%90%E5%AD%A6%E4%B9%A0%E4%B9%8B%E8%B7%AF.md">2016 我的电子学习之路.md</a></td><td>-</td></tr>

@@ -86,8 +86,9 @@ def build_table(rows: List[dict]) -> str:
     if not rows:
         return ""
     lines = [
-        '<table style="width:100%; table-layout:fixed;">',
-        '<thead><tr><th style="text-align:left; width:70%">标题</th><th style="text-align:left; width:30%">日期</th></tr></thead>',
+        '<table width="100%" style="table-layout:fixed;">',
+        '<colgroup><col style="width:70%"><col style="width:30%"></colgroup>',
+        '<thead><tr><th style="text-align:left;">标题</th><th style="text-align:left;">日期</th></tr></thead>',
         "<tbody>",
     ]
     for item in rows:
