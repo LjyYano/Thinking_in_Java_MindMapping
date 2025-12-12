@@ -100,22 +100,8 @@ def build_table(rows: List[dict]) -> str:
 
 
 def sort_rows(rows: List[dict]) -> List[dict]:
-    """
-    Sorting rules:
-    - Date descending (newest first)
-    - Missing date goes after dated rows
-    - When both missing date, sort by title (case-insensitive) ascending as a proxy for pronunciation
-    """
-
-    def key(item: dict) -> Tuple[int, float, str]:
-        date_val = parse_date_value(item["date"])
-        if date_val:
-            # has date: group 0; sort by negative timestamp for descending
-            return (0, -date_val.timestamp(), item["title"].casefold())
-        # missing date: group 1; timestamp placeholder 0; title asc
-        return (1, 0.0, item["title"].casefold())
-
-    return sorted(rows, key=key)
+    """Sorting rule: title ascending (case-insensitive)."""
+    return sorted(rows, key=lambda item: item["title"].casefold())
 
 
 def render_top_dir(top_dir: Path) -> str:
@@ -158,7 +144,12 @@ def render_top_dir(top_dir: Path) -> str:
         return ""
 
     inner = "\n\n".join(sections)
-    return f"## {top_dir.name}\n\n{inner}"
+    return (
+        "<details open>\n"
+        f"<summary><b>{top_dir.name}</b></summary>\n\n"
+        f"{inner}\n\n"
+        "</details>"
+    )
 
 
 def generate_nav_block() -> str:
