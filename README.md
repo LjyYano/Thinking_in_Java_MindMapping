@@ -43,6 +43,7 @@
 <tbody>
 <tr><td><a href="AI/Agent%20%E5%8E%9F%E7%90%86.md">Agent 原理.md</a></td><td>-</td></tr>
 <tr><td><a href="AI/AI%20%E8%AE%BA%E6%96%87%E8%B5%84%E6%96%99.md">AI 论文资料.md</a></td><td>-</td></tr>
+<tr><td><a href="AI/ChatGPT%205.1%20Thinking%20%E8%B6%85%E5%87%BA%E9%A2%84%E6%9C%9F.md">ChatGPT 5.1 Thinking 超出预期.md</a></td><td>-</td></tr>
 <tr><td><a href="AI/MCP%20%E5%8E%9F%E7%90%86%E5%8F%8A%20Java%20%E5%BC%80%E5%8F%91%E6%8C%87%E5%8D%97.md">MCP 原理及 Java 开发指南.md</a></td><td>-</td></tr>
 </tbody></table>
 
