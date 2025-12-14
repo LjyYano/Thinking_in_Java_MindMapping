@@ -1,3 +1,7 @@
+---
+date: 2025-12-14
+---
+
 ## Agent 原理
 
 ### 引言：从 ChatGPT 到 Agent
