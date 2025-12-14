@@ -230,7 +230,7 @@
 <colgroup><col style="width:70%"><col style="width:30%"></colgroup>
 <thead><tr><th style="text-align:left;">标题</th><th style="text-align:left;">日期</th></tr></thead>
 <tbody>
-<tr><td><a href="%E8%AF%BB%E4%B9%A6/%E3%80%8AEffective%20Java%E3%80%8B%E4%B8%AD%E5%AD%A6%E5%88%B0%E7%9A%84%E6%80%9D%E6%83%B3.md">《Effective Java》中学到的思想.md</a></td><td>-</td></tr>
+<tr><td><a href="%E8%AF%BB%E4%B9%A6/%E3%80%8AEffective%20Java%E3%80%8B%E4%B8%AD%E5%AD%A6%E5%88%B0%E7%9A%84%E6%80%9D%E6%83%B3.md">《Effective Java》中学到的思想.md</a></td><td>2017-12-31</td></tr>
 <tr><td><a href="%E8%AF%BB%E4%B9%A6/%E3%80%8AUNIX%20%E4%BC%A0%E5%A5%87%E3%80%8B.md">《UNIX 传奇》.md</a></td><td>2022-08-29</td></tr>
 <tr><td><a href="%E8%AF%BB%E4%B9%A6/%E3%80%8A%E4%BB%BB%E5%A4%A9%E5%A0%82%E4%BC%A0%E5%A5%87%EF%BC%9A%E6%B8%B8%E6%88%8F%E4%BA%A7%E4%B8%9A%E7%8E%8B%E8%80%85%E5%BD%92%E6%9D%A5%E3%80%8B.md">《任天堂传奇：游戏产业王者归来》.md</a></td><td>2024-12-01</td></tr>
 <tr><td><a href="%E8%AF%BB%E4%B9%A6/%E3%80%8A%E4%BD%A0%E6%9C%89%E4%BD%A0%E7%9A%84%E8%AE%A1%E5%88%92%EF%BC%8C%E4%B8%96%E7%95%8C%E5%8F%A6%E6%9C%89%E8%AE%A1%E5%88%92%E3%80%8B.md">《你有你的计划，世界另有计划》.md</a></td><td>2019-06-01</td></tr>
