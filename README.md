@@ -256,8 +256,8 @@
 <thead><tr><th style="text-align:left;">标题</th><th style="text-align:left;">日期</th></tr></thead>
 <tbody>
 <tr><td><a href="%E9%9A%8F%E7%AC%94/2016%20%E5%B9%B4%E7%BB%88%E6%80%BB%E7%BB%93%E2%80%94%E2%80%94%E5%AD%A6%E7%94%9F%E6%97%B6%E4%BB%A3%E7%9A%84%E7%BB%93%E6%9D%9F%E3%80%81%E5%8C%97%E6%BC%82%E7%94%9F%E6%B4%BB%E7%9A%84%E5%BC%80%E5%A7%8B.md">2016 年终总结——学生时代的结束、北漂生活的开始.md</a></td><td>2017-01-01</td></tr>
-<tr><td><a href="%E9%9A%8F%E7%AC%94/2016%20%E6%88%91%E7%9A%84%E7%94%B5%E5%AD%90%E5%AD%A6%E4%B9%A0%E4%B9%8B%E8%B7%AF.md">2016 我的电子学习之路.md</a></td><td>-</td></tr>
-<tr><td><a href="%E9%9A%8F%E7%AC%94/2016%20%E8%87%AA%E6%88%91%E7%AE%A1%E7%90%86%E2%80%94%E2%80%94%E4%BB%8E%E5%A5%BD%E4%B9%A0%E6%83%AF%E5%BC%80%E5%A7%8B.md">2016 自我管理——从好习惯开始.md</a></td><td>-</td></tr>
+<tr><td><a href="%E9%9A%8F%E7%AC%94/2016%20%E6%88%91%E7%9A%84%E7%94%B5%E5%AD%90%E5%AD%A6%E4%B9%A0%E4%B9%8B%E8%B7%AF.md">2016 我的电子学习之路.md</a></td><td>2016-06-30</td></tr>
+<tr><td><a href="%E9%9A%8F%E7%AC%94/2016%20%E8%87%AA%E6%88%91%E7%AE%A1%E7%90%86%E2%80%94%E2%80%94%E4%BB%8E%E5%A5%BD%E4%B9%A0%E6%83%AF%E5%BC%80%E5%A7%8B.md">2016 自我管理——从好习惯开始.md</a></td><td>2016-12-31</td></tr>
 <tr><td><a href="%E9%9A%8F%E7%AC%94/2019%20%E4%B9%90%E9%AB%98%E7%A7%AF%E6%9C%A8%E6%84%9F%E6%82%9F.md">2019 乐高积木感悟.md</a></td><td>2019-06-03</td></tr>
 <tr><td><a href="%E9%9A%8F%E7%AC%94/2019%20%E4%B9%90%E9%AB%98%E9%A9%AC%E9%87%8C%E5%A5%A5.md">2019 乐高马里奥.md</a></td><td>2020-11-24</td></tr>
 <tr><td><a href="%E9%9A%8F%E7%AC%94/2020%20%E7%94%9F%E6%B4%BB%E3%80%81%E5%B7%A5%E4%BD%9C%E6%80%BB%E7%BB%93.md">2020 生活、工作总结.md</a></td><td>2020-11-11</td></tr>
