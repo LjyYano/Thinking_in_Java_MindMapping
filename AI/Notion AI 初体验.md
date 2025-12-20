@@ -35,7 +35,7 @@ date: 2025-12-20
 
 在 Notion AI 里，你可以直接选中一个数据库，让它帮你做分析。我试着让它对我的书影清单做个统计：
 
-<img src="https://yano.oss-cn-beijing.aliyuncs.com/blog/2025-12-20-15-37-34.png" width="80%" />
+<img src="https://yano.oss-cn-beijing.aliyuncs.com/blog/2025-12-20-15-37-34.png" width="50%" />
 
 这种“统计 + 归纳”的场景非常适合懒人：
 - **快速复盘**：今年看了多少电影？最常看什么类型？
@@ -55,11 +55,11 @@ date: 2025-12-20
 
 最近打算看《利刃出鞘 3》，我只在数据库里建了个标题，其他啥都没填。然后直接召唤 AI，让它帮我完善信息。
 
-<img src="https://yano.oss-cn-beijing.aliyuncs.com/blog/2025-12-20-15-39-35.png" width="80%" />
+<img src="https://yano.oss-cn-beijing.aliyuncs.com/blog/2025-12-20-15-39-35.png" width="50%" />
 
 因为它知道我还没开始看，所以评分、阅读时间这些字段它会留空；而导演、主演、海报、豆瓣链接这些公开信息，它会自动联网搜索并补齐。
 
-<img src="https://yano.oss-cn-beijing.aliyuncs.com/blog/2025-12-20-15-40-45.png" width="80%" />
+<img src="https://yano.oss-cn-beijing.aliyuncs.com/blog/2025-12-20-15-40-45.png" width="40%" />
 
 **以前需要手动去豆瓣搜、复制、粘贴的步骤，现在一句话就搞定了。**
 
@@ -74,7 +74,7 @@ Notion AI 的设置里有个 **Instructions** 功能，我觉得这才是长期�
 
 然后把这个页面加到 Instructions 里。以后每次让 AI 干活，它都会先看一眼这个手册，输出的结果就非常稳定了。
 
-<img src="https://yano.oss-cn-beijing.aliyuncs.com/blog/2025-12-20-15-43-22.png" width="80%" />
+<img src="https://yano.oss-cn-beijing.aliyuncs.com/blog/2025-12-20-15-43-22.png" width="60%" />
 
 顺便还能设置一下 AI 的语气和形象，挺好玩的。
 
@@ -93,11 +93,9 @@ Notion AI 的设置里有个 **Instructions** 功能，我觉得这才是长期�
 
 ## 碎碎念：关于限制和注意事项
 
-### 一、Notion AI（$20 / 月）本质是什么？
+**Notion AI 的本质是什么？**
 
-一句话总结：
-
-Notion AI 是「嵌入在 Notion 里的通用文本 AI 助手」，不是一个无限制的 ChatGPT。
+> 是「嵌入在 Notion 里的通用文本 AI 助手」，并不是一个无限制的 ChatGPT。
 
 它的核心定位是：
 
@@ -105,70 +103,10 @@ Notion AI 是「嵌入在 Notion 里的通用文本 AI 助手」，不是一个�
 - **在 Database、Page、Block 层级做智能编辑**
 - **对你当前 workspace 的内容有强上下文理解**
 
-### 二、最关键的问题：有没有「次数限制」？
+**有没有「次数限制」？** Notion 官方不公布明确的调用次数上限，而是使用：**Fair Use（合理使用）机制**。
 
-**✅ 官方口径（非常重要）**
 
-Notion 官方不公布明确的调用次数上限，而是使用：
-
-- **Fair Use（合理使用）机制**
-
-也就是说：
-
-- **❌ 没有明确写：每天 100 次 / 每月 1000 次**
-- **✅ 但存在隐式的频率 / 总量限制**
-
-### 三、实际可感知的限制有哪些？（重点）
-
-#### 1️⃣ 高频使用会被「限流 / 降速」
-
-常见触发场景：
-
-- 连续大量点击 “Ask AI”
-- 批量对 Database 每一行反复调用 AI
-- 把 Notion AI 当成 ChatGPT 连续对话刷
-
-你可能会遇到：
-
-- **❗ AI 响应明显变慢**
-- **❗ 提示「稍后再试」**
-- **❗ 某些 AI 功能暂时不可用（但不会封号）**
-
-👉 这是 Notion AI 最真实的“限制”。
-
-#### 2️⃣ 不适合做「自动化 / 批处理 AI」
-
-**❌ 不适合的场景：**
-
-- 用 Notion AI 批量生成几百条卡片
-- 当成 LLM API 做程序化调用
-- 用它跑工作流（它不是 Zapier / n8n）
-
-原因：
-
-- 没有 API
-- 没有并发控制能力
-- 每次调用成本很高（后台是真实 LLM）
-
-#### 3️⃣ 上下文 ≠ 无限
-
-Notion AI 只能：
-
-- 理解当前页面
-- 或你主动选择的关联页面 / Database
-
-它不会：
-
-- 自动理解你整个 workspace
-- 自动跨所有 Database 建立全局语义（除非你点选）
-
-👉 对重度 Notion 用户来说，需要你设计好页面结构，AI 才更聪明。
-
-### 四、功能层面的“边界”
-
-**✅ 它擅长的**
-
-非常适合程序员 / 知识管理类用户：
+**✅ 它擅长的**：非常适合程序员 / 知识管理类用户：
 
 - 页面总结（读书笔记 / 长文）
 - Database 字段生成（标签、摘要、结论）
@@ -203,4 +141,4 @@ Notion AI 只能：
 
 coding 笔记、读书笔记、点滴记录，以后的文章也会同步到公众号（Coding Insight）中，大家关注 `^_^`
 
-<img src="http://yano.oss-cn-beijing.aliyuncs.com/2019-07-29-qrcode_for_gh_a26ce4572791_258.jpg" width="80%" />
+<img src="http://yano.oss-cn-beijing.aliyuncs.com/2019-07-29-qrcode_for_gh_a26ce4572791_258.jpg"/>
