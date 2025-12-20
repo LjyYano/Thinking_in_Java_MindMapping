@@ -8,19 +8,17 @@ date: 2025-12-20
 
 作为一个 Notion 的重度用户，一直心痒痒想体验一下 Notion AI。虽然它不像 ChatGPT 或 Claude 那样可以让你自由切换各种最新模型，但它最大的杀手锏在于：**它就在你的笔记里，而且能读懂你的笔记、操作你的笔记**。
 
-最近试着用它来整理我的书影清单数据库，体验确实有点“回不去了”。不用在浏览器和 Notion 之间切来切去，这种沉浸式的自动化体验真的很爽。
+最近试着用它来整理我的「书影清单」数据库，体验确实有点“回不去了”。不用在浏览器和 Notion 之间切来切去，这种沉浸式的自动化体验真的很爽。
 
 ## 我的书影清单
 
-我一直在用 Notion 记录我的「书影清单」，包括阅读、观影、游戏等，目前已经积累了 294 条记录。
+我一直在用 Notion 记录我的「书影清单」，包括阅读、观影、游戏等，目前已经积累了 294 条记录。入口在这里：[博客主页](https://yano-nankai.notion.site/yano-nankai/Yano-Space-ff42bde7acd1467eb3ae63dc0d4a9f8c)。
 
-入口在这里：[博客主页](https://yano-nankai.notion.site/yano-nankai/Yano-Space-ff42bde7acd1467eb3ae63dc0d4a9f8c)。
+<div align="center" style="margin: 30px 0;"><img src="https://yano.oss-cn-beijing.aliyuncs.com/blog/2025-12-20-15-27-05.png" /></div>
 
-<div align="center"><img src="https://yano.oss-cn-beijing.aliyuncs.com/blog/2025-12-20-15-27-05.png" /></div>
+<div align="center" style="margin: 30px 0;"><img src="https://yano.oss-cn-beijing.aliyuncs.com/blog/2025-12-20-15-29-20.png" /></div>
 
-<div align="center"><img src="https://yano.oss-cn-beijing.aliyuncs.com/blog/2025-12-20-15-29-20.png" /></div>
-
-<div align="center"><img src="https://yano.oss-cn-beijing.aliyuncs.com/blog/2025-12-20-15-28-57.png" /></div>
+<div align="center" style="margin: 30px 0;"><img src="https://yano.oss-cn-beijing.aliyuncs.com/blog/2025-12-20-15-28-57.png" /></div>
 
 ## Notion AI 的杀手锏
 
@@ -35,7 +33,7 @@ date: 2025-12-20
 
 在 Notion AI 里，你可以直接选中一个数据库，让它帮你做分析。我试着让它对我的书影清单做个统计：
 
-<div align="center"><img src="https://yano.oss-cn-beijing.aliyuncs.com/blog/2025-12-20-15-37-34.png" width="60%" /></div>
+<div align="center" style="margin: 30px 0;"><img src="https://yano.oss-cn-beijing.aliyuncs.com/blog/2025-12-20-15-37-34.png" width="60%" /></div>
 
 这种“统计 + 归纳”的场景非常适合懒人：
 - **快速复盘**：今年看了多少电影？最常看什么类型？
@@ -55,11 +53,11 @@ date: 2025-12-20
 
 最近打算看《利刃出鞘 3》，我只在数据库里建了个标题，其他啥都没填。然后直接召唤 AI，让它帮我完善信息。
 
-<div align="center"><img src="https://yano.oss-cn-beijing.aliyuncs.com/blog/2025-12-20-15-39-35.png" width="60%" /></div>
+<div align="center" style="margin: 30px 0;"><img src="https://yano.oss-cn-beijing.aliyuncs.com/blog/2025-12-20-15-39-35.png" width="60%" /></div>
 
 因为它知道我还没开始看，所以评分、阅读时间这些字段它会留空；而导演、主演、海报、豆瓣链接这些公开信息，它会自动联网搜索并补齐。
 
-<div align="center"><img src="https://yano.oss-cn-beijing.aliyuncs.com/blog/2025-12-20-15-40-45.png" width="50%" /></div>
+<div align="center" style="margin: 30px 0;"><img src="https://yano.oss-cn-beijing.aliyuncs.com/blog/2025-12-20-15-40-45.png" width="50%" /></div>
 
 **以前需要手动去豆瓣搜、复制、粘贴的步骤，现在一句话就搞定了。**
 
@@ -74,11 +72,11 @@ Notion AI 的设置里有个 **Instructions** 功能，我觉得这才是长期�
 
 然后把这个页面加到 Instructions 里。以后每次让 AI 干活，它都会先看一眼这个手册，输出的结果就非常稳定了。
 
-<div align="center"><img src="https://yano.oss-cn-beijing.aliyuncs.com/blog/2025-12-20-15-43-22.png" width="60%" /></div>
+<div align="center" style="margin: 30px 0;"><img src="https://yano.oss-cn-beijing.aliyuncs.com/blog/2025-12-20-15-43-22.png" width="60%" /></div>
 
 顺便还能设置一下 AI 的语气和形象，挺好玩的。
 
-<div align="center"><img src="https://yano.oss-cn-beijing.aliyuncs.com/blog/2025-12-20-15-45-24.png" width="80%" /></div>
+<div align="center" style="margin: 30px 0;"><img src="https://yano.oss-cn-beijing.aliyuncs.com/blog/2025-12-20-15-45-24.png" width="80%" /></div>
 
 
 ## 碎碎念：关于限制和注意事项
@@ -106,4 +104,4 @@ Notion AI 的设置里有个 **Instructions** 功能，我觉得这才是长期�
 
 coding 笔记、读书笔记、点滴记录，以后的文章也会同步到公众号（Coding Insight）中，大家关注 `^_^`
 
-<img src="http://yano.oss-cn-beijing.aliyuncs.com/2019-07-29-qrcode_for_gh_a26ce4572791_258.jpg"/>
+<div align="center" style="margin: 30px 0;"><img src="http://yano.oss-cn-beijing.aliyuncs.com/2019-07-29-qrcode_for_gh_a26ce4572791_258.jpg"/></div>
