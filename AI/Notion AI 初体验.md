@@ -35,7 +35,7 @@ date: 2025-12-20
 
 在 Notion AI 里，你可以直接选中一个数据库，让它帮你做分析。我试着让它对我的书影清单做个统计：
 
-![](https://yano.oss-cn-beijing.aliyuncs.com/blog/2025-12-20-15-37-34.png)
+<img src="https://yano.oss-cn-beijing.aliyuncs.com/blog/2025-12-20-15-37-34.png" width="80%" />
 
 这种“统计 + 归纳”的场景非常适合懒人：
 - **快速复盘**：今年看了多少电影？最常看什么类型？
@@ -55,11 +55,11 @@ date: 2025-12-20
 
 最近打算看《利刃出鞘 3》，我只在数据库里建了个标题，其他啥都没填。然后直接召唤 AI，让它帮我完善信息。
 
-![](https://yano.oss-cn-beijing.aliyuncs.com/blog/2025-12-20-15-39-35.png)
+<img src="https://yano.oss-cn-beijing.aliyuncs.com/blog/2025-12-20-15-39-35.png" width="80%" />
 
 因为它知道我还没开始看，所以评分、阅读时间这些字段它会留空；而导演、主演、海报、豆瓣链接这些公开信息，它会自动联网搜索并补齐。
 
-![](https://yano.oss-cn-beijing.aliyuncs.com/blog/2025-12-20-15-40-45.png)
+<img src="https://yano.oss-cn-beijing.aliyuncs.com/blog/2025-12-20-15-40-45.png" width="80%" />
 
 **以前需要手动去豆瓣搜、复制、粘贴的步骤，现在一句话就搞定了。**
 
@@ -74,11 +74,11 @@ Notion AI 的设置里有个 **Instructions** 功能，我觉得这才是长期�
 
 然后把这个页面加到 Instructions 里。以后每次让 AI 干活，它都会先看一眼这个手册，输出的结果就非常稳定了。
 
-![](https://yano.oss-cn-beijing.aliyuncs.com/blog/2025-12-20-15-43-22.png)
+<img src="https://yano.oss-cn-beijing.aliyuncs.com/blog/2025-12-20-15-43-22.png" width="80%" />
 
 顺便还能设置一下 AI 的语气和形象，挺好玩的。
 
-![](https://yano.oss-cn-beijing.aliyuncs.com/blog/2025-12-20-15-45-24.png)
+<img src="https://yano.oss-cn-beijing.aliyuncs.com/blog/2025-12-20-15-45-24.png" width="80%" />
 
 ## 几个常用的 Prompt（抄作业）
 
@@ -203,4 +203,4 @@ Notion AI 只能：
 
 coding 笔记、读书笔记、点滴记录，以后的文章也会同步到公众号（Coding Insight）中，大家关注 `^_^`
 
-![](http://yano.oss-cn-beijing.aliyuncs.com/2019-07-29-qrcode_for_gh_a26ce4572791_258.jpg)
+<img src="http://yano.oss-cn-beijing.aliyuncs.com/2019-07-29-qrcode_for_gh_a26ce4572791_258.jpg" width="80%" />
