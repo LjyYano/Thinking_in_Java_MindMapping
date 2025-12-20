@@ -16,11 +16,11 @@ date: 2025-12-20
 
 入口在这里：[博客主页](https://yano-nankai.notion.site/yano-nankai/Yano-Space-ff42bde7acd1467eb3ae63dc0d4a9f8c)。
 
-![](https://yano.oss-cn-beijing.aliyuncs.com/blog/2025-12-20-15-27-05.png)
+<div align="center"><img src="https://yano.oss-cn-beijing.aliyuncs.com/blog/2025-12-20-15-27-05.png" /></div>
 
-![](https://yano.oss-cn-beijing.aliyuncs.com/blog/2025-12-20-15-29-20.png)
+<div align="center"><img src="https://yano.oss-cn-beijing.aliyuncs.com/blog/2025-12-20-15-29-20.png" /></div>
 
-![](https://yano.oss-cn-beijing.aliyuncs.com/blog/2025-12-20-15-28-57.png)
+<div align="center"><img src="https://yano.oss-cn-beijing.aliyuncs.com/blog/2025-12-20-15-28-57.png" /></div>
 
 ## Notion AI 的杀手锏：带着上下文干活
 
@@ -35,7 +35,7 @@ date: 2025-12-20
 
 在 Notion AI 里，你可以直接选中一个数据库，让它帮你做分析。我试着让它对我的书影清单做个统计：
 
-<img src="https://yano.oss-cn-beijing.aliyuncs.com/blog/2025-12-20-15-37-34.png" width="50%" />
+<div align="center"><img src="https://yano.oss-cn-beijing.aliyuncs.com/blog/2025-12-20-15-37-34.png" width="60%" /></div>
 
 这种“统计 + 归纳”的场景非常适合懒人：
 - **快速复盘**：今年看了多少电影？最常看什么类型？
@@ -55,11 +55,11 @@ date: 2025-12-20
 
 最近打算看《利刃出鞘 3》，我只在数据库里建了个标题，其他啥都没填。然后直接召唤 AI，让它帮我完善信息。
 
-<img src="https://yano.oss-cn-beijing.aliyuncs.com/blog/2025-12-20-15-39-35.png" width="50%" />
+<div align="center"><img src="https://yano.oss-cn-beijing.aliyuncs.com/blog/2025-12-20-15-39-35.png" width="60%" /></div>
 
 因为它知道我还没开始看，所以评分、阅读时间这些字段它会留空；而导演、主演、海报、豆瓣链接这些公开信息，它会自动联网搜索并补齐。
 
-<img src="https://yano.oss-cn-beijing.aliyuncs.com/blog/2025-12-20-15-40-45.png" width="40%" />
+<div align="center"><img src="https://yano.oss-cn-beijing.aliyuncs.com/blog/2025-12-20-15-40-45.png" width="50%" /></div>
 
 **以前需要手动去豆瓣搜、复制、粘贴的步骤，现在一句话就搞定了。**
 
@@ -74,11 +74,11 @@ Notion AI 的设置里有个 **Instructions** 功能，我觉得这才是长期�
 
 然后把这个页面加到 Instructions 里。以后每次让 AI 干活，它都会先看一眼这个手册，输出的结果就非常稳定了。
 
-<img src="https://yano.oss-cn-beijing.aliyuncs.com/blog/2025-12-20-15-43-22.png" width="60%" />
+<div align="center"><img src="https://yano.oss-cn-beijing.aliyuncs.com/blog/2025-12-20-15-43-22.png" width="60%" /></div>
 
 顺便还能设置一下 AI 的语气和形象，挺好玩的。
 
-<img src="https://yano.oss-cn-beijing.aliyuncs.com/blog/2025-12-20-15-45-24.png" width="80%" />
+<div align="center"><img src="https://yano.oss-cn-beijing.aliyuncs.com/blog/2025-12-20-15-45-24.png" width="80%" /></div>
 
 ## 几个常用的 Prompt（抄作业）
 
@@ -97,29 +97,9 @@ Notion AI 的设置里有个 **Instructions** 功能，我觉得这才是长期�
 
 > 是「嵌入在 Notion 里的通用文本 AI 助手」，并不是一个无限制的 ChatGPT。
 
-它的核心定位是：
+简单说，它不是一个无限制陪聊的 ChatGPT，而是**专门帮你打理 Notion 笔记的私人秘书**。它能直接读懂你当前页面、甚至整个数据库的内容，帮你总结、润色、改写。这就比那些需要把内容“复制出去再粘贴回来”的外部 AI 强太多了。
 
-- **帮你读 / 写 / 改 / 总结 Notion 页面**
-- **在 Database、Page、Block 层级做智能编辑**
-- **对你当前 workspace 的内容有强上下文理解**
-
-**有没有「次数限制」？** Notion 官方不公布明确的调用次数上限，而是使用：**Fair Use（合理使用）机制**。
-
-
-**✅ 它擅长的**：非常适合程序员 / 知识管理类用户：
-
-- 页面总结（读书笔记 / 长文）
-- Database 字段生成（标签、摘要、结论）
-- 技术文章润色（中文 / 英文）
-- 把零散笔记整理成结构化大纲
-- 会议纪要 / 日报 / 周报
-
-**❌ 它不擅长的**
-
-- 长对话推理（不如 ChatGPT）
-- 代码生成（只能算勉强）
-- 多轮 Agent 规划
-- 严肃的事实检索（无联网搜索）
+**关于次数限制**：官方其实没给具体的数字，只说是个「合理使用机制」（Fair Use）。
 
 ### 五、注意事项（避免踩坑）
 
@@ -141,4 +121,4 @@ Notion AI 的设置里有个 **Instructions** 功能，我觉得这才是长期�
 
 coding 笔记、读书笔记、点滴记录，以后的文章也会同步到公众号（Coding Insight）中，大家关注 `^_^`
 
-<img src="http://yano.oss-cn-beijing.aliyuncs.com/2019-07-29-qrcode_for_gh_a26ce4572791_258.jpg"/>
+<div align="center"><img src="http://yano.oss-cn-beijing.aliyuncs.com/2019-07-29-qrcode_for_gh_a26ce4572791_258.jpg"/></div>
