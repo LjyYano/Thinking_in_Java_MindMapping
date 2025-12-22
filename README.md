@@ -46,6 +46,7 @@
 <tr><td><a href="AI/ChatGPT%205.1%20Thinking%20%E8%B6%85%E5%87%BA%E9%A2%84%E6%9C%9F.md">ChatGPT 5.1 Thinking 超出预期.md</a></td><td>2025-12-13</td></tr>
 <tr><td><a href="AI/MCP%20%E5%8E%9F%E7%90%86%E5%8F%8A%20Java%20%E5%BC%80%E5%8F%91%E6%8C%87%E5%8D%97.md">MCP 原理及 Java 开发指南.md</a></td><td>2025-10-22</td></tr>
 <tr><td><a href="AI/Notion%20AI%20%E5%88%9D%E4%BD%93%E9%AA%8C.md">Notion AI 初体验.md</a></td><td>2025-12-20</td></tr>
+<tr><td><a href="AI/Skill%EF%BC%9A%E8%AE%A9%20Agent%20%E5%8F%98%E5%BE%97%E5%8F%AF%E5%A4%8D%E7%94%A8%E3%80%81%E5%8F%AF%E6%8E%A7%E3%80%81%E5%8F%AF%E6%BC%94%E8%BF%9B.md">Skill：让 Agent 变得可复用、可控、可演进.md</a></td><td>2025-12-22</td></tr>
 </tbody></table>
 
 </details>
