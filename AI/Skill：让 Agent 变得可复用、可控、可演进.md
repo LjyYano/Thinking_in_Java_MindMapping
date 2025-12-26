@@ -86,6 +86,14 @@ flowchart TB
 
 `Skill` 的价值在于：**它让经验具备可复制性**。
 
+| 维度 | 普通 Prompt | Skill (能力单元) |
+| :--- | :--- | :--- |
+| **主要载体** | 一段聊天记录 / 临时指令 | 独立文件 (.md / .mdc) |
+| **复用性** | 依赖复制粘贴 | 可被路由、可被导入 |
+| **关注点** | "帮我把这个做了" | "按这个标准流程做" |
+| **稳定性** | 随机性强，依赖模型心情 | 有校验点，输出结构固定 |
+| **维护方式** | 每次重写 | 版本管理 (Git) |
+
 一旦你把能力写成 `Skill`，它就可以：
 
 - 被别的 `Agent` 复用；
@@ -133,6 +141,38 @@ flowchart TB
 
 - **工具层（`MCP`）**：提供可调用的 `Tool` / 可读取的 `Resource` / 可复用的 `Prompt`。
 - **方法层（`Skill`）**：把工具按某种可靠流程组织起来，形成稳定产物。
+
+```mermaid
+graph TD
+    User[用户 User] -->|自然语言指令| Agent
+    
+    subgraph Agent Runtime
+        SystemPrompt[System Prompt<br/>(人设、基础约束)]
+        Router[决策/路由层]
+    end
+    
+    Agent --> SystemPrompt
+    SystemPrompt --> Router
+    
+    subgraph Skill Layer [Skill 层 (怎么做)]
+        S_Write[写作 Skill<br/>(SOP、校验、格式)]
+        S_Code[代码 Skill<br/>(重构、测试、Review)]
+        S_Search[搜索 Skill<br/>(关键词优化、总结)]
+    end
+    
+    Router -->|匹配场景| S_Write
+    Router -->|匹配场景| S_Code
+    
+    subgraph MCP Layer [MCP 工具层 (能做什么)]
+        T_File[文件读写 Tool]
+        T_DB[数据库 Tool]
+        T_Web[联网搜索 Tool]
+    end
+    
+    S_Write -->|调用| T_File
+    S_Code -->|调用| T_File
+    S_Search -->|调用| T_Web
+```
 
 > 相关链接：
 > - 如果你想完整理解 `MCP`：[`AI/MCP 原理及 Java 开发指南.md`](MCP%20原理及%20Java%20开发指南.md)
@@ -265,6 +305,38 @@ Skill 名称：
 - 结果不可信：
 ```
 
+### 4.5 实战案例：Java 代码审查 Skill
+
+这是一个真实的 Skill 定义示例，你可以直接存为 `.cursor/rules/java-review.mdc`：
+
+```markdown
+---
+description: 当用户要求 Review Java 代码时触发
+globs: *.java
+---
+
+# Java Code Review Skill
+
+## 目标
+找出代码中的 NPE 风险、并发问题及不符合阿里巴巴规范的命名。
+
+## Non-Goals
+- 不负责重写整个架构
+- 不关注缩进和空格（交给 Formatter）
+
+## 审查步骤 (Steps)
+1. **安全性检查**：扫描所有入参，检查是否有 `@Nullable` 或未判空的使用。
+2. **性能检查**：检查循环中是否有数据库调用或 RPC。
+3. **规范检查**：对比变量命名是否符合驼峰，常量是否大写。
+
+## 校验点 (Checkpoints)
+- [ ] 每一个指出的问题必须引用具体行号。
+- [ ] 每一个修改建议必须提供 `Before` 和 `After` 代码对比。
+
+## 失败处理
+- 如果代码依赖缺失导致无法判断类型，请输出 "⚠️ 缺少上下文，假设为..."
+```
+
 ---
 
 ## 五、在 `Claude Code` 和 `Cursor` 上落地 `Skill`
@@ -337,6 +409,14 @@ your-repo/
 - `Skill`（规则/流程）写在 `.cursor/rules/*.mdc` 或 `skills/*/SKILL.md`
 - 能力（工具/资源）通过 `.cursor/mcp.json` 接入
 - **让 `Skill` 去“调用工具并验收产物”**，而不是让工具去“替你决定做法”
+
+### 5.4 `Skill` 的测试与调试
+
+`Skill` 既然是工程化的，就必须可测试。建议的测试策略：
+
+- **黄金数据集**：保留一组 Input 和 期望的 Output。
+- **回归测试**：当你修改 Skill 的步骤时，用上面的 Input 跑一遍，看 Output 格式是否崩坏。
+- **调试技巧**：在 Skill 中显式要求 Agent 输出 `<thinking>` 标签，打印它执行每一步时的决策过程。
 
 ---
 
