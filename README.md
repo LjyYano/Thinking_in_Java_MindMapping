@@ -35,6 +35,24 @@
 
 <!-- AUTO-ARTICLE-NAV:START -->
 <details open>
+<summary><h2 style="display:inline">观影</h2></summary>
+
+<table width="100%" style="table-layout:fixed;">
+<colgroup><col style="width:70%"><col style="width:30%"></colgroup>
+<thead><tr><th style="text-align:left;">标题</th><th style="text-align:left;">日期</th></tr></thead>
+<tbody>
+<tr><td><a href="%E8%A7%82%E5%BD%B1/Yano%20%E7%9A%84%202019%20%E8%A7%82%E5%BD%B1%E6%80%BB%E7%BB%93.md">Yano 的 2019 观影总结.md</a></td><td>2019-12-31</td></tr>
+<tr><td><a href="%E8%A7%82%E5%BD%B1/Yano%20%E7%9A%84%202020%20%E8%A7%82%E5%BD%B1%E6%80%BB%E7%BB%93.md">Yano 的 2020 观影总结.md</a></td><td>2020-12-28</td></tr>
+<tr><td><a href="%E8%A7%82%E5%BD%B1/Yano%20%E7%9A%84%202021%20%E8%A7%82%E5%BD%B1%E6%80%BB%E7%BB%93.md">Yano 的 2021 观影总结.md</a></td><td>2021-12-29</td></tr>
+<tr><td><a href="%E8%A7%82%E5%BD%B1/Yano%20%E7%9A%84%202022%20%E8%A7%82%E5%BD%B1%E6%80%BB%E7%BB%93.md">Yano 的 2022 观影总结.md</a></td><td>2022-12-31</td></tr>
+<tr><td><a href="%E8%A7%82%E5%BD%B1/Yano%20%E7%9A%84%202023%20%E8%A7%82%E5%BD%B1%E6%80%BB%E7%BB%93.md">Yano 的 2023 观影总结.md</a></td><td>2023-12-31</td></tr>
+<tr><td><a href="%E8%A7%82%E5%BD%B1/Yano%20%E7%9A%84%202024%20%E8%A7%82%E5%BD%B1%E6%80%BB%E7%BB%93.md">Yano 的 2024 观影总结.md</a></td><td>2024-12-31</td></tr>
+<tr><td><a href="%E8%A7%82%E5%BD%B1/Yano%20%E7%9A%84%202025%20%E8%A7%82%E5%BD%B1%E6%80%BB%E7%BB%93.md">Yano 的 2025 观影总结.md</a></td><td>2025-12-31</td></tr>
+</tbody></table>
+
+</details>
+
+<details open>
 <summary><h2 style="display:inline">AI</h2></summary>
 
 <table width="100%" style="table-layout:fixed;">
@@ -47,29 +65,6 @@
 <tr><td><a href="AI/MCP%20%E5%8E%9F%E7%90%86%E5%8F%8A%20Java%20%E5%BC%80%E5%8F%91%E6%8C%87%E5%8D%97.md">MCP 原理及 Java 开发指南.md</a></td><td>2025-10-22</td></tr>
 <tr><td><a href="AI/Notion%20AI%20%E5%88%9D%E4%BD%93%E9%AA%8C.md">Notion AI 初体验.md</a></td><td>2025-12-20</td></tr>
 <tr><td><a href="AI/Skill%EF%BC%9A%E8%AE%A9%20Agent%20%E5%8F%98%E5%BE%97%E5%8F%AF%E5%A4%8D%E7%94%A8%E3%80%81%E5%8F%AF%E6%8E%A7%E3%80%81%E5%8F%AF%E6%BC%94%E8%BF%9B.md">Skill：让 Agent 变得可复用、可控、可演进.md</a></td><td>2025-12-22</td></tr>
-</tbody></table>
-
-</details>
-
-<details open>
-<summary><h2 style="display:inline">游戏</h2></summary>
-
-<table width="100%" style="table-layout:fixed;">
-<colgroup><col style="width:70%"><col style="width:30%"></colgroup>
-<thead><tr><th style="text-align:left;">标题</th><th style="text-align:left;">日期</th></tr></thead>
-<tbody>
-<tr><td><a href="%E6%B8%B8%E6%88%8F/Switch%20SX%20OX%20%E4%BF%AE%E6%94%B9%E6%B8%B8%E6%88%8F%E6%95%B0%E5%80%BC%EF%BC%88%E5%BA%9F%E5%BC%83%EF%BC%89.md">Switch SX OX 修改游戏数值（废弃）.md</a></td><td>2021-08-09</td></tr>
-<tr><td><a href="%E6%B8%B8%E6%88%8F/%E3%80%8A%E5%85%AB%E6%96%B9%E6%97%85%E4%BA%BA%202%E3%80%8B-JRPG%20%E7%9A%84%E9%AD%85%E5%8A%9B.md">《八方旅人 2》-JRPG 的魅力.md</a></td><td>2023-03-05</td></tr>
-<tr><td><a href="%E6%B8%B8%E6%88%8F/%E3%80%8A%E5%85%AB%E6%96%B9%E6%97%85%E4%BA%BA%E3%80%8B%E5%9F%BA%E7%A1%80.md">《八方旅人》基础.md</a></td><td>2021-01-13</td></tr>
-<tr><td><a href="%E6%B8%B8%E6%88%8F/%E3%80%8A%E5%85%AB%E6%96%B9%E6%97%85%E4%BA%BA%E3%80%8B%E6%95%85%E4%BA%8B%E7%AE%80%E4%BB%8B.md">《八方旅人》故事简介.md</a></td><td>2021-01-21</td></tr>
-<tr><td><a href="%E6%B8%B8%E6%88%8F/%E3%80%8A%E5%A1%9E%E5%B0%94%E8%BE%BE%C2%B7%E8%8D%92%E9%87%8E%E4%B9%8B%E6%81%AF%E3%80%8B%E6%B8%B8%E6%88%8F%E6%88%AA%E5%9B%BE.md">《塞尔达·荒野之息》游戏截图.md</a></td><td>2020-11-08</td></tr>
-<tr><td><a href="%E6%B8%B8%E6%88%8F/%E3%80%8A%E5%BC%82%E5%BA%A6%E7%A5%9E%E5%89%91%202%E3%80%8BCG%20%E6%88%AA%E5%9B%BE.md">《异度神剑 2》CG 截图.md</a></td><td>2020-11-08</td></tr>
-<tr><td><a href="%E6%B8%B8%E6%88%8F/%E3%80%8A%E5%BC%82%E5%BA%A6%E7%A5%9E%E5%89%91%202%E3%80%8B%E5%89%A7%E6%83%85%E8%A7%A3%E6%9E%90%EF%BC%88%E8%BD%AC%E8%BD%BD%EF%BC%89.md">《异度神剑 2》剧情解析（转载）.md</a></td><td>2021-09-05</td></tr>
-<tr><td><a href="%E6%B8%B8%E6%88%8F/%E3%80%8A%E5%BC%82%E5%BA%A6%E7%A5%9E%E5%89%91%203%E3%80%8B%E5%89%A7%E6%83%85%E6%A2%B3%E7%90%86%E8%A7%A3%E6%9E%90.md">《异度神剑 3》剧情梳理解析.md</a></td><td>2022-11-25</td></tr>
-<tr><td><a href="%E6%B8%B8%E6%88%8F/%E3%80%8A%E5%BC%82%E5%BA%A6%E7%A5%9E%E5%89%91%E3%80%8B%E7%B3%BB%E5%88%97%E7%9A%84%E4%B8%AA%E4%BA%BA%E5%90%91%E6%B5%85%E6%9E%90%EF%BC%88%E8%BD%AC%E8%BD%BD%EF%BC%89.md">《异度神剑》系列的个人向浅析（转载）.md</a></td><td>2021-09-05</td></tr>
-<tr><td><a href="%E6%B8%B8%E6%88%8F/%E5%85%B3%E4%BA%8E%E6%8A%BD%E5%8D%A1%E6%B8%B8%E6%88%8F%E7%9A%84%E4%B8%80%E4%BA%9B%E6%80%9D%E8%80%83.md">关于抽卡游戏的一些思考.md</a></td><td>2024-07-20</td></tr>
-<tr><td><a href="%E6%B8%B8%E6%88%8F/%E5%9C%A8%E6%89%8B%E6%9C%BA%E4%B8%8A%E4%B9%9F%E8%83%BD%E7%8E%A9%E5%88%B0%E7%A1%AC%E6%A0%B8%E5%8D%A1%E7%89%8C%20RPG%EF%BC%9A%E3%80%8ADawncaster%E3%80%8B%E5%AE%89%E5%88%A9.md">在手机上也能玩到硬核卡牌 RPG：《Dawncaster》安利.md</a></td><td>2025-12-07</td></tr>
-<tr><td><a href="%E6%B8%B8%E6%88%8F/%E6%B8%B8%E6%88%8F%E7%B1%BB%E5%9E%8B%E5%88%86%E7%B1%BB%E5%A4%A7%E5%85%A8.md">游戏类型分类大全.md</a></td><td>2021-09-13</td></tr>
 </tbody></table>
 
 </details>
@@ -209,19 +204,24 @@
 </details>
 
 <details open>
-<summary><h2 style="display:inline">观影</h2></summary>
+<summary><h2 style="display:inline">游戏</h2></summary>
 
 <table width="100%" style="table-layout:fixed;">
 <colgroup><col style="width:70%"><col style="width:30%"></colgroup>
 <thead><tr><th style="text-align:left;">标题</th><th style="text-align:left;">日期</th></tr></thead>
 <tbody>
-<tr><td><a href="%E8%A7%82%E5%BD%B1/Yano%20%E7%9A%84%202019%20%E8%A7%82%E5%BD%B1%E6%80%BB%E7%BB%93.md">Yano 的 2019 观影总结.md</a></td><td>2019-12-31</td></tr>
-<tr><td><a href="%E8%A7%82%E5%BD%B1/Yano%20%E7%9A%84%202020%20%E8%A7%82%E5%BD%B1%E6%80%BB%E7%BB%93.md">Yano 的 2020 观影总结.md</a></td><td>2020-12-28</td></tr>
-<tr><td><a href="%E8%A7%82%E5%BD%B1/Yano%20%E7%9A%84%202021%20%E8%A7%82%E5%BD%B1%E6%80%BB%E7%BB%93.md">Yano 的 2021 观影总结.md</a></td><td>2021-12-29</td></tr>
-<tr><td><a href="%E8%A7%82%E5%BD%B1/Yano%20%E7%9A%84%202022%20%E8%A7%82%E5%BD%B1%E6%80%BB%E7%BB%93.md">Yano 的 2022 观影总结.md</a></td><td>2022-12-31</td></tr>
-<tr><td><a href="%E8%A7%82%E5%BD%B1/Yano%20%E7%9A%84%202023%20%E8%A7%82%E5%BD%B1%E6%80%BB%E7%BB%93.md">Yano 的 2023 观影总结.md</a></td><td>2023-12-31</td></tr>
-<tr><td><a href="%E8%A7%82%E5%BD%B1/Yano%20%E7%9A%84%202024%20%E8%A7%82%E5%BD%B1%E6%80%BB%E7%BB%93.md">Yano 的 2024 观影总结.md</a></td><td>2024-12-31</td></tr>
-<tr><td><a href="%E8%A7%82%E5%BD%B1/Yano%20%E7%9A%84%202025%20%E8%A7%82%E5%BD%B1%E6%80%BB%E7%BB%93.md">Yano 的 2025 观影总结.md</a></td><td>2025-12-31</td></tr>
+<tr><td><a href="%E6%B8%B8%E6%88%8F/Switch%20SX%20OX%20%E4%BF%AE%E6%94%B9%E6%B8%B8%E6%88%8F%E6%95%B0%E5%80%BC%EF%BC%88%E5%BA%9F%E5%BC%83%EF%BC%89.md">Switch SX OX 修改游戏数值（废弃）.md</a></td><td>2021-08-09</td></tr>
+<tr><td><a href="%E6%B8%B8%E6%88%8F/%E3%80%8A%E5%85%AB%E6%96%B9%E6%97%85%E4%BA%BA%202%E3%80%8B-JRPG%20%E7%9A%84%E9%AD%85%E5%8A%9B.md">《八方旅人 2》-JRPG 的魅力.md</a></td><td>2023-03-05</td></tr>
+<tr><td><a href="%E6%B8%B8%E6%88%8F/%E3%80%8A%E5%85%AB%E6%96%B9%E6%97%85%E4%BA%BA%E3%80%8B%E5%9F%BA%E7%A1%80.md">《八方旅人》基础.md</a></td><td>2021-01-13</td></tr>
+<tr><td><a href="%E6%B8%B8%E6%88%8F/%E3%80%8A%E5%85%AB%E6%96%B9%E6%97%85%E4%BA%BA%E3%80%8B%E6%95%85%E4%BA%8B%E7%AE%80%E4%BB%8B.md">《八方旅人》故事简介.md</a></td><td>2021-01-21</td></tr>
+<tr><td><a href="%E6%B8%B8%E6%88%8F/%E3%80%8A%E5%A1%9E%E5%B0%94%E8%BE%BE%C2%B7%E8%8D%92%E9%87%8E%E4%B9%8B%E6%81%AF%E3%80%8B%E6%B8%B8%E6%88%8F%E6%88%AA%E5%9B%BE.md">《塞尔达·荒野之息》游戏截图.md</a></td><td>2020-11-08</td></tr>
+<tr><td><a href="%E6%B8%B8%E6%88%8F/%E3%80%8A%E5%BC%82%E5%BA%A6%E7%A5%9E%E5%89%91%202%E3%80%8BCG%20%E6%88%AA%E5%9B%BE.md">《异度神剑 2》CG 截图.md</a></td><td>2020-11-08</td></tr>
+<tr><td><a href="%E6%B8%B8%E6%88%8F/%E3%80%8A%E5%BC%82%E5%BA%A6%E7%A5%9E%E5%89%91%202%E3%80%8B%E5%89%A7%E6%83%85%E8%A7%A3%E6%9E%90%EF%BC%88%E8%BD%AC%E8%BD%BD%EF%BC%89.md">《异度神剑 2》剧情解析（转载）.md</a></td><td>2021-09-05</td></tr>
+<tr><td><a href="%E6%B8%B8%E6%88%8F/%E3%80%8A%E5%BC%82%E5%BA%A6%E7%A5%9E%E5%89%91%203%E3%80%8B%E5%89%A7%E6%83%85%E6%A2%B3%E7%90%86%E8%A7%A3%E6%9E%90.md">《异度神剑 3》剧情梳理解析.md</a></td><td>2022-11-25</td></tr>
+<tr><td><a href="%E6%B8%B8%E6%88%8F/%E3%80%8A%E5%BC%82%E5%BA%A6%E7%A5%9E%E5%89%91%E3%80%8B%E7%B3%BB%E5%88%97%E7%9A%84%E4%B8%AA%E4%BA%BA%E5%90%91%E6%B5%85%E6%9E%90%EF%BC%88%E8%BD%AC%E8%BD%BD%EF%BC%89.md">《异度神剑》系列的个人向浅析（转载）.md</a></td><td>2021-09-05</td></tr>
+<tr><td><a href="%E6%B8%B8%E6%88%8F/%E5%85%B3%E4%BA%8E%E6%8A%BD%E5%8D%A1%E6%B8%B8%E6%88%8F%E7%9A%84%E4%B8%80%E4%BA%9B%E6%80%9D%E8%80%83.md">关于抽卡游戏的一些思考.md</a></td><td>2024-07-20</td></tr>
+<tr><td><a href="%E6%B8%B8%E6%88%8F/%E5%9C%A8%E6%89%8B%E6%9C%BA%E4%B8%8A%E4%B9%9F%E8%83%BD%E7%8E%A9%E5%88%B0%E7%A1%AC%E6%A0%B8%E5%8D%A1%E7%89%8C%20RPG%EF%BC%9A%E3%80%8ADawncaster%E3%80%8B%E5%AE%89%E5%88%A9.md">在手机上也能玩到硬核卡牌 RPG：《Dawncaster》安利.md</a></td><td>2025-12-07</td></tr>
+<tr><td><a href="%E6%B8%B8%E6%88%8F/%E6%B8%B8%E6%88%8F%E7%B1%BB%E5%9E%8B%E5%88%86%E7%B1%BB%E5%A4%A7%E5%85%A8.md">游戏类型分类大全.md</a></td><td>2021-09-13</td></tr>
 </tbody></table>
 
 </details>

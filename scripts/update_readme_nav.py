@@ -155,6 +155,17 @@ def render_top_dir(top_dir: Path) -> str:
 
 def generate_nav_block() -> str:
     blocks: List[str] = []
+    
+    # Define custom order: put "观影" first, then others
+    custom_order = ["观影", "AI", "编程", "游戏", "读书", "随笔"]
+    
+    def sort_key(p):
+        # For directories in custom_order, use their index
+        # For others, use len(custom_order) + their name for alphabetical sorting
+        if p.name in custom_order:
+            return custom_order.index(p.name)
+        return len(custom_order), p.name
+    
     for top_dir in sorted(
         (
             p
@@ -163,7 +174,7 @@ def generate_nav_block() -> str:
             and not p.name.startswith(".")
             and p.name not in {"scripts", ".git", ".github"}
         ),
-        key=lambda p: p.name,
+        key=sort_key,
     ):
         block = render_top_dir(top_dir)
         if block:
