@@ -214,7 +214,7 @@
 <tr><td><a href="%E6%B8%B8%E6%88%8F/%E3%80%8A%E5%85%AB%E6%96%B9%E6%97%85%E4%BA%BA%202%E3%80%8B-JRPG%20%E7%9A%84%E9%AD%85%E5%8A%9B.md">《八方旅人 2》-JRPG 的魅力.md</a></td><td>2023-03-05</td></tr>
 <tr><td><a href="%E6%B8%B8%E6%88%8F/%E3%80%8A%E5%85%AB%E6%96%B9%E6%97%85%E4%BA%BA%E3%80%8B%E5%9F%BA%E7%A1%80.md">《八方旅人》基础.md</a></td><td>2021-01-13</td></tr>
 <tr><td><a href="%E6%B8%B8%E6%88%8F/%E3%80%8A%E5%85%AB%E6%96%B9%E6%97%85%E4%BA%BA%E3%80%8B%E6%95%85%E4%BA%8B%E7%AE%80%E4%BB%8B.md">《八方旅人》故事简介.md</a></td><td>2021-01-21</td></tr>
-<tr><td><a href="%E6%B8%B8%E6%88%8F/%E3%80%8A%E5%A1%9E%E5%B0%94%E8%BE%BE%C2%B7%E7%8E%8B%E5%9B%BD%E4%B9%8B%E6%B3%AA%E3%80%8B-%E5%85%A8%E5%A5%97%E8%A3%85%E3%80%81%E5%85%A8%E6%94%B6%E9%9B%86%E6%88%AA%E5%9B%BE.md">《塞尔达·王国之泪》-全套装、全收集截图.md</a></td><td>-</td></tr>
+<tr><td><a href="%E6%B8%B8%E6%88%8F/%E3%80%8A%E5%A1%9E%E5%B0%94%E8%BE%BE%C2%B7%E7%8E%8B%E5%9B%BD%E4%B9%8B%E6%B3%AA%E3%80%8B-%E5%85%A8%E5%A5%97%E8%A3%85%E3%80%81%E5%85%A8%E6%94%B6%E9%9B%86%E6%88%AA%E5%9B%BE.md">《塞尔达·王国之泪》-全套装、全收集截图.md</a></td><td>2026-01-11</td></tr>
 <tr><td><a href="%E6%B8%B8%E6%88%8F/%E3%80%8A%E5%A1%9E%E5%B0%94%E8%BE%BE%C2%B7%E8%8D%92%E9%87%8E%E4%B9%8B%E6%81%AF%E3%80%8B%E6%B8%B8%E6%88%8F%E6%88%AA%E5%9B%BE.md">《塞尔达·荒野之息》游戏截图.md</a></td><td>2020-11-08</td></tr>
 <tr><td><a href="%E6%B8%B8%E6%88%8F/%E3%80%8A%E5%BC%82%E5%BA%A6%E7%A5%9E%E5%89%91%202%E3%80%8BCG%20%E6%88%AA%E5%9B%BE.md">《异度神剑 2》CG 截图.md</a></td><td>2020-11-08</td></tr>
 <tr><td><a href="%E6%B8%B8%E6%88%8F/%E3%80%8A%E5%BC%82%E5%BA%A6%E7%A5%9E%E5%89%91%202%E3%80%8B%E5%89%A7%E6%83%85%E8%A7%A3%E6%9E%90%EF%BC%88%E8%BD%AC%E8%BD%BD%EF%BC%89.md">《异度神剑 2》剧情解析（转载）.md</a></td><td>2021-09-05</td></tr>
