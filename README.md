@@ -1,10 +1,10 @@
 # 我的年度计划
 
-[我的 2025 计划](https://yano-nankai.notion.site/Yano-Space-ff42bde7acd1467eb3ae63dc0d4a9f8c)
+[我的 2026 计划](https://yano-nankai.notion.site/Yano-Space-ff42bde7acd1467eb3ae63dc0d4a9f8c)
 
 # 前言
 
-很早之前读《Java 编程思想》，用思维导图做笔记并将思维导图的截图放到了简书上，没想到期间有很多人留言要这份思维导图。最终创建了这个项目，但是又写入了很多文章，也许这个项目叫做 `Thinking_in_Java_MindMapping` 已经不合适了。
+^_^ 很早之前读《Java 编程思想》，用思维导图做笔记并将思维导图的截图放到了简书上，没想到期间有很多人留言要这份思维导图。最终创建了这个项目，但是又写入了很多文章，也许这个项目叫做 `Thinking_in_Java_MindMapping` 已经不合适了。
 
 编程笔记、博客、读书笔记、生活感悟、Switch 游戏都会写在这里，内容比较繁杂，随心写吧，贵在坚持 0_o
 
