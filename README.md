@@ -2,6 +2,10 @@
 
 [我的 2026 计划](https://yano-nankai.notion.site/Yano-Space-ff42bde7acd1467eb3ae63dc0d4a9f8c)
 
+## 相关项目
+
+- [skill-pack](https://github.com/LjyYano/skill-pack)：面向 Claude Code、Codex CLI、OpenCode、OpenClaw 等 AI 编程助手的可复用 Skills 集合。重点提供链接转 Obsidian 结构化笔记、笔记/链接转独立 HTML 阅读页、文章转 Anki 卡片等工作流，让 AI Agent 更好地沉淀知识、整理内容、复用能力。
+
 # 前言
 
 ^_^ 很早之前读《Java 编程思想》，用思维导图做笔记并将思维导图的截图放到了简书上，没想到期间有很多人留言要这份思维导图。最终创建了这个项目，但是又写入了很多文章，也许这个项目叫做 `Thinking_in_Java_MindMapping` 已经不合适了。
@@ -23,10 +27,6 @@
 - 读书：[`读书/`](读书/)
 - 观影：[`观影/`](观影/)
 - 随笔：[`随笔/`](随笔/)
-
-## 相关项目
-
-- [skill-pack](https://github.com/LjyYano/skill-pack)：面向 Claude Code、Codex CLI、OpenCode、OpenClaw 等 AI 编程助手的可复用 Skills 集合。重点提供链接转 Obsidian 结构化笔记、笔记/链接转独立 HTML 阅读页、文章转 Anki 卡片等工作流，让 AI Agent 更好地沉淀知识、整理内容、复用能力。
 
 ## 维护说明（自动生成导航）
 
