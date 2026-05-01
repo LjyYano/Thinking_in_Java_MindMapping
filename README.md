@@ -24,6 +24,10 @@
 - 观影：[`观影/`](观影/)
 - 随笔：[`随笔/`](随笔/)
 
+## 相关项目
+
+- [skill-pack](https://github.com/LjyYano/skill-pack)：面向 Claude Code、Codex CLI、OpenCode、OpenClaw 等 AI 编程助手的可复用 Skills 集合。重点提供链接转 Obsidian 结构化笔记、笔记/链接转独立 HTML 阅读页、文章转 Anki 卡片等工作流，让 AI Agent 更好地沉淀知识、整理内容、复用能力。
+
 ## 维护说明（自动生成导航）
 
 `# 文章导航` 下方的内容由脚本自动生成，建议不要手工编辑这段。
