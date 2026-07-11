@@ -1,41 +1,88 @@
-# 我的年度计划
+<div align="center">
 
-[我的 2026 计划](https://yano-nankai.notion.site/Yano-Space-ff42bde7acd1467eb3ae63dc0d4a9f8c)
+# Yano's Notes
 
-## 相关项目
+### 在代码、书影音与生活之间，持续构建自己的知识地图
 
-- [skill-pack](https://github.com/LjyYano/skill-pack)：面向 Claude Code、Codex CLI、OpenCode、OpenClaw 等 AI 编程助手的可复用 Skills 集合。重点提供链接转 Obsidian 结构化笔记、笔记/链接转独立 HTML 阅读页、文章转 Anki 卡片等工作流，让 AI Agent 更好地沉淀知识、整理内容、复用能力。
+<p>
+  <a href="编程/"><img src="https://img.shields.io/badge/Code-Java%20%7C%20Redis%20%7C%20Spring-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white" alt="Code"></a>
+  <a href="AI/"><img src="https://img.shields.io/badge/AI-Agent%20%7C%20MCP-0A7EA4?style=for-the-badge&logo=openai&logoColor=white" alt="AI"></a>
+  <a href="读书/"><img src="https://img.shields.io/badge/Life-Books%20%7C%20Films%20%7C%20Games-3A7D44?style=for-the-badge&logo=bookstack&logoColor=white" alt="Life"></a>
+</p>
 
-# 前言
+<p>
+  <a href="#-内容导航">内容导航</a> ·
+  <a href="#-关于这个仓库">关于仓库</a> ·
+  <a href="#-年度计划">年度计划</a> ·
+  <a href="#-文章导航">全部文章</a>
+</p>
 
-^_^ 很早之前读《Java 编程思想》，用思维导图做笔记并将思维导图的截图放到了简书上，没想到期间有很多人留言要这份思维导图。最终创建了这个项目，但是又写入了很多文章，也许这个项目叫做 `Thinking_in_Java_MindMapping` 已经不合适了。
+<sub>Think deeply. Learn continuously. Write things down.</sub>
 
-编程笔记、博客、读书笔记、生活感悟、Switch 游戏都会写在这里，内容比较繁杂，随心写吧，贵在坚持 0_o
+</div>
 
-## 你可以在这里找到什么
+---
 
-- 编程：Java / Redis / Spring / 算法与题解 / 思维导图系列
-- AI：Agent / MCP / 论文资料等
-- 生活：读书 / 观影 / 随笔 / 游戏
+## 🧭 内容导航
 
-## 快速入口
+<table>
+  <tr>
+    <td width="33%" valign="top">
+      <h3>💻 编程</h3>
+      <p>从语言特性到源码实现，记录工程实践背后的原理。</p>
+      <p><a href="编程/Java/"><b>Java</b></a> · <a href="编程/Redis%20源码剖析系列/"><b>Redis</b></a> · <a href="编程/Spring/"><b>Spring</b></a></p>
+    </td>
+    <td width="33%" valign="top">
+      <h3>🧠 AI & 导图</h3>
+      <p>关注 Agent、MCP、AI 论文，以及可视化知识体系。</p>
+      <p><a href="AI/"><b>AI</b></a> · <a href="编程/思维导图系列/"><b>思维导图</b></a></p>
+    </td>
+    <td width="33%" valign="top">
+      <h3>🌿 生活</h3>
+      <p>技术之外，也认真记录阅读、观影、游戏与思考。</p>
+      <p><a href="读书/"><b>读书</b></a> · <a href="观影/"><b>观影</b></a> · <a href="游戏/"><b>游戏</b></a> · <a href="随笔/"><b>随笔</b></a></p>
+    </td>
+  </tr>
+</table>
 
-- 编程：[`编程/`](编程/) ｜ [`编程/Java/`](编程/Java/) ｜ [`编程/Redis 源码剖析系列/`](编程/Redis%20源码剖析系列/) ｜ [`编程/Spring/`](编程/Spring/)
-- 思维导图系列：[`编程/思维导图系列/`](编程/思维导图系列/)
-- AI：[`AI/`](AI/)
-- 游戏：[`游戏/`](游戏/)
-- 读书：[`读书/`](读书/)
-- 观影：[`观影/`](观影/)
-- 随笔：[`随笔/`](随笔/)
+> [!TIP]
+> 不知道从哪里开始？可以先逛逛 [思维导图系列](编程/思维导图系列/)，或者直接前往下方的 [完整文章导航](#-文章导航)。
 
-## 维护说明（自动生成导航）
+## ✨ 关于这个仓库
 
-`# 文章导航` 下方的内容由脚本自动生成，建议不要手工编辑这段。
+这个仓库起源于一次《Java 编程思想》的阅读。
+
+最初，我只是把读书时整理的思维导图截图发布到简书；收到许多读者留言后，便创建了这个项目，将完整笔记持续沉淀下来。后来内容逐渐越过了 Java 的边界，从编程与源码分析，延伸到 AI、读书、观影、游戏和生活随笔。
+
+`Thinking_in_Java_MindMapping` 这个名字或许已经无法概括这里的一切，但它保留了整个知识库最初的起点。
+
+> 随心写，长期写。内容可以繁杂，思考始终贵在坚持。
+
+## 🚀 延伸项目
+
+### [skill-pack](https://github.com/LjyYano/skill-pack)
+
+面向 Claude Code、Codex CLI、OpenCode、OpenClaw 等 AI 编程助手的可复用 Skills 集合，帮助 AI Agent 更好地沉淀知识、整理内容与复用能力。
+
+`链接 → Obsidian 结构化笔记` · `笔记/链接 → 独立 HTML 阅读页` · `文章 → Anki 卡片`
+
+## 📅 年度计划
+
+持续行动，也持续复盘。查看我的 **[2026 年度计划](https://yano-nankai.notion.site/Yano-Space-ff42bde7acd1467eb3ae63dc0d4a9f8c)**。
+
+<details>
+<summary><b>🛠️ 仓库维护说明</b></summary>
+
+下方“文章导航”的内容由脚本自动生成，请不要手工编辑自动生成区域。
 
 - 本地更新：`python scripts/update_readme_nav.py`
-- CI 更新：提交任何 `*.md` 后会自动更新导航并提交回仓库
+- CI 更新：提交任何 `*.md` 后，工作流会自动更新导航并提交回仓库
 
-# 文章导航
+</details>
+
+---
+
+# 📚 文章导航
 
 <!-- AUTO-ARTICLE-NAV:START -->
 <details open>
