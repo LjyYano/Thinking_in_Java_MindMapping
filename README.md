@@ -72,21 +72,10 @@
 
 持续行动，也持续复盘。查看我的 **[2026 年度计划](https://yano-nankai.notion.site/Yano-Space-ff42bde7acd1467eb3ae63dc0d4a9f8c)**。
 
-<details>
-<summary><b>🛠️ 仓库维护说明</b></summary>
-
-下方“文章导航”的内容由脚本自动生成，请不要手工编辑自动生成区域。
-
-- 本地更新：`python scripts/update_readme_nav.py`
-- CI 更新：提交任何 `*.md` 后，工作流会自动更新导航并提交回仓库
-
-</details>
-
 ---
 
 # 📚 文章导航
 
-<!-- AUTO-ARTICLE-NAV:START -->
 <details open>
 <summary><h2 style="display:inline">观影</h2></summary>
 
@@ -330,7 +319,6 @@
 </details>
 
 
-<!-- AUTO-ARTICLE-NAV:END -->
 # 我的博客
 
 最近才发现博客园能够自定义主题，实验了一下，决定以后技术文章都同步更新到博客园了。
