@@ -1,0 +1,45 @@
+---
+layout: default
+---
+{% assign articles = site.pages | where_exp: 'item', 'item.date != nil and item.path contains page.category_path' | sort: 'date' | reverse %}
+<main class="listing-page">
+  <header class="listing-hero">
+    <a class="back-link" href="{{ '/' | relative_url }}">← 返回首页</a>
+    <p class="section-kicker">{{ page.kicker }}</p>
+    <div class="listing-title-row">
+      <h1>{{ page.title }}</h1>
+      <span>{{ articles.size }}</span>
+    </div>
+    <p>{{ page.description }}</p>
+  </header>
+
+  <section class="listing-content" aria-label="{{ page.title }}文章列表">
+    <div class="filter-row">
+      <label class="inline-filter">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.75"></circle><path d="m16 16 4.25 4.25"></path></svg>
+        <input type="search" placeholder="在「{{ page.title }}」中筛选" data-list-filter>
+      </label>
+      <span data-list-count>共 {{ articles.size }} 篇</span>
+    </div>
+
+    <div class="article-list" data-filter-list>
+      {% for article in articles %}
+        {% assign article_title = article.title | default: article.name | replace: '.md', '' %}
+        {% assign parts = article.path | split: '/' %}
+        <a class="list-item" href="{{ article.url | relative_url }}" data-filter-item data-search-text="{{ article_title | downcase | escape }} {{ parts[1] | downcase | escape }}">
+          <time datetime="{{ article.date | date_to_xmlschema }}">
+            <strong>{{ article.date | date: '%d' }}</strong>
+            <span>{{ article.date | date: '%Y.%m' }}</span>
+          </time>
+          <div>
+            {% if parts.size > 2 %}<span class="sub-category">{{ parts[1] }}</span>{% endif %}
+            <h2>{{ article_title }}</h2>
+            <p>{{ article.content | strip_html | strip_newlines | normalize_whitespace | truncate: 120 }}</p>
+          </div>
+          <span class="item-arrow" aria-hidden="true">↗</span>
+        </a>
+      {% endfor %}
+    </div>
+    <p class="empty-state" hidden data-filter-empty>没有找到匹配的文章。</p>
+  </section>
+</main>

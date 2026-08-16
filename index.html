@@ -1,0 +1,110 @@
+---
+layout: default
+title: 首页
+description: Yano 的个人知识博客，记录编程、AI、读书、观影、游戏与生活。
+body_class: home-page
+---
+{% assign articles = site.pages | where_exp: 'item', 'item.date != nil' | sort: 'date' | reverse %}
+<main>
+  <section class="home-hero">
+    <div class="hero-grid" aria-hidden="true"></div>
+    <div class="hero-orbit hero-orbit-one" aria-hidden="true"></div>
+    <div class="hero-orbit hero-orbit-two" aria-hidden="true"></div>
+    <div class="hero-inner">
+      <div class="hero-copy">
+        <p class="hero-kicker"><span></span> PERSONAL KNOWLEDGE ARCHIVE</p>
+        <h1>把好奇心<br>写成一张<span>知识地图</span></h1>
+        <p class="hero-intro">在代码、书影音与生活之间持续探索。这里存放技术原理、阅读痕迹，以及那些值得被认真记住的瞬间。</p>
+        <div class="hero-actions">
+          <a class="primary-button" href="#latest">开始阅读 <span>↓</span></a>
+          <button class="text-button" type="button" data-search-open>搜索全部文章 <span>⌘ K</span></button>
+        </div>
+      </div>
+      <div class="hero-signature" aria-hidden="true">
+        <div class="signature-ring">
+          <span class="signature-y">Y</span>
+          <span class="signature-dot"></span>
+        </div>
+        <p>EST. 2016<br>BEIJING · CHINA</p>
+      </div>
+    </div>
+    <div class="hero-stats">
+      <div><strong>{{ articles.size }}</strong><span>篇文章</span></div>
+      <div><strong>{{ site.data.categories.size }}</strong><span>个主题</span></div>
+      <div><strong>10+</strong><span>年记录</span></div>
+      <p>THINK DEEPLY<br>LEARN CONTINUOUSLY</p>
+    </div>
+  </section>
+
+  <section class="category-section wrap" aria-labelledby="category-title">
+    <header class="section-heading">
+      <div>
+        <p class="section-kicker">EXPLORE BY TOPIC</p>
+        <h2 id="category-title">沿着兴趣，继续探索</h2>
+      </div>
+      <p>知识并不生长在孤岛上。技术、故事和生活经验，总会在某处彼此照亮。</p>
+    </header>
+
+    <div class="category-grid">
+      {% for category in site.data.categories %}
+        {% assign category_articles = site.pages | where_exp: 'item', 'item.date != nil and item.path contains category.path' %}
+        <a class="category-card category-{{ category.slug }}" href="{{ '/categories/' | append: category.slug | append: '/' | relative_url }}">
+          <div class="category-topline">
+            <span class="category-icon" aria-hidden="true">{{ category.icon }}</span>
+            <span class="category-index">0{{ forloop.index }}</span>
+          </div>
+          <p class="category-kicker">{{ category.kicker }}</p>
+          <h3>{{ category.name }}</h3>
+          <p>{{ category.description }}</p>
+          <div class="category-bottom">
+            <span>{{ category_articles.size }} ARTICLES</span>
+            <span class="round-arrow" aria-hidden="true">↗</span>
+          </div>
+        </a>
+      {% endfor %}
+    </div>
+  </section>
+
+  <section class="latest-section" id="latest" aria-labelledby="latest-title">
+    <div class="wrap">
+      <header class="section-heading light-heading">
+        <div>
+          <p class="section-kicker">LATEST WRITING</p>
+          <h2 id="latest-title">最近写下的</h2>
+        </div>
+        <a class="view-all-link" href="{{ '/archive/' | relative_url }}">查看全部 {{ articles.size }} 篇 <span>→</span></a>
+      </header>
+
+      <div class="latest-list">
+        {% for article in articles limit: 10 %}
+          {% assign article_title = article.title | default: article.name | replace: '.md', '' %}
+          {% assign parts = article.path | split: '/' %}
+          {% assign article_category = parts[0] %}
+          <a class="latest-item" href="{{ article.url | relative_url }}">
+            <span class="latest-number">{% if forloop.index < 10 %}0{% endif %}{{ forloop.index }}</span>
+            <div class="latest-copy">
+              <div class="latest-meta">
+                <span>{{ article_category }}</span>
+                <time datetime="{{ article.date | date_to_xmlschema }}">{{ article.date | date: '%Y.%m.%d' }}</time>
+              </div>
+              <h3>{{ article_title }}</h3>
+              <p>{{ article.content | strip_html | strip_newlines | normalize_whitespace | truncate: 140 }}</p>
+            </div>
+            <span class="latest-arrow" aria-hidden="true">↗</span>
+          </a>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+
+  <section class="manifesto-section wrap">
+    <p class="manifesto-mark" aria-hidden="true">“</p>
+    <blockquote>
+      <p>随心写，长期写。<br>内容可以繁杂，<em>思考始终贵在坚持。</em></p>
+    </blockquote>
+    <div class="manifesto-note">
+      <span></span>
+      <p>这个博客起源于一次《Java 编程思想》的阅读，后来逐渐越过技术的边界，成为一份持续生长的个人知识档案。</p>
+    </div>
+  </section>
+</main>

@@ -1,0 +1,48 @@
+---
+layout: default
+title: 文章归档
+permalink: /archive/
+description: 按时间浏览 Yano's Notes 的全部文章。
+---
+{% assign articles = site.pages | where_exp: 'item', 'item.date != nil' | sort: 'date' | reverse %}
+<main class="listing-page archive-page">
+  <header class="listing-hero">
+    <a class="back-link" href="{{ '/' | relative_url }}">← 返回首页</a>
+    <p class="section-kicker">THE COMPLETE ARCHIVE</p>
+    <div class="listing-title-row">
+      <h1>文章归档</h1>
+      <span>{{ articles.size }}</span>
+    </div>
+    <p>从最近写下的内容开始，沿着时间回看这份持续生长的知识档案。</p>
+  </header>
+
+  <section class="archive-content">
+    <div class="filter-row">
+      <label class="inline-filter">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.75"></circle><path d="m16 16 4.25 4.25"></path></svg>
+        <input type="search" placeholder="筛选全部文章" data-list-filter>
+      </label>
+      <span data-list-count>共 {{ articles.size }} 篇</span>
+    </div>
+
+    <div data-filter-list>
+      {% assign previous_year = '' %}
+      {% for article in articles %}
+        {% assign current_year = article.date | date: '%Y' %}
+        {% if current_year != previous_year %}
+          <h2 class="archive-year" data-year-heading>{{ current_year }}<span></span></h2>
+          {% assign previous_year = current_year %}
+        {% endif %}
+        {% assign article_title = article.title | default: article.name | replace: '.md', '' %}
+        {% assign parts = article.path | split: '/' %}
+        <a class="archive-item" href="{{ article.url | relative_url }}" data-filter-item data-search-text="{{ article_title | downcase | escape }} {{ parts[0] | downcase | escape }}">
+          <time datetime="{{ article.date | date_to_xmlschema }}">{{ article.date | date: '%m.%d' }}</time>
+          <span class="archive-category">{{ parts[0] }}</span>
+          <h3>{{ article_title }}</h3>
+          <span aria-hidden="true">↗</span>
+        </a>
+      {% endfor %}
+    </div>
+    <p class="empty-state" hidden data-filter-empty>没有找到匹配的文章。</p>
+  </section>
+</main>

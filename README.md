@@ -4,6 +4,8 @@
 
 ### 在代码、书影音与生活之间，持续构建自己的知识地图
 
+### [访问在线博客 →](https://ljyyano.github.io/Thinking_in_Java_MindMapping/)
+
 <p>
   <a href="编程/"><img src="https://img.shields.io/badge/Code-Java%20%7C%20Redis%20%7C%20Spring-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white" alt="Code"></a>
   <a href="AI/"><img src="https://img.shields.io/badge/AI-Agent%20%7C%20MCP-0A7EA4?style=for-the-badge&logo=openai&logoColor=white" alt="AI"></a>

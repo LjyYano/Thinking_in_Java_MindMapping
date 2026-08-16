@@ -431,7 +431,7 @@ public void testParallelRight() {
 
 <table width="300px"><tr><td>OS</td><td>CentOS 6.7 x86_64</td></tr><tr><td>CPU</td><td>Intel Xeon X5675, 12M Cache 3.06 GHz, 6 Cores 12 Threads</td></tr><tr><td > 内存 </td><td>96GB</td></tr><tr><td>JDK</td><td>java version 1.8.0_91, Java HotSpot(TM) 64-Bit Server VM</td></tr></table>
 
-测试 [所用代码在这里](./perf/StreamBenchmark/src/lee)，测试 [结果汇总](./perf/Stream_performance.xlsx).
+测试所用代码与结果汇总文件已不在当前仓库中，下面保留测试方法和结果截图。
 
 ## 测试方法和测试数据
 
@@ -448,7 +448,7 @@ Stream 并行执行时用到 `ForkJoinPool.commonPool()` 得到的线程池，�
 
 测试内容：找出整型数组中的最小值。对比 for 循环外部迭代和 Stream API 内部迭代性能。
 
-测试程序 [IntTest](./perf/StreamBenchmark/src/lee/IntTest.java)，测试结果如下图：
+测试程序 `IntTest`，测试结果如下图：
 
 ![](http://yano.oss-cn-beijing.aliyuncs.com/2020-12-03-074737.jpg)
 
@@ -474,7 +474,7 @@ Stream 并行执行时用到 `ForkJoinPool.commonPool()` 得到的线程池，�
 
 测试内容：找出字符串列表中最小的元素（自然顺序），对比 for 循环外部迭代和 Stream API 内部迭代性能。
 
-测试程序 [StringTest](./perf/StreamBenchmark/src/lee/StringTest.java)，测试结果如下图：
+测试程序 `StringTest`，测试结果如下图：
 
 ![](http://yano.oss-cn-beijing.aliyuncs.com/2020-12-03-074848.jpg)
 
@@ -500,7 +500,7 @@ Stream 并行执行时用到 `ForkJoinPool.commonPool()` 得到的线程池，�
 
 测试内容：给定订单列表，统计每个用户的总交易额。对比使用外部迭代手动实现和 Stream API 之间的性能。
 
-我们将订单简化为 `<userName, price, timeStamp>` 构成的元组，并用 `Order` 对象来表示。测试程序 [ReductionTest](./perf/StreamBenchmark/src/lee/ReductionTest.java)，测试结果如下图：
+我们将订单简化为 `<userName, price, timeStamp>` 构成的元组，并用 `Order` 对象来表示。测试程序 `ReductionTest`，测试结果如下图：
 
 ![](http://yano.oss-cn-beijing.aliyuncs.com/2020-12-03-074920.jpg)
 

@@ -157,7 +157,7 @@ spring.ai.mcp.server.name=my-invoice-server
 spring.ai.mcp.server.version=0.0.1
 ```
 
-详细的配置参数及默认值可以参考官方文档：[Spring AI / Model Context Protocol (MCP) / MCP Server Boot Starters]([https://](https://docs.spring.io/spring-ai/reference/api/mcp/mcp-server-boot-starter-docs.html#_configuration_properties))。
+详细的配置参数及默认值可以参考官方文档：[Spring AI / Model Context Protocol (MCP) / MCP Server Boot Starters](https://docs.spring.io/spring-ai/reference/api/mcp/mcp-server-boot-starter-docs.html#_configuration_properties)。
 
 ### 暴露 Tool
 
@@ -228,7 +228,7 @@ cline_mcp_setting.json 增加如下配置：
 
 1. JDK 版本必须 >= 17
 2. Spring Boot 版本必须 >= 3.2
-3. Spring AI 底层使用 [modelcontextprotocol / java-sdk]([https://](https://github.com/modelcontextprotocol/java-sdk))
+3. Spring AI 底层使用 [modelcontextprotocol / java-sdk](https://github.com/modelcontextprotocol/java-sdk)
 4. MCP 协议等都在快速发展中，上面的代码示例仅供参考，具体实现可能会有所不同
 
 ## 完整配置示例

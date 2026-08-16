@@ -1,0 +1,27 @@
+---
+layout: null
+permalink: /feed.xml
+---
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>{{ site.title | xml_escape }}</title>
+  <subtitle>{{ site.description | xml_escape }}</subtitle>
+  <link href="{{ '/feed.xml' | absolute_url }}" rel="self" type="application/atom+xml" />
+  <link href="{{ '/' | absolute_url }}" rel="alternate" type="text/html" />
+  <id>{{ '/' | absolute_url }}</id>
+  {% assign articles = site.pages | where_exp: 'item', 'item.date != nil' | sort: 'date' | reverse %}
+  {% assign latest = articles | first %}
+  <updated>{{ latest.date | date_to_xmlschema }}</updated>
+  <author><name>{{ site.author | xml_escape }}</name></author>
+  {% for article in articles limit: 30 %}
+    {% assign article_title = article.title | default: article.name | replace: '.md', '' %}
+    <entry>
+      <title>{{ article_title | xml_escape }}</title>
+      <link href="{{ article.url | absolute_url }}" rel="alternate" type="text/html" />
+      <id>{{ article.url | absolute_url }}</id>
+      <published>{{ article.date | date_to_xmlschema }}</published>
+      <updated>{{ article.date | date_to_xmlschema }}</updated>
+      <summary type="html">{{ article.content | strip_html | normalize_whitespace | truncate: 500 | xml_escape }}</summary>
+    </entry>
+  {% endfor %}
+</feed>
