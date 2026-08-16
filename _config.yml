@@ -9,6 +9,13 @@ url: "https://ljyyano.github.io"
 baseurl: "/Thinking_in_Java_MindMapping"
 repository: "LjyYano/Thinking_in_Java_MindMapping"
 
+comments:
+  provider: giscus
+  repo: "LjyYano/Thinking_in_Java_MindMapping"
+  repo_id: "MDEwOlJlcG9zaXRvcnkxMDMyMjk4MzY="
+  category: "General"
+  category_id: "MDE4OkRpc2N1c3Npb25DYXRlZ29yeTMyMDM2NjAz"
+
 markdown: kramdown
 highlighter: rouge
 strict_front_matter: true

@@ -41,6 +41,10 @@ layout: default
         <a href="https://github.com/{{ site.repository }}/edit/master/{{ page.path }}" target="_blank" rel="noopener">在 GitHub 上编辑</a>
       </div>
     </footer>
+
+    {% if site.comments.provider == 'giscus' %}
+      {% include comments.html %}
+    {% endif %}
   </article>
 
   <aside class="article-aside" aria-label="文章目录">
