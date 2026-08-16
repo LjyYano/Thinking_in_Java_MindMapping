@@ -6,17 +6,7 @@ description: 按时间浏览 Yano's Notes 的全部文章。
 ---
 {% assign articles = site.pages | where_exp: 'item', 'item.date != nil' | sort: 'date' | reverse %}
 <main class="listing-page archive-page">
-  <header class="listing-hero">
-    <a class="back-link" href="{{ '/' | relative_url }}">← 返回首页</a>
-    <p class="section-kicker">THE COMPLETE ARCHIVE</p>
-    <div class="listing-title-row">
-      <h1>文章归档</h1>
-      <span>{{ articles.size }}</span>
-    </div>
-    <p>从最近写下的内容开始，沿着时间回看这份持续生长的知识档案。</p>
-  </header>
-
-  <section class="archive-content">
+  <section class="archive-content" aria-label="文章归档">
     <div class="filter-row">
       <label class="inline-filter">
         <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.75"></circle><path d="m16 16 4.25 4.25"></path></svg>
