@@ -43,11 +43,11 @@ public void test() throws InterruptedException {
 
 官方的 4.0 版本的 doc 文档：[https://netty.io/4.0/api/io/netty/util/HashedWheelTimer.html](https://netty.io/4.0/api/io/netty/util/HashedWheelTimer.html)
 
-<div class="block">A <a href="../../../io/netty/util/Timer.html" title="interface in io.netty.util"><code>Timer</code></a> optimized for approximated I/O timeout scheduling.
+<div class="block">A <a href="https://netty.io/4.0/api/io/netty/util/Timer.html" title="interface in io.netty.util"><code>Timer</code></a> optimized for approximated I/O timeout scheduling.
 <h3>Tick Duration</h3>
 As described with 'approximated', this timer does not execute the scheduled
-<a href="../../../io/netty/util/TimerTask.html" title="interface in io.netty.util"><code>TimerTask</code></a> on time. <a href="../../../io/netty/util/HashedWheelTimer.html" title="class in io.netty.util"><code>HashedWheelTimer</code></a>, on every tick, will
-check if there are any <a href="../../../io/netty/util/TimerTask.html" title="interface in io.netty.util"><code>TimerTask</code></a>s behind the schedule and execute
+<a href="https://netty.io/4.0/api/io/netty/util/TimerTask.html" title="interface in io.netty.util"><code>TimerTask</code></a> on time. <a href="https://netty.io/4.0/api/io/netty/util/HashedWheelTimer.html" title="class in io.netty.util"><code>HashedWheelTimer</code></a>, on every tick, will
+check if there are any <a href="https://netty.io/4.0/api/io/netty/util/TimerTask.html" title="interface in io.netty.util"><code>TimerTask</code></a>s behind the schedule and execute
 them.
 <p>
 You can increase or decrease the accuracy of the execution timing by
@@ -56,18 +56,18 @@ network applications, I/O timeout does not need to be accurate. Therefore,
 the default tick duration is 100 milliseconds and you will not need to try
 different configurations in most cases.
 </p><h3>Ticks per Wheel (Wheel Size)</h3>
-<a href="../../../io/netty/util/HashedWheelTimer.html" title="class in io.netty.util"><code>HashedWheelTimer</code></a> maintains a data structure called 'wheel'.
-To put simply, a wheel is a hash table of <a href="../../../io/netty/util/TimerTask.html" title="interface in io.netty.util"><code>TimerTask</code></a>s whose hash
+<a href="https://netty.io/4.0/api/io/netty/util/HashedWheelTimer.html" title="class in io.netty.util"><code>HashedWheelTimer</code></a> maintains a data structure called 'wheel'.
+To put simply, a wheel is a hash table of <a href="https://netty.io/4.0/api/io/netty/util/TimerTask.html" title="interface in io.netty.util"><code>TimerTask</code></a>s whose hash
 function is 'dead line of the task'. The default number of ticks per wheel
 (i.e. the size of the wheel) is 512. You could specify a larger value
 if you are going to schedule a lot of timeouts.
 <h3>Do not create many instances.</h3>
-<a href="../../../io/netty/util/HashedWheelTimer.html" title="class in io.netty.util"><code>HashedWheelTimer</code></a> creates a new thread whenever it is instantiated and
+<a href="https://netty.io/4.0/api/io/netty/util/HashedWheelTimer.html" title="class in io.netty.util"><code>HashedWheelTimer</code></a> creates a new thread whenever it is instantiated and
 started. Therefore, you should make sure to create only one instance and
 share it across your application. One of the common mistakes, that makes
 your application unresponsive, is to create a new instance for every connection.
 <h3>Implementation Details</h3>
-<a href="../../../io/netty/util/HashedWheelTimer.html" title="class in io.netty.util"><code>HashedWheelTimer</code></a> is based on
+<a href="https://netty.io/4.0/api/io/netty/util/HashedWheelTimer.html" title="class in io.netty.util"><code>HashedWheelTimer</code></a> is based on
 <a href="https://cseweb.ucsd.edu/users/varghese/">George Varghese</a> and
 Tony Lauck's paper,
 <a href="https://cseweb.ucsd.edu/users/varghese/PAPERS/twheel.ps.Z">'Hashed
