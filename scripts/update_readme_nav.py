@@ -160,11 +160,11 @@ def generate_nav_block() -> str:
     custom_order = ["观影", "AI", "编程", "游戏", "读书", "随笔"]
     
     def sort_key(p):
-        # For directories in custom_order, use their index
-        # For others, use len(custom_order) + their name for alphabetical sorting
+        # Always return the same type so known and unknown directories remain
+        # comparable on every supported Python version.
         if p.name in custom_order:
-            return custom_order.index(p.name)
-        return len(custom_order), p.name
+            return 0, custom_order.index(p.name)
+        return 1, p.name.casefold()
     
     for top_dir in sorted(
         (
@@ -270,4 +270,3 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
-
