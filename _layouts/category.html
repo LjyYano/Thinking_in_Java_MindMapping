@@ -4,16 +4,6 @@ layout: default
 {% assign dated_articles = site.pages | where_exp: 'item', 'item.date != nil' %}
 {% assign articles = dated_articles | where_exp: 'item', 'item.path contains page.category_path' | sort: 'date' | reverse %}
 <main class="listing-page">
-  <header class="listing-hero">
-    <a class="back-link" href="{{ '/' | relative_url }}">← 返回首页</a>
-    <p class="section-kicker">{{ page.kicker }}</p>
-    <div class="listing-title-row">
-      <h1>{{ page.title }}</h1>
-      <span>{{ articles.size }}</span>
-    </div>
-    <p>{{ page.description }}</p>
-  </header>
-
   <section class="listing-content" aria-label="{{ page.title }}文章列表">
     <div class="filter-row">
       <label class="inline-filter">

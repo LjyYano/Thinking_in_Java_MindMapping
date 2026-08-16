@@ -26,6 +26,11 @@ relative_links:
   enabled: true
   collections: true
 
+# Keep article titles stable: use explicit front matter titles when present,
+# otherwise let the layouts fall back to the Markdown filename.
+titles_from_headings:
+  enabled: false
+
 defaults:
   - scope:
       path: "AI"
