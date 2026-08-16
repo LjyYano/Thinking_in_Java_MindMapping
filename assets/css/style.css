@@ -514,9 +514,12 @@ html[data-theme="dark"] .moon-icon {
 }
 
 /* Sections and category cards */
-.category-section,
 .manifesto-section {
   padding-block: 120px;
+}
+
+.category-section {
+  padding-block: 72px 120px;
 }
 
 .section-heading {
