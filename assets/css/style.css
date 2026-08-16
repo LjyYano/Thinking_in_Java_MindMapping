@@ -841,11 +841,6 @@ html[data-theme="dark"] .moon-icon {
   padding-block: 70px 120px;
 }
 
-.listing-hero {
-  max-width: 850px;
-  margin-bottom: 75px;
-}
-
 .back-link {
   display: inline-block;
   margin-bottom: 60px;
@@ -859,19 +854,11 @@ html[data-theme="dark"] .moon-icon {
   color: var(--ink);
 }
 
-.listing-hero .section-kicker,
 .about-hero .section-kicker {
   margin-bottom: 14px;
   color: var(--orange);
 }
 
-.listing-title-row {
-  display: flex;
-  align-items: flex-start;
-  gap: 20px;
-}
-
-.listing-title-row h1,
 .about-hero h1 {
   margin: 0;
   font-family: var(--serif);
@@ -881,21 +868,6 @@ html[data-theme="dark"] .moon-icon {
   line-height: 0.95;
 }
 
-.listing-title-row > span {
-  min-width: 40px;
-  height: 26px;
-  margin-top: 9px;
-  display: grid;
-  place-items: center;
-  padding-inline: 8px;
-  color: #171a20;
-  background: var(--acid);
-  border-radius: 20px;
-  font-family: var(--mono);
-  font-size: 10px;
-}
-
-.listing-hero > p:last-child,
 .about-hero > p:last-child {
   max-width: 600px;
   margin: 27px 0 0;
@@ -1929,8 +1901,6 @@ html[data-theme="dark"] .moon-icon {
   .listing-page,
   .about-page { padding-block: 45px 90px; }
   .back-link { margin-bottom: 45px; }
-  .listing-hero { margin-bottom: 55px; }
-  .listing-title-row h1,
   .about-hero h1 { font-size: 65px; }
   .listing-content,
   .archive-content { margin: 0; }
