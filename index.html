@@ -6,45 +6,7 @@ body_class: home-page
 ---
 {% assign articles = site.pages | where_exp: 'item', 'item.date != nil' | sort: 'date' | reverse %}
 <main>
-  <section class="home-hero">
-    <div class="hero-grid" aria-hidden="true"></div>
-    <div class="hero-orbit hero-orbit-one" aria-hidden="true"></div>
-    <div class="hero-orbit hero-orbit-two" aria-hidden="true"></div>
-    <div class="hero-inner">
-      <div class="hero-copy">
-        <p class="hero-kicker"><span></span> PERSONAL KNOWLEDGE ARCHIVE</p>
-        <h1>把好奇心<br>写成一张<span>知识地图</span></h1>
-        <p class="hero-intro">在代码、书影音与生活之间持续探索。这里存放技术原理、阅读痕迹，以及那些值得被认真记住的瞬间。</p>
-        <div class="hero-actions">
-          <a class="primary-button" href="#latest">开始阅读 <span>↓</span></a>
-          <button class="text-button" type="button" data-search-open>搜索全部文章 <span>⌘ K</span></button>
-        </div>
-      </div>
-      <div class="hero-signature" aria-hidden="true">
-        <div class="signature-ring">
-          <span class="signature-y">Y</span>
-          <span class="signature-dot"></span>
-        </div>
-        <p>EST. 2016<br>BEIJING · CHINA</p>
-      </div>
-    </div>
-    <div class="hero-stats">
-      <div><strong>{{ articles.size }}</strong><span>篇文章</span></div>
-      <div><strong>{{ site.data.categories.size }}</strong><span>个主题</span></div>
-      <div><strong>10+</strong><span>年记录</span></div>
-      <p>THINK DEEPLY<br>LEARN CONTINUOUSLY</p>
-    </div>
-  </section>
-
-  <section class="category-section wrap" aria-labelledby="category-title">
-    <header class="section-heading">
-      <div>
-        <p class="section-kicker">EXPLORE BY TOPIC</p>
-        <h2 id="category-title">沿着兴趣，继续探索</h2>
-      </div>
-      <p>知识并不生长在孤岛上。技术、故事和生活经验，总会在某处彼此照亮。</p>
-    </header>
-
+  <section class="category-section wrap" aria-label="文章分类">
     <div class="category-grid">
       {% for category in site.data.categories %}
         {% assign dated_articles = site.pages | where_exp: 'item', 'item.date != nil' %}
