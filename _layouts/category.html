@@ -1,7 +1,8 @@
 ---
 layout: default
 ---
-{% assign articles = site.pages | where_exp: 'item', 'item.date != nil and item.path contains page.category_path' | sort: 'date' | reverse %}
+{% assign dated_articles = site.pages | where_exp: 'item', 'item.date != nil' %}
+{% assign articles = dated_articles | where_exp: 'item', 'item.path contains page.category_path' | sort: 'date' | reverse %}
 <main class="listing-page">
   <header class="listing-hero">
     <a class="back-link" href="{{ '/' | relative_url }}">← 返回首页</a>

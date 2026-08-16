@@ -47,7 +47,8 @@ body_class: home-page
 
     <div class="category-grid">
       {% for category in site.data.categories %}
-        {% assign category_articles = site.pages | where_exp: 'item', 'item.date != nil and item.path contains category.path' %}
+        {% assign dated_articles = site.pages | where_exp: 'item', 'item.date != nil' %}
+        {% assign category_articles = dated_articles | where_exp: 'item', 'item.path contains category.path' %}
         <a class="category-card category-{{ category.slug }}" href="{{ '/categories/' | append: category.slug | append: '/' | relative_url }}">
           <div class="category-topline">
             <span class="category-icon" aria-hidden="true">{{ category.icon }}</span>
