@@ -13,16 +13,73 @@
   var themeToggle = document.querySelector('[data-theme-toggle]');
   var themeColor = document.querySelector('meta[name="theme-color"]');
 
+  function getGiscusTheme(theme) {
+    return theme === 'dark' ? 'dark_dimmed' : 'light';
+  }
+
+  function syncGiscusTheme(theme) {
+    var frame = document.querySelector('iframe.giscus-frame');
+    if (!frame || !frame.contentWindow) return;
+    frame.contentWindow.postMessage({
+      giscus: {
+        setConfig: {
+          theme: getGiscusTheme(theme)
+        }
+      }
+    }, 'https://giscus.app');
+  }
+
   function applyTheme(theme) {
     root.dataset.theme = theme;
     localStorage.setItem('yano-theme', theme);
     if (themeColor) themeColor.setAttribute('content', theme === 'dark' ? '#141619' : '#f6f4ef');
+    syncGiscusTheme(theme);
   }
 
   if (themeToggle) {
     themeToggle.addEventListener('click', function () {
       applyTheme(root.dataset.theme === 'dark' ? 'light' : 'dark');
     });
+  }
+
+  // GitHub Discussions comments via giscus.
+  var commentsRoot = document.querySelector('[data-giscus-comments]');
+  if (commentsRoot) {
+    var commentsContainer = commentsRoot.querySelector('[data-giscus-container]');
+    var giscusScript = document.createElement('script');
+    var giscusObserver = null;
+
+    giscusScript.src = 'https://giscus.app/client.js';
+    giscusScript.async = true;
+    giscusScript.crossOrigin = 'anonymous';
+    giscusScript.dataset.repo = commentsRoot.dataset.repo;
+    giscusScript.dataset.repoId = commentsRoot.dataset.repoId;
+    giscusScript.dataset.category = commentsRoot.dataset.category;
+    giscusScript.dataset.categoryId = commentsRoot.dataset.categoryId;
+    giscusScript.dataset.mapping = 'specific';
+    giscusScript.dataset.term = commentsRoot.dataset.term;
+    giscusScript.dataset.strict = '1';
+    giscusScript.dataset.reactionsEnabled = '1';
+    giscusScript.dataset.emitMetadata = '0';
+    giscusScript.dataset.inputPosition = 'top';
+    giscusScript.dataset.theme = getGiscusTheme(root.dataset.theme);
+    giscusScript.dataset.lang = 'zh-CN';
+    giscusScript.dataset.loading = 'lazy';
+
+    if ('MutationObserver' in window) {
+      giscusObserver = new MutationObserver(function () {
+        var frame = commentsContainer.querySelector('iframe.giscus-frame');
+        if (!frame) return;
+        frame.addEventListener('load', function () {
+          syncGiscusTheme(root.dataset.theme);
+        }, { once: true });
+        syncGiscusTheme(root.dataset.theme);
+        giscusObserver.disconnect();
+      });
+      giscusObserver.observe(commentsContainer, { childList: true, subtree: true });
+    }
+
+    commentsContainer.replaceChildren(giscusScript);
   }
 
   // Mobile navigation

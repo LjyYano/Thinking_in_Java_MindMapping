@@ -1435,6 +1435,50 @@ html[data-theme="dark"] .moon-icon {
   text-underline-offset: 5px;
 }
 
+.comments-section {
+  margin-top: 70px;
+  padding-top: 48px;
+  border-top: 1px solid var(--line-strong);
+}
+
+.comments-header {
+  margin-bottom: 32px;
+}
+
+.comments-kicker {
+  margin: 0 0 9px;
+  color: var(--orange);
+  font-family: var(--mono);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+}
+
+.comments-header h2 {
+  margin: 0;
+  font-family: var(--serif);
+  font-size: clamp(34px, 5vw, 48px);
+  font-weight: 500;
+  letter-spacing: -0.035em;
+  line-height: 1.2;
+}
+
+.comments-header > p:last-child,
+.comments-loading,
+.comments-noscript {
+  margin: 10px 0 0;
+  color: var(--ink-soft);
+  font-size: 12px;
+}
+
+.giscus {
+  min-height: 180px;
+}
+
+.giscus-frame {
+  color-scheme: light dark;
+}
+
 /* About and 404 */
 .about-page {
   padding-block: 70px 130px;
