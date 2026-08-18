@@ -385,6 +385,8 @@ First, we will go with a simple example. We will build a Hello World application
 
 Since I am working in the IntelliJ IDEA there is something that we need to understand first. IntelliJ IDEA has the concept of modules. For it to work, each Java module has to correspond to one IntelliJ module.
 
+![Package structure!](../assets/img/posts/java-release-notes/package-structure.png "Package structure")
+
 We have two modules: `hello.module` and `world.module`. They correspond to `hello` and `world` IntelliJ modules, respectively. Inside each of them, we have created the `module-info.java` file. This file defines our Java module. Inside, we declare which packages we need to export and on which modules we are dependent.
 
 #### Defining our First Module

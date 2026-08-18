@@ -452,7 +452,7 @@ RecordComponent:
   {Annotation} UnannType Identifier
 
 RecordBody:
-  {% raw %}{{RecordBodyDeclaration} }{% endraw %}
+  {{RecordBodyDeclaration} }
 
 RecordBodyDeclaration:
   ClassBodyDeclaration
@@ -868,6 +868,7 @@ try (MemorySegment segment = MemorySegment.allocateNative(100)) {
 对普通 Java 开发人员来说，最重要的无疑是 Record 类、switch 语句、文本块。新兴语言（例如 Kotlin）早就实现了这些特性——语法更加简洁、特性更加丰富，在这些语言面前，曾经新兴的 Java 也变成了 “老古董”。
 
 实际开发过程中，Lombok 插件和 Spring Boot 能大大提高 Java 的开发效率。Java 近些年的版本迭代也是有目共睹的，虽然新版本特性更多、稳定性和安全性更高，但是目前企业开发仍以 Java 8 居多，中小企业的 JDK 升级意愿并不强烈。
+
 
 
 

@@ -4,8 +4,6 @@
 
 ### 在代码、书影音与生活之间，持续构建自己的知识地图
 
-### [访问在线博客 →](https://ljyyano.github.io/Thinking_in_Java_MindMapping/)
-
 <p>
   <a href="编程/"><img src="https://img.shields.io/badge/Code-Java%20%7C%20Redis%20%7C%20Spring-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white" alt="Code"></a>
   <a href="AI/"><img src="https://img.shields.io/badge/AI-Agent%20%7C%20MCP-0A7EA4?style=for-the-badge&logo=openai&logoColor=white" alt="AI"></a>
@@ -72,10 +70,21 @@
 
 持续行动，也持续复盘。查看我的 **[2026 年度计划](https://yano-nankai.notion.site/Yano-Space-ff42bde7acd1467eb3ae63dc0d4a9f8c)**。
 
+<details>
+<summary><b>🛠️ 仓库维护说明</b></summary>
+
+下方“文章导航”的内容由脚本自动生成，请不要手工编辑自动生成区域。
+
+- 本地更新：`python scripts/update_readme_nav.py`
+- CI 更新：提交任何 `*.md` 后，工作流会自动更新导航并提交回仓库
+
+</details>
+
 ---
 
 # 📚 文章导航
 
+<!-- AUTO-ARTICLE-NAV:START -->
 <details open>
 <summary><h2 style="display:inline">观影</h2></summary>
 
@@ -208,7 +217,7 @@
 <tr><td><a href="%E7%BC%96%E7%A8%8B/%E5%85%B6%E4%BB%96/LeetCode%20%E4%BA%8C%E5%8F%89%E6%A0%91%E7%B3%BB%E7%BB%9F%E9%A2%98%E8%A7%A3.md">LeetCode 二叉树系统题解.md</a></td><td>2019-10-10</td></tr>
 <tr><td><a href="%E7%BC%96%E7%A8%8B/%E5%85%B6%E4%BB%96/Linux%20mmap%20%E6%8A%80%E6%9C%AF.md">Linux mmap 技术.md</a></td><td>2021-09-23</td></tr>
 <tr><td><a href="%E7%BC%96%E7%A8%8B/%E5%85%B6%E4%BB%96/Linux%20%E8%99%9A%E6%8B%9F%E5%86%85%E5%AD%98.md">Linux 虚拟内存.md</a></td><td>2021-03-21</td></tr>
-<tr><td><a href="%E7%BC%96%E7%A8%8B/%E5%85%B6%E4%BB%96/LSM.md">LSM.md</a></td><td>2024-01-24</td></tr>
+<tr><td><a href="%E7%BC%96%E7%A8%8B/%E5%85%B6%E4%BB%96/LSM.md">LSM.md</a></td><td>-</td></tr>
 <tr><td><a href="%E7%BC%96%E7%A8%8B/%E5%85%B6%E4%BB%96/Mac%20mini%20%E5%AE%B6%E5%BA%AD%E7%BD%91%E7%BB%9C%E8%AE%BE%E7%BD%AE%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F.md">Mac mini 家庭网络设置内网穿透.md</a></td><td>2025-05-14</td></tr>
 <tr><td><a href="%E7%BC%96%E7%A8%8B/%E5%85%B6%E4%BB%96/Maven%20%E4%BE%9D%E8%B5%96%E6%A0%91%E7%9A%84%E8%A7%A3%E6%9E%90%E8%A7%84%E5%88%99.md">Maven 依赖树的解析规则.md</a></td><td>2020-11-13</td></tr>
 <tr><td><a href="%E7%BC%96%E7%A8%8B/%E5%85%B6%E4%BB%96/MySQL%20%E9%94%81%E6%B7%B1%E5%85%A5%E5%88%86%E6%9E%90.md">MySQL 锁深入分析.md</a></td><td>2023-12-14</td></tr>
@@ -319,6 +328,7 @@
 </details>
 
 
+<!-- AUTO-ARTICLE-NAV:END -->
 # 我的博客
 
 最近才发现博客园能够自定义主题，实验了一下，决定以后技术文章都同步更新到博客园了。

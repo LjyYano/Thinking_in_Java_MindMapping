@@ -458,7 +458,7 @@ RecordComponent:
   {Annotation} UnannType Identifier
 
 RecordBody:
-  {% raw %}{{RecordBodyDeclaration} }{% endraw %}
+  {{RecordBodyDeclaration} }
 
 RecordBodyDeclaration:
   ClassBodyDeclaration
