@@ -8,41 +8,6 @@
 
 <!-- AUTO-ARTICLE-NAV:START -->
 <details>
-<summary><h2 style="display:inline">观影</h2></summary>
-
-<table width="100%" style="table-layout:fixed;">
-<colgroup><col style="width:70%"><col style="width:30%"></colgroup>
-<thead><tr><th style="text-align:left;">标题</th><th style="text-align:left;">日期</th></tr></thead>
-<tbody>
-<tr><td><a href="%E8%A7%82%E5%BD%B1/Yano%20%E7%9A%84%202019%20%E8%A7%82%E5%BD%B1%E6%80%BB%E7%BB%93.md">Yano 的 2019 观影总结</a></td><td>2019-12-31</td></tr>
-<tr><td><a href="%E8%A7%82%E5%BD%B1/Yano%20%E7%9A%84%202020%20%E8%A7%82%E5%BD%B1%E6%80%BB%E7%BB%93.md">Yano 的 2020 观影总结</a></td><td>2020-12-28</td></tr>
-<tr><td><a href="%E8%A7%82%E5%BD%B1/Yano%20%E7%9A%84%202021%20%E8%A7%82%E5%BD%B1%E6%80%BB%E7%BB%93.md">Yano 的 2021 观影总结</a></td><td>2021-12-29</td></tr>
-<tr><td><a href="%E8%A7%82%E5%BD%B1/Yano%20%E7%9A%84%202022%20%E8%A7%82%E5%BD%B1%E6%80%BB%E7%BB%93.md">Yano 的 2022 观影总结</a></td><td>2022-12-31</td></tr>
-<tr><td><a href="%E8%A7%82%E5%BD%B1/Yano%20%E7%9A%84%202023%20%E8%A7%82%E5%BD%B1%E6%80%BB%E7%BB%93.md">Yano 的 2023 观影总结</a></td><td>2023-12-31</td></tr>
-<tr><td><a href="%E8%A7%82%E5%BD%B1/Yano%20%E7%9A%84%202024%20%E8%A7%82%E5%BD%B1%E6%80%BB%E7%BB%93.md">Yano 的 2024 观影总结</a></td><td>2024-12-31</td></tr>
-<tr><td><a href="%E8%A7%82%E5%BD%B1/Yano%20%E7%9A%84%202025%20%E8%A7%82%E5%BD%B1%E6%80%BB%E7%BB%93.md">Yano 的 2025 观影总结</a></td><td>2025-12-31</td></tr>
-</tbody></table>
-
-</details>
-
-<details>
-<summary><h2 style="display:inline">AI</h2></summary>
-
-<table width="100%" style="table-layout:fixed;">
-<colgroup><col style="width:70%"><col style="width:30%"></colgroup>
-<thead><tr><th style="text-align:left;">标题</th><th style="text-align:left;">日期</th></tr></thead>
-<tbody>
-<tr><td><a href="AI/Agent%20%E5%8E%9F%E7%90%86.md">Agent 原理</a></td><td>2025-12-14</td></tr>
-<tr><td><a href="AI/AI%20%E8%AE%BA%E6%96%87%E8%B5%84%E6%96%99.md">AI 论文资料</a></td><td>2025-12-14</td></tr>
-<tr><td><a href="AI/ChatGPT%205.1%20Thinking%20%E8%B6%85%E5%87%BA%E9%A2%84%E6%9C%9F.md">ChatGPT 5.1 Thinking 超出预期</a></td><td>2025-12-13</td></tr>
-<tr><td><a href="AI/MCP%20%E5%8E%9F%E7%90%86%E5%8F%8A%20Java%20%E5%BC%80%E5%8F%91%E6%8C%87%E5%8D%97.md">MCP 原理及 Java 开发指南</a></td><td>2025-10-22</td></tr>
-<tr><td><a href="AI/Notion%20AI%20%E5%88%9D%E4%BD%93%E9%AA%8C.md">Notion AI 初体验</a></td><td>2025-12-20</td></tr>
-<tr><td><a href="AI/Skill%EF%BC%9A%E8%AE%A9%20Agent%20%E5%8F%98%E5%BE%97%E5%8F%AF%E5%A4%8D%E7%94%A8%E3%80%81%E5%8F%AF%E6%8E%A7%E3%80%81%E5%8F%AF%E6%BC%94%E8%BF%9B.md">Skill：让 Agent 变得可复用、可控、可演进</a></td><td>2025-12-22</td></tr>
-</tbody></table>
-
-</details>
-
-<details>
 <summary><h2 style="display:inline">编程</h2></summary>
 
 ### Java
@@ -177,6 +142,23 @@
 </details>
 
 <details>
+<summary><h2 style="display:inline">AI</h2></summary>
+
+<table width="100%" style="table-layout:fixed;">
+<colgroup><col style="width:70%"><col style="width:30%"></colgroup>
+<thead><tr><th style="text-align:left;">标题</th><th style="text-align:left;">日期</th></tr></thead>
+<tbody>
+<tr><td><a href="AI/Agent%20%E5%8E%9F%E7%90%86.md">Agent 原理</a></td><td>2025-12-14</td></tr>
+<tr><td><a href="AI/AI%20%E8%AE%BA%E6%96%87%E8%B5%84%E6%96%99.md">AI 论文资料</a></td><td>2025-12-14</td></tr>
+<tr><td><a href="AI/ChatGPT%205.1%20Thinking%20%E8%B6%85%E5%87%BA%E9%A2%84%E6%9C%9F.md">ChatGPT 5.1 Thinking 超出预期</a></td><td>2025-12-13</td></tr>
+<tr><td><a href="AI/MCP%20%E5%8E%9F%E7%90%86%E5%8F%8A%20Java%20%E5%BC%80%E5%8F%91%E6%8C%87%E5%8D%97.md">MCP 原理及 Java 开发指南</a></td><td>2025-10-22</td></tr>
+<tr><td><a href="AI/Notion%20AI%20%E5%88%9D%E4%BD%93%E9%AA%8C.md">Notion AI 初体验</a></td><td>2025-12-20</td></tr>
+<tr><td><a href="AI/Skill%EF%BC%9A%E8%AE%A9%20Agent%20%E5%8F%98%E5%BE%97%E5%8F%AF%E5%A4%8D%E7%94%A8%E3%80%81%E5%8F%AF%E6%8E%A7%E3%80%81%E5%8F%AF%E6%BC%94%E8%BF%9B.md">Skill：让 Agent 变得可复用、可控、可演进</a></td><td>2025-12-22</td></tr>
+</tbody></table>
+
+</details>
+
+<details>
 <summary><h2 style="display:inline">游戏</h2></summary>
 
 <table width="100%" style="table-layout:fixed;">
@@ -221,6 +203,24 @@
 <tr><td><a href="%E8%AF%BB%E4%B9%A6/%E3%80%8A%E6%B5%AE%E7%94%9F%E5%85%AD%E8%AE%B0%E3%80%8B.md">《浮生六记》</a></td><td>2019-09-21</td></tr>
 <tr><td><a href="%E8%AF%BB%E4%B9%A6/%E3%80%8A%E7%BC%96%E7%A8%8B%E5%A4%A7%E5%B8%88%E8%AE%BF%E8%B0%88%E5%BD%95%E3%80%8B.md">《编程大师访谈录》</a></td><td>2017-01-01</td></tr>
 <tr><td><a href="%E8%AF%BB%E4%B9%A6/%E3%80%8A%E9%87%8F%E5%8C%96%E5%81%A5%E8%BA%AB-%E5%8E%9F%E7%90%86%E8%A7%A3%E6%9E%90%E3%80%8B.md">《量化健身-原理解析》</a></td><td>2021-03-02</td></tr>
+</tbody></table>
+
+</details>
+
+<details>
+<summary><h2 style="display:inline">观影</h2></summary>
+
+<table width="100%" style="table-layout:fixed;">
+<colgroup><col style="width:70%"><col style="width:30%"></colgroup>
+<thead><tr><th style="text-align:left;">标题</th><th style="text-align:left;">日期</th></tr></thead>
+<tbody>
+<tr><td><a href="%E8%A7%82%E5%BD%B1/Yano%20%E7%9A%84%202019%20%E8%A7%82%E5%BD%B1%E6%80%BB%E7%BB%93.md">Yano 的 2019 观影总结</a></td><td>2019-12-31</td></tr>
+<tr><td><a href="%E8%A7%82%E5%BD%B1/Yano%20%E7%9A%84%202020%20%E8%A7%82%E5%BD%B1%E6%80%BB%E7%BB%93.md">Yano 的 2020 观影总结</a></td><td>2020-12-28</td></tr>
+<tr><td><a href="%E8%A7%82%E5%BD%B1/Yano%20%E7%9A%84%202021%20%E8%A7%82%E5%BD%B1%E6%80%BB%E7%BB%93.md">Yano 的 2021 观影总结</a></td><td>2021-12-29</td></tr>
+<tr><td><a href="%E8%A7%82%E5%BD%B1/Yano%20%E7%9A%84%202022%20%E8%A7%82%E5%BD%B1%E6%80%BB%E7%BB%93.md">Yano 的 2022 观影总结</a></td><td>2022-12-31</td></tr>
+<tr><td><a href="%E8%A7%82%E5%BD%B1/Yano%20%E7%9A%84%202023%20%E8%A7%82%E5%BD%B1%E6%80%BB%E7%BB%93.md">Yano 的 2023 观影总结</a></td><td>2023-12-31</td></tr>
+<tr><td><a href="%E8%A7%82%E5%BD%B1/Yano%20%E7%9A%84%202024%20%E8%A7%82%E5%BD%B1%E6%80%BB%E7%BB%93.md">Yano 的 2024 观影总结</a></td><td>2024-12-31</td></tr>
+<tr><td><a href="%E8%A7%82%E5%BD%B1/Yano%20%E7%9A%84%202025%20%E8%A7%82%E5%BD%B1%E6%80%BB%E7%BB%93.md">Yano 的 2025 观影总结</a></td><td>2025-12-31</td></tr>
 </tbody></table>
 
 </details>
