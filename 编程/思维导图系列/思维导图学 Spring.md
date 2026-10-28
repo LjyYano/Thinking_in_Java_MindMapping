@@ -6,10 +6,9 @@ date: 2019-06-07
 
 思维导图使用 Xmind 制作，是记录 [极客时间 丁雪峰 玩转Spring全家桶](https://github.com/geektime-geekbang/geektime-spring-family)。
 
-下载链接：
-[Git 博客地址](https://ljyyano.github.io/2019/06/07/%E6%80%9D%E7%BB%B4%E5%AF%BC%E5%9B%BE%E5%AD%A6Spring/)
-[简书地址](https://www.jianshu.com/p/f45d5623d7e6)
-[思维导图下载地址]()
+相关链接：[历史简书文章](https://www.jianshu.com/p/f45d5623d7e6)
+
+> **资源说明（2026-10-28）：** 当前仓库尚未收录 Spring 的 XMind 原文件，因此移除没有实际目标的下载链接。可先阅读下方导图图片；图片仍依赖历史外部图床。
 
 如果觉得有帮助，欢迎关注和 fork 我的 GitHub 项目，也欢迎关注简书O(∩_∩)O~
 
