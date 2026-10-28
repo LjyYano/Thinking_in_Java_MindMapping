@@ -18,37 +18,37 @@ date: 2021-04-12
 
 [豆瓣-Java 性能权威指南](https://book.douban.com/subject/26740520/)
 
-![](http://yano.oss-cn-beijing.aliyuncs.com/blog/20210412150543.png?x-oss-process=style/yano)
+![](https://yano.oss-cn-beijing.aliyuncs.com/blog/20210412150543.png?x-oss-process=style/yano)
 
 # 性能测试
 
-![](http://yano.oss-cn-beijing.aliyuncs.com/blog/20210412150608.png?x-oss-process=style/yano)
+![](https://yano.oss-cn-beijing.aliyuncs.com/blog/20210412150608.png?x-oss-process=style/yano)
 
 # Java 性能调优工具箱
 
-![](http://yano.oss-cn-beijing.aliyuncs.com/blog/20210412150643.png?x-oss-process=style/yano)
+![](https://yano.oss-cn-beijing.aliyuncs.com/blog/20210412150643.png?x-oss-process=style/yano)
 
 # JIT 编译器
 
-![](http://yano.oss-cn-beijing.aliyuncs.com/blog/20210412150711.png?x-oss-process=style/yano)
+![](https://yano.oss-cn-beijing.aliyuncs.com/blog/20210412150711.png?x-oss-process=style/yano)
 
 # 垃圾收集
 
-![](http://yano.oss-cn-beijing.aliyuncs.com/blog/20210412150751.png?x-oss-process=style/yano)
+![](https://yano.oss-cn-beijing.aliyuncs.com/blog/20210412150751.png?x-oss-process=style/yano)
 
-![](http://yano.oss-cn-beijing.aliyuncs.com/blog/20210412150823.png?x-oss-process=style/yano)
+![](https://yano.oss-cn-beijing.aliyuncs.com/blog/20210412150823.png?x-oss-process=style/yano)
 
 # 原生内存
 
-![](http://yano.oss-cn-beijing.aliyuncs.com/blog/20210412150856.png?x-oss-process=style/yano)
+![](https://yano.oss-cn-beijing.aliyuncs.com/blog/20210412150856.png?x-oss-process=style/yano)
 
 # 线程与同步的性能
 
-![](http://yano.oss-cn-beijing.aliyuncs.com/blog/20210412150915.png?x-oss-process=style/yano)
+![](https://yano.oss-cn-beijing.aliyuncs.com/blog/20210412150915.png?x-oss-process=style/yano)
 
 # Java API 技巧
 
-![](http://yano.oss-cn-beijing.aliyuncs.com/blog/20210412150936.png?x-oss-process=style/yano)
+![](https://yano.oss-cn-beijing.aliyuncs.com/blog/20210412150936.png?x-oss-process=style/yano)
 
 # GitHub LeetCode 项目
 
