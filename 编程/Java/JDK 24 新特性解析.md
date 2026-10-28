@@ -22,6 +22,28 @@ JDK 24 已于 **2025 年 3 月 18 日** 发布，是非 LTS 版本。以下以�
 
 `Class-File API` 提供标准化的 class 文件解析、生成和转换能力；`Stream Gatherers` 扩展 Stream 的中间操作，适用于部分分组、窗口与状态化处理。
 
+### 1.1 Stream Gatherers：固定窗口
+
+这是 JDK 24 已正式发布的 API，无需 `--enable-preview`。下面的示例演示将 Stream 按每 2 个元素划分为一组：
+
+```java
+import java.util.stream.Gatherers;
+import java.util.stream.Stream;
+
+public class GathererDemo {
+    public static void main(String[] args) {
+        var windows = Stream.of(1, 2, 3, 4, 5)
+            .gather(Gatherers.windowFixed(2))
+            .toList();
+        System.out.println(windows); // [[1, 2], [3, 4], [5]]
+    }
+}
+```
+
+运行方式：`javac GathererDemo.java && java GathererDemo`。与手工维护索引或可变容器相比，Gatherer 可以作为 Stream 管道中的中间操作进行组合；窗口大小很大时仍需评估内存使用。
+
+参考：[JDK 24 Gatherers API](https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/util/stream/Gatherers.html)。
+
 ## 2. 并发、GC 与性能
 
 | JEP | 特性 | JDK 24 状态 |
@@ -37,9 +59,10 @@ JDK 24 已于 **2025 年 3 月 18 日** 发布，是非 LTS 版本。以下以�
 
 其中值得注意：
 
-- **ZGC** 移除了非分代模式，不是简单的「把分代模式设为默认」。
+- **ZGC** 移除了非分代模式，不是简单的「把分代模式设为默认」；启用 ZGC 时应结合 GC 日志验证分代回收效果。
 - **虚拟线程** 在 `synchronized` 场景下的载体线程 pinning 问题得到重要改善，但仍应结合实际阻塞场景进行测试。
 - **AOT Class Loading & Linking** 关注类加载与链接的缓存，不等于将 Java 程序编译为 GraalVM Native Image。
+- **Compact Object Headers** 在 JDK 24 仍属实验性特性，需要显式开启 `-XX:+UnlockExperimentalVMOptions -XX:+UseCompactObjectHeaders`，不应默认假设已经启用。
 - **结构化并发** 在 JDK 24 仍是第四次预览；不同版本的预览 API 不可直接混用。
 
 ## 3. 安全相关与迁移提醒
