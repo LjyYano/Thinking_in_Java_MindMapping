@@ -21,61 +21,61 @@ date: 2022-07-09
 
 ## 目录
 
-![](http://yano.oss-cn-beijing.aliyuncs.com/blog/2022-07-09-20-41-38.png?x-oss-process=style/yano)
+![](https://yano.oss-cn-beijing.aliyuncs.com/blog/2022-07-09-20-41-38.png?x-oss-process=style/yano)
 
 ## 内核接收网络包
 
-![](http://yano.oss-cn-beijing.aliyuncs.com/blog/2022-07-09-20-42-06.png?x-oss-process=style/yano)
+![](https://yano.oss-cn-beijing.aliyuncs.com/blog/2022-07-09-20-42-06.png?x-oss-process=style/yano)
 
-![](http://yano.oss-cn-beijing.aliyuncs.com/blog/2022-07-09-20-42-12.png?x-oss-process=style/yano)
+![](https://yano.oss-cn-beijing.aliyuncs.com/blog/2022-07-09-20-42-12.png?x-oss-process=style/yano)
 
 ## 内核与用户进程协作
 
-![](http://yano.oss-cn-beijing.aliyuncs.com/blog/2022-07-09-20-43-00.png?x-oss-process=style/yano)
+![](https://yano.oss-cn-beijing.aliyuncs.com/blog/2022-07-09-20-43-00.png?x-oss-process=style/yano)
 
 同步阻塞流程（整体）：
 
-![](http://yano.oss-cn-beijing.aliyuncs.com/blog/2022-07-09-20-44-05.png?x-oss-process=style/yano)
+![](https://yano.oss-cn-beijing.aliyuncs.com/blog/2022-07-09-20-44-05.png?x-oss-process=style/yano)
 
 同步阻塞流程（细节）：
 
-![](http://yano.oss-cn-beijing.aliyuncs.com/blog/2022-07-09-20-44-12.png?x-oss-process=style/yano)
+![](https://yano.oss-cn-beijing.aliyuncs.com/blog/2022-07-09-20-44-12.png?x-oss-process=style/yano)
 
 epoll 原理：
 
-![](http://yano.oss-cn-beijing.aliyuncs.com/blog/2022-07-09-20-44-31.png?x-oss-process=style/yano)
+![](https://yano.oss-cn-beijing.aliyuncs.com/blog/2022-07-09-20-44-31.png?x-oss-process=style/yano)
 
 ## 内核发送网络包
 
-![](http://yano.oss-cn-beijing.aliyuncs.com/blog/2022-07-09-20-45-10.png?x-oss-process=style/yano)
+![](https://yano.oss-cn-beijing.aliyuncs.com/blog/2022-07-09-20-45-10.png?x-oss-process=style/yano)
 
 整体流程：
 
-![](http://yano.oss-cn-beijing.aliyuncs.com/blog/2022-07-09-20-45-18.png?x-oss-process=style/yano)
+![](https://yano.oss-cn-beijing.aliyuncs.com/blog/2022-07-09-20-45-18.png?x-oss-process=style/yano)
 
 read + send 系统调用：
 
-![](http://yano.oss-cn-beijing.aliyuncs.com/blog/2022-07-09-20-45-24.png?x-oss-process=style/yano)
+![](https://yano.oss-cn-beijing.aliyuncs.com/blog/2022-07-09-20-45-24.png?x-oss-process=style/yano)
 
 sendfile 系统调用：
 
-![](http://yano.oss-cn-beijing.aliyuncs.com/blog/2022-07-09-20-45-30.png?x-oss-process=style/yano)
+![](https://yano.oss-cn-beijing.aliyuncs.com/blog/2022-07-09-20-45-30.png?x-oss-process=style/yano)
 
 ## TCP 连接
 
-![](http://yano.oss-cn-beijing.aliyuncs.com/blog/2022-07-09-20-45-54.png?x-oss-process=style/yano)
+![](https://yano.oss-cn-beijing.aliyuncs.com/blog/2022-07-09-20-45-54.png?x-oss-process=style/yano)
 
 建立连接流程：
 
-![](http://yano.oss-cn-beijing.aliyuncs.com/blog/2022-07-09-20-45-59.png?x-oss-process=style/yano)
+![](https://yano.oss-cn-beijing.aliyuncs.com/blog/2022-07-09-20-45-59.png?x-oss-process=style/yano)
 
 内核内存划分：
 
-![](http://yano.oss-cn-beijing.aliyuncs.com/blog/2022-07-09-20-46-06.png?x-oss-process=style/yano)
+![](https://yano.oss-cn-beijing.aliyuncs.com/blog/2022-07-09-20-46-06.png?x-oss-process=style/yano)
 
 ## 网络性能优化
 
-![](http://yano.oss-cn-beijing.aliyuncs.com/blog/2022-07-09-20-46-33.png?x-oss-process=style/yano)
+![](https://yano.oss-cn-beijing.aliyuncs.com/blog/2022-07-09-20-46-33.png?x-oss-process=style/yano)
 
 # GitHub 项目
 
@@ -87,6 +87,6 @@ sendfile 系统调用：
 
 coding 笔记、读书笔记、点滴记录，以后的文章也会同步到公众号（Coding Insight）中，大家关注^_^
 
-我的博客地址：[博客主页](https://yano-nankai.notion.site/yano-nankai/Yano-Space-ff42bde7acd1467eb3ae63dc0d4a9f8c)。
+我的博客地址：[博客主页](https://yano.blog)。
 
-![](http://yano.oss-cn-beijing.aliyuncs.com/2019-07-29-qrcode_for_gh_a26ce4572791_258.jpg)
+![](https://yano.oss-cn-beijing.aliyuncs.com/2019-07-29-qrcode_for_gh_a26ce4572791_258.jpg)
