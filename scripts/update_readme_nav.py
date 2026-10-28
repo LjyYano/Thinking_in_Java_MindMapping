@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
 """
-Generate the README article navigation block.
+Generate the INDEX.md article navigation block.
 
 Rules:
 - Scan top-level directories (non-dot, excluding "scripts").
 - For each top-level directory, render a collapsible <details> block.
-- If the top-level dir has direct *.md files, render a "(根目录)" table.
+- If the top-level dir has direct *.md files, render its own table.
 - If it has subdirectories, each subdirectory gets its own table.
 - Table columns: 标题 (relative link), 日期 (from YAML front matter `date:`).
 - Replace the block between <!-- AUTO-ARTICLE-NAV:START --> and <!-- AUTO-ARTICLE-NAV:END -->.
@@ -19,7 +19,7 @@ from typing import Iterable, List, Optional, Tuple
 from urllib.parse import quote
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
-README_PATH = REPO_ROOT / "README.md"
+INDEX_PATH = REPO_ROOT / "INDEX.md"
 
 START_MARK = "<!-- AUTO-ARTICLE-NAV:START -->"
 END_MARK = "<!-- AUTO-ARTICLE-NAV:END -->"
@@ -112,7 +112,7 @@ def render_top_dir(top_dir: Path) -> str:
     root_rows = sort_rows(
         [
             {
-                "title": md.name,
+                "title": md.stem,
                 "link": encode_rel_path(md.relative_to(REPO_ROOT)),
                 "date": parse_date_from_front_matter(md),
             }
@@ -131,7 +131,7 @@ def render_top_dir(top_dir: Path) -> str:
         rows = sort_rows(
             [
                 {
-                    "title": md.name,
+                    "title": md.stem,
                     "link": encode_rel_path(md.relative_to(REPO_ROOT)),
                     "date": parse_date_from_front_matter(md),
                 }
@@ -146,7 +146,7 @@ def render_top_dir(top_dir: Path) -> str:
 
     inner = "\n\n".join(sections)
     return (
-        "<details open>\n"
+        "<details>\n"
         f'<summary><h2 style="display:inline">{top_dir.name}</h2></summary>\n\n'
         f"{inner}\n\n"
         "</details>"
@@ -157,13 +157,13 @@ def generate_nav_block() -> str:
     blocks: List[str] = []
     
     # Define custom order: put "观影" first, then others
-    custom_order = ["观影", "AI", "编程", "游戏", "读书", "随笔"]
+    custom_order = ["编程", "AI", "游戏", "读书", "观影", "随笔"]
     
     def sort_key(p):
         # For directories in custom_order, use their index
         # For others, use len(custom_order) + their name for alphabetical sorting
         if p.name in custom_order:
-            return custom_order.index(p.name)
+            return (custom_order.index(p.name), "")
         return len(custom_order), p.name
     
     for top_dir in sorted(
@@ -254,20 +254,13 @@ def generate_toc(readme_text: str, max_level: int = 3) -> str:
 
 
 def main() -> None:
-    readme = README_PATH.read_text(encoding="utf-8")
+    index = INDEX_PATH.read_text(encoding="utf-8")
 
-    # Ensure nav markers exist
-    readme = ensure_markers(readme)
-
-    # Update article navigation
-    nav_block = generate_nav_block()
-    if nav_block:
-        nav_block = nav_block.rstrip() + "\n\n"
-    readme = replace_block(readme, nav_block)
-
-    README_PATH.write_text(readme, encoding="utf-8")
+    index = ensure_markers(index)
+    nav_block = generate_nav_block().rstrip()
+    index = replace_block(index, nav_block)
+    INDEX_PATH.write_text(index, encoding="utf-8")
 
 
 if __name__ == "__main__":
     main()
-
