@@ -6,9 +6,9 @@ Copyright © 2017–2026 Yano. 保留各项权利。
 
 ## 原创文章与笔记
 
-- 欢迎分享原文链接、合理引用，也欢迎在注明作者 **Yano**、保留原文章链接的前提下，非商业性转载作者原创文字。
-- 转载应保留文章的上下文与事实语境，不得误称作者为第三方产品或观点背书。
-- 商业出版、批量收录、整站镜像等用途，请先通过仓库 Issue 联系作者并取得明确许可。
+- 欢迎分享原文链接、合理引用；引用时请注明作者 **Yano** 并保留可访问的原文章链接。
+- 对于全文转载、系统性搬运、整体镜像或商业出版等用途，请事先通过仓库 Issue 联系作者取得许可；仅注明出处不构成自动获得的全文转载授权。
+- 引用或经许可转载时，应保持上下文与事实语境，不得误称作者为第三方产品或观点背书。
 
 ## 代码与思维导图源文件
 
@@ -23,4 +23,4 @@ Copyright © 2017–2026 Yano. 保留各项权利。
 
 ---
 
-This repository is publicly readable but has **no blanket open-source or Creative Commons license**. Original text may be shared via links, reasonably quoted, or non-commercially republished with attribution and a canonical source link under the conditions above. Other reuse, including code, original mind-map sources and third-party materials, requires applicable rights or explicit permission.
+This repository is publicly readable but has **no blanket open-source or Creative Commons license**. Original text may be linked to or reasonably quoted with attribution and a canonical source link. Full-text republication, large-scale mirroring and commercial reuse require prior permission. Other reuse, including code, original mind-map sources and third-party materials, requires applicable rights or explicit permission.
