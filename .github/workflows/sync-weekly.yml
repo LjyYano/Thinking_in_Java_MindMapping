@@ -1,0 +1,63 @@
+name: Sync latest Weekly issues
+
+on:
+  pull_request:
+    paths:
+      - README.md
+      - scripts/update_weekly_readme.py
+      - tests/test_update_weekly_readme.py
+      - .github/workflows/sync-weekly.yml
+      - .github/workflows/update-readme-nav.yml
+  schedule:
+    # Every day at 10:17 Beijing time; a new issue is not required to make a commit.
+    - cron: "17 2 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Test Weekly updater
+        run: python -m unittest discover -s tests -p 'test_*.py' -v
+      - name: Ensure INDEX.md generation stays stable
+        run: |
+          python scripts/update_readme_nav.py
+          git diff --exit-code -- INDEX.md
+
+  sync:
+    if: github.event_name != 'pull_request'
+    needs: validate
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    concurrency:
+      group: generated-notes-${{ github.ref }}
+      cancel-in-progress: false
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: master
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Fetch Weekly metadata and update README
+        run: python scripts/update_weekly_readme.py
+      - name: Commit only if the Weekly block changed
+        run: |
+          if git diff --quiet -- README.md; then
+            echo "Latest Weekly issues unchanged; skipping commit."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add README.md
+          git commit -m "docs: sync latest Weekly issues"
+          git pull --rebase origin master
+          git push origin HEAD:master

@@ -37,6 +37,14 @@
 - **[个人博客](https://yano.blog)**：长期写作与文章归档。
 - **[skill-pack](https://github.com/LjyYano/skill-pack)**：面向 Claude Code、Codex CLI 等 AI 编程助手的可复用 Skills 集合。
 
+**拾遗周刊 · 最新 3 期**
+
+<!-- AUTO-WEEKLY:START -->
+- [第 8 期 - 游戏翻译](https://weekly.yano.blog/posts/8) · 2026-10-18
+- [第 7 期 - AI 竞争力](https://weekly.yano.blog/posts/7) · 2026-10-11
+- [第 6 期 - 理财思考](https://weekly.yano.blog/posts/6) · 2026-09-20
+<!-- AUTO-WEEKLY:END -->
+
 目前主要关注 **Java 后端、Agent / MCP、RAG、模型评测与 AI 工程落地**。相关内容以个人实践与公开资料为基础，不涉及未公开的业务信息。
 
 ## 📚 文章导航

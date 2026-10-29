@@ -5,6 +5,8 @@ on:
     branches: [master]
     paths:
       - "**/*.md"
+      - "!README.md"
+      - "!INDEX.md"
       - ".github/workflows/update-readme-nav.yml"
       - "scripts/update_readme_nav.py"
 
@@ -15,6 +17,9 @@ jobs:
   update-index:
     if: github.actor != 'github-actions[bot]'
     runs-on: ubuntu-latest
+    concurrency:
+      group: generated-notes-${{ github.ref }}
+      cancel-in-progress: false
     steps:
       - uses: actions/checkout@v4
         with:
