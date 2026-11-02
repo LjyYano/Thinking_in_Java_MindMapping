@@ -40,9 +40,9 @@
 **拾遗周刊 · 最新 3 期**
 
 <!-- AUTO-WEEKLY:START -->
+- [第 9 期 - 秋天银杏](https://weekly.yano.blog/posts/9) · 2026-11-01
 - [第 8 期 - 游戏翻译](https://weekly.yano.blog/posts/8) · 2026-10-18
 - [第 7 期 - AI 竞争力](https://weekly.yano.blog/posts/7) · 2026-10-11
-- [第 6 期 - 理财思考](https://weekly.yano.blog/posts/6) · 2026-09-20
 <!-- AUTO-WEEKLY:END -->
 
 目前主要关注 **Java 后端、Agent / MCP、RAG、模型评测与 AI 工程落地**。相关内容以个人实践与公开资料为基础，不涉及未公开的业务信息。
